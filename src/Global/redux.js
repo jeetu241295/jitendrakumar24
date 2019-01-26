@@ -1,5 +1,4 @@
 import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
 
 export function createReducer(initialState, actionHandlers) {
   return function reducer(state = initialState, action) {
@@ -23,8 +22,6 @@ export function createAction(type, ...argNames) {
 export const createStorePOC = reducer => {
   return createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk)
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 };
