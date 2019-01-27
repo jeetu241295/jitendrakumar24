@@ -31,8 +31,15 @@ const styles = theme => ({
   info: {
     backgroundColor: theme.colors.contact,
     padding: 40,
-    width: 390,
-    color: theme.colors.white
+    color: theme.colors.white,
+    [theme.breakpoints.up("lg")]: {
+      width: 500
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      width: 390,
+      marginTop: 10,
+      marginBottom: 10
+    }
   },
   header: {
     color: theme.colors.white,
@@ -73,7 +80,7 @@ const Contact = props => {
             <Normal>+91 949 196 4870</Normal>
             <Normal>+91 798 938 1360</Normal>
           </Grid>
-          <Grid className={classNames(classes.info, classes.marginTop)}>
+          <Grid className={classNames(classes.marginTop, classes.info)}>
             <Typography className={classes.header} component="h3">
               Web
             </Typography>

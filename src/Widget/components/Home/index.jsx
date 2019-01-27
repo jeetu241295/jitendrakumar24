@@ -61,7 +61,7 @@ const Home = props => {
   );
 };
 
-Home.propType = {
+Home.propTypes = {
   classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Home);
