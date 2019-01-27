@@ -1,8 +1,9 @@
 import { createReducer } from "../../Global/redux";
-import { COUNT } from "../_helpers/constants";
+import { COUNT, navs } from "../_helpers/constants";
 const defaultState = {
   count: 0,
-  setCount: null
+  setCount: null,
+  navs: navs
 };
 
 const loginPageReducer = {

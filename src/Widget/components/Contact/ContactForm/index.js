@@ -1,7 +1,7 @@
 import { reduxForm } from "redux-form";
-import LoginSection from "./LoginSection";
+import ContactForm from "./ContactForm";
 
 export default reduxForm({
-  form: "loginForm",
+  form: "contactForm",
   enableReinitialize: true
-})(LoginSection);
+})(ContactForm);

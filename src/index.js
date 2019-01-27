@@ -2,14 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducer from "./LoginPage/reducers";
-import LoginPage from "./LoginPage/components/App";
+import reducer from "./Widget/reducers";
+import LoginPage from "./Widget/components/App";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "./Global/theme";
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <LoginPage />
+    <MuiThemeProvider theme={theme}>
+      <LoginPage />
+    </MuiThemeProvider>
   </Provider>,
   document.getElementById("root")
 );

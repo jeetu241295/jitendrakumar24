@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from "redux";
+import { createStore } from "redux";
 
 export function createReducer(initialState, actionHandlers) {
   return function reducer(state = initialState, action) {
