@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import ContactForm from "./ContactForm";
 import classNames from "classnames";
 import Normal from "../../../Components/Normal";
+import { Phone, Mail, Location, Web } from "../../../Global/SVG";
 
 const styles = theme => ({
   contact: {
@@ -52,6 +53,12 @@ const styles = theme => ({
   },
   marginTop: {
     marginTop: "auto"
+  },
+  listItem: {
+    flexDirection: "row",
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "1rem"
   }
 });
 
@@ -68,24 +75,39 @@ const Contact = props => {
             <Typography className={classes.header} component="h3">
               Address
             </Typography>
-            <Normal>
-              SSS Colony,Near Padmavathi Function Hall,Gollapudi,Vijayawada
-              Krishna Dt.,Andhra Pradesh,India-521456
-            </Normal>
+            <Grid className={classes.listItem}>
+              <Location />
+              <Normal>
+                SSS Colony,Near Padmavathi Function Hall,Gollapudi,Vijayawada
+                Krishna Dt.,Andhra Pradesh,India-521456
+              </Normal>
+            </Grid>
           </Grid>
           <Grid className={classes.info}>
             <Typography className={classes.header} component="h3">
               Phone
             </Typography>
-            <Normal>+91 949 196 4870</Normal>
-            <Normal>+91 798 938 1360</Normal>
+            <Grid className={classes.listItem}>
+              <Phone />
+              <Normal>+91 949 196 4870</Normal>
+            </Grid>
+            <Grid className={classes.listItem}>
+              <Phone />
+              <Normal>+91 798 938 1360</Normal>
+            </Grid>
           </Grid>
           <Grid className={classNames(classes.marginTop, classes.info)}>
             <Typography className={classes.header} component="h3">
               Web
             </Typography>
-            <Normal>Mail:jeetu241295@gmail.com</Normal>
-            <Normal>Website: www.jitendrakumar24.tech</Normal>
+            <Grid className={classes.listItem}>
+              <Mail />
+              <Normal>Mail:jeetu241295@gmail.com</Normal>
+            </Grid>
+            <Grid className={classes.listItem}>
+              <Web />
+              <Normal>Website: www.jitendrakumar24.tech</Normal>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

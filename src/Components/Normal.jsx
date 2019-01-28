@@ -5,8 +5,7 @@ import PropTypes from "prop-types";
 const styles = theme => ({
   normal: {
     color: theme.colors.white,
-    fontSize: "1.25rem",
-    marginBottom: "1rem"
+    fontSize: "1.25rem"
   }
 });
 

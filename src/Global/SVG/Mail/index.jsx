@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import MailSVG from "./envelop.svg";
+import { ReactComponent as MailSVG } from "./envelop.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Mail = props => {
-  return (
-    <Grid>
-      <MailSVG />
-    </Grid>
-  );
+const Mail = ({ classes }) => {
+  return <MailSVG className={classes.whiteColor} height={16} width={16} />;
 };
 export default withStyles(styles)(Mail);

@@ -4,10 +4,22 @@ import { Grid, TextField, withStyles } from "@material-ui/core";
 import { Field } from "redux-form";
 
 const styles = theme => ({
-  textFieldWrap: {}
+  cssLabel: {
+    color: theme.colors.white
+  },
+  notchedOutline: {
+    borderColor: theme.colors.white + " !important"
+  },
+  cssOutlinedInput: {
+    "&$cssFocused $notchedOutline": {
+      borderColor: `${theme.palette.primary.main} !important`
+    }
+  },
+  cssFocused: {}
 });
 
 const renderTextField = ({
+  classes,
   label,
   input,
   meta: { touched, invalid, error },
@@ -26,6 +38,18 @@ const renderTextField = ({
     fullWidth
     {...input}
     {...custom}
+    InputLabelProps={{
+      classes: {
+        root: classes.cssLabel
+      }
+    }}
+    InputProps={{
+      classes: {
+        root: classes.cssOutlinedInput,
+        focused: classes.cssFocused,
+        notchedOutline: classes.notchedOutline
+      }
+    }}
   />
 );
 

@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import LocationSVG from "./location2.svg";
+import { ReactComponent as LocationSVG } from "./location2.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Location = props => {
-  return (
-    <Grid>
-      <LocationSVG />
-    </Grid>
-  );
+const Location = ({ classes }) => {
+  return <LocationSVG className={classes.whiteColor} height={32} width={32} />;
 };
 export default withStyles(styles)(Location);

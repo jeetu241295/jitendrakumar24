@@ -8,13 +8,27 @@ const colors = {
   footer: "#222222",
   footerNav: "#c3bec2",
   primary: "#ff2b4a",
-  contact: "#352639"
+  contact: "#352639",
+  error: "#BA0C2F"
 };
 
 const theme = createMuiTheme({
+  overrides: {
+    // MuiOutlinedInput: {
+    //   notchedOutline: {
+    //     borderColor: colors.white + " !important"
+    //   }
+    // },
+    // MuiFormLabel: {
+    //   root: {
+    //     color: colors.white
+    //   }
+    // }
+  },
   palette: {
-    primary: { main: purple[500] }, // Purple and green play nicely together.
-    secondary: { main: "#11cb5f" } // This is just green.A700 as hex.
+    primary: { main: "#11cb5f" }, // Purple and green play nicely together.
+    secondary: { main: purple[500] },
+    error: { main: "#BA0C2F" } // This is just green.A700 as hex.
   },
   colors: colors,
   typography: { useNextVariants: true }

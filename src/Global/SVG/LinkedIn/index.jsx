@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import LinkedInSVG from "./linkedin.svg";
+import { ReactComponent as LinkedInSVG } from "./linkedin.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const LinkedIn = props => {
-  return (
-    <Grid>
-      <LinkedInSVG />
-    </Grid>
-  );
+const LinkedIn = ({ classes }) => {
+  return <LinkedInSVG className={classes.whiteColor} />;
 };
 export default withStyles(styles)(LinkedIn);

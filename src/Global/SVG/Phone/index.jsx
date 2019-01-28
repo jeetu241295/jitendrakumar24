@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import PhoneSVG from "./phone.svg";
+import { ReactComponent as PhoneSVG } from "./phone.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Phone = props => {
-  return (
-    <Grid>
-      <PhoneSVG />
-    </Grid>
-  );
+const Phone = ({ classes }) => {
+  return <PhoneSVG className={classes.whiteColor} height={16} width={16} />;
 };
 export default withStyles(styles)(Phone);

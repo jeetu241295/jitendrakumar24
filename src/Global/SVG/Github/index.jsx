@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import GithubSVG from "./github.svg";
+import { ReactComponent as GithubSVG } from "./github.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Github = props => {
-  return (
-    <Grid>
-      <GithubSVG />
-    </Grid>
-  );
+const Github = ({ classes }) => {
+  return <GithubSVG className={classes.whiteColor} />;
 };
 export default withStyles(styles)(Github);

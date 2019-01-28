@@ -3,6 +3,7 @@ import { Grid, withStyles, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import Button from "../../../../Components/Button";
 import TextField from "../../../../Components/ReduxForm/TextField";
+import { Send } from "../../../../Global/SVG";
 
 const styles = theme => ({
   header: {
@@ -24,8 +25,7 @@ const styles = theme => ({
   },
   textField: {
     marginTop: 10,
-    marginBottom: 10,
-    width: 300
+    marginBottom: 10
   },
   send: {
     alignSelf: "flex-end"
@@ -55,7 +55,7 @@ const ContactForm = props => {
           rows={7}
         />
       </Grid>
-      <Button className={classes.send} onClick={() => {}}>
+      <Button icon={<Send />} className={classes.send} onClick={() => {}}>
         Send
       </Button>
     </Grid>

@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import GooglePlusSVG from "./google-plus3.svg";
+import { ReactComponent as GooglePlusSVG } from "./google-plus3.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const GooglePlus = props => {
-  return (
-    <Grid>
-      <GooglePlusSVG />
-    </Grid>
-  );
+const GooglePlus = ({ classes }) => {
+  return <GooglePlusSVG className={classes.whiteColor} />;
 };
 export default withStyles(styles)(GooglePlus);

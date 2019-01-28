@@ -2,20 +2,22 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import Button from "../../../Components/Button";
+// import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-// import {
-//   Facebook,
-//   LinkedIn,
-//   Github,
-//   Instagram,
-//   GooglePlus,
-//   Twitter
-// } from "../../../Global/SVG";
+import {
+  Facebook,
+  LinkedIn,
+  Github,
+  Instagram,
+  GooglePlus,
+  Twitter,
+  Love
+} from "../../../Global/SVG";
 
 const styles = theme => ({
   footer: {
-    padding: 50,
+    padding: 30,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -23,10 +25,26 @@ const styles = theme => ({
     backgroundColor: theme.colors.footer
   },
   rights: {
-    color: theme.colors.footerNav
+    color: theme.colors.footerNav,
+    fontSize: "1.5rem"
   },
   navLink: {
-    color: theme.colors.footerNav
+    color: theme.colors.footerNav,
+    fontSize: "1.5rem",
+    backgroundColor: "transparent",
+    padding: "1rem 2rem",
+    "&:hover": {
+      backgroundColor: "transparent"
+    },
+    "&:focus": {
+      backgroundColor: "transparent"
+    }
+  },
+  listItem: {
+    marginBottom: "1rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
@@ -34,20 +52,7 @@ const Footer = props => {
   const { classes, navs } = props;
   return (
     <Grid container className={classes.footer}>
-      <Grid>
-        {navs.map(nav => (
-          <Button key={nav.toString()} className={classes.navLink}>
-            {nav}
-          </Button>
-        ))}
-      </Grid>
-      <Grid>
-        <Typography className={classes.rights} component="h6">
-          Made with love. &copy; Copyright 2019 by Jitendra Kumar. All rights
-          reserved.
-        </Typography>
-      </Grid>
-      {/* <Grid>
+      <Grid className={classes.listItem}>
         <Button
           onClick={() => {
             window.open(
@@ -55,6 +60,7 @@ const Footer = props => {
               "_blank"
             );
           }}
+          type={2}
         >
           <Facebook />
         </Button>
@@ -62,6 +68,7 @@ const Footer = props => {
           onClick={() => {
             window.open("https://github.com/jeetu241295", "_blank");
           }}
+          type={2}
         >
           <Github />
         </Button>
@@ -72,6 +79,7 @@ const Footer = props => {
               "_blank"
             );
           }}
+          type={2}
         >
           <Instagram />
         </Button>
@@ -82,6 +90,7 @@ const Footer = props => {
               "_blank"
             );
           }}
+          type={2}
         >
           <GooglePlus />
         </Button>
@@ -92,6 +101,7 @@ const Footer = props => {
               "_blank"
             );
           }}
+          type={2}
         >
           <LinkedIn />
         </Button>
@@ -99,10 +109,24 @@ const Footer = props => {
           onClick={() => {
             window.open("https://twitter.com/jeetu241295", "_blank");
           }}
+          type={2}
         >
           <Twitter />
         </Button>
-      </Grid> */}
+      </Grid>
+      <Grid className={classes.listItem}>
+        {navs.map(nav => (
+          <Button key={nav.toString()} className={classes.navLink} type={3}>
+            {nav}
+          </Button>
+        ))}
+      </Grid>
+      <Grid className={classes.listItem}>
+        <Typography className={classes.rights} component="h6">
+          Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar. All
+          rights reserved.
+        </Typography>
+      </Grid>
     </Grid>
   );
 };

@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import TwitterSVG from "./twitter.svg";
+import { ReactComponent as TwitterSVG } from "./twitter.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Twitter = props => {
-  return (
-    <Grid>
-      <TwitterSVG />
-    </Grid>
-  );
+const Twitter = ({ classes }) => {
+  return <TwitterSVG className={classes.whiteColor} />;
 };
 export default withStyles(styles)(Twitter);

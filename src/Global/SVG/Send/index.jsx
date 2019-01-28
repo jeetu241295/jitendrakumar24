@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import SendSVG from "./send.svg";
+import { ReactComponent as SendSVG } from "./send.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Send = props => {
-  return (
-    <Grid>
-      <SendSVG />
-    </Grid>
-  );
+const Send = ({ classes }) => {
+  return <SendSVG className={classes.whiteColor} height={16} width={16} />;
 };
 export default withStyles(styles)(Send);

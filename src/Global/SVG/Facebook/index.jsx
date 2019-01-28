@@ -1,15 +1,9 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import FacebookSVG from "./facebook2.svg";
+import { ReactComponent as FacebookSVG } from "./facebook2.svg";
+import styles from "../styles.css";
 
-const styles = theme => ({});
-
-const Facebook = props => {
-  return (
-    <Grid>
-      <FacebookSVG />
-    </Grid>
-  );
+const Facebook = ({ classes }) => {
+  return <FacebookSVG className={classes.whiteColor} />;
 };
 export default withStyles(styles)(Facebook);
