@@ -8,7 +8,7 @@ import { Send } from "../../../../Global/SVG";
 const styles = theme => ({
   header: {
     color: theme.colors.white,
-    marginBottom: 25,
+    marginBottom: "2.5rem",
     alignSelf: "flex-start",
     fontSize: "2rem",
     textTransform: "uppercase"
@@ -24,8 +24,8 @@ const styles = theme => ({
     flexDirection: "column"
   },
   textField: {
-    marginTop: 10,
-    marginBottom: 10
+    marginTop: "1rem",
+    marginBottom: "1rem"
   },
   send: {
     alignSelf: "flex-end"

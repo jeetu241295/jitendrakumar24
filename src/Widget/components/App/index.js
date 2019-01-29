@@ -1,14 +1,14 @@
 import { connect } from "react-redux";
 import LoginPage from "./component";
 import { bindActionCreators } from "redux";
-import * as loginPageActions from "../../actions/loginPageActions";
+import * as personalWebsiteActions from "../../actions/personalWebsiteActions";
 
 const mapStatetoProps = state => ({
-  ...state.loginPageReducer
+  ...state.personalWebsiteReducer
 });
 
 const mapDispatchtoProps = dispatch =>
-  bindActionCreators(loginPageActions, dispatch);
+  bindActionCreators(personalWebsiteActions, dispatch);
 
 export default connect(
   mapStatetoProps,

@@ -17,8 +17,8 @@ const styles = theme => ({
     backgroundColor: "rgba(0,0,0,0.45)",
     width: "100%",
     minHeight: 800,
-    paddingTop: 100,
-    paddingBottom: 100,
+    paddingTop: "10rem",
+    paddingBottom: "10rem",
     position: "relative",
     display: "flex",
     justifyContent: "space-around",
@@ -31,20 +31,23 @@ const styles = theme => ({
   },
   info: {
     backgroundColor: theme.colors.contact,
-    padding: 40,
+    padding: "4rem",
     color: theme.colors.white,
     [theme.breakpoints.up("lg")]: {
       width: 500
     },
-    [theme.breakpoints.between("sm", "md")]: {
+    [theme.breakpoints.between("xs", "md")]: {
       width: 390,
-      marginTop: 10,
-      marginBottom: 10
+      marginTop: "1rem",
+      marginBottom: "1rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: 250
     }
   },
   header: {
     color: theme.colors.white,
-    marginBottom: 25,
+    marginBottom: "2.5rem",
     fontSize: "2rem",
     textTransform: "uppercase"
   },

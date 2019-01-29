@@ -17,7 +17,7 @@ import {
 
 const styles = theme => ({
   footer: {
-    padding: 30,
+    padding: "3rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -26,7 +26,8 @@ const styles = theme => ({
   },
   rights: {
     color: theme.colors.footerNav,
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
+    textAlign: "center"
   },
   navLink: {
     color: theme.colors.footerNav,
@@ -44,7 +45,14 @@ const styles = theme => ({
     marginBottom: "1rem",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexWrap: "wrap",
+    "& button": {
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: "1rem",
+        padding: "0.5rem 1rem"
+      }
+    }
   }
 });
 

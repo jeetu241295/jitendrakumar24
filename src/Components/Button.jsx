@@ -18,7 +18,7 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: theme.colors.primary,
       transform: "translateY(-5px)",
-      boxShadow: "0 1rem 2rem rgba($color-black, 0.2)",
+      boxShadow: "0 1rem 2rem rgba(0,0,0, 0.2)",
       "&::after": {
         transform: "scale(1.5)",
         opacity: 0
@@ -27,13 +27,13 @@ const styles = theme => ({
     "&:active": {
       backgroundColor: theme.colors.primary,
       transform: "translateY(0px)",
-      boxShadow: "0 .5rem 1rem rgba($color-black, 0.2)",
+      boxShadow: "0 .5rem 1rem rgba(0,0,0, 0.2)",
       outline: "none"
     },
     "&:focus": {
       backgroundColor: theme.colors.primary,
       transform: "translateY(0px)",
-      boxShadow: "0 .5rem 1rem rgba($color-black, 0.2)",
+      boxShadow: "0 .5rem 1rem rgba(0,0,0, 0.2)",
       outline: "none"
     }
   },

@@ -15,8 +15,8 @@ const styles = theme => ({
     backgroundColor: "rgba(0,0,0,0.45)",
     width: "100%",
     minHeight: 800,
-    paddingTop: 100,
-    paddingBottom: 100,
+    paddingTop: "10rem",
+    paddingBottom: "10rem",
     position: "relative",
     display: "flex",
     justifyContent: "center",
@@ -33,13 +33,26 @@ const styles = theme => ({
   name: {
     textAlign: "center",
     textTransform: "uppercase",
-    fontSize: 48,
-    letterSpacing: 12,
+    fontSize: "5rem",
+    letterSpacing: "1.2rem",
     fontWeight: 900,
-    margin: 0,
     color: theme.colors.white,
-    padding: 20,
+    padding: "2rem",
     fontFamily: "Raleway Webfont"
+  },
+  hello: {
+    fontSize: "2rem",
+    fontWeight: 500,
+    marginBottom: "2.5rem",
+    color: theme.colors.white,
+    fontFamily: "Courgette"
+  },
+  line: {
+    borderBottom: "2px solid white"
+  },
+  helloWrap: {
+    display: "flex",
+    flexDirection: "row"
   }
 });
 
@@ -48,6 +61,13 @@ const Home = props => {
   return (
     <Grid container className={classes.home}>
       <Grid className={classes.overlay}>
+        <Grid className={classes.helloWrap}>
+          <Grid className={classes.line} />
+          <Typography className={classes.hello} component="h6" variant="h6">
+            Hey, I'm
+          </Typography>
+          <Grid className={classes.line} />
+        </Grid>
         <Grid className={classes.nameWrap}>
           <Typography className={classes.name} component="h2" variant="h1">
             Jitendra

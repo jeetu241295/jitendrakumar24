@@ -7,16 +7,18 @@ import Home from "../Home";
 import Footer from "../Footer";
 import Contact from "../Contact";
 import About from "../About";
+import Gallery from "../Gallery";
 
-const styles = theme => ({});
+const styles = () => ({});
 
 const App = props => {
-  const { navs } = props;
+  const { navs, images } = props;
   return (
     <Grid container>
       <Navbar navs={navs} />
       <Home />
       <About />
+      <Gallery images={images} />
       <Contact />
       <Footer navs={navs} />
     </Grid>
@@ -24,8 +26,9 @@ const App = props => {
 };
 
 App.propTypes = {
-  class: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired
+  // classes: PropTypes.object.isRequired,
+  navs: PropTypes.array.isRequired,
+  images: PropTypes.array.isRequired
 };
 App.defaultProps = {};
 

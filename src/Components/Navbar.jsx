@@ -56,7 +56,7 @@ const ButtonAppBar = props => {
           </IconButton> */}
           <img
             alt="JK"
-            src={require("../static/images/l3.jpg")}
+            src={require("../static/images/logo.jpg")}
             className={classes.logo}
           />
           <Grid className={classes.navLinkWrap}>

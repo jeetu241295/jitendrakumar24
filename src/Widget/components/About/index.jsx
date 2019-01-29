@@ -7,7 +7,11 @@ const styles = theme => ({});
 
 const About = props => {
   const { classes } = props;
-  return <Grid container>About</Grid>;
+  return (
+    <Grid container className={classes.about}>
+      About
+    </Grid>
+  );
 };
 
 About.propTypes = {
