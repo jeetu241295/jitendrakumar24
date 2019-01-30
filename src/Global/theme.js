@@ -9,10 +9,17 @@ const colors = {
   footerNav: "#c3bec2",
   primary: "#ff2b4a",
   contact: "#352639",
-  error: "#BA0C2F"
+  error: "#BA0C2F",
+  secondary: purple[500]
 };
 
 const theme = createMuiTheme({
+  // breakpoints: {
+  //   values: {
+  //     xs: 350,
+  //     sm: 450
+  //   }
+  // },
   overrides: {
     // MuiOutlinedInput: {
     //   notchedOutline: {

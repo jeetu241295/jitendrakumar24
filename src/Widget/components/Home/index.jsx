@@ -14,14 +14,13 @@ const styles = theme => ({
   overlay: {
     backgroundColor: "rgba(0,0,0,0.45)",
     width: "100%",
-    minHeight: 800,
+    height: "90vh",
     paddingTop: "10rem",
     paddingBottom: "10rem",
     position: "relative",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "90%",
     flexDirection: "column"
   },
   nameWrap: {
@@ -38,7 +37,15 @@ const styles = theme => ({
     fontWeight: 900,
     color: theme.colors.white,
     padding: "2rem",
-    fontFamily: "Raleway Webfont"
+    fontFamily: "Raleway Webfont",
+    [theme.breakpoints.between("sm", "md")]: {
+      padding: "1.2rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem",
+      fontSize: "2.5rem",
+      letterSpacing: "0.5rem"
+    }
   },
   hello: {
     fontSize: "2rem",

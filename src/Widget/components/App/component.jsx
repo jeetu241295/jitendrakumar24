@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import Navbar from "../../../Components/Navbar";
+// import Navbar from "../../../Components/Navbar";
 import Home from "../Home";
 import Footer from "../Footer";
 import Contact from "../Contact";
@@ -15,7 +15,7 @@ const App = props => {
   const { navs, images } = props;
   return (
     <Grid container>
-      <Navbar navs={navs} />
+      {/* <Navbar navs={navs} /> */}
       <Home />
       <About />
       <Gallery images={images} />

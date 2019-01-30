@@ -16,13 +16,16 @@ const styles = theme => ({
   overlay: {
     backgroundColor: "rgba(0,0,0,0.45)",
     width: "100%",
-    minHeight: 800,
     paddingTop: "10rem",
     paddingBottom: "10rem",
     position: "relative",
     display: "flex",
     justifyContent: "space-around",
-    height: "90%"
+    height: "90%",
+    [theme.breakpoints.down("sm")]: {
+      paddingBottom: "5rem",
+      paddingTop: "5rem"
+    }
   },
   personalInfoWrap: {
     display: "flex",
@@ -34,15 +37,15 @@ const styles = theme => ({
     padding: "4rem",
     color: theme.colors.white,
     [theme.breakpoints.up("lg")]: {
-      width: 500
+      width: "50rem"
     },
     [theme.breakpoints.between("xs", "md")]: {
-      width: 390,
+      width: "39rem",
       marginTop: "1rem",
       marginBottom: "1rem"
     },
     [theme.breakpoints.down("sm")]: {
-      width: 250
+      width: "30rem"
     }
   },
   header: {
@@ -81,8 +84,7 @@ const Contact = props => {
             <Grid className={classes.listItem}>
               <Location />
               <Normal>
-                SSS Colony,Near Padmavathi Function Hall,Gollapudi,Vijayawada
-                Krishna Dt.,Andhra Pradesh,India-521456
+                SSS Colony, Gollapudi, Vijayawada, Andhra Pradesh, India-521456
               </Normal>
             </Grid>
           </Grid>
@@ -105,11 +107,11 @@ const Contact = props => {
             </Typography>
             <Grid className={classes.listItem}>
               <Mail />
-              <Normal>Mail:jeetu241295@gmail.com</Normal>
+              <Normal>jeetu241295@gmail.com</Normal>
             </Grid>
             <Grid className={classes.listItem}>
               <Web />
-              <Normal>Website: www.jitendrakumar24.tech</Normal>
+              <Normal>www.jitendrakumar24.tech</Normal>
             </Grid>
           </Grid>
         </Grid>

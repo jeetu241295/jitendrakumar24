@@ -9,11 +9,11 @@ const styles = theme => ({
     backgroundColor: theme.colors.primary,
     borderColor: "transparent",
     borderRadius: 5,
-    padding: "10px 60px",
+    padding: "1rem 3.5rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: 16,
+    fontSize: "1.5rem",
     transition: "all 0.3s ease-in-out",
     "&:hover": {
       backgroundColor: theme.colors.primary,
@@ -35,6 +35,9 @@ const styles = theme => ({
       transform: "translateY(0px)",
       boxShadow: "0 .5rem 1rem rgba(0,0,0, 0.2)",
       outline: "none"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "1rem 2rem"
     }
   },
   iconButtonStyle: {

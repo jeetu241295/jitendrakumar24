@@ -3,6 +3,7 @@ import { Grid, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import "./style.css";
+import theme from "../../../Global/theme";
 
 const styles = () => ({
   memories: {
@@ -11,12 +12,39 @@ const styles = () => ({
     gridTemplateColumns: "repeat(8,1fr)",
     gridTemplateRows: "repeat(7,5vw)",
     gridGap: "1.5rem",
-    padding: "1.5rem"
+    [theme.breakpoints.down("xs")]: {
+      gridGap: "1rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      gridGap: "0.5rem"
+    }
+  },
+  title: {
+    backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
+      theme.colors.secondary
+    })`,
+    fontSize: "4rem",
+    textTransform: "uppercase",
+    fontWeight: 900,
+    marginBottom: "2rem",
+    WebkitBackgroundClip: "text",
+    color: "transparent"
   },
   gallery: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    padding: "10rem",
+    paddingTop: "2rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "5rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: "3rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "1.5rem"
+    }
   }
 });
 
@@ -24,8 +52,8 @@ const Gallery = props => {
   const { classes, images } = props;
   return (
     <Grid container className={classes.gallery}>
-      <Grid className={classes.heading}>
-        <Typography component="h2" variant="h2">
+      <Grid>
+        <Typography className={classes.title} component="h2" variant="h2">
           My Memories
         </Typography>
       </Grid>

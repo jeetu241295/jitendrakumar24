@@ -13,6 +13,10 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Courgette"
+      rel="stylesheet"
+    />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -26,7 +30,7 @@
     <style>
       html,
       body {
-        font-size: 62.5%;
+        font-size: 10px;
         width: 100%;
         padding: 0;
         word-wrap: break-word;
@@ -40,6 +44,11 @@
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
+      }
+      @media only screen and (max-width: 50em) {
+        html {
+          font-size: 50%;
+        }
       }
     </style>
     <link
