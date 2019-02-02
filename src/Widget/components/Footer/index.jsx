@@ -10,7 +10,6 @@ import {
   LinkedIn,
   Github,
   Instagram,
-  GooglePlus,
   Twitter,
   Love
 } from "../../../Global/SVG";
@@ -90,17 +89,6 @@ const Footer = props => {
           type={2}
         >
           <Instagram />
-        </Button>
-        <Button
-          onClick={() => {
-            window.open(
-              "https://plus.google.com/+JitendrakumarBhamidipati",
-              "_blank"
-            );
-          }}
-          type={2}
-        >
-          <GooglePlus />
         </Button>
         <Button
           onClick={() => {

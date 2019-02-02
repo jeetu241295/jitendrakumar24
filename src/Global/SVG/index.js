@@ -1,7 +1,6 @@
 export { default as Facebook } from "./Facebook/";
 export { default as Github } from "./Github";
 export { default as LinkedIn } from "./LinkedIn";
-export { default as GooglePlus } from "./GooglePlus";
 export { default as Instagram } from "./Instagram";
 export { default as Location } from "./Location";
 export { default as Mail } from "./Mail";
