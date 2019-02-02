@@ -3,9 +3,9 @@ import { Grid, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import "./style.css";
-import theme from "../../../Global/theme";
+import ImageClick from "./ImageClick";
 
-const styles = () => ({
+const styles = theme => ({
   memories: {
     display: "grid",
     gridColumn: "flex-start/flex-end",
@@ -48,8 +48,8 @@ const styles = () => ({
   }
 });
 
-const Gallery = props => {
-  const { classes, images } = props;
+const Gallery = ({ classes, ...props }) => {
+  const { images, dialogOpen } = props;
   return (
     <Grid container className={classes.gallery}>
       <Grid>
@@ -59,22 +59,27 @@ const Gallery = props => {
       </Grid>
       <Grid className={classes.memories}>
         {images.map((image, index) => (
-          <figure className={`gallery__item gallery__item${index + 1}`}>
+          <Grid
+            onClick={() => dialogOpen(index, image)}
+            className={`gallery__item gallery__item${index + 1}`}
+          >
             <img
               src={require(`../../../static/images/gal-${index + 1}.jpg`)}
-              alt={image.titile}
+              alt={image.title}
               className="gallery__img"
             />
-          </figure>
+          </Grid>
         ))}
       </Grid>
+      <ImageClick {...props} />
     </Grid>
   );
 };
 
 Gallery.propTypes = {
-  class: PropTypes.object.isRequired,
-  images: PropTypes.array.isRequired
+  classes: PropTypes.object.isRequired,
+  images: PropTypes.array.isRequired,
+  dialogOpen: PropTypes.func.isRequired
 };
 Gallery.defaultProps = {};
 

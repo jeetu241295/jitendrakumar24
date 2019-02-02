@@ -7,7 +7,7 @@ import { Send } from "../../../../Global/SVG";
 
 const styles = theme => ({
   header: {
-    color: theme.colors.white,
+    color: theme.colors.mainAction,
     marginBottom: "2.5rem",
     alignSelf: "flex-start",
     fontSize: "2rem",

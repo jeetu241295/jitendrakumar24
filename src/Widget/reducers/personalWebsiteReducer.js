@@ -1,10 +1,12 @@
 import { createReducer } from "../../Global/redux";
-import { COUNT, navs, images } from "../_helpers/constants";
+import { COUNT, navs, images, DIALOG } from "../_helpers/constants";
 const defaultState = {
   count: 0,
   setCount: null,
   navs: navs,
-  images: images
+  images: images,
+  imageOpen: false,
+  index: 0
 };
 
 const personalWebsiteReducer = {
@@ -12,6 +14,12 @@ const personalWebsiteReducer = {
     ...state,
     count: state.count + 1,
     id: action.id
+  }),
+  [DIALOG]: (state, action) => ({
+    ...state,
+    image: action.image,
+    index: action.index,
+    imageOpen: !state.imageOpen
   })
 };
 

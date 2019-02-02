@@ -19,6 +19,10 @@ const styles = theme => ({
       backgroundColor: theme.colors.primary,
       transform: "translateY(-5px)",
       boxShadow: "0 1rem 2rem rgba(0,0,0, 0.2)",
+      color: theme.colors.mainAction,
+      "& svg": {
+        fill: theme.colors.mainAction
+      },
       "&::after": {
         transform: "scale(1.5)",
         opacity: 0
@@ -28,13 +32,15 @@ const styles = theme => ({
       backgroundColor: theme.colors.primary,
       transform: "translateY(0px)",
       boxShadow: "0 .5rem 1rem rgba(0,0,0, 0.2)",
-      outline: "none"
+      outline: "none",
+      color: theme.colors.mainAction
     },
     "&:focus": {
       backgroundColor: theme.colors.primary,
       transform: "translateY(0px)",
       boxShadow: "0 .5rem 1rem rgba(0,0,0, 0.2)",
-      outline: "none"
+      outline: "none",
+      color: theme.colors.mainAction
     },
     [theme.breakpoints.down("sm")]: {
       padding: "1rem 2rem"

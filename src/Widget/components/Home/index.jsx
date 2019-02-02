@@ -35,7 +35,11 @@ const styles = theme => ({
     fontSize: "5rem",
     letterSpacing: "1.2rem",
     fontWeight: 900,
-    color: theme.colors.white,
+    color: "transparent",
+    backgroundImage: `linear-gradient(to right bottom, ${
+      theme.colors.mainAction
+    },${theme.colors.white})`,
+    WebkitBackgroundClip: "text",
     padding: "2rem",
     fontFamily: "Raleway Webfont",
     [theme.breakpoints.between("sm", "md")]: {

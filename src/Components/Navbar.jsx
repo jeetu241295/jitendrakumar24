@@ -41,6 +41,9 @@ const styles = theme => ({
     },
     "&:focus": {
       backgroundColor: "transparent"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "0.5rem 1rem"
     }
   }
 });

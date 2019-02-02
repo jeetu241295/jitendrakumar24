@@ -10,7 +10,7 @@ const colors = {
   primary: "#ff2b4a",
   contact: "#352639",
   error: "#BA0C2F",
-  secondary: purple[500]
+  mainAction: "#11cb5f"
 };
 
 const theme = createMuiTheme({

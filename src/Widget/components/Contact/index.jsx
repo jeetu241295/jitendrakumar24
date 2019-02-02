@@ -42,14 +42,15 @@ const styles = theme => ({
     [theme.breakpoints.between("xs", "md")]: {
       width: "39rem",
       marginTop: "1rem",
-      marginBottom: "1rem"
+      marginBottom: "1rem",
+      padding: "2.5rem"
     },
     [theme.breakpoints.down("sm")]: {
-      width: "30rem"
+      width: "27rem"
     }
   },
   header: {
-    color: theme.colors.white,
+    color: theme.colors.mainAction,
     marginBottom: "2.5rem",
     fontSize: "2rem",
     textTransform: "uppercase"
