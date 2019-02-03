@@ -12,13 +12,13 @@ import Gallery from "../Gallery";
 const styles = () => ({});
 
 const App = props => {
-  const { navs, images } = props;
+  const { navs } = props;
   return (
     <Grid container>
       <Navbar navs={navs} />
       <Home />
       <About />
-      <Gallery images={images} {...props} />
+      <Gallery {...props} />
       <Contact />
       <Footer navs={navs} />
     </Grid>
@@ -26,9 +26,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  // classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired,
-  images: PropTypes.array.isRequired
+  navs: PropTypes.array.isRequired
 };
 App.defaultProps = {};
 

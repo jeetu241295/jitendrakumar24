@@ -10,7 +10,8 @@ const colors = {
   primary: "#ff2b4a",
   contact: "#352639",
   error: "#BA0C2F",
-  mainAction: "#11cb5f"
+  mainAction: "#11cb5f",
+  sideBar: "#6e9dea"
 };
 
 const theme = createMuiTheme({

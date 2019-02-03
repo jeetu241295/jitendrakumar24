@@ -12,7 +12,11 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-const styles = () => ({});
+const styles = () => ({
+  modalWidth: {
+    maxWidth: "750px"
+  }
+});
 
 const DialogTitleCustom = withStyles(theme => ({
   root: {
@@ -81,6 +85,9 @@ class DialogJK extends React.Component {
         open={open ? open : this.state.open}
         onClose={open ? onClose : this.handleClose}
         aria-labelledby="responsive-dialog-title"
+        classes={{
+          paper: classes.modalWidth
+        }}
       >
         {closeButton ? (
           <DialogTitleCustom id="responsive-dialog-title" onClose={onClose}>

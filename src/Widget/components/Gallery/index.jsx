@@ -20,8 +20,8 @@ const styles = theme => ({
     }
   },
   title: {
-    backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
-      theme.colors.secondary
+    backgroundImage: `linear-gradient(to left bottom,${theme.colors.primary},${
+      theme.colors.white
     })`,
     fontSize: "4rem",
     textTransform: "uppercase",
@@ -62,6 +62,7 @@ const Gallery = ({ classes, ...props }) => {
           <Grid
             onClick={() => dialogOpen(index, image)}
             className={`gallery__item gallery__item${index + 1}`}
+            key={image.title + index}
           >
             <img
               src={require(`../../../static/images/gal-${index + 1}.jpg`)}

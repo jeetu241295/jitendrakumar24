@@ -65,7 +65,9 @@ const styles = theme => ({
     }
   },
   paper: {
-    backgroundColor: theme.colors.mainAction,
+    backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
+      theme.colors.sideBar
+    })`,
     width: "50%"
   },
   context: {

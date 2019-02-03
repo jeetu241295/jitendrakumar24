@@ -8,7 +8,7 @@ import { Phone, Mail, Location, Web } from "../../../Global/SVG";
 
 const styles = theme => ({
   contact: {
-    background: `url(${require("../../../static/images/jumbo3.jpg")}) no-repeat center center fixed`,
+    background: `url(${require("../../../static/images/contact.jpg")}) no-repeat center center fixed`,
     backgroundSize: "cover",
     width: "100%",
     height: "100%"
