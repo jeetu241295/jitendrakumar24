@@ -39,7 +39,10 @@ const theme = createMuiTheme({
     error: { main: "#BA0C2F" } // This is just green.A700 as hex.
   },
   colors: colors,
-  typography: { useNextVariants: true }
+  typography: { 
+    useNextVariants: true, 
+    htmlFontSize: 10 
+  }
 });
 
 export default theme;

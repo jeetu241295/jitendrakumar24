@@ -3,16 +3,18 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./Widget/reducers";
-import LoginPage from "./Widget/components/App";
+import PersonalWebsite from "./Widget/components/App";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import theme from "./Global/theme";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      <LoginPage />
+      <CssBaseline />
+      <PersonalWebsite />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById("root")
