@@ -13,6 +13,10 @@ export const styles = theme => ({
       height: 32
     }
   },
-  primaryColor: { fill: theme.colors.primary }
+  primaryColor: { fill: theme.colors.primary },
+  blackColor: {
+    fill: theme.colors.black,
+    marginRight: "1rem"
+  }
 });
 export default styles;

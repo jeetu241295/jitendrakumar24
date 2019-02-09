@@ -8,22 +8,25 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: "1rem"
   },
   primary: {
-    color: theme.colors.mainAction,
+    color: theme.colors.progressbarColor,
     backgroundColor: theme.colors.footerNav,
-    height: "1rem",
     borderRadius: "10px"
   },
   value: {
-    fontSize: "1rem",
+    fontSize: "1.5rem",
     fontWeight: 500,
-    padding: "0 .5rem"
+    marginLeft: "1.5rem",
+    textAlign: "center"
   },
   title: {
-    fontSize: "2rem",
-    fontWeight: 900
+    fontSize: "1.5rem",
+    fontWeight: 500,
+    marginBottom: "0.5rem"
   }
 });
 
@@ -31,12 +34,10 @@ const ProgressBar = props => {
   const { classes, value, heading } = props;
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12}>
+      <Grid item md={11} xs={10}>
         <Typography className={classes.title} variant="h4" component="h4">
           {heading}
         </Typography>
-      </Grid>
-      <Grid item xs={11}>
         <LinearProgress
           classes={{
             colorPrimary: classes.primary
@@ -45,7 +46,7 @@ const ProgressBar = props => {
           value={value}
         />
       </Grid>
-      <Grid item xs={1}>
+      <Grid item md={1} xs={2}>
         <Typography className={classes.value} variant="h4" component="h4">
           {value}%
         </Typography>

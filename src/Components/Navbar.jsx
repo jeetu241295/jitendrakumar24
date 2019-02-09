@@ -18,6 +18,7 @@ import {
   Menu as MenuIcon
 } from "@material-ui/icons";
 import { Love } from "../Global/SVG";
+import classNames from "classnames";
 
 const styles = theme => ({
   root: {
@@ -47,7 +48,13 @@ const styles = theme => ({
   },
   appbar: {
     backgroundColor: theme.colors.navbar,
-    opacity: 0.7
+    opacity: 0.7,
+    height: 64,
+    top: 0,
+    transition: "all .3s ease-in",
+    [theme.breakpoints.down("xs")]: {
+      height: 48
+    }
   },
   navLink: {
     color: theme.colors.white,
@@ -85,11 +92,49 @@ const styles = theme => ({
   rights: {
     borderTop: "2px solid",
     marginTop: "auto"
-  }
+  },
+  navUp: {
+    top: -57,
+    backgroundColor: theme.colors.mainAction,
+    opacity: 1,
+    "&:hover": {
+      top: 0,
+      backgroundColor: theme.colors.navbar,
+      opacity: 0.7
+    }
+  },
+  navDown: {}
 });
 
 class ButtonAppBar extends React.Component {
-  state = { open: false };
+  state = {
+    open: false,
+    navBarHeight: 64,
+    lastScrollTop: 0,
+    isScrolledDown: false
+  };
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+  hasScrolled = () => {
+    const { navBarHeight, lastScrollTop } = this.state;
+    const delta = 5;
+    let st = document.documentElement.scrollTop;
+    if (Math.abs(lastScrollTop - st) <= delta) return;
+    if (st > lastScrollTop && st > navBarHeight) {
+      this.setState({ isScrolledDown: true });
+    } else if (
+      st + window.innerHeight <
+      document.documentElement.scrollHeight
+    ) {
+      this.setState({ isScrolledDown: false });
+    }
+    this.setState({ lastScrollTop: st });
+  };
+  handleScroll = () => {
+    this.setState({ scrollY: window.scrollY });
+    this.hasScrolled();
+  };
   toggleDrawer = () => {
     this.setState({ open: !this.state.open });
   };
@@ -97,7 +142,13 @@ class ButtonAppBar extends React.Component {
     const { classes, navs } = this.props;
     return (
       <div className={classes.root}>
-        <AppBar position="fixed" className={classes.appbar}>
+        <AppBar
+          position="fixed"
+          className={classNames(classes.appbar, {
+            [classes.navUp]: this.state.isScrolledDown === true,
+            [classes.navDown]: this.state.isScrolledDown === false
+          })}
+        >
           <Toolbar>
             <IconButton
               className={classes.menuButton}

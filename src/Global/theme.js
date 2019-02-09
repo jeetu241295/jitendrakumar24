@@ -11,7 +11,10 @@ const colors = {
   contact: "#352639",
   error: "#BA0C2F",
   mainAction: "#11cb5f",
-  sideBar: "#6e9dea"
+  progressbarColor: "#57d131",
+  sideBar: "#6e9dea",
+  containerBackground: "#F8F9FA",
+  buttonColor: "#6c757d"
 };
 
 const theme = createMuiTheme({
@@ -39,9 +42,9 @@ const theme = createMuiTheme({
     error: { main: "#BA0C2F" } // This is just green.A700 as hex.
   },
   colors: colors,
-  typography: { 
-    useNextVariants: true, 
-    htmlFontSize: 10 
+  typography: {
+    useNextVariants: true,
+    htmlFontSize: 10
   }
 });
 

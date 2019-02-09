@@ -1,12 +1,13 @@
 import { createReducer } from "../../Global/redux";
-import { COUNT, navs, images, DIALOG } from "../_helpers/constants";
+import { COUNT, navs, images, DIALOG,skills } from "../_helpers/constants";
 const defaultState = {
   count: 0,
   setCount: null,
   navs: navs,
-  images: images,
+  images,
   imageOpen: false,
-  index: 0
+  index: 0,
+  skills
 };
 
 const personalWebsiteReducer = {

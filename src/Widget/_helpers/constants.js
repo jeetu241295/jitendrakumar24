@@ -20,3 +20,12 @@ export const images = [
     src: "../../../static/images/gal-14.jpg"
   }
 ];
+export const skills = [
+  { title: "Bootstrap", value: 95 },
+  { title: "Foundation", value: 75 },
+  { title: "React", value: 93 },
+  { title: "Redux", value: 90 },
+  { title: "Redux-Form", value: 80 },
+  { title: "Material-UI", value: 85 },
+  { title: "HTML & CSS", value: 93 }
+];

@@ -3,12 +3,19 @@ import { Grid, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import ProgressBar from "../../../Components/ProgressBar";
+import Button from "../../../Components/Button";
 
 const styles = theme => ({
   about: {
     display: "flex",
     padding: "10rem",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    [theme.breakpoints.down("md")]: {
+      padding: "3rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "1.5rem"
+    }
   },
   imageWrap: {
     "& img": {
@@ -16,64 +23,135 @@ const styles = theme => ({
       height: "100%",
       objectFit: "contain",
       display: "block"
+    },
+    padding: "2rem",
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1rem",
+      padding: 0
     }
   },
   skills: {
     position: "relative",
     padding: "2.5rem",
-    marginTop: "2rem"
+    [theme.breakpoints.down("md")]: {
+      padding: "0.5rem"
+    },
+    "&:last-child": {
+      [theme.breakpoints.down("md")]: {
+        marginTop: 0
+      }
+    }
   },
   aboutMe: {
     position: "relative",
     padding: "2.5rem",
-    alignSelf: "center"
+    alignSelf: "center",
+    [theme.breakpoints.down("md")]: {
+      padding: "0.5rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+      marginBottom: "1rem"
+    }
   },
-  title: {
+  titleBorder: {
     position: "absolute",
     top: 0,
     left: 0,
     padding: "2px",
     height: "2px",
-    width: "50px",
+    width: "3rem",
     margin: "2rem",
-    backgroundColor: theme.colors.mainAction
+    backgroundColor: theme.colors.mainAction,
+    [theme.breakpoints.down("md")]: {
+      margin: 0
+    }
+  },
+  title: {
+    fontSize: "2rem",
+    fontWeight: 500
+  },
+  hire: {
+    borderRadius: "50px",
+    padding: "0.5rem 2rem",
+    "&:hover": {
+      color: theme.colors.white
+    }
+  },
+  resume: {
+    borderRadius: "50px",
+    backgroundColor: theme.colors.buttonColor,
+    marginLeft: "1rem",
+    padding: "0.5rem 2rem",
+    "&:hover": {
+      color: theme.colors.white,
+      backgroundColor: theme.colors.buttonColor
+    }
+  },
+  buttons: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  description: {
+    fontSize: "1.5rem",
+    margin: "2rem 0",
+    textAlign: "justify",
+    lineHeight: "1.5rem"
   }
 });
 
 const About = props => {
-  const { classes } = props;
+  const { classes, skills } = props;
   return (
     <Grid container className={classes.about}>
-      <Grid className={classes.imageWrap} item md={5}>
+      <Grid className={classes.imageWrap} item sm={5} xs={12}>
         <img src={require("../../../static/images/about.jpg")} alt="My Pic" />
       </Grid>
-      <Grid className={classes.aboutMe} item md={7}>
-        <Grid className={classes.title} />
-        <Typography variant="h4" component="h4">
+      <Grid className={classes.aboutMe} item sm={7} xs={12}>
+        <Grid className={classes.titleBorder} />
+        <Typography className={classes.title} variant="h3" component="h3">
           About Me
         </Typography>
+        <Typography className={classes.description} variant="p" component="p">
+          &emsp; Hey, this is my homepage, so I have to say something about
+          myself. Sometimes it is hard to introduce yourself because you know
+          yourself so well that you do not know where to start with. Let me give
+          a try to see what kind of image you have about me through my
+          self-description. I hope that my impression about myself and your
+          impression about me are not so different. Here it goes.
+        </Typography>
+        <Grid className={classes.buttons}>
+          <Button type={1} className={classes.hire} onClick={() => {}}>
+            Hire Me
+          </Button>
+          <Button type={1} className={classes.resume} onClick={() => {}}>
+            Download CV
+          </Button>
+        </Grid>
       </Grid>
-      <Grid className={classes.skills} item md={4}>
-        <Grid className={classes.title} />
-        <Typography variant="h4" component="h4">
+      <Grid className={classes.skills} item sm={4} xs={12}>
+        <Grid className={classes.titleBorder} />
+        <Typography className={classes.title} variant="h3" component="h3">
           My Skills
         </Typography>
       </Grid>
-      <Grid className={classes.skills} item md={8}>
-        <ProgressBar heading="Bootstrap" value={50} />
-        <ProgressBar heading="Foundation" value={50} />
-        <ProgressBar heading="React" value={50} />
-        <ProgressBar heading="Redux" value={50} />
-        <ProgressBar heading="Redux-Form" value={50} />
-        <ProgressBar heading="Material-UI" value={50} />
-        <ProgressBar heading="HTML & CSS" value={50} />
+      <Grid className={classes.skills} item sm={8} xs={12}>
+        {skills.map(skill => (
+          <ProgressBar
+            key={skill.title}
+            heading={skill.title}
+            value={skill.value}
+          />
+        ))}
       </Grid>
     </Grid>
   );
 };
 
 About.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  skills: PropTypes.array.isRequired
 };
 About.defaultProps = {};
 

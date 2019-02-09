@@ -37,9 +37,6 @@ const styles = theme => ({
     padding: "10rem",
     paddingTop: "2rem",
     [theme.breakpoints.down("md")]: {
-      padding: "5rem"
-    },
-    [theme.breakpoints.down("xs")]: {
       padding: "3rem"
     },
     [theme.breakpoints.down("sm")]: {

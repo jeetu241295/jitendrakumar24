@@ -9,3 +9,4 @@ export { default as Twitter } from "./Twitter";
 export { default as Love } from "./Love";
 export { default as Send } from "./Send";
 export { default as Web } from "./Web";
+export { default as Calender } from "./Calender";

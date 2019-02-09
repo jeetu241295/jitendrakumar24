@@ -24,12 +24,12 @@ const styles = theme => ({
     backgroundColor: theme.colors.footer
   },
   rights: {
-    color: theme.colors.footerNav,
+    color: theme.colors.containerBackground,
     fontSize: "1.5rem",
     textAlign: "center"
   },
   navLink: {
-    color: theme.colors.footerNav,
+    color: theme.colors.containerBackground,
     fontSize: "1.5rem",
     backgroundColor: "transparent",
     padding: "1rem 2rem",
