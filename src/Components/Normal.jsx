@@ -1,22 +1,26 @@
 import React from "react";
 import { Grid, withStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
+import classNames from "class-names";
 
 const styles = theme => ({
   normal: {
-    color: theme.colors.white,
+    color: theme.colors.calenderColor,
     fontSize: "1.5rem"
   }
 });
 
 const Normal = props => {
-  const { classes, children } = props;
-  return <Grid className={classes.normal}>{children}</Grid>;
+  const { classes, children, className } = props;
+  return (
+    <Grid className={classNames(classes.normal, className)}>{children}</Grid>
+  );
 };
 
 Normal.propType = {
   class: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired
+  children: PropTypes.array.isRequired,
+  className: PropTypes.object.isRequired
 };
 Normal.defaultProps = {};
 

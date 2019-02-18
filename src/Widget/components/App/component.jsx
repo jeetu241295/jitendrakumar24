@@ -19,7 +19,7 @@ const App = props => {
       <Navbar navs={navs} />
       <Home />
       <About skills={skills} />
-      <Experience />
+      <Experience {...props} />
       <Gallery {...props} />
       <Contact />
       <Footer navs={navs} />

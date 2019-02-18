@@ -1,5 +1,14 @@
 import { createReducer } from "../../Global/redux";
-import { COUNT, navs, images, DIALOG,skills } from "../_helpers/constants";
+import {
+  COUNT,
+  navs,
+  images,
+  DIALOG,
+  skills,
+  education,
+  experience
+} from "../_helpers/constants";
+
 const defaultState = {
   count: 0,
   setCount: null,
@@ -7,7 +16,9 @@ const defaultState = {
   images,
   imageOpen: false,
   index: 0,
-  skills
+  skills,
+  education,
+  experience
 };
 
 const personalWebsiteReducer = {

@@ -2,20 +2,20 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import { Grid, Typography } from "@material-ui/core";
-import { Calender } from "../../../Global/SVG";
+import Card from "./card";
 
 const styles = theme => ({
   experienceWrap: {
-    backgroundColor: theme.colors.containerBackground
-  },
-  paper: {
-    padding: "2rem",
-    margin: "1rem",
-    backgroundColor: theme.colors.white,
-    borderColor: theme.colors.white,
-    border: "2px solid",
-    "&:hover": {
-      borderColor: theme.colors.mainAction
+    backgroundColor: theme.colors.containerBackground,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    padding: "10rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "5rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      padding: "3rem"
     }
   },
   title: {
@@ -26,38 +26,32 @@ const styles = theme => ({
 });
 
 const Experience = props => {
-  const { classes } = props;
+  const { classes, education, experience } = props;
   return (
-    <Grid
-      container
-      className={classes.experienceWrap}
-      direction="row"
-      justify="center"
-      alignItems="center"
-    >
-      <Grid item xs={3} className={classes.education}>
-        <Typography className={classes.title} variant="h4" componeent="h4">
+    <Grid container className={classes.experienceWrap}>
+      <Grid item sm={5} xs={12} className={classes.education}>
+        <Typography className={classes.title} variant="h3" componeent="h3">
           Education
         </Typography>
-        <Grid className={classes.paper}>
-          <Calender />Schooling
-        </Grid>
-        <Grid className={classes.paper}>Schooling</Grid>
-        <Grid className={classes.paper}>Schooling</Grid>
+        {education.map(e => (
+          <Card key={e.id} item={e} />
+        ))}
       </Grid>
-      <Grid item xs={3} className={classes.experience}>
-        <Typography className={classes.title} variant="h4" componeent="h4">
+      <Grid item sm={5} xs={12} className={classes.experience}>
+        <Typography className={classes.title} variant="h3" componeent="h3">
           Experience
         </Typography>
-        <Grid className={classes.paper}>Schooling</Grid>
-        <Grid className={classes.paper}>Schooling</Grid>
-        <Grid className={classes.paper}>Schooling</Grid>
+        {experience.map(e => (
+          <Card key={e.id} item={e} />
+        ))}
       </Grid>
     </Grid>
   );
 };
 
 Experience.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  education: PropTypes.array.isRequired,
+  experience: PropTypes.array.isRequired
 };
 export default withStyles(styles)(Experience);

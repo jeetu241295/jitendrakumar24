@@ -7,6 +7,9 @@ export const styles = theme => ({
       height: 16
     }
   },
+  calenderColor: {
+    fill: theme.colors.calenderColor
+  },
   location: {
     [theme.breakpoints.up("xs")]: {
       width: 32,

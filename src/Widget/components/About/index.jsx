@@ -114,6 +114,15 @@ const styles = theme => ({
     backgroundPosition: "50% 46%",
     WebkitBackgroundClip: "text",
     backgroundRepeat: "no-repeat"
+  },
+  more: {
+    backgroundColor: theme.colors.mainAction,
+    borderRadius: "50px",
+    padding: "0.5rem 2rem",
+    "&:hover": {
+      color: theme.colors.white
+    },
+    marginLeft: "1rem"
   }
 });
 
@@ -179,6 +188,9 @@ const About = props => {
           </Button>
           <Button type={1} className={classes.resume} onClick={() => {}}>
             Download CV
+          </Button>
+          <Button type={1} className={classes.more} onClick={() => {}}>
+            More About Me
           </Button>
         </Grid>
       </Grid>

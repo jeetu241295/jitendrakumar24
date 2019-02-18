@@ -29,3 +29,49 @@ export const skills = [
   { title: "Material-UI", value: 85 },
   { title: "HTML & CSS", value: 93 }
 ];
+export const education = [
+  {
+    id: 1,
+    type: "education",
+    period: "June 2001 - April 2011",
+    degree: "Schooling",
+    context: "Some say the best life is school life,No doubt about it.",
+    place: "D.A.V Public School"
+  },
+  {
+    id: 2,
+    type: "education",
+    period: "June 2011 - 2013 March",
+    degree: "Intermediate",
+    context: "So much hardwork,stress and pressure still somehow survived.",
+    place: "Narayana Jr. College"
+  },
+  {
+    id: 3,
+    type: "education",
+    period: "September 2013 - March 2017",
+    degree: "Bachelors in Computer Science",
+    context:
+      "I had really very good and bad experiences in this period,But I learned what life is also.",
+    place: "V R Siddharatha Engineering College"
+  }
+];
+export const experience = [
+  {
+    id: 1,
+    type: "experience",
+    period: "Novemeber 2017 - October 2018",
+    role: "ASE Trainee",
+    context: "Had to say I have been lucky got into development projects.",
+    company: "Tata Consultancy Services"
+  },
+  {
+    id: 2,
+    type: "experience",
+    period: "November 2018-Present",
+    role: "Assistant Software Engineer",
+    context: "Proved my worth in TCS and now they believe in me.",
+    company: "Tata Consultancy Services"
+  }
+  // { id: 3, type: "experience", period: "", role: "", context: "", company: "" }
+];

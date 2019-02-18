@@ -66,6 +66,9 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center",
     marginBottom: "1rem"
+  },
+  normal: {
+    color: theme.colors.white
   }
 });
 
@@ -84,7 +87,7 @@ const Contact = props => {
             </Typography>
             <Grid className={classes.listItem}>
               <Location />
-              <Normal>
+              <Normal className={classes.normal}>
                 SSS Colony, Gollapudi, Vijayawada, Andhra Pradesh, India-521456
               </Normal>
             </Grid>
@@ -95,11 +98,11 @@ const Contact = props => {
             </Typography>
             <Grid className={classes.listItem}>
               <Phone />
-              <Normal>+91 949 196 4870</Normal>
+              <Normal className={classes.normal}>+91 949 196 4870</Normal>
             </Grid>
             <Grid className={classes.listItem}>
               <Phone />
-              <Normal>+91 798 938 1360</Normal>
+              <Normal className={classes.normal}>+91 798 938 1360</Normal>
             </Grid>
           </Grid>
           <Grid className={classNames(classes.marginTop, classes.info)}>
@@ -108,11 +111,13 @@ const Contact = props => {
             </Typography>
             <Grid className={classes.listItem}>
               <Mail />
-              <Normal>jeetu241295@gmail.com</Normal>
+              <Normal className={classes.normal}>jeetu241295@gmail.com</Normal>
             </Grid>
             <Grid className={classes.listItem}>
               <Web />
-              <Normal>www.jitendrakumar24.tech</Normal>
+              <Normal className={classes.normal}>
+                www.jitendrakumar24.tech
+              </Normal>
             </Grid>
           </Grid>
         </Grid>

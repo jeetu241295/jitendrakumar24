@@ -14,7 +14,8 @@ const colors = {
   progressbarColor: "#57d131",
   sideBar: "#6e9dea",
   containerBackground: "#F8F9FA",
-  buttonColor: "#6c757d"
+  buttonColor: "#6c757d",
+  calenderColor: "#B3BDC6"
 };
 
 const theme = createMuiTheme({
