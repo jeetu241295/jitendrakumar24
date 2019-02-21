@@ -5,7 +5,6 @@ import {
   Drawer,
   List,
   ListItem,
-  // ListItemIcon,
   ListItemText
 } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
@@ -13,10 +12,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "./Button";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-import {
-  // Close,
-  Menu as MenuIcon
-} from "@material-ui/icons";
+import { Menu as MenuIcon } from "@material-ui/icons";
 import { Love } from "../Global/SVG";
 import classNames from "classnames";
 
@@ -165,16 +161,7 @@ class ButtonAppBar extends React.Component {
               }}
             >
               <List className={classes.list}>
-                {/* <ListItem
-                  button
-                  onClick={this.toggleDrawer}
-                  onKeyDown={this.toggleDrawer}
-                >
-                  <ListItemIcon>
-                    <Close />
-                  </ListItemIcon>
-                </ListItem> */}
-                {navs.map((nav, index) => (
+                {navs.map(nav => (
                   <ListItem
                     button
                     onClick={this.toggleDrawer}
@@ -182,9 +169,6 @@ class ButtonAppBar extends React.Component {
                     key={nav}
                     className={classes.listItem}
                   >
-                    {/* <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon> */}
                     <ListItemText
                       primary={nav}
                       classes={{

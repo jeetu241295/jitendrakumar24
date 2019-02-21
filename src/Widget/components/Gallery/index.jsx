@@ -34,7 +34,7 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "10rem",
+    padding: "7rem",
     paddingTop: "2rem",
     [theme.breakpoints.down("md")]: {
       padding: "3rem"

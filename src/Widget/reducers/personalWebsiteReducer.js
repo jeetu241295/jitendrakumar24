@@ -6,7 +6,9 @@ import {
   DIALOG,
   skills,
   education,
-  experience
+  experience,
+  motto,
+  about
 } from "../_helpers/constants";
 
 const defaultState = {
@@ -18,7 +20,9 @@ const defaultState = {
   index: 0,
   skills,
   education,
-  experience
+  experience,
+  motto,
+  about
 };
 
 const personalWebsiteReducer = {

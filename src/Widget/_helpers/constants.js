@@ -73,5 +73,12 @@ export const experience = [
     context: "Proved my worth in TCS and now they believe in me.",
     company: "Tata Consultancy Services"
   }
-  // { id: 3, type: "experience", period: "", role: "", context: "", company: "" }
+];
+export const motto =
+  "My life motto is 'Do my best, so that I can't blame myself for anything.";
+export const about = [
+  "Hey, this is my homepage, so I have to say something about myself. Sometimes it is hard to introduce yourself because you know yourself so well that you do not know where to start with. Let me give a try to see what kind of image you have about me through my self-description. I hope that my impression about myself and your impression about me are not so different. Here it goes.",
+  " I became very interested in acquire more knowledge about computers, so I begun my studies at the VR Siddhartha Engineering College. More than computers I am fancied about Mechanical but fate turned me into the Software Engineer and seriously I am thankful to it.",
+  "I regard myself to be a very open minded person, ready for new challenge, especially when it comes to technology. People consider me to be a social, temperamental person who doesn't hesitate in giving my opinion for what I think and believe in, honest and respectfully. They see me like a purposeful person and good in maintaining secrets.",
+  "I am an enthusiastic, self-motivated, reliable, responsible and hard working person. I believe my strengths are that I am able to work well under pressure and adhere to strict deadlines. I am a mature team worker and adaptable to all challenging situations."
 ];

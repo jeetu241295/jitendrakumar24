@@ -3,7 +3,6 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Button from "../../../Components/Button";
-// import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
 import {
   Facebook,

@@ -7,7 +7,11 @@ const styles = () => ({});
 
 const Projects = props => {
   const { classes } = props;
-  return <Grid container className={classes.Projects} />;
+  return (
+    <Grid container className={classes.Projects}>
+      Projects
+    </Grid>
+  );
 };
 
 Projects.propTypes = {

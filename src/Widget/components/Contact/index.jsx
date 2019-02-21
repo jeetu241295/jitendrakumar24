@@ -16,15 +16,16 @@ const styles = theme => ({
   overlay: {
     backgroundColor: "rgba(0,0,0,0.45)",
     width: "100%",
-    paddingTop: "10rem",
-    paddingBottom: "10rem",
+    padding: "7rem",
     position: "relative",
     display: "flex",
     justifyContent: "space-around",
     height: "90%",
+    [theme.breakpoints.down("md")]: {
+      padding: "3rem"
+    },
     [theme.breakpoints.down("sm")]: {
-      paddingBottom: "5rem",
-      paddingTop: "5rem"
+      padding: "1.5rem"
     }
   },
   personalInfoWrap: {
@@ -37,16 +38,16 @@ const styles = theme => ({
     padding: "4rem",
     color: theme.colors.white,
     [theme.breakpoints.up("lg")]: {
-      width: "50rem"
+      width: "40rem"
     },
     [theme.breakpoints.between("xs", "md")]: {
-      width: "39rem",
+      width: "30rem",
       marginTop: "1rem",
       marginBottom: "1rem",
       padding: "2.5rem"
     },
     [theme.breakpoints.down("sm")]: {
-      width: "27rem"
+      width: "22rem"
     }
   },
   header: {

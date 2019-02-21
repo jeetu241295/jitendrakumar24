@@ -58,7 +58,6 @@ const ReduxTextField = props => {
   return (
     <Grid className={(classes.textFieldWrap, className)}>
       <Field name={name} component={renderTextField} label={label} {...props} />
-      {/* {touched && error && <FormHelperText>{touched && error}</FormHelperText>} */}
     </Grid>
   );
 };

@@ -9,17 +9,21 @@ import Contact from "../Contact";
 import About from "../About";
 import Gallery from "../Gallery";
 import Experience from "../Experience";
+import Motto from "../Motto";
+import Project from "../Project";
 
 const styles = () => ({});
 
 const App = props => {
-  const { navs, skills } = props;
+  const { navs, skills, motto, about } = props;
   return (
     <Grid container>
       <Navbar navs={navs} />
       <Home />
-      <About skills={skills} />
+      <About skills={skills} about={about} />
+      <Motto motto={motto} />
       <Experience {...props} />
+      <Project />
       <Gallery {...props} />
       <Contact />
       <Footer navs={navs} />
@@ -29,7 +33,9 @@ const App = props => {
 
 App.propTypes = {
   navs: PropTypes.array.isRequired,
-  skills: PropTypes.array.isRequired
+  skills: PropTypes.array.isRequired,
+  about: PropTypes.array.isRequired,
+  motto: PropTypes.string.isRequired
 };
 App.defaultProps = {};
 

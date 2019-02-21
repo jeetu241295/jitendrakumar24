@@ -10,7 +10,7 @@ const styles = theme => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    padding: "10rem",
+    padding: "7rem",
     [theme.breakpoints.down("md")]: {
       padding: "5rem"
     },

@@ -8,7 +8,7 @@ import Button from "../../../Components/Button";
 const styles = theme => ({
   about: {
     display: "flex",
-    padding: "10rem",
+    padding: "7rem",
     alignItems: "flex-start",
     [theme.breakpoints.down("md")]: {
       padding: "3rem"
@@ -31,15 +31,23 @@ const styles = theme => ({
     }
   },
   skills: {
+    padding: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "0.5rem"
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1rem"
+    }
+  },
+  skillsTitle: {
     position: "relative",
     padding: "2.5rem",
     [theme.breakpoints.down("md")]: {
       padding: "0.5rem"
     },
-    "&:last-child": {
-      [theme.breakpoints.down("md")]: {
-        marginTop: 0
-      }
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "1rem",
+      marginBottom: "1rem"
     }
   },
   aboutMe: {
@@ -91,29 +99,17 @@ const styles = theme => ({
   buttons: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexWrap: "wrap"
   },
   description: {
     fontSize: "1.5rem",
     margin: "2rem 0",
     textAlign: "justify",
-    lineHeight: "1.5rem"
-  },
-  mottoWrap: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  motto: {
-    fontSize: "3rem",
-    fontWeight: 900,
-    textAlign: "center",
-    color: "transparent",
-    background: `url(${require("../../../static/images/motto.jpg")})`,
-    backgroundSize: "cover",
-    backgroundPosition: "50% 46%",
-    WebkitBackgroundClip: "text",
-    backgroundRepeat: "no-repeat"
+    lineHeight: "1.5rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: 0
+    }
   },
   more: {
     backgroundColor: theme.colors.mainAction,
@@ -127,7 +123,7 @@ const styles = theme => ({
 });
 
 const About = props => {
-  const { classes, skills } = props;
+  const { classes, skills, about } = props;
   return (
     <Grid container className={classes.about}>
       <Grid className={classes.imageWrap} item sm={5} xs={12}>
@@ -138,50 +134,16 @@ const About = props => {
         <Typography className={classes.title} variant="h3" component="h3">
           About Me
         </Typography>
-        <Typography
-          className={classes.description}
-          variant="body1"
-          component="p"
-        >
-          &emsp; Hey, this is my homepage, so I have to say something about
-          myself. Sometimes it is hard to introduce yourself because you know
-          yourself so well that you do not know where to start with. Let me give
-          a try to see what kind of image you have about me through my
-          self-description. I hope that my impression about myself and your
-          impression about me are not so different. Here it goes.
-        </Typography>
-        <Typography
-          className={classes.description}
-          variant="body1"
-          component="p"
-        >
-          &emsp; I became very interested in acquire more knowledge about
-          computers, so I begun my studies at the VR Siddhartha Engineering
-          College. More than computers I am fancied about Mechanical but fate
-          turned me into the Software Engineer and seriously I am thankful to
-          it.
-        </Typography>
-        <Typography
-          className={classes.description}
-          variant="body1"
-          component="p"
-        >
-          &emsp; I regard myself to be a very open minded person, ready for new
-          challenge, especially when it comes to technology. People consider me
-          to be a social, temperamental person who doesn't hesitate in giving my
-          opinion for what I think and believe in, honest and respectfully. They
-          see me like a purposeful person and good in maintaining secrets.
-        </Typography>
-        <Typography
-          className={classes.description}
-          variant="body1"
-          component="p"
-        >
-          &emsp; I am an enthusiastic, self-motivated, reliable, responsible and
-          hard working person. I believe my strengths are that I am able to work
-          well under pressure and adhere to strict deadlines. I am a mature team
-          worker and adaptable to all challenging situations.
-        </Typography>
+        {about.map((item, index) => (
+          <Typography
+            className={classes.description}
+            variant="body1"
+            component="p"
+            key={index}
+          >
+            &emsp; {item}
+          </Typography>
+        ))}
         <Grid className={classes.buttons}>
           <Button type={1} className={classes.hire} onClick={() => {}}>
             Hire Me
@@ -194,7 +156,7 @@ const About = props => {
           </Button>
         </Grid>
       </Grid>
-      <Grid className={classes.skills} item sm={4} xs={12}>
+      <Grid className={classes.skillsTitle} item sm={4} xs={12}>
         <Grid className={classes.titleBorder} />
         <Typography className={classes.title} variant="h3" component="h3">
           My Skills
@@ -209,19 +171,14 @@ const About = props => {
           />
         ))}
       </Grid>
-      <Grid item xs={12} className={classes.mottoWrap}>
-        <Typography className={classes.motto} variant="h1" component="h1">
-          My life motto is 'Do my best, so that I can't blame myself for
-          anything.
-        </Typography>
-      </Grid>
     </Grid>
   );
 };
 
 About.propTypes = {
   classes: PropTypes.object.isRequired,
-  skills: PropTypes.array.isRequired
+  skills: PropTypes.array.isRequired,
+  about: PropTypes.array.isRequired
 };
 About.defaultProps = {};
 
