@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
-import Button from "../../../Components/Button";
+import Button from "../Button";
 import { Typography } from "@material-ui/core";
 import {
   Facebook,
@@ -11,7 +11,7 @@ import {
   Instagram,
   Twitter,
   Love
-} from "../../../Global/SVG";
+} from "../../Global/SVG";
 
 const styles = theme => ({
   footer: {

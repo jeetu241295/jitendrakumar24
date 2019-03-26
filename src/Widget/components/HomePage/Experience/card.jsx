@@ -2,8 +2,8 @@ import React from "react";
 import { Paper, Grid, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { Calender } from "../../../Global/SVG";
-import Normal from "../../../Components/Normal";
+import { Calender } from "../../../../Global/SVG";
+import Normal from "../../../../Components/Normal";
 
 const styles = theme => ({
   paper: {

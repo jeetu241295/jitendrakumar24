@@ -15,6 +15,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { Menu as MenuIcon } from "@material-ui/icons";
 import { Love } from "../Global/SVG";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -51,6 +52,10 @@ const styles = theme => ({
     [theme.breakpoints.down("xs")]: {
       height: 48
     }
+  },
+  link: {
+    color: "inherit",
+    textDecoration: "none"
   },
   navLink: {
     color: theme.colors.white,
@@ -169,12 +174,14 @@ class ButtonAppBar extends React.Component {
                     key={nav}
                     className={classes.listItem}
                   >
-                    <ListItemText
-                      primary={nav}
-                      classes={{
-                        primary: classes.context
-                      }}
-                    />
+                    <Link to={`${nav}`}>
+                      <ListItemText
+                        primary={nav}
+                        classes={{
+                          primary: classes.context
+                        }}
+                      />
+                    </Link>
                   </ListItem>
                 ))}
               </List>
@@ -197,7 +204,13 @@ class ButtonAppBar extends React.Component {
             <Grid className={classes.navLinkWrap}>
               {navs.map(nav => (
                 <Button key={nav.toString()} className={classes.navLink}>
-                  {nav}
+                  <Link
+                    key={nav.toString()}
+                    className={classes.link}
+                    to={`/${nav}`}
+                  >
+                    {nav}
+                  </Link>
                 </Button>
               ))}
             </Grid>

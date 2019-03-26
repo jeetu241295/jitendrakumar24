@@ -8,7 +8,7 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: "7rem",
+    padding: "4rem",
     backgroundColor: theme.colors.calenderColor,
     [theme.breakpoints.down("md")]: {
       padding: "3rem"
@@ -22,7 +22,7 @@ const styles = theme => ({
     fontWeight: 900,
     textAlign: "center",
     color: "transparent",
-    background: `url(${require("../../../static/images/motto.jpg")})`,
+    background: `url(${require("../../../../static/images/motto.jpg")})`,
     backgroundSize: "cover",
     backgroundPosition: "50% 46%",
     WebkitBackgroundClip: "text",

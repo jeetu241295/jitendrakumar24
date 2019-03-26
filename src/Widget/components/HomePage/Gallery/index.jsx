@@ -62,7 +62,7 @@ const Gallery = ({ classes, ...props }) => {
             key={image.title + index}
           >
             <img
-              src={require(`../../../static/images/gal-${index + 1}.jpg`)}
+              src={require(`../../../../static/images/gal-${index + 1}.jpg`)}
               alt={image.title}
               className="gallery__img"
             />

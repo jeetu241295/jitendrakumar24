@@ -1,33 +1,26 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../../../Components/Navbar";
-import Home from "../Home";
-import Footer from "../Footer";
-import Contact from "../Contact";
-import About from "../About";
-import Gallery from "../Gallery";
-import Experience from "../Experience";
-import Motto from "../Motto";
-import Project from "../Project";
+import Footer from "../../../Components/Footer";
+import HomePage from "../HomePage";
+import AboutPage from "../AboutPage";
 
 const styles = () => ({});
 
 const App = props => {
-  const { navs, skills, motto, about } = props;
+  const { navs } = props;
   return (
-    <Grid container>
+    <Router>
       <Navbar navs={navs} />
-      <Home />
-      <About skills={skills} about={about} />
-      <Motto motto={motto} />
-      <Experience {...props} />
-      <Project />
-      <Gallery {...props} />
-      <Contact />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/home" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+      </Switch>
       <Footer navs={navs} />
-    </Grid>
+    </Router>
   );
 };
 

@@ -2,8 +2,8 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import ProgressBar from "../../../Components/ProgressBar";
-import Button from "../../../Components/Button";
+import ProgressBar from "../../../../Components/ProgressBar";
+import Button from "../../../../Components/Button";
 
 const styles = theme => ({
   about: {
@@ -123,11 +123,14 @@ const styles = theme => ({
 });
 
 const About = props => {
-  const { classes, skills, about } = props;
+  const { classes, skills, about, history } = props;
   return (
     <Grid container className={classes.about}>
       <Grid className={classes.imageWrap} item sm={5} xs={12}>
-        <img src={require("../../../static/images/about.jpg")} alt="My Pic" />
+        <img
+          src={require("../../../../static/images/about.jpg")}
+          alt="My Pic"
+        />
       </Grid>
       <Grid className={classes.aboutMe} item sm={7} xs={12}>
         <Grid className={classes.titleBorder} />
@@ -151,7 +154,13 @@ const About = props => {
           <Button type={1} className={classes.resume} onClick={() => {}}>
             Download CV
           </Button>
-          <Button type={1} className={classes.more} onClick={() => {}}>
+          <Button
+            type={1}
+            className={classes.more}
+            onClick={() => {
+              history.push("/about");
+            }}
+          >
             More About Me
           </Button>
         </Grid>
@@ -178,7 +187,8 @@ const About = props => {
 About.propTypes = {
   classes: PropTypes.object.isRequired,
   skills: PropTypes.array.isRequired,
-  about: PropTypes.array.isRequired
+  about: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired
 };
 About.defaultProps = {};
 

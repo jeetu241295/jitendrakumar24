@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid, withStyles, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
-import Button from "../../../../Components/Button";
-import TextField from "../../../../Components/ReduxForm/TextField";
-import { Send } from "../../../../Global/SVG";
+import Button from "../../../../../Components/Button";
+import TextField from "../../../../../Components/ReduxForm/TextField";
+import { Send } from "../../../../../Global/SVG";
 
 const styles = theme => ({
   header: {

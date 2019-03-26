@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   home: {
-    background: `url(${require("../../../static/images/home.jpg")}) no-repeat center center fixed`,
+    background: `url(${require("../../../../static/images/home.jpg")}) no-repeat center center fixed`,
     backgroundSize: "cover",
     width: "100%",
     height: "100%"

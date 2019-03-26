@@ -1,6 +1,6 @@
 export const COUNT = "COUNT";
 export const DIALOG = "DIALOG";
-export const navs = ["Home", "About Me", "Experience", "Projects", "Contact"];
+export const navs = ["home", "about", "experience", "projects", "contact"];
 export const images = [
   { title: "View Point Aaraku", src: "../../../static/images/gal-1.jpg" },
   { title: "VRSEC CS-2 collage 2017", src: "../../../static/images/gal-2.jpg" },

@@ -3,12 +3,12 @@ import { withStyles, Typography, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import ContactForm from "./ContactForm";
 import classNames from "classnames";
-import Normal from "../../../Components/Normal";
-import { Phone, Mail, Location, Web } from "../../../Global/SVG";
+import Normal from "../../../../Components/Normal";
+import { Phone, Mail, Location, Web } from "../../../../Global/SVG";
 
 const styles = theme => ({
   contact: {
-    background: `url(${require("../../../static/images/contact.jpg")}) no-repeat center center fixed`,
+    background: `url(${require("../../../../static/images/contact.jpg")}) no-repeat center center fixed`,
     backgroundSize: "cover",
     width: "100%",
     height: "100%"
