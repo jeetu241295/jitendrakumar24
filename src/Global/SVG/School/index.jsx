@@ -5,7 +5,7 @@ import SchoolSVG from './school.svg';
 import styles from '../styles.css';
 
 const School = ({ classes }) => {
-  return <SchoolSVG className={classes.calenderColor} height={16} width={16} />;
+  return <SchoolSVG className={classes.calenderClor} height={24} width={24} />;
 };
 School.propTypes = {
   classes: PropTypes.object.isRequired,

@@ -6,7 +6,7 @@ import styles from '../styles.css';
 
 const Engineering = ({ classes }) => {
   return (
-    <EngineeringSVG className={classes.calenderColor} height={16} width={16} />
+    <EngineeringSVG className={classes.calenderColr} height={24} width={24} />
   );
 };
 Engineering.propTypes = {

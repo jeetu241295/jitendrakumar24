@@ -5,7 +5,7 @@ import WorkSVG from './work.svg';
 import styles from '../styles.css';
 
 const Work = ({ classes }) => {
-  return <WorkSVG className={classes.calenderColor} height={16} width={16} />;
+  return <WorkSVG className={classes.calenderCoor} height={24} width={24} />;
 };
 Work.propTypes = {
   classes: PropTypes.object.isRequired,

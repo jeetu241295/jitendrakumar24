@@ -12,7 +12,7 @@ const styles = theme => ({
   },
   summary: {
     color: theme.colors.white,
-    backgroundColor: theme.colors.progressbarColor,
+    backgroundColor: theme.colors.footerNav,
   },
 });
 

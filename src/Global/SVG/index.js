@@ -10,7 +10,6 @@ export { default as Love } from './Love';
 export { default as Send } from './Send';
 export { default as Web } from './Web';
 export { default as Calender } from './Calender';
-export { default as College } from './College';
 export { default as Engineering } from './Engineering';
 export { default as Work } from './Work';
 export { default as School } from './School';

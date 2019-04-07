@@ -209,11 +209,7 @@ class ButtonAppBar extends React.Component {
             <Grid className={classes.navLinkWrap}>
               {navs.map(nav => (
                 <Button key={nav.toString()} className={classes.navLink}>
-                  <Link
-                    key={nav.toString()}
-                    className={classes.link}
-                    to={`/${nav}`}
-                  >
+                  <Link className={classes.link} to={`/${nav}`}>
                     {nav}
                   </Link>
                 </Button>

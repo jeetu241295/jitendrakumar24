@@ -15,7 +15,7 @@ export const images = [
   { id: 3, title: 'My Brother', src: '../../../static/images/gal-3.jpg' },
   {
     id: 4,
-    title: 'Pavithra Sangamam',
+    title: 'My Best Friends',
     src: '../../../static/images/gal-4.jpg',
   },
   { id: 5, title: 'Selected for TCS', src: '../../../static/images/gal-5.jpg' },
@@ -129,5 +129,49 @@ export const about = [
     id: 4,
     content:
       'I am an enthusiastic, self-motivated, reliable, responsible and hard working person. I believe my strengths are that I am able to work well under pressure and adhere to strict deadlines. I am a mature team worker and adaptable to all challenging situations.',
+  },
+];
+
+// About Page
+export const schoolDetails = [
+  {
+    id: 1,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hello',
+    alt: 'School Friends',
+  },
+  {
+    id: 2,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hii',
+    alt: 'School Friends',
+  },
+];
+export const underGraduateDetails = [
+  {
+    id: 1,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hello',
+    alt: 'School Friends',
+  },
+  {
+    id: 2,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hii',
+    alt: 'School Friends',
+  },
+];
+export const workDetails = [
+  {
+    id: 1,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hello',
+    alt: 'School Friends',
+  },
+  {
+    id: 2,
+    img: '../../../static/images/gal-4.jpg',
+    content: 'Hii',
+    alt: 'School Friends',
   },
 ];

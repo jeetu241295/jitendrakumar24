@@ -9,6 +9,9 @@ import {
   experience,
   motto,
   about,
+  schoolDetails,
+  underGraduateDetails,
+  workDetails,
 } from '../_helpers/constants';
 
 const defaultState = {
@@ -23,6 +26,9 @@ const defaultState = {
   experience,
   motto,
   about,
+  schoolDetails,
+  underGraduateDetails,
+  workDetails,
 };
 
 const personalWebsiteReducer = {
