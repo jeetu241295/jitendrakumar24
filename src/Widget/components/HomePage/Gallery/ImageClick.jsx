@@ -1,12 +1,20 @@
-import React from "react";
-import { withStyles } from "@material-ui/core";
-import DialogJK from "../../../../Components/Dialog";
-import Grid from "@material-ui/core/Grid";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import DialogJK from '../../../../Components/Dialog';
 
-const styles = () => {};
+const styles = () => ({
+  gridImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    display: 'block',
+  },
+});
 
 const ImageClick = props => {
-  const { image, imageOpen, index, dialogOpen } = props;
+  const { image, imageOpen, index, dialogOpen, classes } = props;
   return (
     <Grid>
       {image && (
@@ -17,19 +25,21 @@ const ImageClick = props => {
           closeButton
         >
           <img
+            // eslint-disable-next-line
             src={require(`../../../../static/images/gal-${index + 1}.jpg`)}
             alt={image.title}
-            className="gallery__img"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block"
-            }}
+            className={classes.gridImage}
           />
         </DialogJK>
       )}
     </Grid>
   );
+};
+ImageClick.propTypes = {
+  classes: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
+  imageOpen: PropTypes.bool.isRequired,
+  dialogOpen: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
 };
 export default withStyles(styles)(ImageClick);

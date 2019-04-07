@@ -1,10 +1,10 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Routing from "./component";
-import * as personalWebsiteAction from "../../actions/personalWebsiteActions";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import Routing from './component';
+import * as personalWebsiteAction from '../../actions/personalWebsiteActions';
 
 const mapStatetoProps = state => ({
-  ...state.personalWebsiteReducer
+  ...state.personalWebsiteReducer,
 });
 
 const mapDispatchtoProps = dispatch =>
@@ -12,5 +12,5 @@ const mapDispatchtoProps = dispatch =>
 
 export default connect(
   mapStatetoProps,
-  mapDispatchtoProps
+  mapDispatchtoProps,
 )(Routing);

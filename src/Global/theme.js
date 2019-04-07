@@ -1,21 +1,21 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import purple from "@material-ui/core/colors/purple";
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
 
 const colors = {
-  white: "#fff",
-  black: "#000",
-  navbar: "#343a40",
-  footer: "#222222",
-  footerNav: "#c3bec2",
-  primary: "#ff2b4a",
-  contact: "#352639",
-  error: "#BA0C2F",
-  mainAction: "#11cb5f",
-  progressbarColor: "#57d131",
-  sideBar: "#6e9dea",
-  containerBackground: "#F8F9FA",
-  buttonColor: "#6c757d",
-  calenderColor: "#B3BDC6"
+  white: '#fff',
+  black: '#000',
+  navbar: '#343a40',
+  footer: '#222222',
+  footerNav: '#c3bec2',
+  primary: '#ff2b4a',
+  contact: '#352639',
+  error: '#BA0C2F',
+  mainAction: '#11cb5f',
+  progressbarColor: '#57d131',
+  sideBar: '#6e9dea',
+  containerBackground: '#F8F9FA',
+  buttonColor: '#6c757d',
+  calenderColor: '#B3BDC6',
 };
 
 const theme = createMuiTheme({
@@ -38,15 +38,15 @@ const theme = createMuiTheme({
     // }
   },
   palette: {
-    primary: { main: "#11cb5f" }, // Purple and green play nicely together.
+    primary: { main: '#11cb5f' }, // Purple and green play nicely together.
     secondary: { main: purple[500] },
-    error: { main: "#BA0C2F" } // This is just green.A700 as hex.
+    error: { main: '#BA0C2F' }, // This is just green.A700 as hex.
   },
-  colors: colors,
+  colors,
   typography: {
     useNextVariants: true,
-    htmlFontSize: 10
-  }
+    htmlFontSize: 10,
+  },
 });
 
 export default theme;

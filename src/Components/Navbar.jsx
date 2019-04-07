@@ -1,110 +1,111 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   withStyles,
   Drawer,
   List,
   ListItem,
-  ListItemText
-} from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Button from "./Button";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import { Menu as MenuIcon } from "@material-ui/icons";
-import { Love } from "../Global/SVG";
-import classNames from "classnames";
-import { Link } from "react-router-dom";
+  ListItemText,
+} from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import { Menu as MenuIcon } from '@material-ui/icons';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { Love } from '../Global/SVG';
+import Button from './Button';
+import logo from '../static/images/logo.jpg';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    justifyContent: "flex-start"
+    justifyContent: 'flex-start',
   },
   menuButton: {
     marginLeft: -12,
-    [theme.breakpoints.up("sm")]: {
-      display: "none"
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
     },
-    marginRight: "auto",
-    color: theme.colors.white
+    marginRight: 'auto',
+    color: theme.colors.white,
   },
   navLinkWrap: {
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    marginLeft: "auto",
-    [theme.breakpoints.down("xs")]: {
-      display: "none"
-    }
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginLeft: 'auto',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
   logo: {
     width: 35,
-    height: 35
+    height: 35,
   },
   appbar: {
     backgroundColor: theme.colors.navbar,
     opacity: 0.7,
     height: 64,
     top: 0,
-    transition: "all .3s ease-in",
-    [theme.breakpoints.down("xs")]: {
-      height: 48
-    }
+    transition: 'all .3s ease-in',
+    [theme.breakpoints.down('xs')]: {
+      height: 48,
+    },
   },
   link: {
-    color: "inherit",
-    textDecoration: "none"
+    color: 'inherit',
+    textDecoration: 'none',
   },
   navLink: {
     color: theme.colors.white,
-    fontSize: "1.5rem",
-    backgroundColor: "transparent",
-    padding: "1rem 2rem",
-    "&:hover": {
-      backgroundColor: "transparent"
+    fontSize: '1.5rem',
+    backgroundColor: 'transparent',
+    padding: '1rem 2rem',
+    '&:hover': {
+      backgroundColor: 'transparent',
     },
-    "&:focus": {
-      backgroundColor: "transparent"
+    '&:focus': {
+      backgroundColor: 'transparent',
     },
-    [theme.breakpoints.down("sm")]: {
-      padding: "0.5rem 1rem"
-    }
+    [theme.breakpoints.down('sm')]: {
+      padding: '0.5rem 1rem',
+    },
   },
   paper: {
     backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
       theme.colors.sideBar
     })`,
-    width: "50%"
+    width: '50%',
   },
   context: {
     color: theme.colors.white,
-    fontSize: "1.5rem",
-    fontWeight: "bold"
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
   },
   listItem: {
-    borderBottom: "2px solid",
+    borderBottom: '2px solid',
     borderColor: theme.colors.black,
-    "&:first-child": {
-      borderTop: "2px solid"
-    }
+    '&:first-child': {
+      borderTop: '2px solid',
+    },
   },
   rights: {
-    borderTop: "2px solid",
-    marginTop: "auto"
+    borderTop: '2px solid',
+    marginTop: 'auto',
   },
   navUp: {
     top: -57,
     backgroundColor: theme.colors.mainAction,
     opacity: 1,
-    "&:hover": {
+    '&:hover': {
       top: 0,
       backgroundColor: theme.colors.navbar,
-      opacity: 0.7
-    }
+      opacity: 0.7,
+    },
   },
-  navDown: {}
+  navDown: {},
 });
 
 class ButtonAppBar extends React.Component {
@@ -112,15 +113,17 @@ class ButtonAppBar extends React.Component {
     open: false,
     navBarHeight: 64,
     lastScrollTop: 0,
-    isScrolledDown: false
+    isScrolledDown: false,
   };
+
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   }
+
   hasScrolled = () => {
     const { navBarHeight, lastScrollTop } = this.state;
     const delta = 5;
-    let st = document.documentElement.scrollTop;
+    const st = document.documentElement.scrollTop;
     if (Math.abs(lastScrollTop - st) <= delta) return;
     if (st > lastScrollTop && st > navBarHeight) {
       this.setState({ isScrolledDown: true });
@@ -132,22 +135,28 @@ class ButtonAppBar extends React.Component {
     }
     this.setState({ lastScrollTop: st });
   };
+
   handleScroll = () => {
-    this.setState({ scrollY: window.scrollY });
+    const { scrollY } = this.state;
+    this.setState({ scrollY });
     this.hasScrolled();
   };
+
   toggleDrawer = () => {
-    this.setState({ open: !this.state.open });
+    const { open } = this.state;
+    this.setState({ open: !open });
   };
+
   render() {
+    const { isScrolledDown, open } = this.state;
     const { classes, navs } = this.props;
     return (
       <div className={classes.root}>
         <AppBar
           position="fixed"
           className={classNames(classes.appbar, {
-            [classes.navUp]: this.state.isScrolledDown === true,
-            [classes.navDown]: this.state.isScrolledDown === false
+            [classes.navUp]: isScrolledDown === true,
+            [classes.navDown]: isScrolledDown === false,
           })}
         >
           <Toolbar>
@@ -159,10 +168,10 @@ class ButtonAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Drawer
-              open={this.state.open}
+              open={open}
               onClose={this.toggleDrawer}
               classes={{
-                paper: classes.paper
+                paper: classes.paper,
               }}
             >
               <List className={classes.list}>
@@ -178,7 +187,7 @@ class ButtonAppBar extends React.Component {
                       <ListItemText
                         primary={nav}
                         classes={{
-                          primary: classes.context
+                          primary: classes.context,
                         }}
                       />
                     </Link>
@@ -188,7 +197,7 @@ class ButtonAppBar extends React.Component {
               <ListItem className={classes.rights}>
                 <ListItemText
                   classes={{
-                    primary: classes.context
+                    primary: classes.context,
                   }}
                 >
                   Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar.
@@ -196,11 +205,7 @@ class ButtonAppBar extends React.Component {
                 </ListItemText>
               </ListItem>
             </Drawer>
-            <img
-              alt="JK"
-              src={require("../static/images/logo.jpg")}
-              className={classes.logo}
-            />
+            <img alt="JK" src={logo} className={classes.logo} />
             <Grid className={classes.navLinkWrap}>
               {navs.map(nav => (
                 <Button key={nav.toString()} className={classes.navLink}>
@@ -223,7 +228,7 @@ class ButtonAppBar extends React.Component {
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired
+  navs: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(ButtonAppBar);

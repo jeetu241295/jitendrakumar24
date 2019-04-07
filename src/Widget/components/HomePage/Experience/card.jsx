@@ -1,40 +1,40 @@
-import React from "react";
-import { Paper, Grid, Typography } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import { Calender } from "../../../../Global/SVG";
-import Normal from "../../../../Components/Normal";
+import React from 'react';
+import { Paper, Grid, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { Calender } from '../../../../Global/SVG';
+import Normal from '../../../../Components/Normal';
 
 const styles = theme => ({
   paper: {
-    padding: "2rem",
+    padding: '2rem',
     backgroundColor: theme.colors.white,
     borderColor: theme.colors.white,
-    marginBottom: "1rem",
-    border: "2px solid",
-    "&:hover": {
-      borderColor: theme.colors.mainAction
-    }
+    marginBottom: '1rem',
+    border: '2px solid',
+    '&:hover': {
+      borderColor: theme.colors.mainAction,
+    },
   },
   timeline: {
-    display: "flex"
+    display: 'flex',
   },
   period: {
-    fontSize: "2rem",
+    fontSize: '2rem',
     fontWeight: 500,
-    marginTop: ".5rem",
-    marginBottom: ".5rem"
+    marginTop: '.5rem',
+    marginBottom: '.5rem',
   },
   place: {
-    fontSize: "1.75rem",
+    fontSize: '1.75rem',
     fontWeight: 500,
-    marginTop: ".5rem"
-  }
+    marginTop: '.5rem',
+  },
 });
 
 const Card = props => {
   const { classes, item } = props;
-  const isEducation = item.type === "education";
+  const isEducation = item.type === 'education';
   return (
     <Paper className={classes.paper}>
       <Grid className={classes.timeline}>
@@ -54,7 +54,7 @@ const Card = props => {
 
 Card.propTypes = {
   classes: PropTypes.object.isRequired,
-  item: PropTypes.object.isRequired
+  item: PropTypes.object.isRequired,
 };
 Card.defaultProps = {};
 

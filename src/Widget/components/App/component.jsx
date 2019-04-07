@@ -1,11 +1,11 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "../../../Components/Navbar";
-import Footer from "../../../Components/Footer";
-import HomePage from "../HomePage";
-import AboutPage from "../AboutPage";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from '../../../Components/Navbar';
+import Footer from '../../../Components/Footer';
+import HomePage from '../HomePage';
+import AboutPage from '../AboutPage';
 
 const styles = () => ({});
 
@@ -26,9 +26,6 @@ const App = props => {
 
 App.propTypes = {
   navs: PropTypes.array.isRequired,
-  skills: PropTypes.array.isRequired,
-  about: PropTypes.array.isRequired,
-  motto: PropTypes.string.isRequired
 };
 App.defaultProps = {};
 

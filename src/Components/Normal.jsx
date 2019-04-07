@@ -1,13 +1,13 @@
-import React from "react";
-import { Grid, withStyles } from "@material-ui/core";
-import PropTypes from "prop-types";
-import classNames from "class-names";
+import React from 'react';
+import { Grid, withStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import classNames from 'class-names';
 
 const styles = theme => ({
   normal: {
     color: theme.colors.calenderColor,
-    fontSize: "1.5rem"
-  }
+    fontSize: '1.5rem',
+  },
 });
 
 const Normal = props => {
@@ -17,10 +17,10 @@ const Normal = props => {
   );
 };
 
-Normal.propType = {
-  class: PropTypes.object.isRequired,
+Normal.propTypes = {
+  classes: PropTypes.object.isRequired,
   children: PropTypes.array.isRequired,
-  className: PropTypes.object.isRequired
+  className: PropTypes.object.isRequired,
 };
 Normal.defaultProps = {};
 

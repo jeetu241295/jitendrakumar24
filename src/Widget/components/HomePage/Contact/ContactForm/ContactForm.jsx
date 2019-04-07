@@ -1,35 +1,35 @@
-import React from "react";
-import { Grid, withStyles, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import Button from "../../../../../Components/Button";
-import TextField from "../../../../../Components/ReduxForm/TextField";
-import { Send } from "../../../../../Global/SVG";
+import React from 'react';
+import { Grid, withStyles, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import Button from '../../../../../Components/Button';
+import TextField from '../../../../../Components/ReduxForm/TextField';
+import { Send } from '../../../../../Global/SVG';
 
 const styles = theme => ({
   header: {
     color: theme.colors.mainAction,
-    marginBottom: "2.5rem",
-    alignSelf: "flex-start",
-    fontSize: "2rem",
-    textTransform: "uppercase"
+    marginBottom: '2.5rem',
+    alignSelf: 'flex-start',
+    fontSize: '2rem',
+    textTransform: 'uppercase',
   },
   contactFormWrap: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column"
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   contactForm: {
-    display: "flex",
-    flexDirection: "column"
+    display: 'flex',
+    flexDirection: 'column',
   },
   textField: {
-    marginTop: "1rem",
-    marginBottom: "1rem"
+    marginTop: '1rem',
+    marginBottom: '1rem',
   },
   send: {
-    alignSelf: "flex-end"
-  }
+    alignSelf: 'flex-end',
+  },
 });
 
 const ContactForm = props => {
@@ -62,6 +62,6 @@ const ContactForm = props => {
   );
 };
 ContactForm.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(ContactForm);

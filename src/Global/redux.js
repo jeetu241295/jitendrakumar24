@@ -1,7 +1,8 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
 
 export function createReducer(initialState, actionHandlers) {
   return function reducer(state = initialState, action) {
+    // eslint-disable-next-line
     if (actionHandlers.hasOwnProperty(action.type)) {
       return actionHandlers[action.type](state, action);
     }
@@ -22,6 +23,9 @@ export function createAction(type, ...argNames) {
 export const createStorePOC = reducer => {
   return createStore(
     reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // eslint-disable-next-line
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      // eslint-disable-next-line
+      window.__REDUX_DEVTOOLS_EXTENSION__(),
   );
 };

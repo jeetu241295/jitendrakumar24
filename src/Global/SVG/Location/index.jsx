@@ -1,8 +1,9 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { ReactComponent as LocationSVG } from "./location2.svg";
-import styles from "../styles.css";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
+import LocationSVG from './location2.svg';
+import styles from '../styles.css';
 
 const Location = ({ classes }) => {
   return (
@@ -12,5 +13,8 @@ const Location = ({ classes }) => {
       width={32}
     />
   );
+};
+Location.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(Location);

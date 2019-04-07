@@ -1,57 +1,57 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
-import Grid from "@material-ui/core/Grid";
-import Button from "../Button";
-import { Typography } from "@material-ui/core";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import { Typography } from '@material-ui/core';
+import Button from '../Button';
 import {
   Facebook,
   LinkedIn,
   Github,
   Instagram,
   Twitter,
-  Love
-} from "../../Global/SVG";
+  Love,
+} from '../../Global/SVG';
 
 const styles = theme => ({
   footer: {
-    padding: "3rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    backgroundColor: theme.colors.footer
+    padding: '3rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    backgroundColor: theme.colors.footer,
   },
   rights: {
     color: theme.colors.containerBackground,
-    fontSize: "1.5rem",
-    textAlign: "center"
+    fontSize: '1.5rem',
+    textAlign: 'center',
   },
   navLink: {
     color: theme.colors.containerBackground,
-    fontSize: "1.5rem",
-    backgroundColor: "transparent",
-    padding: "1rem 2rem",
-    "&:hover": {
-      backgroundColor: "transparent"
+    fontSize: '1.5rem',
+    backgroundColor: 'transparent',
+    padding: '1rem 2rem',
+    '&:hover': {
+      backgroundColor: 'transparent',
     },
-    "&:focus": {
-      backgroundColor: "transparent"
-    }
+    '&:focus': {
+      backgroundColor: 'transparent',
+    },
   },
   listItem: {
-    marginBottom: "1rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
-    "& button": {
-      [theme.breakpoints.down("sm")]: {
-        marginBottom: "1rem",
-        padding: "0.5rem 1rem"
-      }
-    }
-  }
+    marginBottom: '1rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    '& button': {
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: '1rem',
+        padding: '0.5rem 1rem',
+      },
+    },
+  },
 });
 
 const Footer = props => {
@@ -62,8 +62,8 @@ const Footer = props => {
         <Button
           onClick={() => {
             window.open(
-              "https://www.facebook.com/jitendra.kumar.501",
-              "_blank"
+              'https://www.facebook.com/jitendra.kumar.501',
+              '_blank',
             );
           }}
           type={2}
@@ -72,7 +72,7 @@ const Footer = props => {
         </Button>
         <Button
           onClick={() => {
-            window.open("https://github.com/jeetu241295", "_blank");
+            window.open('https://github.com/jeetu241295', '_blank');
           }}
           type={2}
         >
@@ -81,8 +81,8 @@ const Footer = props => {
         <Button
           onClick={() => {
             window.open(
-              "https://www.instagram.com/jitendra.bhamidipati/",
-              "_blank"
+              'https://www.instagram.com/jitendra.bhamidipati/',
+              '_blank',
             );
           }}
           type={2}
@@ -92,8 +92,8 @@ const Footer = props => {
         <Button
           onClick={() => {
             window.open(
-              "https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/",
-              "_blank"
+              'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
+              '_blank',
             );
           }}
           type={2}
@@ -102,7 +102,7 @@ const Footer = props => {
         </Button>
         <Button
           onClick={() => {
-            window.open("https://twitter.com/jeetu241295", "_blank");
+            window.open('https://twitter.com/jeetu241295', '_blank');
           }}
           type={2}
         >
@@ -128,6 +128,6 @@ const Footer = props => {
 
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired
+  navs: PropTypes.array.isRequired,
 };
 export default withStyles(styles)(Footer);

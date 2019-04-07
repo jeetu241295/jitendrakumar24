@@ -1,25 +1,25 @@
 export const styles = theme => ({
   whiteColor: {
     fill: theme.colors.white,
-    marginRight: "1rem",
-    [theme.breakpoints.down("sm")]: {
+    marginRight: '1rem',
+    [theme.breakpoints.down('sm')]: {
       width: 14,
-      height: 16
-    }
+      height: 16,
+    },
   },
   calenderColor: {
-    fill: theme.colors.calenderColor
+    fill: theme.colors.calenderColor,
   },
   location: {
-    [theme.breakpoints.up("xs")]: {
+    [theme.breakpoints.up('xs')]: {
       width: 32,
-      height: 32
-    }
+      height: 32,
+    },
   },
   primaryColor: { fill: theme.colors.primary },
   blackColor: {
     fill: theme.colors.black,
-    marginRight: "1rem"
-  }
+    marginRight: '1rem',
+  },
 });
 export default styles;
