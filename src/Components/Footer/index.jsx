@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Button from '../Button';
 import {
   Facebook,
@@ -111,9 +112,11 @@ const Footer = props => {
       </Grid>
       <Grid className={classes.listItem}>
         {navs.map(nav => (
-          <Button key={nav.toString()} className={classes.navLink} type={3}>
-            {nav}
-          </Button>
+          <Link key={nav.toString()} to={`/${nav}`}>
+            <Button className={classes.navLink} type={3} onClick={() => {}}>
+              {nav}
+            </Button>
+          </Link>
         ))}
       </Grid>
       <Grid className={classes.listItem}>

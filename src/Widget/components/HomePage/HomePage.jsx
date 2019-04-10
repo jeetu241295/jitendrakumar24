@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Home from './Home';
-import Contact from './Contact';
 import About from './About';
 import Gallery from './Gallery';
 import Experience from './Experience';
@@ -22,7 +21,6 @@ const App = props => {
       <Experience {...props} />
       <Project />
       <Gallery {...props} />
-      <Contact />
     </Grid>
   );
 };

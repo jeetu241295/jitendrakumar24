@@ -19,9 +19,11 @@ const Normal = props => {
 
 Normal.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired,
-  className: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
-Normal.defaultProps = {};
+Normal.defaultProps = {
+  className: '',
+};
 
 export default withStyles(styles)(Normal);

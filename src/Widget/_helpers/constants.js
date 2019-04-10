@@ -1,56 +1,75 @@
+import ronaldoIMG from '../../static/images/rsz_ronaldo.jpg';
+import narutoIMG from '../../static/images/naruto.jpg';
+import onePieceIMG from '../../static/images/onepiece.png';
+import gal1 from '../../static/images/gal-1.jpg';
+import gal2 from '../../static/images/gal-2.jpg';
+import gal3 from '../../static/images/gal-3.jpg';
+import gal4 from '../../static/images/gal-4.jpg';
+import gal5 from '../../static/images/gal-5.jpg';
+import gal6 from '../../static/images/gal-6.jpg';
+import gal7 from '../../static/images/gal-7.jpg';
+import gal8 from '../../static/images/gal-8.jpg';
+import gal9 from '../../static/images/gal-9.jpg';
+import gal10 from '../../static/images/gal-10.jpg';
+import gal11 from '../../static/images/gal-11.jpg';
+import gal12 from '../../static/images/gal-12.jpg';
+import gal13 from '../../static/images/gal-13.jpg';
+import gal14 from '../../static/images/gal-14.jpg';
+
 export const COUNT = 'COUNT';
 export const DIALOG = 'DIALOG';
-export const navs = ['home', 'about', 'experience', 'projects', 'contact'];
+export const navs = ['home', 'about', 'projects', 'contact'];
+
 export const images = [
   {
     id: 1,
     title: 'View Point Aaraku',
-    src: '../../../static/images/gal-1.jpg',
+    src: gal1,
   },
   {
     id: 2,
     title: 'VRSEC CS-2 collage 2017',
-    src: '../../../static/images/gal-2.jpg',
+    src: gal2,
   },
-  { id: 3, title: 'My Brother', src: '../../../static/images/gal-3.jpg' },
+  { id: 3, title: 'My Brother', src: gal3 },
   {
     id: 4,
     title: 'My Best Friends',
-    src: '../../../static/images/gal-4.jpg',
+    src: gal4,
   },
-  { id: 5, title: 'Selected for TCS', src: '../../../static/images/gal-5.jpg' },
+  { id: 5, title: 'Selected for TCS', src: gal5 },
   {
     id: 6,
     title: 'TCS Kohinoor Park',
-    src: '../../../static/images/gal-6.jpg',
+    src: gal6,
   },
-  { id: 7, title: 'TCS Q-city ILP', src: '../../../static/images/gal-7.jpg' },
-  { id: 8, title: 'Kondapalli Fort', src: '../../../static/images/gal-8.jpg' },
+  { id: 7, title: 'TCS Q-city ILP', src: gal7 },
+  { id: 8, title: 'Kondapalli Fort', src: gal8 },
   {
     id: 9,
     title: 'Intermediate Batch',
-    src: '../../../static/images/gal-9.jpg',
+    src: gal9,
   },
-  { id: 10, title: 'Selfie', src: '../../../static/images/gal-10.jpg' },
+  { id: 10, title: 'Selfie', src: gal10 },
   {
     id: 11,
     title: 'TCS Q-city ILP Batch',
-    src: '../../../static/images/gal-11.jpg',
+    src: gal11,
   },
   {
     id: 12,
     title: 'TCS Q-city ILP Batch',
-    src: '../../../static/images/gal-12.jpg',
+    src: gal12,
   },
   {
     id: 13,
     title: 'TCS Kohinoor Park Gang',
-    src: '../../../static/images/gal-13.jpg',
+    src: gal13,
   },
   {
     id: 14,
     title: 'Aaraku Katika Waterfalls Trekking',
-    src: '../../../static/images/gal-14.jpg',
+    src: gal14,
   },
 ];
 export const skills = [
@@ -136,13 +155,13 @@ export const about = [
 export const schoolDetails = [
   {
     id: 1,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hello',
     alt: 'School Friends',
   },
   {
     id: 2,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hii',
     alt: 'School Friends',
   },
@@ -150,13 +169,13 @@ export const schoolDetails = [
 export const underGraduateDetails = [
   {
     id: 1,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hello',
     alt: 'School Friends',
   },
   {
     id: 2,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hii',
     alt: 'School Friends',
   },
@@ -164,14 +183,37 @@ export const underGraduateDetails = [
 export const workDetails = [
   {
     id: 1,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hello',
     alt: 'School Friends',
   },
   {
     id: 2,
-    img: '../../../static/images/gal-4.jpg',
+    img: gal4,
     content: 'Hii',
     alt: 'School Friends',
+  },
+];
+
+export const personalContent = [
+  {
+    id: 1,
+    img: ronaldoIMG,
+    title: 'Cristiano Ronaldo',
+    content: 'One of the best football player in the World',
+  },
+  {
+    id: 2,
+    img: narutoIMG,
+    title: 'Naruto',
+    content:
+      'Naruto, one of the best. The one that changed my character, my views, my personality',
+  },
+  {
+    id: 3,
+    img: onePieceIMG,
+    title: 'One Piece',
+    content:
+      "One Piece, one of the best.I learned so many life lessons from Naruto and One Piece which school didn't teach. ",
   },
 ];

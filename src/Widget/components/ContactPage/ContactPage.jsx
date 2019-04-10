@@ -3,9 +3,9 @@ import { withStyles, Typography, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ContactForm from './ContactForm';
-import Normal from '../../../../Components/Normal';
-import { Phone, Mail, Location, Web } from '../../../../Global/SVG';
-import contactImg from '../../../../static/images/contact.jpg';
+import Normal from '../../../Components/Normal';
+import { Phone, Mail, Location, Web } from '../../../Global/SVG';
+import contactImg from '../../../static/images/contact.jpg';
 
 const styles = theme => ({
   contact: {
@@ -18,6 +18,7 @@ const styles = theme => ({
     backgroundColor: 'rgba(0,0,0,0.45)',
     width: '100%',
     padding: '7rem',
+    paddingTop: '10rem',
     position: 'relative',
     display: 'flex',
     justifyContent: 'space-around',

@@ -7,6 +7,7 @@ import { School, Engineering, Work } from '../../../Global/SVG';
 import Normal from '../../../Components/Normal';
 import Tabs from '../../../Components/Tabs';
 import AlternatePanel from '../../../Components/AlternatePanel';
+import Card from '../../../Components/Card';
 
 const styles = theme => ({
   about: {
@@ -17,10 +18,20 @@ const styles = theme => ({
     color: theme.colors.black,
     marginLeft: '1rem',
   },
+  cardWrap: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 });
 
-const App = props => {
-  const { classes, schoolDetails, underGraduateDetails, workDetails } = props;
+const AboutPage = props => {
+  const {
+    classes,
+    schoolDetails,
+    underGraduateDetails,
+    workDetails,
+    personalContent,
+  } = props;
   const data = [
     {
       id: 1,
@@ -60,9 +71,24 @@ const App = props => {
       content: <Accordian data={data} defaultOpen={data[0].id} />,
     },
     {
-      id: 1,
+      id: 2,
       label: 'Personal',
-      content: '',
+      content: (
+        <React.Fragment>
+          {personalContent.map(item => (
+            <Grid
+              key={item.id}
+              className={classes.cardWrap}
+              item
+              md={4}
+              sm={6}
+              xs={12}
+            >
+              <Card item={item} />
+            </Grid>
+          ))}
+        </React.Fragment>
+      ),
     },
   ];
   return (
@@ -74,12 +100,13 @@ const App = props => {
   );
 };
 
-App.propTypes = {
+AboutPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  personalContent: PropTypes.array.isRequired,
   schoolDetails: PropTypes.array.isRequired,
   underGraduateDetails: PropTypes.array.isRequired,
   workDetails: PropTypes.array.isRequired,
 };
-App.defaultProps = {};
+AboutPage.defaultProps = {};
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(AboutPage);

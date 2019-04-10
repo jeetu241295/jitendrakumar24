@@ -37,9 +37,13 @@ const ImageClick = props => {
 };
 ImageClick.propTypes = {
   classes: PropTypes.object.isRequired,
-  image: PropTypes.object.isRequired,
+  image: PropTypes.object,
   imageOpen: PropTypes.bool.isRequired,
   dialogOpen: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired,
+  index: PropTypes.number,
+};
+ImageClick.defaultProps = {
+  image: null,
+  index: -1,
 };
 export default withStyles(styles)(ImageClick);

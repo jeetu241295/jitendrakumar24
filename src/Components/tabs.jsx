@@ -56,6 +56,7 @@ class FullWidthTabs extends React.Component {
               className={classes.tabContent}
               key={item.id}
               dir={theme.direction}
+              container
             >
               {item.content}
             </Grid>

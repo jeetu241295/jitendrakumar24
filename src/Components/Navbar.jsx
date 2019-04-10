@@ -183,7 +183,7 @@ class ButtonAppBar extends React.Component {
                     key={nav}
                     className={classes.listItem}
                   >
-                    <Link to={`${nav}`}>
+                    <Link to={`/${nav}`}>
                       <ListItemText
                         primary={nav}
                         classes={{
@@ -205,10 +205,16 @@ class ButtonAppBar extends React.Component {
                 </ListItemText>
               </ListItem>
             </Drawer>
-            <img alt="JK" src={logo} className={classes.logo} />
+            <Link to="/">
+              <img alt="JK" src={logo} className={classes.logo} />
+            </Link>
             <Grid className={classes.navLinkWrap}>
               {navs.map(nav => (
-                <Button key={nav.toString()} className={classes.navLink}>
+                <Button
+                  key={nav.toString()}
+                  className={classes.navLink}
+                  onClick={() => {}}
+                >
                   <Link className={classes.link} to={`/${nav}`}>
                     {nav}
                   </Link>

@@ -12,6 +12,7 @@ import {
   schoolDetails,
   underGraduateDetails,
   workDetails,
+  personalContent,
 } from '../_helpers/constants';
 
 const defaultState = {
@@ -29,6 +30,7 @@ const defaultState = {
   schoolDetails,
   underGraduateDetails,
   workDetails,
+  personalContent,
 };
 
 const personalWebsiteReducer = {
