@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Routing from './Component';
+import Routing from './component';
 import * as personalWebsiteAction from '../../actions/personalWebsiteActions';
 
 const mapStatetoProps = state => ({

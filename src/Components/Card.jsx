@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import ReactDOM from 'react-dom';
 import Tooltip from '@material-ui/core/Tooltip';
-import SnackBar from './Snackbar';
+import SnackBar from './SnackBar';
 import themeCSS from '../Global/theme';
 
 const styles = theme => ({
