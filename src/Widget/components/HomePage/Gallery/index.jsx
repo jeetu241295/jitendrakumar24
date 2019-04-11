@@ -2,8 +2,8 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import './style.css';
 import ImageClick from './ImageClick';
+import './style.css';
 
 const styles = theme => ({
   memories: {
