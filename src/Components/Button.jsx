@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNames from 'class-names';
 
 const styles = theme => ({
   buttonStyle: {

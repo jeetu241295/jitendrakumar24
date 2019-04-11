@@ -12,7 +12,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import { Menu as MenuIcon } from '@material-ui/icons';
-import classNames from 'classnames';
+import classNames from 'class-names';
 import { Link } from 'react-router-dom';
 import { Love } from '../Global/SVG';
 import Button from './Button';

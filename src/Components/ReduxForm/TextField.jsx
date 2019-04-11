@@ -18,7 +18,7 @@ const styles = theme => ({
   cssFocused: {},
 });
 
-const renderTextField = ({
+const RenderTextField = ({
   classes,
   label,
   input,
@@ -57,7 +57,7 @@ const ReduxTextField = props => {
   const { classes, name, label, className } = props;
   return (
     <Grid className={(classes.textFieldWrap, className)}>
-      <Field name={name} component={renderTextField} label={label} {...props} />
+      <Field name={name} component={RenderTextField} label={label} {...props} />
     </Grid>
   );
 };
@@ -73,7 +73,8 @@ ReduxTextField.defaultProps = {
   className: '',
   label: '',
 };
-renderTextField.propTypes = {
+
+RenderTextField.propTypes = {
   classes: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   input: PropTypes.object.isRequired,
@@ -81,7 +82,7 @@ renderTextField.propTypes = {
   rows: PropTypes.number,
   multiline: PropTypes.bool,
 };
-renderTextField.defaultProps = {
+RenderTextField.defaultProps = {
   rows: 1,
   multiline: false,
 };

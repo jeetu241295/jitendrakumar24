@@ -73,4 +73,4 @@ FullWidthTabs.propTypes = {
   tabs: PropTypes.array.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(FullWidthTabs);
+export default withStyles(styles)(FullWidthTabs);

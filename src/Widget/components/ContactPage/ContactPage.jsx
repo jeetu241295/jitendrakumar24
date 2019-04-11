@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles, Typography, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNames from 'class-names';
 import ContactForm from './ContactForm';
 import Normal from '../../../Components/Normal';
 import { Phone, Mail, Location, Web } from '../../../Global/SVG';
