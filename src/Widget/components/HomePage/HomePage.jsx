@@ -7,7 +7,6 @@ import About from './About';
 import Gallery from './Gallery';
 import Experience from './Experience';
 import Motto from './Motto';
-import Project from './Project';
 
 const styles = () => ({});
 
@@ -19,7 +18,6 @@ const App = props => {
       <About skills={skills} about={about} history={history} />
       <Motto motto={motto} />
       <Experience {...props} />
-      <Project />
       <Gallery {...props} />
     </Grid>
   );

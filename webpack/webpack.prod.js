@@ -51,18 +51,7 @@ module.exports = {
     rules: [
       {
         test: /\.(css|scss)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false,
-              modules: true,
-              camelCase: true,
-              localIdentName: '[local]___[hash:base64:5]',
-            },
-          },
-        ],
+        use: [MiniCssExtractPlugin.loader, 'style-loader', 'css-loader'],
       },
     ],
   },

@@ -2,12 +2,14 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 import Accordian from '../../../Components/Accordian';
 import { School, Engineering, Work } from '../../../Global/SVG';
 import Normal from '../../../Components/Normal';
 import Tabs from '../../../Components/Tabs';
 import AlternatePanel from '../../../Components/AlternatePanel';
 import Card from '../../../Components/Card';
+import Ronaldo from './Ronaldo';
 
 const styles = theme => ({
   about: {
@@ -31,6 +33,7 @@ const AboutPage = props => {
     underGraduateDetails,
     workDetails,
     personalContent,
+    match,
   } = props;
   const data = [
     {
@@ -84,7 +87,7 @@ const AboutPage = props => {
               sm={6}
               xs={12}
             >
-              <Card item={item} />
+              <Card item={item} match={match} />
             </Grid>
           ))}
         </React.Fragment>
@@ -95,6 +98,7 @@ const AboutPage = props => {
     <Grid container className={classes.about}>
       <Grid item xs={12}>
         <Tabs tabs={tabs} />
+        <Route path={`${match.url}/ronaldo`} component={Ronaldo} />
       </Grid>
     </Grid>
   );
@@ -102,6 +106,7 @@ const AboutPage = props => {
 
 AboutPage.propTypes = {
   classes: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
   personalContent: PropTypes.array.isRequired,
   schoolDetails: PropTypes.array.isRequired,
   underGraduateDetails: PropTypes.array.isRequired,

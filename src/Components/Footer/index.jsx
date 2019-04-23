@@ -16,7 +16,7 @@ import {
 
 const styles = theme => ({
   footer: {
-    padding: '3rem',
+    padding: '2rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

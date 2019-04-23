@@ -8,6 +8,7 @@ import HomePage from '../HomePage';
 import AboutPage from '../AboutPage';
 import ContactPage from '../ContactPage';
 import ProjectsPage from '../ProjectsPage';
+import NoPage from './NoPage';
 
 const styles = () => ({});
 
@@ -22,6 +23,7 @@ const App = props => {
         <Route path="/about" component={AboutPage} />
         <Route path="/projects" component={ProjectsPage} />
         <Route path="/contact" component={ContactPage} />
+        <Route component={NoPage} />
       </Switch>
       <Footer navs={navs} />
     </Router>

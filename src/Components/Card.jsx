@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import ReactDOM from 'react-dom';
 import Tooltip from '@material-ui/core/Tooltip';
+import { Link } from 'react-router-dom';
 import SnackBar from './SnackBar';
 import themeCSS from '../Global/theme';
 
@@ -29,7 +30,7 @@ const styles = theme => ({
 });
 
 const MediaCard = props => {
-  const { classes, item } = props;
+  const { classes, item, match } = props;
   const copyToClipboard = str => {
     const el = document.createElement('textarea');
     el.value = str;
@@ -71,7 +72,7 @@ const MediaCard = props => {
         </Button>
         <Tooltip title="Page Development in Progress" placement="top">
           <Button size="small" color="primary">
-            Explore More
+            <Link to={`${match.url}/ronaldo`}>Explore More</Link>
           </Button>
         </Tooltip>
       </CardActions>
@@ -82,6 +83,7 @@ const MediaCard = props => {
 MediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(MediaCard);
