@@ -8,6 +8,6 @@ const School = ({ classes }) => {
   return <SchoolSVG className={classes.calenderClor} height={24} width={24} />;
 };
 School.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(School);

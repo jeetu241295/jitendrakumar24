@@ -12,11 +12,11 @@ const styles = theme => ({
     padding: '4rem',
     backgroundColor: theme.colors.calenderColor,
     [theme.breakpoints.down('md')]: {
-      padding: '3rem',
+      padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem',
-    },
+      padding: '1.5rem'
+    }
   },
   motto: {
     fontSize: '3rem',
@@ -27,8 +27,8 @@ const styles = theme => ({
     backgroundSize: 'cover',
     backgroundPosition: '50% 46%',
     WebkitBackgroundClip: 'text',
-    backgroundRepeat: 'no-repeat',
-  },
+    backgroundRepeat: 'no-repeat'
+  }
 });
 
 const Motto = props => {
@@ -44,7 +44,7 @@ const Motto = props => {
 
 Motto.propTypes = {
   classes: PropTypes.object.isRequired,
-  motto: PropTypes.string.isRequired,
+  motto: PropTypes.string.isRequired
 };
 Motto.defaultProps = {};
 

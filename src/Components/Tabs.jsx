@@ -8,16 +8,16 @@ import Tab from '@material-ui/core/Tab';
 
 const styles = theme => ({
   root: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   tabContent: {
-    padding: '2rem',
-  },
+    padding: '2rem'
+  }
 });
 
 class FullWidthTabs extends React.Component {
   state = {
-    value: 0,
+    value: 0
   };
 
   handleChange = (event, value) => {
@@ -70,7 +70,7 @@ class FullWidthTabs extends React.Component {
 FullWidthTabs.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  tabs: PropTypes.array.isRequired,
+  tabs: PropTypes.array.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(FullWidthTabs);

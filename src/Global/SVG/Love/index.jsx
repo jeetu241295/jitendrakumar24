@@ -8,6 +8,6 @@ const Love = ({ classes }) => {
   return <LoveSVG className={classes.primaryColor} width={20} height={20} />;
 };
 Love.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Love);

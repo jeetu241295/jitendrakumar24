@@ -12,56 +12,56 @@ const styles = theme => ({
     padding: '7rem',
     alignItems: 'flex-start',
     [theme.breakpoints.down('md')]: {
-      padding: '3rem',
+      padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem',
-    },
+      padding: '1.5rem'
+    }
   },
   imageWrap: {
     '& img': {
       width: '100%',
       height: '100%',
       objectFit: 'contain',
-      display: 'block',
+      display: 'block'
     },
     padding: '2rem',
     [theme.breakpoints.down('xs')]: {
       marginBottom: '1rem',
-      padding: 0,
-    },
+      padding: 0
+    }
   },
   skills: {
     padding: '2.5rem',
     [theme.breakpoints.down('md')]: {
-      padding: '0.5rem',
+      padding: '0.5rem'
     },
     [theme.breakpoints.down('xs')]: {
-      marginBottom: '1rem',
-    },
+      marginBottom: '1rem'
+    }
   },
   skillsTitle: {
     position: 'relative',
     padding: '2.5rem',
     [theme.breakpoints.down('md')]: {
-      padding: '0.5rem',
+      padding: '0.5rem'
     },
     [theme.breakpoints.down('xs')]: {
       marginTop: '1rem',
-      marginBottom: '1rem',
-    },
+      marginBottom: '1rem'
+    }
   },
   aboutMe: {
     position: 'relative',
     padding: '2.5rem',
     alignSelf: 'center',
     [theme.breakpoints.down('md')]: {
-      padding: '0.5rem',
+      padding: '0.5rem'
     },
     [theme.breakpoints.down('xs')]: {
       marginTop: '1rem',
-      marginBottom: '1rem',
-    },
+      marginBottom: '1rem'
+    }
   },
   titleBorder: {
     position: 'absolute',
@@ -73,19 +73,19 @@ const styles = theme => ({
     margin: '2rem',
     backgroundColor: theme.colors.mainAction,
     [theme.breakpoints.down('md')]: {
-      margin: 0,
-    },
+      margin: 0
+    }
   },
   title: {
     fontSize: '2rem',
-    fontWeight: 500,
+    fontWeight: 500
   },
   hire: {
     borderRadius: '50px',
     padding: '0.5rem 2rem',
     '&:hover': {
-      color: theme.colors.white,
-    },
+      color: theme.colors.white
+    }
   },
   resume: {
     borderRadius: '50px',
@@ -94,8 +94,8 @@ const styles = theme => ({
     padding: '0.5rem 2rem',
     '&:hover': {
       color: theme.colors.white,
-      backgroundColor: theme.colors.buttonColor,
-    },
+      backgroundColor: theme.colors.buttonColor
+    }
   },
   buttons: {
     display: 'flex',
@@ -103,8 +103,8 @@ const styles = theme => ({
     alignItems: 'center',
     flexWrap: 'wrap',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '1rem',
-    },
+      marginTop: '1rem'
+    }
   },
   description: {
     fontSize: '1.5rem',
@@ -112,8 +112,8 @@ const styles = theme => ({
     textAlign: 'justify',
     lineHeight: '1.5rem',
     [theme.breakpoints.down('sm')]: {
-      margin: 0,
-    },
+      margin: 0
+    }
   },
   more: {
     backgroundColor: theme.colors.mainAction,
@@ -121,13 +121,13 @@ const styles = theme => ({
     padding: '0.5rem 2rem',
     '&:hover': {
       color: theme.colors.white,
-      backgroundColor: theme.colors.mainAction,
+      backgroundColor: theme.colors.mainAction
     },
     [theme.breakpoints.between('xs', 'sm')]: {
-      marginTop: '.5rem',
+      marginTop: '.5rem'
     },
-    marginLeft: '1rem',
-  },
+    marginLeft: '1rem'
+  }
 });
 
 const About = props => {
@@ -193,7 +193,7 @@ About.propTypes = {
   classes: PropTypes.object.isRequired,
   skills: PropTypes.array.isRequired,
   about: PropTypes.array.isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 };
 About.defaultProps = {};
 

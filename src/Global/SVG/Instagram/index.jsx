@@ -8,6 +8,6 @@ const Instagram = ({ classes }) => {
   return <InstagramSVG className={classes.whiteColor} />;
 };
 Instagram.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Instagram);

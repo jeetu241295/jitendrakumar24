@@ -27,7 +27,7 @@ App.propTypes = {
   skills: PropTypes.array.isRequired,
   about: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
-  motto: PropTypes.string.isRequired,
+  motto: PropTypes.string.isRequired
 };
 App.defaultProps = {};
 

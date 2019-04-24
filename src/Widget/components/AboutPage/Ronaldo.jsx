@@ -7,8 +7,8 @@ const styles = () => ({
   about: {
     marginTop: 64,
     padding: '2rem',
-    minHeight: '80vh',
-  },
+    minHeight: '80vh'
+  }
 });
 
 const Ronaldo = props => {
@@ -23,7 +23,7 @@ const Ronaldo = props => {
 };
 
 Ronaldo.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 Ronaldo.defaultProps = {};
 

@@ -14,16 +14,16 @@ import Ronaldo from './Ronaldo';
 const styles = theme => ({
   about: {
     marginTop: 64,
-    padding: '2rem',
+    padding: '2rem'
   },
   summaryTitle: {
     color: theme.colors.black,
-    marginLeft: '1rem',
+    marginLeft: '1rem'
   },
   cardWrap: {
     display: 'flex',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
 
 const AboutPage = props => {
@@ -33,7 +33,7 @@ const AboutPage = props => {
     underGraduateDetails,
     workDetails,
     personalContent,
-    match,
+    match
   } = props;
   const data = [
     {
@@ -44,7 +44,7 @@ const AboutPage = props => {
           <Normal className={classes.summaryTitle}>School Life</Normal>
         </Grid>
       ),
-      details: <AlternatePanel data={schoolDetails} />,
+      details: <AlternatePanel data={schoolDetails} />
     },
     {
       id: 2,
@@ -54,7 +54,7 @@ const AboutPage = props => {
           <Normal className={classes.summaryTitle}>Engineering</Normal>
         </Grid>
       ),
-      details: <AlternatePanel data={underGraduateDetails} />,
+      details: <AlternatePanel data={underGraduateDetails} />
     },
     {
       id: 3,
@@ -64,14 +64,14 @@ const AboutPage = props => {
           <Normal className={classes.summaryTitle}>Work</Normal>
         </Grid>
       ),
-      details: <AlternatePanel data={workDetails} />,
-    },
+      details: <AlternatePanel data={workDetails} />
+    }
   ];
   const tabs = [
     {
       id: 1,
       label: 'Career',
-      content: <Accordian data={data} defaultOpen={data[0].id} />,
+      content: <Accordian data={data} defaultOpen={data[0].id} />
     },
     {
       id: 2,
@@ -91,8 +91,8 @@ const AboutPage = props => {
             </Grid>
           ))}
         </React.Fragment>
-      ),
-    },
+      )
+    }
   ];
   return (
     <Grid container className={classes.about}>
@@ -110,7 +110,7 @@ AboutPage.propTypes = {
   personalContent: PropTypes.array.isRequired,
   schoolDetails: PropTypes.array.isRequired,
   underGraduateDetails: PropTypes.array.isRequired,
-  workDetails: PropTypes.array.isRequired,
+  workDetails: PropTypes.array.isRequired
 };
 AboutPage.defaultProps = {};
 

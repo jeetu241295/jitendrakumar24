@@ -13,8 +13,8 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = () => ({
   modalWidth: {
-    maxWidth: '750px',
-  },
+    maxWidth: '750px'
+  }
 });
 
 const DialogTitleCustom = withStyles(theme => ({
@@ -22,17 +22,17 @@ const DialogTitleCustom = withStyles(theme => ({
     display: 'flex',
     borderBottom: `1px solid ${theme.colors.black}`,
     marginBottom: '1rem',
-    padding: '1rem',
+    padding: '1rem'
   },
   closeButton: {
     marginLeft: 'auto',
-    padding: '0.4rem',
+    padding: '0.4rem'
   },
   title: {
     fontSize: '2rem',
     fontWeight: 800,
-    color: theme.colors.mainAction,
-  },
+    color: theme.colors.mainAction
+  }
 }))(props => {
   const { children, classes, onClose, closeButton } = props;
   return (
@@ -55,7 +55,7 @@ const DialogTitleCustom = withStyles(theme => ({
 
 class DialogJK extends React.Component {
   state = {
-    stateOpen: false,
+    stateOpen: false
   };
 
   handleClickOpen = () => {
@@ -75,7 +75,7 @@ class DialogJK extends React.Component {
       open,
       onClose,
       closeButton,
-      classes,
+      classes
     } = this.props;
     const { stateOpen } = this.state;
     return (
@@ -85,7 +85,7 @@ class DialogJK extends React.Component {
         onClose={open ? onClose : this.handleClose}
         aria-labelledby="responsive-dialog-title"
         classes={{
-          paper: classes.modalWidth,
+          paper: classes.modalWidth
         }}
       >
         <DialogTitleCustom
@@ -114,13 +114,13 @@ DialogJK.propTypes = {
   buttons: PropTypes.node,
   title: PropTypes.string.isRequired,
   open: PropTypes.bool,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired
 };
 DialogJK.defaultProps = {
   buttons: null,
   closeButton: false,
   fullScreen: false,
-  open: false,
+  open: false
 };
 
 export default withStyles(styles)(withMobileDialog()(DialogJK));

@@ -12,12 +12,10 @@ import {
   schoolDetails,
   underGraduateDetails,
   workDetails,
-  personalContent,
+  personalContent
 } from '../_helpers/constants';
 
 const defaultState = {
-  count: 0,
-  setCount: null,
   navs,
   images,
   imageOpen: false,
@@ -30,21 +28,21 @@ const defaultState = {
   schoolDetails,
   underGraduateDetails,
   workDetails,
-  personalContent,
+  personalContent
 };
 
 const personalWebsiteReducer = {
   [COUNT]: (state, action) => ({
     ...state,
     count: state.count + 1,
-    id: action.id,
+    id: action.id
   }),
   [DIALOG]: (state, action) => ({
     ...state,
     image: action.image,
     index: action.index,
-    imageOpen: !state.imageOpen,
-  }),
+    imageOpen: !state.imageOpen
+  })
 };
 
 export default createReducer(defaultState, personalWebsiteReducer);

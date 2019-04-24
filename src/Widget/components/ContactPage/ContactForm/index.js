@@ -3,5 +3,5 @@ import ContactForm from './ContactForm';
 
 export default reduxForm({
   form: 'contactForm',
-  enableReinitialize: true,
+  enableReinitialize: true
 })(ContactForm);

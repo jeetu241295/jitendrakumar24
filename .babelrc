@@ -6,6 +6,7 @@
         "targets": {
           "esmodules": true
         }
+        // "useBuiltIns": "usage"
       }
     ],
     "@babel/preset-react"

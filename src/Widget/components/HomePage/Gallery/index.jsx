@@ -13,11 +13,11 @@ const styles = theme => ({
     gridTemplateRows: 'repeat(7,5vw)',
     gridGap: '1.5rem',
     [theme.breakpoints.down('xs')]: {
-      gridGap: '1rem',
+      gridGap: '1rem'
     },
     [theme.breakpoints.down('sm')]: {
-      gridGap: '0.5rem',
-    },
+      gridGap: '0.5rem'
+    }
   },
   title: {
     backgroundImage: `linear-gradient(to left bottom,${theme.colors.primary},${
@@ -28,13 +28,13 @@ const styles = theme => ({
     fontWeight: 900,
     marginBottom: '2rem',
     WebkitBackgroundClip: 'text',
-    color: 'transparent',
+    color: 'transparent'
   },
   gridImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    display: 'block',
+    display: 'block'
   },
   gallery: {
     display: 'flex',
@@ -43,12 +43,12 @@ const styles = theme => ({
     padding: '7rem',
     paddingTop: '2rem',
     [theme.breakpoints.down('md')]: {
-      padding: '3rem',
+      padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem',
-    },
-  },
+      padding: '1.5rem'
+    }
+  }
 });
 
 const Gallery = ({ classes, ...props }) => {
@@ -84,7 +84,7 @@ const Gallery = ({ classes, ...props }) => {
 Gallery.propTypes = {
   classes: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
-  dialogOpen: PropTypes.func.isRequired,
+  dialogOpen: PropTypes.func.isRequired
 };
 Gallery.defaultProps = {};
 

@@ -18,15 +18,15 @@ const styles = theme => ({
   card: {
     width: '90%',
     [theme.breakpoints.down('xs')]: {
-      width: '100%',
+      width: '100%'
     },
     [theme.breakpoints.down('sm')]: {
-      marginBottom: '1rem',
-    },
+      marginBottom: '1rem'
+    }
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 });
 
 const MediaCard = props => {
@@ -64,7 +64,7 @@ const MediaCard = props => {
               <MuiThemeProvider theme={themeCSS}>
                 <SnackBar message="Link Copied !" open />
               </MuiThemeProvider>,
-              document.getElementById('snackbar'),
+              document.getElementById('snackbar')
             );
           }}
         >
@@ -83,7 +83,7 @@ const MediaCard = props => {
 MediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(MediaCard);

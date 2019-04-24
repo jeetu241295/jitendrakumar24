@@ -11,25 +11,25 @@ const styles = theme => ({
     marginBottom: '2.5rem',
     alignSelf: 'flex-start',
     fontSize: '2rem',
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   contactFormWrap: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   contactForm: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   textField: {
     marginTop: '1rem',
-    marginBottom: '1rem',
+    marginBottom: '1rem'
   },
   send: {
-    alignSelf: 'flex-end',
-  },
+    alignSelf: 'flex-end'
+  }
 });
 
 const ContactForm = props => {
@@ -62,6 +62,6 @@ const ContactForm = props => {
   );
 };
 ContactForm.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(ContactForm);

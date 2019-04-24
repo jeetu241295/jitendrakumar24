@@ -10,6 +10,6 @@ const Calender = ({ classes }) => {
   );
 };
 Calender.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Calender);

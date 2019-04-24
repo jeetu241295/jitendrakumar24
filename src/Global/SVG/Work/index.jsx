@@ -8,6 +8,6 @@ const Work = ({ classes }) => {
   return <WorkSVG className={classes.calenderCoor} height={24} width={24} />;
 };
 Work.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Work);

@@ -6,8 +6,8 @@ import classNames from 'class-names';
 const styles = theme => ({
   normal: {
     color: theme.colors.calenderColor,
-    fontSize: '1.5rem',
-  },
+    fontSize: '1.5rem'
+  }
 });
 
 const Normal = props => {
@@ -20,10 +20,10 @@ const Normal = props => {
 Normal.propTypes = {
   classes: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 Normal.defaultProps = {
-  className: '',
+  className: ''
 };
 
 export default withStyles(styles)(Normal);

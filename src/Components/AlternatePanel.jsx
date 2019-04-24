@@ -8,8 +8,8 @@ const styles = () => ({
     width: '100%',
     height: '100%',
     objectFit: 'contain',
-    display: 'block',
-  },
+    display: 'block'
+  }
 });
 
 const AlternatePanel = props => {
@@ -46,7 +46,7 @@ const AlternatePanel = props => {
 
 AlternatePanel.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired,
+  data: PropTypes.array.isRequired
 };
 AlternatePanel.defaultProps = {};
 

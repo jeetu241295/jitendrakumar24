@@ -15,6 +15,6 @@ const Location = ({ classes }) => {
   );
 };
 Location.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Location);

@@ -8,6 +8,6 @@ const Mail = ({ classes }) => {
   return <MailSVG className={classes.whiteColor} height={16} width={16} />;
 };
 Mail.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Mail);

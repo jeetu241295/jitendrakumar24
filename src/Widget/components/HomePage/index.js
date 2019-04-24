@@ -4,7 +4,7 @@ import HomePage from './HomePage';
 import * as personalWebsiteActions from '../../actions/personalWebsiteActions';
 
 const mapStatetoProps = state => ({
-  ...state.personalWebsiteReducer,
+  ...state.personalWebsiteReducer
 });
 
 const mapDispatchtoProps = dispatch =>
@@ -12,5 +12,5 @@ const mapDispatchtoProps = dispatch =>
 
 export default connect(
   mapStatetoProps,
-  mapDispatchtoProps,
+  mapDispatchtoProps
 )(HomePage);

@@ -8,22 +8,22 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: '100%'
   },
   summary: {
     color: theme.colors.white,
-    backgroundColor: theme.colors.footerNav,
-  },
+    backgroundColor: theme.colors.footerNav
+  }
 });
 
 class ControlledExpansionPanels extends React.Component {
   state = {
-    expanded: 1,
+    expanded: 1
   };
 
   handleChange = panel => (event, expanded) => {
     this.setState({
-      expanded: expanded ? panel : false,
+      expanded: expanded ? panel : false
     });
   };
 
@@ -63,11 +63,11 @@ ControlledExpansionPanels.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
   defaultOpen: PropTypes.number,
-  expandIconRoot: PropTypes.node,
+  expandIconRoot: PropTypes.node
 };
 ControlledExpansionPanels.defaultProps = {
   expandIconRoot: null,
-  defaultOpen: -1,
+  defaultOpen: -1
 };
 
 export default withStyles(styles)(ControlledExpansionPanels);

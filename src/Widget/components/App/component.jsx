@@ -31,7 +31,7 @@ const App = props => {
 };
 
 App.propTypes = {
-  navs: PropTypes.array.isRequired,
+  navs: PropTypes.array.isRequired
 };
 App.defaultProps = {};
 

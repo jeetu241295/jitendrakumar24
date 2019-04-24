@@ -8,8 +8,8 @@ const styles = () => ({
   about: {
     marginTop: 64,
     padding: '2rem',
-    minHeight: '80vh',
-  },
+    minHeight: '80vh'
+  }
 });
 
 const NoPage = props => {
@@ -24,7 +24,7 @@ const NoPage = props => {
 };
 
 NoPage.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 NoPage.defaultProps = {};
 

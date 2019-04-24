@@ -10,7 +10,7 @@ const styles = theme => ({
     background: `url(${homeImg}) no-repeat center center fixed`,
     backgroundSize: 'cover',
     width: '100%',
-    height: '100%',
+    height: '100%'
   },
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.45)',
@@ -22,13 +22,13 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   nameWrap: {
     borderTop: '2px solid',
     borderBottom: '2px solid white',
     width: '50%',
-    borderColor: theme.colors.white,
+    borderColor: theme.colors.white
   },
   name: {
     textAlign: 'center',
@@ -44,28 +44,28 @@ const styles = theme => ({
     padding: '2rem',
     fontFamily: 'Raleway Webfont',
     [theme.breakpoints.between('sm', 'md')]: {
-      padding: '1.2rem',
+      padding: '1.2rem'
     },
     [theme.breakpoints.down('sm')]: {
       padding: '1rem',
       fontSize: '2.5rem',
-      letterSpacing: '0.5rem',
-    },
+      letterSpacing: '0.5rem'
+    }
   },
   hello: {
     fontSize: '2rem',
     fontWeight: 500,
     marginBottom: '2.5rem',
     color: theme.colors.white,
-    fontFamily: 'Courgette',
+    fontFamily: 'Courgette'
   },
   line: {
-    borderBottom: '2px solid white',
+    borderBottom: '2px solid white'
   },
   helloWrap: {
     display: 'flex',
-    flexDirection: 'row',
-  },
+    flexDirection: 'row'
+  }
 });
 
 const Home = props => {
@@ -94,6 +94,6 @@ const Home = props => {
 };
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Home);

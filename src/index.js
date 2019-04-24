@@ -1,5 +1,3 @@
-import 'core-js/es/map';
-import 'core-js/es/set';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -19,5 +17,5 @@ ReactDOM.render(
       <PersonalWebsite />
     </MuiThemeProvider>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

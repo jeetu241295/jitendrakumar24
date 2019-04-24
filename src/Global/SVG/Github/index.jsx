@@ -8,6 +8,6 @@ const Github = ({ classes }) => {
   return <GithubSVG className={classes.whiteColor} />;
 };
 Github.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Github);

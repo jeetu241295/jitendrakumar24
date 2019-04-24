@@ -4,5 +4,5 @@ import personalWebsiteReducer from './personalWebsiteReducer';
 
 export default combineReducers({
   personalWebsiteReducer,
-  form: formReducer,
+  form: formReducer
 });

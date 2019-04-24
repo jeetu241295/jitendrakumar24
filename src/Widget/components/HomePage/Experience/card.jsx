@@ -13,23 +13,23 @@ const styles = theme => ({
     marginBottom: '1rem',
     border: '2px solid',
     '&:hover': {
-      borderColor: theme.colors.mainAction,
-    },
+      borderColor: theme.colors.mainAction
+    }
   },
   timeline: {
-    display: 'flex',
+    display: 'flex'
   },
   period: {
     fontSize: '2rem',
     fontWeight: 500,
     marginTop: '.5rem',
-    marginBottom: '.5rem',
+    marginBottom: '.5rem'
   },
   place: {
     fontSize: '1.75rem',
     fontWeight: 500,
-    marginTop: '.5rem',
-  },
+    marginTop: '.5rem'
+  }
 });
 
 const Card = props => {
@@ -54,7 +54,7 @@ const Card = props => {
 
 Card.propTypes = {
   classes: PropTypes.object.isRequired,
-  item: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired
 };
 Card.defaultProps = {};
 

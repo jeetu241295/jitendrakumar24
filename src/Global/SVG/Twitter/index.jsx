@@ -8,6 +8,6 @@ const Twitter = ({ classes }) => {
   return <TwitterSVG className={classes.whiteColor} />;
 };
 Twitter.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Twitter);

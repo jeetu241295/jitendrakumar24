@@ -9,12 +9,12 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 const styles1 = theme => ({
   success: {
-    backgroundColor: theme.colors.mainAction,
+    backgroundColor: theme.colors.mainAction
   },
   message: {
     display: 'flex',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });
 
 function MySnackbarContent(props) {
@@ -38,7 +38,7 @@ function MySnackbarContent(props) {
           onClick={onClose}
         >
           <CloseIcon className={classes.icon} />
-        </IconButton>,
+        </IconButton>
       ]}
       {...other}
     />
@@ -49,23 +49,23 @@ MySnackbarContent.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   message: PropTypes.node,
-  onClose: PropTypes.func,
+  onClose: PropTypes.func
 };
 
 const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 
 const styles = theme => ({
   close: {
-    padding: theme.spacing.unit / 2,
+    padding: theme.spacing.unit / 2
   },
   root: {
-    backgroundColor: theme.colors.mainAction,
-  },
+    backgroundColor: theme.colors.mainAction
+  }
 });
 
 class SimpleSnackbar extends React.Component {
   state = {
-    open: true,
+    open: true
   };
 
   componentWillReceiveProps(newProps) {
@@ -94,7 +94,7 @@ class SimpleSnackbar extends React.Component {
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'left'
         }}
         open={open}
         autoHideDuration={5000}
@@ -110,7 +110,7 @@ class SimpleSnackbar extends React.Component {
 }
 
 SimpleSnackbar.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(SimpleSnackbar);

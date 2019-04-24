@@ -8,6 +8,6 @@ const Send = ({ classes }) => {
   return <SendSVG className={classes.whiteColor} height={16} width={16} />;
 };
 Send.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Send);

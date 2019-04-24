@@ -8,6 +8,6 @@ const LinkedIn = ({ classes }) => {
   return <LinkedInSVG className={classes.whiteColor} />;
 };
 LinkedIn.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(LinkedIn);

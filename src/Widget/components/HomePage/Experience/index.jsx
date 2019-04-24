@@ -12,17 +12,17 @@ const styles = theme => ({
     alignItems: 'flex-start',
     padding: '7rem',
     [theme.breakpoints.down('md')]: {
-      padding: '5rem',
+      padding: '5rem'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '3rem',
-    },
+      padding: '3rem'
+    }
   },
   title: {
     fontSize: '3rem',
     fontWeight: 500,
-    margin: '1rem',
-  },
+    margin: '1rem'
+  }
 });
 
 const Experience = props => {
@@ -52,6 +52,6 @@ const Experience = props => {
 Experience.propTypes = {
   classes: PropTypes.object.isRequired,
   education: PropTypes.array.isRequired,
-  experience: PropTypes.array.isRequired,
+  experience: PropTypes.array.isRequired
 };
 export default withStyles(styles)(Experience);

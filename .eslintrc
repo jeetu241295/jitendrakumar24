@@ -51,6 +51,7 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js"] }],
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
     "react/jsx-indent": ["warn", 2],
+    "comma-dangle": ["error", "never"],
     "react/jsx-key": "error",
     "react/jsx-indent-props": 0,
     "no-trailing-spaces": [2, { "skipBlankLines": true }],

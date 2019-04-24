@@ -9,8 +9,8 @@ const styles = () => ({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
-    display: 'block',
-  },
+    display: 'block'
+  }
 });
 
 const ImageClick = props => {
@@ -40,10 +40,10 @@ ImageClick.propTypes = {
   image: PropTypes.object,
   imageOpen: PropTypes.bool.isRequired,
   dialogOpen: PropTypes.func.isRequired,
-  index: PropTypes.number,
+  index: PropTypes.number
 };
 ImageClick.defaultProps = {
   image: null,
-  index: -1,
+  index: -1
 };
 export default withStyles(styles)(ImageClick);

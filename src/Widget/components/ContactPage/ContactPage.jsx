@@ -12,7 +12,7 @@ const styles = theme => ({
     background: `url(${contactImg}) no-repeat center center fixed`,
     backgroundSize: 'cover',
     width: '100%',
-    height: '100%',
+    height: '100%'
   },
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.45)',
@@ -24,16 +24,16 @@ const styles = theme => ({
     justifyContent: 'space-around',
     height: '90%',
     [theme.breakpoints.down('md')]: {
-      padding: '3rem',
+      padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem',
-    },
+      padding: '1.5rem'
+    }
   },
   personalInfoWrap: {
     display: 'flex',
     justifyContent: 'flex-start',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   info: {
     backgroundColor: theme.colors.contact,
@@ -42,30 +42,30 @@ const styles = theme => ({
     [theme.breakpoints.between('xs', 'md')]: {
       marginTop: '1rem',
       marginBottom: '1rem',
-      padding: '2.5rem',
-    },
+      padding: '2.5rem'
+    }
   },
   header: {
     color: theme.colors.mainAction,
     marginBottom: '2.5rem',
     fontSize: '2rem',
-    textTransform: 'uppercase',
+    textTransform: 'uppercase'
   },
   marginBottom: {
-    marginBottom: 'auto',
+    marginBottom: 'auto'
   },
   marginTop: {
-    marginTop: 'auto',
+    marginTop: 'auto'
   },
   listItem: {
     flexDirection: 'row',
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '1rem',
+    marginBottom: '1rem'
   },
   normal: {
-    color: theme.colors.white,
-  },
+    color: theme.colors.white
+  }
 });
 
 const Contact = props => {
@@ -123,6 +123,6 @@ const Contact = props => {
 };
 
 Contact.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Contact);

@@ -21,35 +21,35 @@ const styles = theme => ({
       boxShadow: '0 1rem 2rem rgba(0,0,0, 0.2)',
       color: theme.colors.mainAction,
       '& svg': {
-        fill: theme.colors.mainAction,
+        fill: theme.colors.mainAction
       },
       '&::after': {
         transform: 'scale(1.5)',
-        opacity: 0,
-      },
+        opacity: 0
+      }
     },
     '&:active': {
       backgroundColor: theme.colors.primary,
       transform: 'translateY(0px)',
       boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
       outline: 'none',
-      color: theme.colors.mainAction,
+      color: theme.colors.mainAction
     },
     '&:focus': {
       backgroundColor: theme.colors.primary,
       transform: 'translateY(0px)',
       boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
       outline: 'none',
-      color: theme.colors.mainAction,
+      color: theme.colors.mainAction
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '1rem 2rem',
-    },
+      padding: '1rem 2rem'
+    }
   },
   iconButtonStyle: {
     backgroundColor: 'transparent',
-    padding: 0,
-  },
+    padding: 0
+  }
 });
 
 const Button24 = props => {
@@ -75,14 +75,14 @@ Button24.propTypes = {
   icon: PropTypes.node,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-  type: PropTypes.number,
+  type: PropTypes.number
 };
 Button24.defaultProps = {
   icon: null,
   className: null,
   children: null,
   disabled: false,
-  type: 1,
+  type: 1
 };
 
 export default withStyles(styles)(Button24);

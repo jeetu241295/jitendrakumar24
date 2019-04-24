@@ -8,6 +8,6 @@ const Facebook = ({ classes }) => {
   return <FacebookSVG className={classes.whiteColor} />;
 };
 Facebook.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Facebook);

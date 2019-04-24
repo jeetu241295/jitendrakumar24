@@ -5,7 +5,7 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemText,
+  ListItemText
 } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,15 +21,15 @@ import logo from '../static/images/logo.jpg';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-start'
   },
   menuButton: {
     marginLeft: -12,
     [theme.breakpoints.up('sm')]: {
-      display: 'none',
+      display: 'none'
     },
     marginRight: 'auto',
-    color: theme.colors.white,
+    color: theme.colors.white
   },
   navLinkWrap: {
     display: 'flex',
@@ -37,12 +37,12 @@ const styles = theme => ({
     alignItems: 'center',
     marginLeft: 'auto',
     [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
+      display: 'none'
+    }
   },
   logo: {
     width: 35,
-    height: 35,
+    height: 35
   },
   appbar: {
     backgroundColor: theme.colors.navbar,
@@ -51,12 +51,12 @@ const styles = theme => ({
     top: 0,
     transition: 'all .3s ease-in',
     [theme.breakpoints.down('xs')]: {
-      height: 48,
-    },
+      height: 48
+    }
   },
   link: {
     color: 'inherit',
-    textDecoration: 'none',
+    textDecoration: 'none'
   },
   navLink: {
     color: theme.colors.white,
@@ -64,36 +64,36 @@ const styles = theme => ({
     backgroundColor: 'transparent',
     padding: '1rem 2rem',
     '&:hover': {
-      backgroundColor: 'transparent',
+      backgroundColor: 'transparent'
     },
     '&:focus': {
-      backgroundColor: 'transparent',
+      backgroundColor: 'transparent'
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '0.5rem 1rem',
-    },
+      padding: '0.5rem 1rem'
+    }
   },
   paper: {
     backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
       theme.colors.sideBar
     })`,
-    width: '50%',
+    width: '50%'
   },
   context: {
     color: theme.colors.white,
     fontSize: '1.5rem',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   listItem: {
     borderBottom: '2px solid',
     borderColor: theme.colors.black,
     '&:first-child': {
-      borderTop: '2px solid',
-    },
+      borderTop: '2px solid'
+    }
   },
   rights: {
     borderTop: '2px solid',
-    marginTop: 'auto',
+    marginTop: 'auto'
   },
   navUp: {
     top: -57,
@@ -102,10 +102,10 @@ const styles = theme => ({
     '&:hover': {
       top: 0,
       backgroundColor: theme.colors.navbar,
-      opacity: 0.7,
-    },
+      opacity: 0.7
+    }
   },
-  navDown: {},
+  navDown: {}
 });
 
 class ButtonAppBar extends React.Component {
@@ -113,7 +113,7 @@ class ButtonAppBar extends React.Component {
     open: false,
     navBarHeight: 64,
     lastScrollTop: 0,
-    isScrolledDown: false,
+    isScrolledDown: false
   };
 
   componentDidMount() {
@@ -156,7 +156,7 @@ class ButtonAppBar extends React.Component {
           position="fixed"
           className={classNames(classes.appbar, {
             [classes.navUp]: isScrolledDown === true,
-            [classes.navDown]: isScrolledDown === false,
+            [classes.navDown]: isScrolledDown === false
           })}
         >
           <Toolbar>
@@ -171,7 +171,7 @@ class ButtonAppBar extends React.Component {
               open={open}
               onClose={this.toggleDrawer}
               classes={{
-                paper: classes.paper,
+                paper: classes.paper
               }}
             >
               <List className={classes.list}>
@@ -187,7 +187,7 @@ class ButtonAppBar extends React.Component {
                       <ListItemText
                         primary={nav}
                         classes={{
-                          primary: classes.context,
+                          primary: classes.context
                         }}
                       />
                     </Link>
@@ -197,7 +197,7 @@ class ButtonAppBar extends React.Component {
               <ListItem className={classes.rights}>
                 <ListItemText
                   classes={{
-                    primary: classes.context,
+                    primary: classes.context
                   }}
                 >
                   Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar.
@@ -230,7 +230,7 @@ class ButtonAppBar extends React.Component {
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired,
+  navs: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(ButtonAppBar);

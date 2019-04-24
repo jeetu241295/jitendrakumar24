@@ -5,17 +5,17 @@ import { Field } from 'redux-form';
 
 const styles = theme => ({
   cssLabel: {
-    color: theme.colors.white,
+    color: theme.colors.white
   },
   notchedOutline: {
-    borderColor: theme.colors.white + ' !important',
+    borderColor: theme.colors.white + ' !important'
   },
   cssOutlinedInput: {
     '&$cssFocused $notchedOutline': {
-      borderColor: `${theme.palette.primary.main} !important`,
-    },
+      borderColor: `${theme.palette.primary.main} !important`
+    }
   },
-  cssFocused: {},
+  cssFocused: {}
 });
 
 const RenderTextField = ({
@@ -40,15 +40,15 @@ const RenderTextField = ({
     {...custom}
     InputLabelProps={{
       classes: {
-        root: classes.cssLabel,
-      },
+        root: classes.cssLabel
+      }
     }}
     InputProps={{
       classes: {
         root: classes.cssOutlinedInput,
         focused: classes.cssFocused,
-        notchedOutline: classes.notchedOutline,
-      },
+        notchedOutline: classes.notchedOutline
+      }
     }}
   />
 );
@@ -66,12 +66,12 @@ ReduxTextField.propTypes = {
   className: PropTypes.string,
   classes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  label: PropTypes.string,
+  label: PropTypes.string
 };
 
 ReduxTextField.defaultProps = {
   className: '',
-  label: '',
+  label: ''
 };
 
 RenderTextField.propTypes = {
@@ -80,11 +80,11 @@ RenderTextField.propTypes = {
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
   rows: PropTypes.number,
-  multiline: PropTypes.bool,
+  multiline: PropTypes.bool
 };
 RenderTextField.defaultProps = {
   rows: 1,
-  multiline: false,
+  multiline: false
 };
 
 export default withStyles(styles)(ReduxTextField);

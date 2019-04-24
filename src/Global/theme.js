@@ -15,7 +15,7 @@ const colors = {
   sideBar: '#6e9dea',
   containerBackground: '#F8F9FA',
   buttonColor: '#6c757d',
-  calenderColor: '#B3BDC6',
+  calenderColor: '#B3BDC6'
 };
 
 const theme = createMuiTheme({
@@ -40,13 +40,13 @@ const theme = createMuiTheme({
   palette: {
     primary: { main: '#11cb5f' }, // Purple and green play nicely together.
     secondary: { main: purple[500] },
-    error: { main: '#BA0C2F' }, // This is just green.A700 as hex.
+    error: { main: '#BA0C2F' } // This is just green.A700 as hex.
   },
   colors,
   typography: {
     useNextVariants: true,
-    htmlFontSize: 10,
-  },
+    htmlFontSize: 10
+  }
 });
 
 export default theme;

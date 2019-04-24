@@ -8,6 +8,6 @@ const Phone = ({ classes }) => {
   return <PhoneSVG className={classes.whiteColor} height={16} width={16} />;
 };
 Phone.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Phone);

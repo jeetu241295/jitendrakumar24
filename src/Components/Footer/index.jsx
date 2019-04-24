@@ -11,7 +11,7 @@ import {
   Github,
   Instagram,
   Twitter,
-  Love,
+  Love
 } from '../../Global/SVG';
 
 const styles = theme => ({
@@ -21,12 +21,12 @@ const styles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: theme.colors.footer,
+    backgroundColor: theme.colors.footer
   },
   rights: {
     color: theme.colors.containerBackground,
     fontSize: '1.5rem',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   navLink: {
     color: theme.colors.containerBackground,
@@ -34,11 +34,11 @@ const styles = theme => ({
     backgroundColor: 'transparent',
     padding: '1rem 2rem',
     '&:hover': {
-      backgroundColor: 'transparent',
+      backgroundColor: 'transparent'
     },
     '&:focus': {
-      backgroundColor: 'transparent',
-    },
+      backgroundColor: 'transparent'
+    }
   },
   listItem: {
     marginBottom: '1rem',
@@ -49,10 +49,10 @@ const styles = theme => ({
     '& button': {
       [theme.breakpoints.down('sm')]: {
         marginBottom: '1rem',
-        padding: '0.5rem 1rem',
-      },
-    },
-  },
+        padding: '0.5rem 1rem'
+      }
+    }
+  }
 });
 
 const Footer = props => {
@@ -64,7 +64,7 @@ const Footer = props => {
           onClick={() => {
             window.open(
               'https://www.facebook.com/jitendra.kumar.501',
-              '_blank',
+              '_blank'
             );
           }}
           type={2}
@@ -83,7 +83,7 @@ const Footer = props => {
           onClick={() => {
             window.open(
               'https://www.instagram.com/jitendra.bhamidipati/',
-              '_blank',
+              '_blank'
             );
           }}
           type={2}
@@ -94,7 +94,7 @@ const Footer = props => {
           onClick={() => {
             window.open(
               'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
-              '_blank',
+              '_blank'
             );
           }}
           type={2}
@@ -131,6 +131,6 @@ const Footer = props => {
 
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired,
+  navs: PropTypes.array.isRequired
 };
 export default withStyles(styles)(Footer);

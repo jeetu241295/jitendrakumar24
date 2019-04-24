@@ -10,24 +10,24 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '1rem',
+    marginBottom: '1rem'
   },
   primary: {
     color: theme.colors.progressbarColor,
     backgroundColor: theme.colors.footerNav,
-    borderRadius: '10px',
+    borderRadius: '10px'
   },
   value: {
     fontSize: '1.5rem',
     fontWeight: 500,
     marginLeft: '1.5rem',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   title: {
     fontSize: '1.5rem',
     fontWeight: 500,
-    marginBottom: '0.5rem',
-  },
+    marginBottom: '0.5rem'
+  }
 });
 
 const ProgressBar = props => {
@@ -40,7 +40,7 @@ const ProgressBar = props => {
         </Typography>
         <LinearProgress
           classes={{
-            colorPrimary: classes.primary,
+            colorPrimary: classes.primary
           }}
           variant="determinate"
           value={value}
@@ -58,10 +58,10 @@ const ProgressBar = props => {
 ProgressBar.propTypes = {
   classes: PropTypes.object.isRequired,
   value: PropTypes.number.isRequired,
-  heading: PropTypes.string,
+  heading: PropTypes.string
 };
 ProgressBar.defaultProps = {
-  heading: null,
+  heading: null
 };
 
 export default withStyles(styles)(ProgressBar);
