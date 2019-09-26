@@ -1,7 +1,8 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Avatar from './Avatar';
 
 const styles = () => ({
   img: {
@@ -21,7 +22,13 @@ const AlternatePanel = props => {
           return (
             <React.Fragment key={item.id}>
               <Grid item xs={4}>
-                <img src={item.img} alt={item.alt} className={classes.img} />
+                <Avatar
+                  src={item.img}
+                  alt={item.alt}
+                  className={classes.img}
+                  big
+                />
+                {/* <img src={item.img} alt={item.alt} className={classes.img} /> */}
               </Grid>
               <Grid item xs={8}>
                 {item.content}
@@ -35,7 +42,13 @@ const AlternatePanel = props => {
               {item.content}
             </Grid>
             <Grid item xs={4}>
-              <img src={item.img} alt={item.alt} className={classes.img} />
+              <Avatar
+                src={item.img}
+                alt={item.alt}
+                className={classes.img}
+                big
+              />
+              {/* <img src={item.img} alt={item.alt} className={classes.img} /> */}
             </Grid>
           </React.Fragment>
         );
