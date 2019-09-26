@@ -15,13 +15,13 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
-          emitWarning: process.env.NODE_ENV !== 'production',
-        },
+          emitWarning: process.env.NODE_ENV !== 'production'
+        }
       },
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        exclude: /(node_modules)/,
+        exclude: /(node_modules)/
       },
       {
         test: /\.(png|jpg|gif|ico)$/,
@@ -29,10 +29,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: commonPaths.imagesFolder,
-            },
-          },
-        ],
+              outputPath: commonPaths.imagesFolder
+            }
+          }
+        ]
       },
       {
         test: /\.(woff2|ttf|woff|eot)$/,
@@ -40,26 +40,26 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              outputPath: commonPaths.fontsFolder,
-            },
-          },
-        ],
+              outputPath: commonPaths.fontsFolder
+            }
+          }
+        ]
       },
       {
         test: /\.svg$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader'
           },
           {
             loader: 'react-svg-loader',
             options: {
-              jsx: true, // true outputs JSX tags
-            },
-          },
-        ],
-      },
-    ],
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
+      }
+    ]
   },
   serve: {
     add: app => {
@@ -67,21 +67,21 @@ module.exports = {
     },
     content: commonPaths.entryPath,
     dev: {
-      publicPath: commonPaths.outputPath,
+      publicPath: commonPaths.outputPath
     },
-    open: true,
+    open: true
   },
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['*', '.js', '.jsx', '.css', '.scss'],
+    extensions: ['*', '.js', '.jsx', '.css', '.scss']
   },
   plugins: [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
-      template: commonPaths.templatePath,
+      template: commonPaths.templatePath
     }),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async',
-    }),
-  ],
+      defaultAttribute: 'async'
+    })
+  ]
 };

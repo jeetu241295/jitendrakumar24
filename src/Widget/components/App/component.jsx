@@ -25,7 +25,7 @@ const App = props => {
         <Route path="/contact" component={ContactPage} />
         <Route component={NoPage} />
       </Switch>
-      <Footer navs={navs} />
+      <Footer />
     </Router>
   );
 };

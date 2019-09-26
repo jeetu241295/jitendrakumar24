@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import Button from '../Button';
 import {
   Facebook,
@@ -56,7 +55,7 @@ const styles = theme => ({
 });
 
 const Footer = props => {
-  const { classes, navs } = props;
+  const { classes } = props;
   return (
     <Grid container className={classes.footer}>
       <Grid className={classes.listItem}>
@@ -111,15 +110,6 @@ const Footer = props => {
         </Button>
       </Grid>
       <Grid className={classes.listItem}>
-        {navs.map(nav => (
-          <Link key={nav.toString()} to={`/${nav}`}>
-            <Button className={classes.navLink} type={3} onClick={() => {}}>
-              {nav}
-            </Button>
-          </Link>
-        ))}
-      </Grid>
-      <Grid className={classes.listItem}>
         <Typography className={classes.rights} component="h6">
           Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar. All
           rights reserved.
@@ -130,7 +120,6 @@ const Footer = props => {
 };
 
 Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  navs: PropTypes.array.isRequired
+  classes: PropTypes.object.isRequired
 };
 export default withStyles(styles)(Footer);

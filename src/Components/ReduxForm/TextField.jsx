@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Grid, TextField, withStyles } from '@material-ui/core';
 import { Field } from 'redux-form';
 
@@ -22,35 +23,40 @@ const RenderTextField = ({
   classes,
   label,
   input,
-  meta: { touched, invalid, error },
+  meta: { touched, error },
   multiline,
   rows,
   ...custom
 }) => (
-  <TextField
-    label={label}
-    placeholder={label}
-    error={touched && invalid}
-    helperText={touched && error}
-    variant="outlined"
-    multiline={multiline}
-    rows={rows}
-    fullWidth
-    {...input}
-    {...custom}
-    InputLabelProps={{
-      classes: {
-        root: classes.cssLabel
-      }
-    }}
-    InputProps={{
-      classes: {
-        root: classes.cssOutlinedInput,
-        focused: classes.cssFocused,
-        notchedOutline: classes.notchedOutline
-      }
-    }}
-  />
+  <React.Fragment>
+    <TextField
+      label={label}
+      placeholder={label}
+      error={touched && error}
+      helperText={touched && error}
+      variant="outlined"
+      multiline={multiline}
+      rows={rows}
+      fullWidth
+      {...input}
+      {...custom}
+      InputLabelProps={{
+        classes: {
+          root: classes.cssLabel
+        }
+      }}
+      InputProps={{
+        classes: {
+          root: classes.cssOutlinedInput,
+          focused: classes.cssFocused,
+          notchedOutline: classNames({
+            [classes.notchedOutline]: !(touched && error)
+          })
+        }
+      }}
+    />
+    {/* {touched && error && <FormHelperText>{error}</FormHelperText>} */}
+  </React.Fragment>
 );
 
 const ReduxTextField = props => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import classNames from 'class-names';
+import classNames from 'classnames';
 
 const styles = theme => ({
   normal: {

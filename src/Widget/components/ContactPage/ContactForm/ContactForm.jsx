@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../Components/Button';
 import TextField from '../../../../Components/ReduxForm/TextField';
 import { Send } from '../../../../Global/SVG';
+import { normalizePhone, normalizeUserName } from './Normalise';
 
 const styles = theme => ({
   header: {
@@ -33,15 +34,26 @@ const styles = theme => ({
 });
 
 const ContactForm = props => {
-  const { classes } = props;
+  const { classes, handleSubmit } = props;
   return (
     <Grid container className={classes.contactFormWrap}>
       <Typography className={classes.header} component="h3">
         Leave A Message
       </Typography>
       <Grid container className={classes.contactForm}>
-        <TextField className={classes.textField} name="name" label="Name" />
+        <TextField
+          className={classes.textField}
+          name="name"
+          label="Name"
+          normalize={normalizeUserName}
+        />
         <TextField className={classes.textField} name="email" label="Email" />
+        <TextField
+          className={classes.textField}
+          name="phone"
+          label="Mobile"
+          normalize={normalizePhone}
+        />
         <TextField
           className={classes.textField}
           name="subject"
@@ -55,13 +67,14 @@ const ContactForm = props => {
           rows={7}
         />
       </Grid>
-      <Button icon={<Send />} className={classes.send} onClick={() => {}}>
+      <Button icon={<Send />} className={classes.send} onClick={handleSubmit}>
         Send
       </Button>
     </Grid>
   );
 };
 ContactForm.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 export default withStyles(styles)(ContactForm);

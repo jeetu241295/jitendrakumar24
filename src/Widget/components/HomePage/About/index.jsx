@@ -110,9 +110,10 @@ const styles = theme => ({
     fontSize: '1.5rem',
     margin: '2rem 0',
     textAlign: 'justify',
-    lineHeight: '1.5rem',
+    lineHeight: '2rem',
     [theme.breakpoints.down('sm')]: {
-      margin: 0
+      margin: 0,
+      lineHeight: '1.5rem'
     }
   },
   more: {
@@ -153,7 +154,11 @@ const About = props => {
           </Typography>
         ))}
         <Grid className={classes.buttons}>
-          <Button type={1} className={classes.hire} onClick={() => {}}>
+          <Button
+            type={1}
+            className={classes.hire}
+            onClick={() => history.push('/contact')}
+          >
             Hire Me
           </Button>
           <Button type={1} className={classes.resume} onClick={() => {}}>

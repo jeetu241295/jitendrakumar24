@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: `${commonPaths.jsFolder}/[name].[hash].js`,
     path: commonPaths.outputPath,
-    chunkFilename: `${commonPaths.jsFolder}/[name].[chunkhash].js`,
+    chunkFilename: `${commonPaths.jsFolder}/[name].[chunkhash].js`
   },
   optimization: {
     minimizer: [
@@ -20,9 +20,9 @@ module.exports = {
         parallel: true,
         // Enable file caching
         cache: true,
-        sourceMap: true,
+        sourceMap: true
       }),
-      new OptimizeCSSAssetsPlugin(),
+      new OptimizeCSSAssetsPlugin()
     ],
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
@@ -32,35 +32,35 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'initial',
+          chunks: 'initial'
         },
         async: {
           test: /[\\/]node_modules[\\/]/,
           name: 'async',
           chunks: 'async',
-          minChunks: 4,
-        },
-      },
+          minChunks: 4
+        }
+      }
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true,
+    runtimeChunk: true
   },
 
   module: {
     rules: [
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `${commonPaths.cssFolder}/[name].css`,
-      chunkFilename: `${commonPaths.cssFolder}/[name].css`,
-    }),
+      chunkFilename: `${commonPaths.cssFolder}/[name].css`
+    })
   ],
-  devtool: 'source-map',
+  devtool: 'source-map'
 };

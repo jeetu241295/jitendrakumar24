@@ -25,6 +25,9 @@ const styles = theme => ({
     marginTop: '.5rem',
     marginBottom: '.5rem'
   },
+  calenderIcon: {
+    marginRight: '1rem'
+  },
   place: {
     fontSize: '1.75rem',
     fontWeight: 500,
@@ -38,7 +41,7 @@ const Card = props => {
   return (
     <Paper className={classes.paper}>
       <Grid className={classes.timeline}>
-        <Calender />
+        <Calender className={classes.calenderIcon} />
         <Normal>{item.period}</Normal>
       </Grid>
       <Typography className={classes.period} variant="h4" componeent="h4">

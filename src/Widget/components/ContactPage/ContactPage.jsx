@@ -1,7 +1,7 @@
 import React from 'react';
-import { withStyles, Typography, Grid } from '@material-ui/core';
+import { withStyles, Typography, Grid, Link } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import classNames from 'class-names';
+import classNames from 'classnames';
 import ContactForm from './ContactForm';
 import Normal from '../../../Components/Normal';
 import { Phone, Mail, Location, Web } from '../../../Global/SVG';
@@ -24,9 +24,11 @@ const styles = theme => ({
     justifyContent: 'space-around',
     height: '90%',
     [theme.breakpoints.down('md')]: {
+      paddingTop: '8rem',
       padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
+      paddingTop: '5rem',
       padding: '1.5rem'
     }
   },
@@ -70,51 +72,63 @@ const styles = theme => ({
 
 const Contact = props => {
   const { classes } = props;
+  const saveValues = values => {
+    // eslint-disable-next-line no-console
+    console.log(values);
+  };
   return (
     <Grid className={classes.contact}>
       <Grid container className={classes.overlay}>
         <Grid item sm={5} xs={12} className={classes.info}>
-          <ContactForm />
+          <ContactForm onSubmit={saveValues} />
         </Grid>
         <Grid item sm={5} xs={12} className={classes.personalInfoWrap}>
           <Grid className={classNames(classes.info, classes.marginBottom)}>
             <Typography className={classes.header} component="h3">
               Address
             </Typography>
-            <Grid className={classes.listItem}>
+            <Link
+              className={classes.listItem}
+              href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
+              target="_blank"
+            >
               <Location />
               <Normal className={classes.normal}>
-                SSS Colony, Gollapudi, Vijayawada, Andhra Pradesh, India-521456
+                Plot No:69 Iron Merchant,SSS Colony,Near Padmavathi Function
+                Hall, Gollapudi, Vijayawada, Andhra Pradesh, India. 521225
               </Normal>
-            </Grid>
+            </Link>
           </Grid>
           <Grid className={classes.info}>
             <Typography className={classes.header} component="h3">
               Phone
             </Typography>
-            <Grid className={classes.listItem}>
+            <Link className={classes.listItem} href="tel:+91 949-196-4870">
               <Phone />
               <Normal className={classes.normal}>+91 949 196 4870</Normal>
-            </Grid>
-            <Grid className={classes.listItem}>
+            </Link>
+            <Link className={classes.listItem} href="tel:+91 949-196-4870">
               <Phone />
               <Normal className={classes.normal}>+91 798 938 1360</Normal>
-            </Grid>
+            </Link>
           </Grid>
           <Grid className={classNames(classes.marginTop, classes.info)}>
             <Typography className={classes.header} component="h3">
               Web
             </Typography>
-            <Grid className={classes.listItem}>
+            <Link
+              className={classes.listItem}
+              href="mailto:jeetu241295@gmail.com"
+            >
               <Mail />
               <Normal className={classes.normal}>jeetu241295@gmail.com</Normal>
-            </Grid>
-            <Grid className={classes.listItem}>
+            </Link>
+            <Link className={classes.listItem} href="/">
               <Web />
               <Normal className={classes.normal}>
                 www.jitendrakumar24.tech
               </Normal>
-            </Grid>
+            </Link>
           </Grid>
         </Grid>
       </Grid>

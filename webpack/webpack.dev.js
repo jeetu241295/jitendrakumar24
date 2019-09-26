@@ -7,21 +7,21 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: commonPaths.outputPath,
-    chunkFilename: '[name].js',
+    chunkFilename: '[name].js'
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   },
   devServer: {
     contentBase: commonPaths.outputPath,
     compress: true,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

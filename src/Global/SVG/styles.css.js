@@ -11,10 +11,8 @@ export const styles = theme => ({
     fill: theme.colors.calenderColor
   },
   location: {
-    [theme.breakpoints.up('xs')]: {
-      width: 32,
-      height: 32
-    }
+    width: '3.2rem',
+    height: '3.2rem'
   },
   primaryColor: { fill: theme.colors.primary },
   blackColor: {

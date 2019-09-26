@@ -112,18 +112,19 @@ export const experience = [
   {
     id: 1,
     type: 'experience',
-    period: 'Novemeber 2017 - October 2018',
-    role: 'ASE Trainee',
-    context: 'Had to say I have been lucky got into development projects.',
+    period: 'Novemeber 2017 - Sepetember 2019',
+    role: 'ASE Trainee, Assitant System Engineer',
+    context:
+      'Had to say I have been lucky got into development projects.Proved my worth in TCS in 1st year itself.',
     company: 'Tata Consultancy Services'
   },
   {
     id: 2,
     type: 'experience',
-    period: 'November 2018-Present',
-    role: 'Assistant Software Engineer',
-    context: 'Proved my worth in TCS and now they believe in me.',
-    company: 'Tata Consultancy Services'
+    period: 'September 2019-Present',
+    role: 'It Analyst',
+    context: 'Work ambience is awesome.',
+    company: 'DBS (Development Bank of Singapore)'
   }
 ];
 export const motto =
