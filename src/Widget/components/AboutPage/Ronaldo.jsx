@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 
 const styles = () => ({
   about: {
-    marginTop: 64,
     padding: '2rem',
+    paddingTop: '6.4rem',
     minHeight: '80vh'
   }
 });

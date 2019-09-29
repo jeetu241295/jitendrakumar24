@@ -87,7 +87,8 @@ export const education = [
     type: 'education',
     period: 'June 2001 - April 2011',
     degree: 'Schooling',
-    context: 'Some say the best life is school life,No doubt about it.',
+    context:
+      'Some say the best life is school life,No doubt about it. I can never forget my 3 mistakes in my school life. :P',
     place: 'D.A.V Public School'
   },
   {
@@ -95,7 +96,8 @@ export const education = [
     type: 'education',
     period: 'June 2011 - 2013 March',
     degree: 'Intermediate',
-    context: 'So much hardwork,stress and pressure still somehow survived.',
+    context:
+      'So much hardwork,stress and pressure still somehow survived. I hate this pressure cookers.',
     place: 'Narayana Jr. College'
   },
   {

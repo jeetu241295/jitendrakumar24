@@ -13,8 +13,9 @@ import Ronaldo from './Ronaldo';
 
 const styles = theme => ({
   about: {
-    marginTop: 64,
-    padding: '2rem'
+    padding: '2rem',
+    paddingTop: '6.4rem',
+    flex: 1
   },
   summaryTitle: {
     color: theme.colors.black,

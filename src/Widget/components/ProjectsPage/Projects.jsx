@@ -6,8 +6,8 @@ import Normal from '../../../Components/Normal';
 
 const styles = () => ({
   about: {
-    marginTop: 64,
     padding: '2rem',
+    paddingTop: '6.4rem',
     minHeight: '80vh'
   },
   text: {

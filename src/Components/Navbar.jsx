@@ -20,7 +20,6 @@ import logo from '../static/images/logo.jpg';
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
     justifyContent: 'flex-start'
   },
   menuButton: {
