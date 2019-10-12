@@ -71,10 +71,10 @@ const styles = theme => ({
 });
 
 const Contact = props => {
-  const { classes } = props;
+  const { classes, sendMail, reset } = props;
   const saveValues = values => {
-    // eslint-disable-next-line no-console
-    console.log(values);
+    sendMail(values);
+    reset();
   };
   return (
     <Grid className={classes.contact}>
@@ -137,6 +137,8 @@ const Contact = props => {
 };
 
 Contact.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  sendMail: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired
 };
 export default withStyles(styles)(Contact);

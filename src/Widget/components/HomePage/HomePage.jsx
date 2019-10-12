@@ -11,11 +11,16 @@ import Motto from './Motto';
 const styles = () => ({});
 
 const App = props => {
-  const { skills, motto, about, history } = props;
+  const { skills, motto, about, history, downloadCV } = props;
   return (
     <Grid container>
       <Home />
-      <About skills={skills} about={about} history={history} />
+      <About
+        skills={skills}
+        about={about}
+        history={history}
+        downloadCV={downloadCV}
+      />
       <Motto motto={motto} />
       <Experience {...props} />
       <Gallery {...props} />
@@ -25,6 +30,7 @@ const App = props => {
 
 App.propTypes = {
   skills: PropTypes.array.isRequired,
+  downloadCV: PropTypes.func.isRequired,
   about: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   motto: PropTypes.string.isRequired

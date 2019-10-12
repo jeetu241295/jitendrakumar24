@@ -50,7 +50,7 @@ const ContactForm = props => {
         <TextField className={classes.textField} name="email" label="Email" />
         <TextField
           className={classes.textField}
-          name="phone"
+          name="mobile"
           label="Mobile"
           normalize={normalizePhone}
         />

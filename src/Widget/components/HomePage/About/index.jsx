@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ProgressBar from '../../../../Components/ProgressBar';
 import Button from '../../../../Components/Button';
 import aboutImg from '../../../../static/images/about.jpg';
+import HandFont from '../../../../Components/HandFont';
 
 const styles = theme => ({
   about: {
@@ -107,10 +108,10 @@ const styles = theme => ({
     }
   },
   description: {
-    fontSize: '1.5rem',
     margin: '2rem 0',
     textAlign: 'justify',
     lineHeight: '2rem',
+    color: theme.colors.textColor,
     [theme.breakpoints.down('sm')]: {
       margin: 0,
       lineHeight: '1.5rem'
@@ -132,7 +133,7 @@ const styles = theme => ({
 });
 
 const About = props => {
-  const { classes, skills, about, history } = props;
+  const { classes, skills, about, history, downloadCV } = props;
   return (
     <Grid container className={classes.about}>
       <Grid className={classes.imageWrap} item sm={5} xs={12}>
@@ -144,14 +145,9 @@ const About = props => {
           About Me
         </Typography>
         {about.map(item => (
-          <Typography
-            className={classes.description}
-            variant="body1"
-            component="p"
-            key={item.id}
-          >
+          <HandFont className={classes.description} key={item.id}>
             &emsp; {item.content}
-          </Typography>
+          </HandFont>
         ))}
         <Grid className={classes.buttons}>
           <Button
@@ -161,7 +157,7 @@ const About = props => {
           >
             Hire Me
           </Button>
-          <Button type={1} className={classes.resume} onClick={() => {}}>
+          <Button type={1} className={classes.resume} onClick={downloadCV}>
             Download CV
           </Button>
           <Button
@@ -196,6 +192,7 @@ const About = props => {
 
 About.propTypes = {
   classes: PropTypes.object.isRequired,
+  downloadCV: PropTypes.func.isRequired,
   skills: PropTypes.array.isRequired,
   about: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired

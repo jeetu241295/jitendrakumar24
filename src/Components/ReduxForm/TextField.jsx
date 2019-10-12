@@ -12,6 +12,7 @@ const styles = theme => ({
     borderColor: theme.colors.white + ' !important'
   },
   cssOutlinedInput: {
+    color: theme.colors.white,
     '&$cssFocused $notchedOutline': {
       borderColor: `${theme.palette.primary.main} !important`
     }
@@ -38,6 +39,7 @@ const RenderTextField = ({
       multiline={multiline}
       rows={rows}
       fullWidth
+      autoComplete={false}
       {...input}
       {...custom}
       InputLabelProps={{

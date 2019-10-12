@@ -20,6 +20,7 @@ const styles = theme => ({
   },
   motto: {
     fontSize: '3rem',
+    lineHeight: '2.5rem',
     fontWeight: 900,
     textAlign: 'center',
     color: 'transparent',

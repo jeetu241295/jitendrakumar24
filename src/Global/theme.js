@@ -15,7 +15,8 @@ const colors = {
   sideBar: '#6e9dea',
   containerBackground: '#F8F9FA',
   buttonColor: '#6c757d',
-  calenderColor: '#B3BDC6'
+  calenderColor: '#B3BDC6',
+  textColor: '#808080'
 };
 
 const theme = createMuiTheme({
