@@ -18,7 +18,9 @@ import gal14 from '../../static/images/gal-14.jpg';
 
 export const COUNT = 'COUNT';
 export const DIALOG = 'DIALOG';
-export const navs = ['home', 'about', 'projects', 'contact'];
+
+// export const navs = ['home', 'about', 'projects', 'contact'];
+export const navs = ['home', 'contact'];
 
 export const images = [
   {
