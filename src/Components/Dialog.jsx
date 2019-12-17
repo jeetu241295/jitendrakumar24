@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import withMobileDialog from '@material-ui/core/withMobileDialog';
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
-const styles = () => ({
+const styles = makeStyles(() => ({
   modalWidth: {
     maxWidth: '750px'
   }
-});
+}));
 
-const DialogTitleCustom = withStyles(theme => ({
+const customTitleStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     borderBottom: `1px solid ${theme.colors.black}`,
@@ -33,8 +33,11 @@ const DialogTitleCustom = withStyles(theme => ({
     fontWeight: 800,
     color: theme.colors.mainAction
   }
-}))(props => {
-  const { children, classes, onClose, closeButton } = props;
+}));
+
+const DialogTitleCustom = props => {
+  const { children, onClose, closeButton } = props;
+  const classes = customTitleStyles(props);
   return (
     <MuiDialogTitle disableTypography className={classes.root}>
       <Typography className={classes.title} variant="h6">
@@ -51,63 +54,54 @@ const DialogTitleCustom = withStyles(theme => ({
       )}
     </MuiDialogTitle>
   );
-});
+};
 
-class DialogJK extends React.Component {
-  state = {
-    stateOpen: false
+const DialogJK = props => {
+  const [stateOpen, setStateOpen] = useState(false);
+
+  const handleClose = () => {
+    setStateOpen(false);
   };
 
-  handleClickOpen = () => {
-    this.setState({ stateOpen: true });
-  };
+  const {
+    fullScreen,
+    buttons,
+    children,
+    title,
+    open,
+    onClose,
+    closeButton
+  } = props;
+  const classes = styles(props);
 
-  handleClose = () => {
-    this.setState({ stateOpen: false });
-  };
-
-  render() {
-    const {
-      fullScreen,
-      buttons,
-      children,
-      title,
-      open,
-      onClose,
-      closeButton,
-      classes
-    } = this.props;
-    const { stateOpen } = this.state;
-    return (
-      <Dialog
-        fullScreen={fullScreen}
-        open={open || stateOpen}
-        onClose={open ? onClose : this.handleClose}
-        aria-labelledby="responsive-dialog-title"
-        classes={{
-          paper: classes.modalWidth
-        }}
+  return (
+    <Dialog
+      fullScreen={fullScreen}
+      open={open || stateOpen}
+      onClose={open ? onClose : handleClose}
+      aria-labelledby="responsive-dialog-title"
+      classes={{
+        paper: classes.modalWidth
+      }}
+    >
+      <DialogTitleCustom
+        id="responsive-dialog-title"
+        onClose={onClose}
+        closeButton={closeButton}
       >
-        <DialogTitleCustom
-          id="responsive-dialog-title"
-          onClose={onClose}
-          closeButton={closeButton}
-        >
-          {title}
-        </DialogTitleCustom>
-        <DialogContent>
-          <DialogContentText className={classes.content}>
-            {children}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>{buttons && buttons.map(item => item)}</DialogActions>
-      </Dialog>
-    );
-  }
-}
+        {title}
+      </DialogTitleCustom>
+      <DialogContent>
+        <DialogContentText className={classes.content}>
+          {children}
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>{buttons && buttons.map(item => item)}</DialogActions>
+    </Dialog>
+  );
+};
 
 DialogJK.propTypes = {
-  classes: PropTypes.object.isRequired,
   fullScreen: PropTypes.bool,
   children: PropTypes.node.isRequired,
   closeButton: PropTypes.bool,
@@ -123,4 +117,11 @@ DialogJK.defaultProps = {
   open: false
 };
 
-export default withStyles(styles)(withMobileDialog()(DialogJK));
+DialogTitleCustom.propTypes = {
+  children: PropTypes.node.isRequired,
+  closeButton: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired
+};
+DialogTitleCustom.defaultProps = {};
+
+export default withMobileDialog()(DialogJK);

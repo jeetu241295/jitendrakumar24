@@ -1,6 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import Button from '../Button';
@@ -13,7 +12,7 @@ import {
   Love
 } from '../../Global/SVG';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   footer: {
     padding: '2rem',
     display: 'flex',
@@ -52,10 +51,10 @@ const styles = theme => ({
       }
     }
   }
-});
+}));
 
-const Footer = props => {
-  const { classes } = props;
+const Footer = () => {
+  const classes = styles();
   return (
     <Grid container className={classes.footer}>
       <Grid className={classes.listItem}>
@@ -72,7 +71,7 @@ const Footer = props => {
         </Button>
         <Button
           onClick={() => {
-            window.open('https://github.com/jeetu241295', '_blank');
+            window.open('https://github.com/JitendraBhamidipati', '_blank');
           }}
           type={2}
         >
@@ -119,7 +118,5 @@ const Footer = props => {
   );
 };
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-export default withStyles(styles)(Footer);
+Footer.propTypes = {};
+export default Footer;

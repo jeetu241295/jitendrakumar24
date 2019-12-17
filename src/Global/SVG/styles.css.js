@@ -1,4 +1,6 @@
-export const styles = theme => ({
+import { makeStyles } from '@material-ui/core/styles';
+
+export const styles = makeStyles(theme => ({
   whiteColor: {
     fill: theme.colors.white,
     marginRight: '1rem',
@@ -19,5 +21,5 @@ export const styles = theme => ({
     fill: theme.colors.black,
     marginRight: '1rem'
   }
-});
+}));
 export default styles;

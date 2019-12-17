@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../../../Components/Navbar';
@@ -9,8 +8,6 @@ import HomePage from '../HomePage';
 import ContactPage from '../ContactPage';
 // import ProjectsPage from '../ProjectsPage';
 import NoPage from './NoPage';
-
-const styles = () => ({});
 
 const App = props => {
   const { navs } = props;
@@ -35,4 +32,4 @@ App.propTypes = {
 };
 App.defaultProps = {};
 
-export default withStyles(styles)(App);
+export default App;

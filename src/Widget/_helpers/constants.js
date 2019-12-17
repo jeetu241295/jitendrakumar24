@@ -19,8 +19,8 @@ import gal14 from '../../static/images/gal-14.jpg';
 export const COUNT = 'COUNT';
 export const DIALOG = 'DIALOG';
 
-// export const navs = ['home', 'about', 'projects', 'contact'];
 export const navs = ['home', 'contact'];
+// export const navs = ['home', 'Projects', 'contact'];
 
 export const images = [
   {
@@ -220,5 +220,45 @@ export const personalContent = [
     title: 'One Piece',
     content:
       "One Piece, one of the best.I learned so many life lessons from Naruto and One Piece which school didn't teach. "
+  }
+];
+
+// Project Page
+
+export const projects = [
+  {
+    id: 1,
+    imgTitle: 'Personal Website',
+    imgPath: '',
+    projectDate: 'September 16th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+  },
+  {
+    id: 2,
+    imgTitle: 'Personal Website',
+    imgPath: '',
+    projectDate: 'September 16th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+  },
+  {
+    id: 3,
+    imgTitle: 'Personal Website',
+    imgPath: '',
+    projectDate: 'September 16th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+  },
+  {
+    id: 4,
+    imgTitle: 'Personal Website',
+    imgPath: '',
+    projectDate: 'September 16th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+  },
+  {
+    id: 5,
+    imgTitle: 'Personal Website',
+    imgPath: '',
+    projectDate: 'September 16th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
   }
 ];

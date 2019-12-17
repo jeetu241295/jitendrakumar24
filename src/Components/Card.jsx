@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,14 +8,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import ReactDOM from 'react-dom';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Link } from 'react-router-dom';
-// import SnackBar from './SnackBar';
-// import themeCSS from '../Global/theme';
 import renderSnackbar from '../Global/helpers';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   card: {
     width: '90%',
     [theme.breakpoints.down('xs')]: {
@@ -28,10 +25,11 @@ const styles = theme => ({
   media: {
     height: 140
   }
-});
+}));
 
 const MediaCard = props => {
-  const { classes, item, match } = props;
+  const { item, match } = props;
+  const classes = styles(props);
   const copyToClipboard = str => {
     const el = document.createElement('textarea');
     el.value = str;
@@ -62,12 +60,6 @@ const MediaCard = props => {
           onClick={() => {
             copyToClipboard('jitendrakumar24.tech/about/personal/ronaldo');
             renderSnackbar('Link Copied..!');
-            // ReactDOM.render(
-            //   <MuiThemeProvider theme={themeCSS}>
-            //     <SnackBar message="Link Copied !" open />
-            //   </MuiThemeProvider>,
-            //   document.getElementById('snackbar')
-            // );
           }}
         >
           Share
@@ -83,9 +75,8 @@ const MediaCard = props => {
 };
 
 MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(MediaCard);
+export default MediaCard;

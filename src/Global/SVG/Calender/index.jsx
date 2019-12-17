@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 import CalenderSVG from './calender.svg';
 import styles from '../styles.css';
 
-const Calender = ({ classes, className }) => {
+const Calender = ({ className }) => {
+  const classes = styles();
   return (
     <CalenderSVG
       className={classNames(classes.calenderColor, className)}
@@ -15,7 +15,6 @@ const Calender = ({ classes, className }) => {
   );
 };
 Calender.propTypes = {
-  classes: PropTypes.object.isRequired,
   className: PropTypes.string.isRequired
 };
-export default withStyles(styles)(Calender);
+export default Calender;

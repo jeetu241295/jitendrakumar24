@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grid, withStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Button from '../../../../Components/Button';
 import TextField from '../../../../Components/ReduxForm/TextField';
 import { Send } from '../../../../Global/SVG';
 import { normalizePhone, normalizeUserName } from './Normalise';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   header: {
     color: theme.colors.mainAction,
     marginBottom: '2.5rem',
@@ -31,10 +31,11 @@ const styles = theme => ({
   send: {
     alignSelf: 'flex-end'
   }
-});
+}));
 
 const ContactForm = props => {
-  const { classes, handleSubmit } = props;
+  const { handleSubmit } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.contactFormWrap}>
       <Typography className={classes.header} component="h3">
@@ -74,7 +75,6 @@ const ContactForm = props => {
   );
 };
 ContactForm.propTypes = {
-  classes: PropTypes.object.isRequired,
   handleSubmit: PropTypes.func.isRequired
 };
-export default withStyles(styles)(ContactForm);
+export default ContactForm;

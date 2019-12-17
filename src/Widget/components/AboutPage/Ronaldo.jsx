@@ -1,18 +1,17 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import PropTypes from 'prop-types';
 
-const styles = () => ({
+const styles = makeStyles(() => ({
   about: {
     padding: '2rem',
     paddingTop: '6.4rem',
     minHeight: '80vh'
   }
-});
+}));
 
-const Ronaldo = props => {
-  const { classes } = props;
+const Ronaldo = () => {
+  const classes = styles();
   return (
     <Grid container className={classes.about}>
       <Grid item xs={12}>
@@ -22,9 +21,7 @@ const Ronaldo = props => {
   );
 };
 
-Ronaldo.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+Ronaldo.propTypes = {};
 Ronaldo.defaultProps = {};
 
-export default withStyles(styles)(Ronaldo);
+export default Ronaldo;

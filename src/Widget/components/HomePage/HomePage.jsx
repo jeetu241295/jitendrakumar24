@@ -1,14 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Home from './Home';
 import About from './About';
 import Gallery from './Gallery';
 import Experience from './Experience';
 import Motto from './Motto';
-
-const styles = () => ({});
 
 const App = props => {
   const { skills, motto, about, history, downloadCV } = props;
@@ -37,4 +34,4 @@ App.propTypes = {
 };
 App.defaultProps = {};
 
-export default withStyles(styles)(App);
+export default App;

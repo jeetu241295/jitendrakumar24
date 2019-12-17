@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, Typography, Grid, Link } from '@material-ui/core';
+import { makeStyles, Typography, Grid, Link } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ContactForm from './ContactForm';
@@ -7,7 +7,7 @@ import Normal from '../../../Components/Normal';
 import { Phone, Mail, Location, Web } from '../../../Global/SVG';
 import contactImg from '../../../static/images/contact.jpg';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   contact: {
     background: `url(${contactImg}) no-repeat center center fixed`,
     backgroundSize: 'cover',
@@ -68,10 +68,11 @@ const styles = theme => ({
   normal: {
     color: theme.colors.white
   }
-});
+}));
 
 const Contact = props => {
-  const { classes, sendMail, reset } = props;
+  const { sendMail, reset } = props;
+  const classes = styles();
   const saveValues = values => {
     sendMail(values);
     reset();
@@ -137,8 +138,7 @@ const Contact = props => {
 };
 
 Contact.propTypes = {
-  classes: PropTypes.object.isRequired,
   sendMail: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired
 };
-export default withStyles(styles)(Contact);
+export default Contact;

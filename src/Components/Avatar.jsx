@@ -1,59 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
-const styles = {
-  mediumAvatar: {
+const styles = makeStyles(() => ({
+  avatar: {
     margin: 10,
-    width: 150,
-    height: 150
-  },
-  smallAvatar: {
-    margin: 10,
-    width: 60,
-    height: 60
-  },
-  bigAvatar: {
-    margin: 10,
-    width: 400,
-    height: 300
+    width: ({ big, small }) => {
+      if (big) return 400;
+      if (small) return 60;
+      return 150;
+    },
+    height: ({ big, small }) => {
+      if (big) return 300;
+      if (small) return 60;
+      return 150;
+    }
   }
-};
+}));
 
 const ImageAvatar = props => {
-  const { classes, big, small, medium, alt, src, className } = props;
+  const { alt, src, className } = props;
+  const classes = styles(props);
   return (
-    <Avatar
-      alt={alt}
-      src={src}
-      className={classNames(
-        {
-          [classes.bigAvatar]: big,
-          [classes.mediumAvatar]: medium,
-          [classes.smallAvatar]: small
-        },
-        className
-      )}
-    />
+    <Avatar alt={alt} src={src} className={`${classes.avatar} ${className}`} />
   );
 };
 
 ImageAvatar.propTypes = {
   alt: PropTypes.string.isRequired,
-  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  big: PropTypes.bool,
-  small: PropTypes.bool,
-  medium: PropTypes.bool
+  src: PropTypes.string.isRequired
 };
 ImageAvatar.defaultProps = {
-  className: '',
-  big: false,
-  small: false,
-  medium: false
+  className: ''
 };
 
-export default withStyles(styles)(ImageAvatar);
+export default ImageAvatar;

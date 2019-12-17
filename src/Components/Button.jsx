@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, withStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   buttonStyle: {
     color: theme.colors.white,
     backgroundColor: theme.colors.primary,
@@ -50,10 +50,11 @@ const styles = theme => ({
     backgroundColor: 'transparent',
     padding: 0
   }
-});
+}));
 
 const Button24 = props => {
-  const { classes, children, disabled, onClick, icon, className, type } = props;
+  const { children, disabled, onClick, icon, className, type } = props;
+  const classes = styles();
   const buttonStyle =
     type === 2 ? classes.iconButtonStyle : classes.buttonStyle;
   return (
@@ -69,7 +70,6 @@ const Button24 = props => {
 };
 
 Button24.propTypes = {
-  classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   children: PropTypes.node,
   icon: PropTypes.node,
@@ -85,4 +85,4 @@ Button24.defaultProps = {
   type: 1
 };
 
-export default withStyles(styles)(Button24);
+export default Button24;

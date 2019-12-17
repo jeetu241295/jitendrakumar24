@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Avatar from './Avatar';
 
-const styles = () => ({
+const styles = makeStyles(() => ({
   img: {
     width: '100%',
     height: '100%',
     objectFit: 'contain',
     display: 'block'
   }
-});
+}));
 
 const AlternatePanel = props => {
-  const { data, classes } = props;
+  const { data } = props;
+  const classes = styles(props);
   return (
-    <Grid container spacing={32}>
+    <Grid container spacing={4}>
       {data.map((item, index) => {
         if (index % 2 === 0) {
           return (
@@ -58,9 +59,8 @@ const AlternatePanel = props => {
 };
 
 AlternatePanel.propTypes = {
-  classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired
 };
 AlternatePanel.defaultProps = {};
 
-export default withStyles(styles)(AlternatePanel);
+export default AlternatePanel;

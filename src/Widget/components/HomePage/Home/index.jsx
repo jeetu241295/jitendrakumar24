@@ -1,11 +1,10 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import homeImg from '../../../../static/images/home.jpg';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   home: {
     background: `url(${homeImg}) no-repeat center center fixed`,
     backgroundSize: 'cover',
@@ -66,10 +65,10 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'row'
   }
-});
+}));
 
-const Home = props => {
-  const { classes } = props;
+const Home = () => {
+  const classes = styles();
   return (
     <Grid container className={classes.home}>
       <Grid className={classes.overlay}>
@@ -93,7 +92,5 @@ const Home = props => {
   );
 };
 
-Home.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-export default withStyles(styles)(Home);
+Home.propTypes = {};
+export default Home;

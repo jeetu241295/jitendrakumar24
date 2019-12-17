@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Grid, TextField, withStyles } from '@material-ui/core';
+import { Grid, TextField, makeStyles } from '@material-ui/core';
 import { Field } from 'redux-form';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   cssLabel: {
     color: theme.colors.white
   },
@@ -18,51 +18,55 @@ const styles = theme => ({
     }
   },
   cssFocused: {}
-});
+}));
 
 const RenderTextField = ({
-  classes,
   label,
   input,
   meta: { touched, error },
   multiline,
   rows,
   ...custom
-}) => (
-  <React.Fragment>
-    <TextField
-      label={label}
-      placeholder={label}
-      error={touched && error}
-      helperText={touched && error}
-      variant="outlined"
-      multiline={multiline}
-      rows={rows}
-      fullWidth
-      autoComplete={false}
-      {...input}
-      {...custom}
-      InputLabelProps={{
-        classes: {
-          root: classes.cssLabel
-        }
-      }}
-      InputProps={{
-        classes: {
-          root: classes.cssOutlinedInput,
-          focused: classes.cssFocused,
-          notchedOutline: classNames({
-            [classes.notchedOutline]: !(touched && error)
-          })
-        }
-      }}
-    />
-    {/* {touched && error && <FormHelperText>{error}</FormHelperText>} */}
-  </React.Fragment>
-);
+}) => {
+  const classes = styles();
+  return (
+    <React.Fragment>
+      <TextField
+        label={label}
+        placeholder={label}
+        // eslint-disable-next-line no-unneeded-ternary
+        error={touched && error ? true : false}
+        helperText={touched && error}
+        variant="outlined"
+        multiline={multiline}
+        rows={rows}
+        fullWidth
+        autoComplete="false"
+        {...input}
+        {...custom}
+        InputLabelProps={{
+          classes: {
+            root: classes.cssLabel
+          }
+        }}
+        InputProps={{
+          classes: {
+            root: classes.cssOutlinedInput,
+            focused: classes.cssFocused,
+            notchedOutline: classNames({
+              [classes.notchedOutline]: !(touched && error)
+            })
+          }
+        }}
+      />
+      {/* {touched && error && <FormHelperText>{error}</FormHelperText>} */}
+    </React.Fragment>
+  );
+};
 
 const ReduxTextField = props => {
-  const { classes, name, label, className } = props;
+  const { name, label, className } = props;
+  const classes = styles();
   return (
     <Grid className={(classes.textFieldWrap, className)}>
       <Field name={name} component={RenderTextField} label={label} {...props} />
@@ -72,7 +76,6 @@ const ReduxTextField = props => {
 
 ReduxTextField.propTypes = {
   className: PropTypes.string,
-  classes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string
 };
@@ -83,7 +86,6 @@ ReduxTextField.defaultProps = {
 };
 
 RenderTextField.propTypes = {
-  classes: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   input: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
@@ -95,4 +97,4 @@ RenderTextField.defaultProps = {
   multiline: false
 };
 
-export default withStyles(styles)(ReduxTextField);
+export default ReduxTextField;

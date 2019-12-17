@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  withStyles,
+  makeStyles,
   Drawer,
   List,
   ListItem,
@@ -18,7 +18,7 @@ import { Love } from '../Global/SVG';
 import Button from './Button';
 import logo from '../static/images/logo.jpg';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   root: {
     justifyContent: 'flex-start'
   },
@@ -105,131 +105,126 @@ const styles = theme => ({
     }
   },
   navDown: {}
-});
+}));
 
-class ButtonAppBar extends React.Component {
-  state = {
-    open: false,
-    navBarHeight: 64,
-    lastScrollTop: 0,
-    isScrolledDown: false
-  };
+const ButtonAppBar = props => {
+  const navBarHeight = 64;
+  let lastScrollTop = 0;
+  const [open, setOpen] = useState(false);
+  const [isScrolledDown, setScrollDown] = useState(false);
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
+  const { navs } = props;
+  const classes = styles();
 
-  hasScrolled = () => {
-    const { navBarHeight, lastScrollTop } = this.state;
+  const hasScrolled = () => {
     const delta = 5;
     const st = document.documentElement.scrollTop;
     if (Math.abs(lastScrollTop - st) <= delta) return;
     if (st > lastScrollTop && st > navBarHeight) {
-      this.setState({ isScrolledDown: true });
+      setScrollDown(true);
     } else if (
       st + window.innerHeight <
       document.documentElement.scrollHeight
     ) {
-      this.setState({ isScrolledDown: false });
+      setScrollDown(false);
     }
-    this.setState({ lastScrollTop: st });
+    lastScrollTop = st;
   };
 
-  handleScroll = () => {
-    const { scrollY } = this.state;
-    this.setState({ scrollY });
-    this.hasScrolled();
+  const handleScroll = () => {
+    hasScrolled();
   };
 
-  toggleDrawer = () => {
-    const { open } = this.state;
-    this.setState({ open: !open });
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      lastScrollTop = 0;
+    };
+  }, []);
+
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
 
-  render() {
-    const { isScrolledDown, open } = this.state;
-    const { classes, navs } = this.props;
-    return (
-      <div className={classes.root}>
-        <AppBar
-          position="fixed"
-          className={classNames(classes.appbar, {
-            [classes.navUp]: isScrolledDown === true,
-            [classes.navDown]: isScrolledDown === false
-          })}
-        >
-          <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              onClick={this.toggleDrawer}
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              open={open}
-              onClose={this.toggleDrawer}
-              classes={{
-                paper: classes.paper
-              }}
-            >
-              <List className={classes.list}>
-                {navs.map(nav => (
-                  <ListItem
-                    button
-                    onClick={this.toggleDrawer}
-                    onKeyDown={this.toggleDrawer}
-                    key={nav}
-                    className={classes.listItem}
-                  >
-                    <Link to={`/${nav}`}>
-                      <ListItemText
-                        primary={nav}
-                        classes={{
-                          primary: classes.context
-                        }}
-                      />
-                    </Link>
-                  </ListItem>
-                ))}
-              </List>
-              <ListItem className={classes.rights}>
-                <ListItemText
-                  classes={{
-                    primary: classes.context
-                  }}
-                >
-                  Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar.
-                  All rights reserved.
-                </ListItemText>
-              </ListItem>
-            </Drawer>
-            <Link to="/">
-              <img alt="JK" src={logo} className={classes.logo} />
-            </Link>
-            <Grid className={classes.navLinkWrap}>
+  return (
+    <div className={classes.root}>
+      <AppBar
+        position="fixed"
+        className={classNames(classes.appbar, {
+          [classes.navUp]: isScrolledDown === true,
+          [classes.navDown]: isScrolledDown === false
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            className={classes.menuButton}
+            onClick={toggleDrawer}
+            aria-label="Menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Drawer
+            open={open}
+            onClose={toggleDrawer}
+            classes={{
+              paper: classes.paper
+            }}
+          >
+            <List className={classes.list}>
               {navs.map(nav => (
-                <Button
-                  key={nav.toString()}
-                  className={classes.navLink}
-                  onClick={() => {}}
+                <ListItem
+                  button
+                  onClick={toggleDrawer}
+                  onKeyDown={toggleDrawer}
+                  key={nav}
+                  className={classes.listItem}
                 >
-                  <Link className={classes.link} to={`/${nav}`}>
-                    {nav}
+                  <Link to={`/${nav}`}>
+                    <ListItemText
+                      primary={nav}
+                      classes={{
+                        primary: classes.context
+                      }}
+                    />
                   </Link>
-                </Button>
+                </ListItem>
               ))}
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  }
-}
+            </List>
+            <ListItem className={classes.rights}>
+              <ListItemText
+                classes={{
+                  primary: classes.context
+                }}
+              >
+                Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar. All
+                rights reserved.
+              </ListItemText>
+            </ListItem>
+          </Drawer>
+          <Link to="/">
+            <img alt="JK" src={logo} className={classes.logo} />
+          </Link>
+          <Grid className={classes.navLinkWrap}>
+            {navs.map(nav => (
+              <Button
+                key={nav.toString()}
+                className={classes.navLink}
+                onClick={() => {}}
+              >
+                <Link className={classes.link} to={`/${nav}`}>
+                  {nav}
+                </Link>
+              </Button>
+            ))}
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+};
 
 ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
   navs: PropTypes.array.isRequired
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default ButtonAppBar;

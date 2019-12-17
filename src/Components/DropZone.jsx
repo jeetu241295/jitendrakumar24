@@ -26,6 +26,7 @@ const PaperDropzone = () => {
     noKeyboard: true,
     onDrop: (acceptedFiles, rejectedFiles) => {
       asetFiles(acceptedFiles.map(file => Object.assign(file)));
+      // eslint-disable-next-line no-alert
       rejectedFiles.map(file => alert(`${file.name} exceeds file limit 5MB `));
       // rsetFiles(rejectedFiles.map(file => Object.assign(file)));
     }

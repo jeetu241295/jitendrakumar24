@@ -1,10 +1,10 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Grid, Typography } from '@material-ui/core';
 import Card from './card';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   experienceWrap: {
     backgroundColor: theme.colors.containerBackground,
     flexDirection: 'row',
@@ -23,10 +23,11 @@ const styles = theme => ({
     fontWeight: 500,
     margin: '1rem'
   }
-});
+}));
 
 const Experience = props => {
-  const { classes, education, experience } = props;
+  const { education, experience } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.experienceWrap}>
       <Grid item sm={5} xs={12} className={classes.education}>
@@ -50,8 +51,7 @@ const Experience = props => {
 };
 
 Experience.propTypes = {
-  classes: PropTypes.object.isRequired,
   education: PropTypes.array.isRequired,
   experience: PropTypes.array.isRequired
 };
-export default withStyles(styles)(Experience);
+export default Experience;

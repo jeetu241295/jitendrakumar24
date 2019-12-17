@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Typography, Grid } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     display: 'flex',
@@ -28,10 +28,11 @@ const styles = theme => ({
     fontWeight: 500,
     marginBottom: '0.5rem'
   }
-});
+}));
 
 const ProgressBar = props => {
-  const { classes, value, heading } = props;
+  const { value, heading } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.root}>
       <Grid item md={11} xs={10}>
@@ -56,7 +57,6 @@ const ProgressBar = props => {
 };
 
 ProgressBar.propTypes = {
-  classes: PropTypes.object.isRequired,
   value: PropTypes.number.isRequired,
   heading: PropTypes.string
 };
@@ -64,4 +64,4 @@ ProgressBar.defaultProps = {
   heading: null
 };
 
-export default withStyles(styles)(ProgressBar);
+export default ProgressBar;

@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import DialogJK from '../../../../Components/Dialog';
 
-const styles = () => ({
+const styles = makeStyles(() => ({
   gridImage: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
     display: 'block'
   }
-});
+}));
 
 const ImageClick = props => {
-  const { image, imageOpen, index, dialogOpen, classes } = props;
+  const { image, imageOpen, index, dialogOpen } = props;
+  const classes = styles();
   return (
     <Grid>
       {image && (
@@ -36,7 +37,6 @@ const ImageClick = props => {
   );
 };
 ImageClick.propTypes = {
-  classes: PropTypes.object.isRequired,
   image: PropTypes.object,
   imageOpen: PropTypes.bool.isRequired,
   dialogOpen: PropTypes.func.isRequired,
@@ -46,4 +46,4 @@ ImageClick.defaultProps = {
   image: null,
   index: -1
 };
-export default withStyles(styles)(ImageClick);
+export default ImageClick;

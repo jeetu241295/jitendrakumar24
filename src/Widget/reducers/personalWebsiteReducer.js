@@ -12,7 +12,8 @@ import {
   schoolDetails,
   underGraduateDetails,
   workDetails,
-  personalContent
+  personalContent,
+  projects
 } from '../_helpers/constants';
 
 const defaultState = {
@@ -22,6 +23,7 @@ const defaultState = {
   index: 0,
   skills,
   education,
+  projects,
   experience,
   motto,
   about,

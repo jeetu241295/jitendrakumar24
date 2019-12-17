@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import motoImg from '../../../../static/images/motto.jpg';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   mottoWrap: {
     display: 'flex',
     justifyContent: 'center',
@@ -20,6 +20,7 @@ const styles = theme => ({
   },
   motto: {
     fontSize: '3rem',
+    height: '3rem',
     lineHeight: '2.5rem',
     fontWeight: 900,
     textAlign: 'center',
@@ -30,10 +31,11 @@ const styles = theme => ({
     WebkitBackgroundClip: 'text',
     backgroundRepeat: 'no-repeat'
   }
-});
+}));
 
 const Motto = props => {
-  const { classes, motto } = props;
+  const { motto } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.mottoWrap}>
       <Typography className={classes.motto} variant="h1" component="h1">
@@ -44,9 +46,8 @@ const Motto = props => {
 };
 
 Motto.propTypes = {
-  classes: PropTypes.object.isRequired,
   motto: PropTypes.string.isRequired
 };
 Motto.defaultProps = {};
 
-export default withStyles(styles)(Motto);
+export default Motto;

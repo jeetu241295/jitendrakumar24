@@ -1,11 +1,11 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ImageClick from './ImageClick';
 import './style.css';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   memories: {
     display: 'grid',
     gridColumn: 'flex-start/flex-end',
@@ -49,10 +49,11 @@ const styles = theme => ({
       padding: '1.5rem'
     }
   }
-});
+}));
 
-const Gallery = ({ classes, ...props }) => {
+const Gallery = ({ ...props }) => {
   const { images, dialogOpen } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.gallery}>
       <Grid>
@@ -82,10 +83,9 @@ const Gallery = ({ classes, ...props }) => {
 };
 
 Gallery.propTypes = {
-  classes: PropTypes.object.isRequired,
   images: PropTypes.array.isRequired,
   dialogOpen: PropTypes.func.isRequired
 };
 Gallery.defaultProps = {};
 
-export default withStyles(styles)(Gallery);
+export default Gallery;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
@@ -11,10 +11,10 @@ import AlternatePanel from '../../../Components/AlternatePanel';
 import Card from '../../../Components/Card';
 import Ronaldo from './Ronaldo';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   about: {
     padding: '2rem',
-    paddingTop: '6.4rem',
+    paddingTop: '8rem',
     flex: 1
   },
   summaryTitle: {
@@ -25,17 +25,18 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'center'
   }
-});
+}));
 
 const AboutPage = props => {
   const {
-    classes,
     schoolDetails,
     underGraduateDetails,
     workDetails,
     personalContent,
     match
   } = props;
+
+  const classes = styles();
   const data = [
     {
       id: 1,
@@ -106,7 +107,6 @@ const AboutPage = props => {
 };
 
 AboutPage.propTypes = {
-  classes: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   personalContent: PropTypes.array.isRequired,
   schoolDetails: PropTypes.array.isRequired,
@@ -115,4 +115,4 @@ AboutPage.propTypes = {
 };
 AboutPage.defaultProps = {};
 
-export default withStyles(styles)(AboutPage);
+export default AboutPage;

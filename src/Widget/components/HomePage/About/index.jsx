@@ -1,13 +1,13 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ProgressBar from '../../../../Components/ProgressBar';
 import Button from '../../../../Components/Button';
 import aboutImg from '../../../../static/images/about.jpg';
 import HandFont from '../../../../Components/HandFont';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   about: {
     display: 'flex',
     padding: '7rem',
@@ -130,10 +130,11 @@ const styles = theme => ({
     },
     marginLeft: '1rem'
   }
-});
+}));
 
 const About = props => {
-  const { classes, skills, about, history, downloadCV } = props;
+  const { skills, about, history, downloadCV } = props;
+  const classes = styles();
   return (
     <Grid container className={classes.about}>
       <Grid className={classes.imageWrap} item sm={5} xs={12}>
@@ -191,7 +192,6 @@ const About = props => {
 };
 
 About.propTypes = {
-  classes: PropTypes.object.isRequired,
   downloadCV: PropTypes.func.isRequired,
   skills: PropTypes.array.isRequired,
   about: PropTypes.array.isRequired,
@@ -199,4 +199,4 @@ About.propTypes = {
 };
 About.defaultProps = {};
 
-export default withStyles(styles)(About);
+export default About;

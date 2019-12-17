@@ -1,11 +1,11 @@
 import React from 'react';
 import { Paper, Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Calender } from '../../../../Global/SVG';
 import Normal from '../../../../Components/Normal';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   paper: {
     padding: '2rem',
     backgroundColor: theme.colors.white,
@@ -33,10 +33,11 @@ const styles = theme => ({
     fontWeight: 500,
     marginTop: '.5rem'
   }
-});
+}));
 
 const Card = props => {
-  const { classes, item } = props;
+  const { item } = props;
+  const classes = styles();
   const isEducation = item.type === 'education';
   return (
     <Paper className={classes.paper}>
@@ -56,9 +57,8 @@ const Card = props => {
 };
 
 Card.propTypes = {
-  classes: PropTypes.object.isRequired,
   item: PropTypes.object.isRequired
 };
 Card.defaultProps = {};
 
-export default withStyles(styles)(Card);
+export default Card;
