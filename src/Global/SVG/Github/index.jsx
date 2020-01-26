@@ -1,10 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import GithubSVG from './github.svg';
 import styles from '../styles.css';
 
-const Github = () => {
+const Github = props => {
+  const { className } = props;
   const classes = styles();
-  return <GithubSVG className={classes.whiteColor} />;
+  return <GithubSVG className={classNames(className, classes.whiteColor)} />;
 };
-Github.propTypes = {};
+
+Github.propTypes = {
+  className: PropTypes.string
+};
+
+Github.defaultProps = {
+  className: null
+};
+
 export default Github;

@@ -1,6 +1,3 @@
-import ronaldoIMG from '../../static/images/rsz_ronaldo.jpg';
-import narutoIMG from '../../static/images/naruto.jpg';
-import onePieceIMG from '../../static/images/onepiece.png';
 import gal1 from '../../static/images/gal-1.jpg';
 import gal2 from '../../static/images/gal-2.jpg';
 import gal3 from '../../static/images/gal-3.jpg';
@@ -15,12 +12,17 @@ import gal11 from '../../static/images/gal-11.jpg';
 import gal12 from '../../static/images/gal-12.jpg';
 import gal13 from '../../static/images/gal-13.jpg';
 import gal14 from '../../static/images/gal-14.jpg';
+import chatAppImg from '../../static/images/chatApp.png';
+import PWImg from '../../static/images/personalWebsite.png';
+import TaskManagerImg from '../../static/images/taskManager.png';
+import TriloImg from '../../static/images/trilo.png';
+import NatoursImg from '../../static/images/natours.png';
+import NexterImg from '../../static/images/nexter.png';
 
 export const COUNT = 'COUNT';
 export const DIALOG = 'DIALOG';
 
-export const navs = ['home', 'contact'];
-// export const navs = ['home', 'Projects', 'contact'];
+export const navs = ['home', 'Projects', 'contact'];
 
 export const images = [
   {
@@ -77,11 +79,12 @@ export const images = [
 export const skills = [
   { title: 'Bootstrap', value: 95 },
   { title: 'Foundation', value: 75 },
-  { title: 'React', value: 93 },
-  { title: 'Redux', value: 90 },
-  { title: 'Redux-Form', value: 80 },
-  { title: 'Material-UI', value: 85 },
-  { title: 'HTML & CSS', value: 93 }
+  { title: 'ReactJS', value: 93 },
+  { title: 'Redux', value: 91 },
+  { title: 'Redux-Form', value: 85 },
+  { title: 'Material-UI', value: 89 },
+  { title: 'HTML & CSS', value: 93 },
+  { title: 'NodeJS', value: 80 }
 ];
 export const education = [
   {
@@ -200,65 +203,65 @@ export const workDetails = [
   }
 ];
 
-export const personalContent = [
-  {
-    id: 1,
-    img: ronaldoIMG,
-    title: 'Cristiano Ronaldo',
-    content: 'One of the best football player in the World'
-  },
-  {
-    id: 2,
-    img: narutoIMG,
-    title: 'Naruto',
-    content:
-      'Naruto, one of the best. The one that changed my character, my views, my personality'
-  },
-  {
-    id: 3,
-    img: onePieceIMG,
-    title: 'One Piece',
-    content:
-      "One Piece, one of the best.I learned so many life lessons from Naruto and One Piece which school didn't teach. "
-  }
-];
-
 // Project Page
 
 export const projects = [
   {
     id: 1,
     imgTitle: 'Personal Website',
-    imgPath: '',
-    projectDate: 'September 16th 2019',
-    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+    imgPath: PWImg,
+    projectDate: 'June 8th 2019',
+    projectDescription: 'A Personal Website built on ReactJS and NodeJS',
+    githubLink: 'https://github.com/JitendraBhamidipati/JK24'
   },
   {
     id: 2,
-    imgTitle: 'Personal Website',
-    imgPath: '',
-    projectDate: 'September 16th 2019',
-    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+    imgTitle: 'Natours',
+    imgPath: NatoursImg,
+    projectDate: 'June 27th 2017',
+    projectDescription:
+      'You are going to fall in love with Nature.Tours around the world. Advanced CSS Course in Udemy. It is built with CSS3.',
+    githubLink:
+      'https://github.com/JitendraBhamidipati/AdvancedCSS/tree/master/Natours'
   },
   {
     id: 3,
-    imgTitle: 'Personal Website',
-    imgPath: '',
-    projectDate: 'September 16th 2019',
-    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+    imgTitle: 'Trilo',
+    imgPath: TriloImg,
+    projectDate: 'September 8th 2017',
+    projectDescription:
+      'Book flight, hotels, car rentals, tours all at one place. Advanced CSS Course in Udemy. It is built with Grid CSS.',
+    githubLink:
+      'https://github.com/JitendraBhamidipati/AdvancedCSS/tree/master/Trilo'
   },
   {
     id: 4,
-    imgTitle: 'Personal Website',
-    imgPath: '',
-    projectDate: 'September 16th 2019',
-    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+    imgTitle: 'Nexter',
+    imgPath: NexterImg,
+    projectDate: 'Jan 15th 2018',
+    projectDescription:
+      'Your house your freedom, Buy Houses. Advanced CSS Course in Udemy. It is built with Grid CSS.',
+    githubLink:
+      'https://github.com/JitendraBhamidipati/AdvancedCSS/tree/master/Nexter'
   },
   {
     id: 5,
-    imgTitle: 'Personal Website',
-    imgPath: '',
-    projectDate: 'September 16th 2019',
-    projectDescription: 'A Personal Website built on ReactJS and NodeJS'
+    imgTitle: 'Chat App',
+    imgPath: chatAppImg,
+    projectDate: 'July 16th 2019',
+    projectDescription:
+      'Chat application build on NodeJS. A dedicated login room where people join with same room can chat.',
+    githubLink:
+      'https://github.com/JitendraBhamidipati/NodeJS/tree/master/ChatApp'
+  },
+  {
+    id: 6,
+    imgTitle: 'Task Manager',
+    imgPath: TaskManagerImg,
+    projectDate: 'August 16th 2019',
+    projectDescription:
+      'Task Manager build on NodeJS.Add delete and update the tasks.',
+    githubLink:
+      'https://github.com/JitendraBhamidipati/NodeJS/tree/master/ChatApp'
   }
 ];

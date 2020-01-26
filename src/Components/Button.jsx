@@ -48,12 +48,22 @@ const styles = makeStyles(theme => ({
   },
   iconButtonStyle: {
     backgroundColor: 'transparent',
-    padding: 0
+    padding: 0,
+    borderRadius: '50%',
+    minWidth: 24
   }
 }));
 
 const Button24 = props => {
-  const { children, disabled, onClick, icon, className, type } = props;
+  const {
+    children,
+    disabled,
+    onClick,
+    icon,
+    className,
+    type,
+    ...other
+  } = props;
   const classes = styles();
   const buttonStyle =
     type === 2 ? classes.iconButtonStyle : classes.buttonStyle;
@@ -62,6 +72,7 @@ const Button24 = props => {
       className={classNames(className, buttonStyle)}
       onClick={onClick}
       disabled={disabled}
+      {...other}
     >
       {icon && <span className={classes.iconStyle}>{icon}</span>}
       {children}

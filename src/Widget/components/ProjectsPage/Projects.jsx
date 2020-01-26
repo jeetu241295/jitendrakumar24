@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import ProjectCard from '../../../Components/ProjectCard';
+import ProjectCard from './ProjectCard';
 
 const styles = makeStyles(() => ({
   about: {
@@ -27,7 +27,14 @@ const Projects = props => {
   return (
     <Grid container className={classes.about}>
       {projects.map(project => (
-        <Grid key={project.id} className={classes.projectWrap} item xs={4}>
+        <Grid
+          key={project.id}
+          className={classes.projectWrap}
+          item
+          xs={12}
+          sm={6}
+          md={4}
+        >
           <ProjectCard project={project} />
         </Grid>
       ))}

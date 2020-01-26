@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, Typography, Grid, Link } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -73,6 +73,11 @@ const styles = makeStyles(theme => ({
 const Contact = props => {
   const { sendMail, reset } = props;
   const classes = styles();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const saveValues = values => {
     sendMail(values);
     reset();

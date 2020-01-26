@@ -40,11 +40,9 @@ const styles = makeStyles(theme => ({
   },
   listItem: {
     marginBottom: '1rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    textAlign: 'center',
     '& button': {
+      marginRight: '1.5rem',
       [theme.breakpoints.down('sm')]: {
         marginBottom: '1rem',
         padding: '0.5rem 1rem'

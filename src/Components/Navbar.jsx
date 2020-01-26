@@ -22,6 +22,15 @@ const styles = makeStyles(theme => ({
   root: {
     justifyContent: 'flex-start'
   },
+  imageWrap: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '5rem',
+    '& img': {
+      width: 75,
+      height: 75
+    }
+  },
   menuButton: {
     marginLeft: -12,
     [theme.breakpoints.up('sm')]: {
@@ -54,28 +63,46 @@ const styles = makeStyles(theme => ({
     }
   },
   link: {
-    color: 'inherit',
-    textDecoration: 'none'
+    color: theme.colors.white,
+    textDecoration: 'none',
+    zIndex: 1
   },
   navLink: {
     color: theme.colors.white,
     fontSize: '1.5rem',
     backgroundColor: 'transparent',
     padding: '1rem 2rem',
+    position: 'relative',
     '&:hover': {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      transform: 'none'
     },
     '&:focus': {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      transform: 'none'
     },
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 1rem'
+    },
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      height: '100%',
+      width: 3,
+      backgroundColor: theme.colors.mainAction,
+      transform: 'scaleY(0)',
+      transition:
+        'transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroundColor 0.1s'
+    },
+    '&:hover::before': {
+      width: '100%',
+      transform: 'scaleY(1)'
     }
   },
   paper: {
-    backgroundImage: `linear-gradient(to right bottom,${theme.colors.primary},${
-      theme.colors.sideBar
-    })`,
+    backgroundColor: theme.colors.navbar,
     width: '50%'
   },
   context: {
@@ -92,7 +119,8 @@ const styles = makeStyles(theme => ({
   },
   rights: {
     borderTop: '2px solid',
-    marginTop: 'auto'
+    marginTop: 'auto',
+    textAlign: 'center'
   },
   navUp: {
     top: -57,
@@ -170,6 +198,11 @@ const ButtonAppBar = props => {
               paper: classes.paper
             }}
           >
+            <Grid className={classes.imageWrap}>
+              <Link to="/">
+                <img alt="JK" src={logo} className={classes.mobileLogo} />
+              </Link>
+            </Grid>
             <List className={classes.list}>
               {navs.map(nav => (
                 <ListItem
