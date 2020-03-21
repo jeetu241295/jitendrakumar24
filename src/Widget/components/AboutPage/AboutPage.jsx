@@ -1,15 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
-import Accordian from '../../../Components/Accordian';
-import { School, Engineering, Work } from '../../../Global/SVG';
 import Normal from '../../../Components/Normal';
 import Tabs from '../../../Components/Tabs';
-import AlternatePanel from '../../../Components/AlternatePanel';
-import Card from '../../../Components/Card';
-import Ronaldo from './Ronaldo';
 
 const styles = makeStyles(theme => ({
   about: {
@@ -24,94 +18,180 @@ const styles = makeStyles(theme => ({
   cardWrap: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  compositionWrap: {
+    padding: '2rem'
+  },
+  composition: {
+    position: 'relative',
+    minHeight: '30rem',
+    [theme.breakpoints.between('sm', 'md')]: {
+      minHeight: '25rem'
+    },
+    [theme.breakpoints.up('md')]: {
+      top: '12.5%',
+      left: 40
+    },
+    [theme.breakpoints.only('xs')]: {
+      minHeight: '20rem'
+    },
+    [theme.breakpoints.up('lg')]: {
+      minHeight: '35rem'
+    },
+    '& img': {
+      width: '40%',
+      boxShadow: `0 1.5rem 4rem ${theme.colors.black5}`,
+      borderRadius: 2,
+      position: 'absolute',
+      outlineOffset: '1.5rem',
+      [theme.breakpoints.down('sm')]: {
+        float: 'left',
+        position: 'relative',
+        width: '33.3333333%',
+        boxShadow: `0 1.5rem 3rem ${theme.colors.black1}`
+      },
+      '&:hover': {
+        transform: 'scale(1.05) translateY(-0.5rem)',
+        boxShadow: `0 2.5rem 4rem ${theme.colors.black5}`,
+        zIndex: 99990,
+        outline: `1.5rem solid ${theme.colors.mainAction}`
+      },
+      '&:hover &__photo:not(:hover)': {
+        transform: 'scale(0.95)'
+      }
+    }
+  },
+  tabs: {
+    overflow: 'hidden'
+  },
+  compositionImage1: {
+    left: '4rem',
+    top: '-2rem',
+    zIndex: 5,
+    [theme.breakpoints.down('md')]: {
+      top: '3rem',
+      left: '5rem'
+    }
+  },
+  compositionImage2: {
+    right: '15rem',
+    top: '2rem',
+    zIndex: 5,
+    [theme.breakpoints.down('md')]: {
+      top: '5rem',
+      right: '8rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: '5rem',
+      right: 0,
+      zIndex: 10
+    }
+  },
+  compositionImage3: {
+    left: '20%',
+    top: '10rem',
+    zIndex: 5,
+    [theme.breakpoints.down('md')]: {
+      top: '10rem',
+      left: '10rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: '3rem',
+      left: '-5rem'
+    }
+  },
+  content: {
+    color: theme.colors.black,
+    textAlign: 'justify',
+    lineHeight: '2rem'
+  },
+  tripTitle: {
+    color: theme.colors.mainAction,
+    fontSize: '2rem',
+    fontWeight: 'bolder',
+    fontStyle: 'italic',
+    marginBottom: '2rem'
+  },
+  placesCovered: {
+    marginTop: '2rem',
+    fontStyle: 'italic',
+    color: theme.colors.primary
   }
 }));
 
 const AboutPage = props => {
-  const {
-    schoolDetails,
-    underGraduateDetails,
-    workDetails,
-    personalContent,
-    match
-  } = props;
-
   const classes = styles();
-  const data = [
-    {
-      id: 1,
-      summary: (
-        <Grid container alignItems="center">
-          <School />
-          <Normal className={classes.summaryTitle}>School Life</Normal>
-        </Grid>
-      ),
-      details: <AlternatePanel data={schoolDetails} />
-    },
-    {
-      id: 2,
-      summary: (
-        <Grid container alignItems="center">
-          <Engineering />
-          <Normal className={classes.summaryTitle}>Engineering</Normal>
-        </Grid>
-      ),
-      details: <AlternatePanel data={underGraduateDetails} />
-    },
-    {
-      id: 3,
-      summary: (
-        <Grid container alignItems="center">
-          <Work />
-          <Normal className={classes.summaryTitle}>Work</Normal>
-        </Grid>
-      ),
-      details: <AlternatePanel data={workDetails} />
-    }
-  ];
+  const { trips } = props;
+  const renderTripDetaials = item => (
+    <Grid item md={6} xs={12}>
+      <Grid className={classes.tripTitle}>Trip {item.id}:- </Grid>
+      <Normal className={classes.content}>{item.content}</Normal>
+      <Normal className={classes.placesCovered}>
+        Places Covered: {item.placesCovered}
+      </Normal>
+    </Grid>
+  );
+
+  const renderTripImages = item => (
+    <Grid className={classes.compositionWrap} item md={6} xs={12}>
+      <Grid className={classes.composition}>
+        <img
+          alt="image_1"
+          className={classes.compositionImage1}
+          src={item.image1}
+        />
+        <img
+          alt="image_2"
+          className={classes.compositionImage2}
+          src={item.image2}
+        />
+        <img
+          alt="image_3"
+          className={classes.compositionImage3}
+          src={item.image3}
+        />
+      </Grid>
+    </Grid>
+  );
+
   const tabs = [
     {
       id: 1,
       label: 'Career',
-      content: <Accordian data={data} defaultOpen={data[0].id} />
+      content: <React.Fragment>Hello1</React.Fragment>
     },
     {
       id: 2,
       label: 'Personal',
-      content: (
-        <React.Fragment>
-          {personalContent.map(item => (
-            <Grid
-              key={item.id}
-              className={classes.cardWrap}
-              item
-              md={4}
-              sm={6}
-              xs={12}
-            >
-              <Card item={item} match={match} />
-            </Grid>
-          ))}
-        </React.Fragment>
-      )
+      content: trips.map((item, index) => {
+        if (index % 2 === 0)
+          return (
+            <React.Fragment key={item.id}>
+              {renderTripDetaials(item)}
+              {renderTripImages(item)}
+            </React.Fragment>
+          );
+        return (
+          <React.Fragment key={item.id}>
+            {renderTripImages(item)}
+            {renderTripDetaials(item)}
+          </React.Fragment>
+        );
+      })
     }
   ];
+
   return (
     <Grid container className={classes.about}>
       <Grid item xs={12}>
-        <Tabs tabs={tabs} />
-        <Route path={`${match.url}/ronaldo`} component={Ronaldo} />
+        <Tabs tabs={tabs} tabContainerStyle={classes.tabs} />
       </Grid>
     </Grid>
   );
 };
 
 AboutPage.propTypes = {
-  match: PropTypes.object.isRequired,
-  personalContent: PropTypes.array.isRequired,
-  schoolDetails: PropTypes.array.isRequired,
-  underGraduateDetails: PropTypes.array.isRequired,
-  workDetails: PropTypes.array.isRequired
+  trips: PropTypes.array.isRequired
 };
 AboutPage.defaultProps = {};
 

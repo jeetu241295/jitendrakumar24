@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import ImageClick from './ImageClick';
 import './style.css';
 
 const styles = makeStyles(theme => ({
@@ -52,7 +51,7 @@ const styles = makeStyles(theme => ({
 }));
 
 const Gallery = ({ ...props }) => {
-  const { images, dialogOpen } = props;
+  const { images } = props;
   const classes = styles();
   return (
     <Grid container className={classes.gallery}>
@@ -64,27 +63,23 @@ const Gallery = ({ ...props }) => {
       <Grid className={classes.memories}>
         {images.map((image, index) => (
           <Grid
-            onClick={() => dialogOpen(index, image)}
             className={`gallery__item gallery__item${index + 1}`}
             key={image.id}
           >
             <img
-              // eslint-disable-next-line
-              src={require(`../../../../static/images/gal-${index + 1}.jpg`)}
+              src={image.src}
               alt={image.title}
               className={classes.gridImage}
             />
           </Grid>
         ))}
       </Grid>
-      <ImageClick {...props} />
     </Grid>
   );
 };
 
 Gallery.propTypes = {
-  images: PropTypes.array.isRequired,
-  dialogOpen: PropTypes.func.isRequired
+  images: PropTypes.array.isRequired
 };
 Gallery.defaultProps = {};
 

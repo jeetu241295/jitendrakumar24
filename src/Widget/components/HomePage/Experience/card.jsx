@@ -10,10 +10,12 @@ const styles = makeStyles(theme => ({
     padding: '2rem',
     backgroundColor: theme.colors.white,
     borderColor: theme.colors.white,
-    marginBottom: '1rem',
+    marginBottom: '3rem',
     border: '2px solid',
+    transition: 'all .5s',
     '&:hover': {
-      borderColor: theme.colors.mainAction
+      borderColor: theme.colors.mainAction,
+      transform: 'scale(1.05) translateY(10px)'
     }
   },
   timeline: {

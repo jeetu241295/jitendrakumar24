@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 0.2s ease-in-out',
     '&:hover': {
       transform: 'translateY(2rem) scale(1.05)',
-      boxShadow: '0 1.5rem 3rem rgba(0, 0, 0,0.7)'
+      boxShadow: `0 1.5rem 3rem ${theme.colors.black}`
     }
   },
   media: {

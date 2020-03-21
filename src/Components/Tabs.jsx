@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { makeStyles, Grid, useTheme } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
@@ -26,7 +27,7 @@ const FullWidthTabs = props => {
     setValue(index);
   };
 
-  const { tabs } = props;
+  const { tabs, tabContainerStyle } = props;
   const classes = styles();
   const theme = useTheme();
   return (
@@ -51,7 +52,7 @@ const FullWidthTabs = props => {
       >
         {tabs.map(item => (
           <Grid
-            className={classes.tabContent}
+            className={classNames(tabContainerStyle, classes.tabContent)}
             key={item.id}
             dir={theme.direction}
             container
@@ -65,7 +66,12 @@ const FullWidthTabs = props => {
 };
 
 FullWidthTabs.propTypes = {
-  tabs: PropTypes.array.isRequired
+  tabs: PropTypes.array.isRequired,
+  tabContainerStyle: PropTypes.string
+};
+
+FullWidthTabs.defaultProps = {
+  tabContainerStyle: null
 };
 
 export default FullWidthTabs;

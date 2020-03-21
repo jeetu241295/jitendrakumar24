@@ -4,6 +4,8 @@ import purple from '@material-ui/core/colors/purple';
 const colors = {
   white: '#fff',
   black: '#000',
+  black5: 'rgba(0,0,0,0.5)',
+  black1: 'rgba(0,0,0,0.1)',
   navbar: '#343a40',
   footer: '#222222',
   footerNav: '#c3bec2',

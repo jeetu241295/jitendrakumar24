@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -39,6 +39,10 @@ const styles = makeStyles(theme => ({
 }));
 
 const NoPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const classes = styles();
   return (
     <Grid container className={classes.about}>
