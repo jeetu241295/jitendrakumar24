@@ -1,9 +1,11 @@
 import React from 'react';
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import Button from '../../../../Components/Button';
 import TextField from '../../../../Components/ReduxForm/TextField';
-import { Send } from '../../../../Global/SVG';
+import { SendIcon } from '../../../../Global/SVG';
 import { normalizePhone, normalizeUserName } from './Normalise';
 
 const styles = makeStyles(theme => ({
@@ -68,7 +70,11 @@ const ContactForm = props => {
           rows={7}
         />
       </Grid>
-      <Button icon={<Send />} className={classes.send} onClick={handleSubmit}>
+      <Button
+        icon={<SendIcon />}
+        className={classes.send}
+        onClick={handleSubmit}
+      >
         Send
       </Button>
     </Grid>

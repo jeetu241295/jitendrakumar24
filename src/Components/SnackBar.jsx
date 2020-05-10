@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import classNames from 'classnames';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import { CloseIcon } from '../Global/SVG';
 
 const styles1 = makeStyles(theme => ({
   success: {

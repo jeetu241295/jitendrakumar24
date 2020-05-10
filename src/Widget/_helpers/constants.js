@@ -17,8 +17,11 @@ import ooty2 from '../../static/images/ooty-2.jpg';
 import lonavala1 from '../../static/images/lonavala-1.jpg';
 import lonavala2 from '../../static/images/lonavala-2.jpg';
 import vizag1 from '../../static/images/vizag-1.jpg';
+import vizag2 from '../../static/images/vizag-2.jpg';
 import north1 from '../../static/images/North-1.jpg';
 import north2 from '../../static/images/North-2.jpg';
+import tcs1 from '../../static/images/tcs1.jpg';
+import tcs2 from '../../static/images/tcs2.jpg';
 import chatAppImg from '../../static/images/chatApp.png';
 import PWImg from '../../static/images/personalWebsite.png';
 import TaskManagerImg from '../../static/images/taskManager.png';
@@ -26,11 +29,10 @@ import TriloImg from '../../static/images/trilo.png';
 import NatoursImg from '../../static/images/natours.png';
 import NexterImg from '../../static/images/nexter.png';
 
-export const COUNT = 'COUNT';
 export const DIALOG = 'DIALOG';
 
-export const navs = ['home', 'Projects', 'contact'];
-// export const navs = ['home', 'about', 'Projects', 'contact'];
+// export const navs = ['home', 'Projects', 'contact'];
+export const navs = ['home', 'about', 'projects', 'contact'];
 
 export const images = [
   {
@@ -241,7 +243,7 @@ export const trips = [
   {
     id: 1,
     content:
-      'This trip is amazing just because I went through school excursion. Just like school days are best.We have covered so many places had fun. Best thing is I lost my wallet in a shop somewhere I dont know the name the shop except directions from where I was. I went quickly from there without informing teachers and be back while they are still shopping. The first adventure started here.',
+      'This trip is amazing just because I went in school, Just like school days are best.We have covered so many places and had fun. Best thing is I lost my wallet in a shop somewhere I dont know the name the shop except directions from where I was. I went quickly from there without informing teachers and be back while they are still shopping. The first adventure started here.I was appointed as Team leader for all boys, did my best got through hell also.',
     image1: gal2,
     image2: gal2,
     image3: gal2,
@@ -251,8 +253,8 @@ export const trips = [
     id: 2,
     content:
       'A trip which everyone needs to have. Kattika waterfalls has two ways to go behind borra caves and trek down from Araku. So which one we would go? Of course , It is trek down. We had a wonderful and scary time. scary because if we slip or had a wrong step you would fell in deep steep.Next is Yarada beach, rather than beach going there is more fun as only 3 people know car driving and if you made someone who fears a lot sit in front beside driver seat. It was really fun. Playing Kabadi in RK beach at mid-night early morning sun-rise everything is good.',
-    image1: gal6,
-    image2: gal10,
+    image1: vizag2,
+    image2: gal6,
     image3: vizag1,
     placesCovered: 'Vizag & Araku'
   },
@@ -282,5 +284,26 @@ export const trips = [
     image2: north1,
     image3: north2,
     placesCovered: 'Joshimath, Auli, Chopta & Rishikesh'
+  }
+];
+
+export const offices = [
+  {
+    id: 1,
+    title: 'TCS (Tata Consultancy Services)',
+    content:
+      'I am really glad for working in TCS. I had worked with the best team. I really enjoyed my work there.There is this particular KP gang which I had lot of memories. If there is any chance I will be allowed again in the organisation, I will opt 100%. Missing all of you very much. ',
+    image1: tcs1,
+    image2: tcs2,
+    image3: gal13
+  },
+  {
+    id: 2,
+    title: 'DBS (Development Bank of Singapore)',
+    content:
+      'Current Working Organisation. Most of the time spent outside office and in home due to lockdown.',
+    image1: gal2,
+    image2: gal2,
+    image3: gal2
   }
 ];

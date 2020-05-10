@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
-import { COUNT, DIALOG } from '../_helpers/constants';
+import { DIALOG } from '../_helpers/constants';
 import { createAction } from '../../Global/redux';
 import renderSnackbar from '../../Global/helpers';
 import axiosAPI from '../../Global/axios';
 
-export const setCount = createAction(COUNT, 'id');
 export const dialogOpen = createAction(DIALOG, 'index', 'image');
 
-export const sendMail = (values, reset) => dispatch => {
+export const sendMail = values => () => {
   axiosAPI
     .post('/sendMessage', {
       ...values

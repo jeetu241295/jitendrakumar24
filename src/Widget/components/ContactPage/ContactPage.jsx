@@ -1,10 +1,18 @@
 import React, { useEffect } from 'react';
-import { makeStyles, Typography, Grid, Link } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ContactForm from './ContactForm';
-import Normal from '../../../Components/Normal';
-import { Phone, Mail, Location, Web } from '../../../Global/SVG';
+import Normal from '../../../Components/Fonts/Normal';
+import Link from '../../../Components/Link';
+import {
+  PhoneIcon,
+  MailIcon,
+  LocationIcon,
+  WebIcon
+} from '../../../Global/SVG';
 import contactImg from '../../../static/images/contact.jpg';
 
 const styles = makeStyles(theme => ({
@@ -59,12 +67,6 @@ const styles = makeStyles(theme => ({
   marginTop: {
     marginTop: 'auto'
   },
-  listItem: {
-    flexDirection: 'row',
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '1rem'
-  },
   normal: {
     color: theme.colors.white
   }
@@ -94,11 +96,10 @@ const Contact = props => {
               Address
             </Typography>
             <Link
-              className={classes.listItem}
               href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
               target="_blank"
             >
-              <Location />
+              <LocationIcon />
               <Normal className={classes.normal}>
                 Plot No:69 Iron Merchant,SSS Colony,Near Padmavathi Function
                 Hall, Gollapudi, Vijayawada, Andhra Pradesh, India. 521225
@@ -109,12 +110,12 @@ const Contact = props => {
             <Typography className={classes.header} component="h3">
               Phone
             </Typography>
-            <Link className={classes.listItem} href="tel:+91 949-196-4870">
-              <Phone />
+            <Link href="tel:+91 949-196-4870">
+              <PhoneIcon />
               <Normal className={classes.normal}>+91 949 196 4870</Normal>
             </Link>
-            <Link className={classes.listItem} href="tel:+91 949-196-4870">
-              <Phone />
+            <Link href="tel:+91 949-196-4870">
+              <PhoneIcon />
               <Normal className={classes.normal}>+91 798 938 1360</Normal>
             </Link>
           </Grid>
@@ -122,15 +123,12 @@ const Contact = props => {
             <Typography className={classes.header} component="h3">
               Web
             </Typography>
-            <Link
-              className={classes.listItem}
-              href="mailto:jeetu241295@gmail.com"
-            >
-              <Mail />
+            <Link href="mailto:jeetu241295@gmail.com">
+              <MailIcon />
               <Normal className={classes.normal}>jeetu241295@gmail.com</Normal>
             </Link>
-            <Link className={classes.listItem} href="/">
-              <Web />
+            <Link href="/">
+              <WebIcon />
               <Normal className={classes.normal}>
                 www.jitendrakumar24.tech
               </Normal>

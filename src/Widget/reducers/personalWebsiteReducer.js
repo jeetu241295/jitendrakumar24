@@ -1,6 +1,5 @@
 import { createReducer } from '../../Global/redux';
 import {
-  COUNT,
   navs,
   images,
   DIALOG,
@@ -10,7 +9,8 @@ import {
   motto,
   about,
   projects,
-  trips
+  trips,
+  offices
 } from '../_helpers/constants';
 
 const defaultState = {
@@ -24,15 +24,11 @@ const defaultState = {
   experience,
   motto,
   trips,
-  about
+  about,
+  offices
 };
 
 const personalWebsiteReducer = {
-  [COUNT]: (state, action) => ({
-    ...state,
-    count: state.count + 1,
-    id: action.id
-  }),
   [DIALOG]: (state, action) => ({
     ...state,
     image: action.image,

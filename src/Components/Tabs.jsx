@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { makeStyles, Grid, useTheme } from '@material-ui/core';
-import SwipeableViews from 'react-swipeable-views';
+import { makeStyles } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
+import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
-const styles = makeStyles(theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper
-  },
+const styles = makeStyles(() => ({
   tabContent: {
     padding: '2rem'
+  },
+  root: {
+    flexGrow: 1
+  },
+  appbar: {
+    transform: 'none',
+    zIndex: 1
+  },
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  labelIcon: {
+    minHeight: props => (props.orientation === 'vertical' ? 'unset' : 72)
   }
 }));
 
@@ -23,55 +35,90 @@ const FullWidthTabs = props => {
     setValue(value1);
   };
 
-  const handleChangeIndex = index => {
-    setValue(index);
-  };
+  const { tabs, tabContainerStyle, orientation, appbarExists, variant } = props;
+  const classes = styles(props);
+  const isVertical = orientation === 'vertical';
+  const slideDirection = orientation === 'vertical' ? 'up' : 'left';
 
-  const { tabs, tabContainerStyle } = props;
-  const classes = styles();
-  const theme = useTheme();
+  const x = (
+    <Tabs
+      orientation={orientation}
+      value={value}
+      onChange={handleChange}
+      indicatorColor="primary"
+      textColor="primary"
+      variant={variant}
+    >
+      {tabs.map(item => (
+        <Tab
+          key={item.id}
+          classes={{ wrapper: classes.wrapper, labelIcon: classes.labelIcon }}
+          label={item.label}
+          icon={item.icon}
+        />
+      ))}
+    </Tabs>
+  );
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-        >
-          {tabs.map(item => (
-            <Tab key={item.id} label={item.label} />
-          ))}
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
+    <Grid className={classes.root} container>
+      <Grid
+        item
+        xl={isVertical && 1}
+        md={isVertical && 2}
+        sm={isVertical && 3}
+        xs={12}
       >
-        {tabs.map(item => (
-          <Grid
-            className={classNames(tabContainerStyle, classes.tabContent)}
+        {appbarExists ? (
+          <AppBar className={classes.appbar} position="static" color="default">
+            {x}
+          </AppBar>
+        ) : (
+          x
+        )}
+      </Grid>
+      <Grid
+        item
+        xl={isVertical && 11}
+        md={isVertical && 10}
+        sm={isVertical && 9}
+        xs={12}
+      >
+        {tabs.map((item, index) => (
+          <Slide
             key={item.id}
-            dir={theme.direction}
-            container
+            direction={slideDirection}
+            in={value === index}
+            mountOnEnter
+            unmountOnExit
           >
-            {item.content}
-          </Grid>
+            <Grid
+              className={classNames(tabContainerStyle, {
+                [classes.tabContent]: !item.disablePadding
+              })}
+              container
+            >
+              {item.content}
+            </Grid>
+          </Slide>
         ))}
-      </SwipeableViews>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
 FullWidthTabs.propTypes = {
   tabs: PropTypes.array.isRequired,
-  tabContainerStyle: PropTypes.string
+  tabContainerStyle: PropTypes.string,
+  appbarExists: PropTypes.bool,
+  orientation: PropTypes.string,
+  variant: PropTypes.string
 };
 
 FullWidthTabs.defaultProps = {
-  tabContainerStyle: null
+  appbarExists: true,
+  tabContainerStyle: null,
+  orientation: 'horizontal',
+  variant: 'standard'
 };
 
 export default FullWidthTabs;

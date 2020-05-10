@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import {
-  makeStyles,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText
-} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
+import List from '@material-ui/core/List';
+import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
-import { Menu as MenuIcon } from '@material-ui/icons';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { Love } from '../Global/SVG';
 import Button from './Button';
 import logo from '../static/images/logo.jpg';
+import {
+  MenuIcon,
+  HeartIcon,
+  AboutIcon,
+  ContactIcon,
+  HomeIcon,
+  ProjectsIcon
+} from '../Global/SVG';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -74,31 +79,15 @@ const styles = makeStyles(theme => ({
     padding: '1rem 2rem',
     position: 'relative',
     '&:hover': {
-      backgroundColor: 'transparent',
-      transform: 'none'
+      color: theme.colors.white,
+      backgroundColor: 'transparent'
     },
     '&:focus': {
-      backgroundColor: 'transparent',
-      transform: 'none'
+      color: theme.colors.white,
+      backgroundColor: 'transparent'
     },
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 1rem'
-    },
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      height: '100%',
-      width: 3,
-      backgroundColor: theme.colors.mainAction,
-      transform: 'scaleY(0)',
-      transition:
-        'transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroundColor 0.1s'
-    },
-    '&:hover::before': {
-      width: '100%',
-      transform: 'scaleY(1)'
     }
   },
   paper: {
@@ -115,7 +104,13 @@ const styles = makeStyles(theme => ({
     borderColor: theme.colors.black,
     '&:first-child': {
       borderTop: '2px solid'
+    },
+    '& a': {
+      display: 'flex'
     }
+  },
+  navIcon: {
+    fill: theme.colors.white
   },
   rights: {
     borderTop: '2px solid',
@@ -204,24 +199,36 @@ const ButtonAppBar = props => {
               </Link>
             </Grid>
             <List className={classes.list}>
-              {navs.map(nav => (
-                <ListItem
-                  button
-                  onClick={toggleDrawer}
-                  onKeyDown={toggleDrawer}
-                  key={nav}
-                  className={classes.listItem}
-                >
-                  <Link to={`/${nav}`}>
-                    <ListItemText
-                      primary={nav}
-                      classes={{
-                        primary: classes.context
-                      }}
-                    />
-                  </Link>
-                </ListItem>
-              ))}
+              {navs.map(nav => {
+                let navIcon;
+                if (nav === 'home')
+                  navIcon = <HomeIcon className={classes.navIcon} />;
+                if (nav === 'about')
+                  navIcon = <AboutIcon className={classes.navIcon} />;
+                if (nav === 'projects')
+                  navIcon = <ProjectsIcon className={classes.navIcon} />;
+                if (nav === 'contact')
+                  navIcon = <ContactIcon className={classes.navIcon} />;
+                return (
+                  <ListItem
+                    button
+                    onClick={toggleDrawer}
+                    onKeyDown={toggleDrawer}
+                    key={nav}
+                    className={classes.listItem}
+                  >
+                    <Link to={`/${nav}`}>
+                      <ListItemIcon>{navIcon}</ListItemIcon>
+                      <ListItemText
+                        primary={nav}
+                        classes={{
+                          primary: classes.context
+                        }}
+                      />
+                    </Link>
+                  </ListItem>
+                );
+              })}
             </List>
             <ListItem className={classes.rights}>
               <ListItemText
@@ -229,8 +236,8 @@ const ButtonAppBar = props => {
                   primary: classes.context
                 }}
               >
-                Made with <Love />. &copy; Copyright 2019 by Jitendra Kumar. All
-                rights reserved.
+                Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra
+                Kumar. All rights reserved.
               </ListItemText>
             </ListItem>
           </Drawer>
@@ -238,17 +245,25 @@ const ButtonAppBar = props => {
             <img alt="JK" src={logo} className={classes.logo} />
           </Link>
           <Grid className={classes.navLinkWrap}>
-            {navs.map(nav => (
-              <Button
-                key={nav.toString()}
-                className={classes.navLink}
-                onClick={() => {}}
-              >
-                <Link className={classes.link} to={`/${nav}`}>
-                  {nav}
-                </Link>
-              </Button>
-            ))}
+            {navs.map(nav => {
+              let navIcon;
+              if (nav === 'home') navIcon = <HomeIcon />;
+              if (nav === 'about') navIcon = <AboutIcon />;
+              if (nav === 'projects') navIcon = <ProjectsIcon />;
+              if (nav === 'contact') navIcon = <ContactIcon />;
+              return (
+                <Button
+                  key={nav.toString()}
+                  className={classes.navLink}
+                  onClick={() => {}}
+                  startIcon={navIcon}
+                >
+                  <Link className={classes.link} to={`/${nav}`}>
+                    {nav}
+                  </Link>
+                </Button>
+              );
+            })}
           </Grid>
         </Toolbar>
       </AppBar>

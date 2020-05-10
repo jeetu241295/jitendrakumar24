@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -20,9 +21,6 @@ const styles = makeStyles(theme => ({
       transform: 'translateY(-5px)',
       boxShadow: '0 1rem 2rem rgba(0,0,0, 0.2)',
       color: theme.colors.mainAction,
-      '& svg': {
-        fill: theme.colors.mainAction
-      },
       '&::after': {
         transform: 'scale(1.5)',
         opacity: 0

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Paper, Grid, Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import { Calender } from '../../../../Global/SVG';
-import Normal from '../../../../Components/Normal';
+import { CalenderIcon } from '../../../../Global/SVG';
+import Normal from '../../../../Components/Fonts/Normal';
 
 const styles = makeStyles(theme => ({
   paper: {
@@ -27,7 +29,7 @@ const styles = makeStyles(theme => ({
     marginTop: '.5rem',
     marginBottom: '.5rem'
   },
-  calenderIcon: {
+  IconIcon: {
     marginRight: '1rem'
   },
   place: {
@@ -44,7 +46,7 @@ const Card = props => {
   return (
     <Paper className={classes.paper}>
       <Grid className={classes.timeline}>
-        <Calender className={classes.calenderIcon} />
+        <CalenderIcon />
         <Normal>{item.period}</Normal>
       </Grid>
       <Typography className={classes.period} variant="h4" componeent="h4">
