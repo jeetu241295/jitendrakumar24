@@ -6,9 +6,17 @@ import classNames from 'classnames';
 
 const styles = makeStyles(theme => ({
   handFont: {
-    color: theme.colors.calenderColor,
-    fontSize: '1.5rem',
-    fontFamily: 'Indie Flower, cursive'
+    color: theme.colors.textColor,
+    fontSize: '1.75rem',
+    fontFamily: 'Indie Flower, cursive',
+    lineHeight: '2.5rem',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.5rem',
+      lineHeight: '2rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem'
+    }
   }
 }));
 

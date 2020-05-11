@@ -111,11 +111,8 @@ const styles = makeStyles(theme => ({
   description: {
     margin: '2rem 0',
     textAlign: 'justify',
-    lineHeight: '2rem',
-    color: theme.colors.textColor,
     [theme.breakpoints.down('sm')]: {
-      margin: 0,
-      lineHeight: '1.5rem'
+      margin: '1rem'
     }
   },
   more: {

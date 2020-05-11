@@ -28,9 +28,6 @@ const styles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center'
   },
-  loveIcon: {
-    fill: 'red'
-  },
   navLink: {
     color: theme.colors.containerBackground,
     fontSize: '1.5rem',
@@ -114,8 +111,8 @@ const Footer = () => {
       </Grid>
       <Grid className={classes.listItem}>
         <Typography className={classes.rights} component="h6">
-          Made with <HeartIcon className={classes.loveIcon} />. &copy; Copyright
-          2019 by Jitendra Kumar. All rights reserved.
+          Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra Kumar. All
+          rights reserved.
         </Typography>
       </Grid>
     </Grid>

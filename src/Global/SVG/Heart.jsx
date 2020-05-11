@@ -9,7 +9,7 @@ const HeartIcon = props => {
   const classes = styles(props);
   return (
     <SvgIcon
-      classes={{ root: classNames(classes.icon, className) }}
+      classes={{ root: classNames(classes.icon, classes.heartIcon, className) }}
       viewBox="0 0 32 32"
       {...props}
     >

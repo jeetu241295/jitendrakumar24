@@ -243,7 +243,7 @@ export const trips = [
   {
     id: 1,
     content:
-      'This trip is amazing just because I went in school, Just like school days are best.We have covered so many places and had fun. Best thing is I lost my wallet in a shop somewhere I dont know the name the shop except directions from where I was. I went quickly from there without informing teachers and be back while they are still shopping. The first adventure started here.I was appointed as Team leader for all boys, did my best got through hell also.',
+      'In school days, excursion is must for students. My school will take 60 people every year. At my time there were 63 students opted and I was afraid, I will be dropped because of the mischievous things I did.One day principal came to my class and made all boys stood up and I started shivering not because of him, because I will be dropped. He came to me and said all the boys to sit down except me and said you will be lead for boys. We have covered so many places and had fun. When I first saw Taj Mahal, I was speechless.It is rightly called one of wonders of the world. It was a memorable Trip. The return journey was filled with bit of sadness. It was 8 great days of my school life.',
     image1: gal2,
     image2: gal2,
     image3: gal2,
@@ -252,7 +252,7 @@ export const trips = [
   {
     id: 2,
     content:
-      'A trip which everyone needs to have. Kattika waterfalls has two ways to go behind borra caves and trek down from Araku. So which one we would go? Of course , It is trek down. We had a wonderful and scary time. scary because if we slip or had a wrong step you would fell in deep steep.Next is Yarada beach, rather than beach going there is more fun as only 3 people know car driving and if you made someone who fears a lot sit in front beside driver seat. It was really fun. Playing Kabadi in RK beach at mid-night early morning sun-rise everything is good.',
+      'In college days, We(boys) went to Vizag(Visakhapatnam). We have booked 3 zoom cars and only 2 knows driving and me(inexperienced on roads). Fortunately or unfortunately, We got 2 cars only for 19 people and somehow managed. Kattika waterfalls has two ways to go behind borra caves and trek down from Araku. So which one we would go? Of course , It is trek down. We had a wonderful and scary time. scary because if we slip or had a wrong step you would fell in deep steep.Next is Yarada beach, rather than beach going there is more fun if you made someone who fears a lot sits beside driver seat. It was really fun. Playing Kabadi in RK beach at mid-night early morning sun-rise everything is good.',
     image1: vizag2,
     image2: gal6,
     image3: vizag1,
@@ -261,7 +261,7 @@ export const trips = [
   {
     id: 3,
     content:
-      'If you are in love with nature this is one of the place to see. Bike ride from mysore to ooty is the best too many cross hair-pins, driving through the forest. We had a room which is bit away from center of ooty which is good. we have visited various places in ooty and coonor. We cooked food for ourselves. P.S. Food outside is not that great if you eat spicy daily.',
+      "Started my job and first trip with my own money. Just wanted to get out of work life. If you are in love with nature this is one of the place to see. We have taken a Zoom car and Bike. Ride from Mysore to Ooty has lots cross hair-pins, driving through forest able to see wild life animals, makes the ride good. Be careful rented bike is not allowed. I didn't get a chance to ride car again. We have visited various places in ooty and coonor some are Ooty lake,tea estate and pykara waterfalls. Grenn tea they made is awesome, You will love to drink from then. We cooked food. P.S. Food outside is not that great if you eat spicy daily.",
     image1: ooty1,
     image2: ooty2,
     image3: gal8,
@@ -270,7 +270,7 @@ export const trips = [
   {
     id: 4,
     content:
-      "Again this is soon after Ooty but with school friends. With school friends it doesn't matter the place you will enjoy it. Loghard Fort trek although its very small and my friends had hard time climbing up the view made all the pain go away. Such a beautiful place. The one and only disappointment in the trip is I missed Rajmachi Trek.",
+      "Not even a month of previous trip and here I am again with school friends. With school friends it doesn't matter the place you will enjoy it.I joined in Hyderabad with them with their favorite biryani's. We took a zoom car from Pune to Lonavala. Loghard Fort trek which is 1,033 m above sea level and had hard time climbing up the view made all the pain go away in a second. Such a beautiful place. You can see the reverse waterfall there more generally to say waterfall which throws water up because of the air force. The one and only disappointment in the trip is I missed Rajmachi Trek which is above 826m.",
     image1: lonavala1,
     image2: gal11,
     image3: lonavala2,
@@ -279,7 +279,7 @@ export const trips = [
   {
     id: 5,
     content:
-      "This is totally an adventours trip.First is the way to joshimath itself is wonderful.Auli has a wonderful viewpoints, good place to have your DP. Tungnath trek is the hardest one we had with some fear.Later easy but with fear at peaks river rafting and clif jumping. Fear at peaks is because all of us don't know how to swim, Lol!",
+      "A well pre-planned trip with as much low budget as possible. Booked fligh tickets, rooms and car(with driver) and then covid-19 came into the world. Feared that my trip might get effected luckly nothing happened. Book a car with driver since the road to Joshimath is very narrow and small mistake can cause life. We managed to go joshimath in 16hrs without sleep. Form Joshimath to Auli go by car until 8th tower and then go by chair car,unlike from 1st tower you can feel the cool breeze. Auli has a wonderful viewpoints, good place to have your DP. You can do snow skiing in Auli. Tungnath trek is the hardest one we had with 3680m above sea level. If you have breathing problem better carry a mini oxygen tank. One of my friend had a problem and couldn't make it to top. Next thought an easy one,river rafting and clif jumping and no one knows how to swim. Faced the fear and made it successful. Tried for bungie jump couldn't find slots, needs to be booked before only as they are limited.",
     image1: gal2,
     image2: north1,
     image3: north2,
@@ -292,7 +292,7 @@ export const offices = [
     id: 1,
     title: 'TCS (Tata Consultancy Services)',
     content:
-      'I am really glad for working in TCS. I had worked with the best team. I really enjoyed my work there.There is this particular KP gang which I had lot of memories. If there is any chance I will be allowed again in the organisation, I will opt 100%. Missing all of you very much. ',
+      'I have started my professional career here. I badly want my training to be in Trivandrum,but fate wanted me to be in Hyderabad. Neither games to play in center nor new places to see since I have been in Hyderbad from 10 years. Regardless of these things,I am really glad working for TCS.Thanks to the particular person who choose me for ReactJS project.I have proved my worth in 1st year itself and got appreciation. I had worked with the best team & this particular KP gang which I had lot of memories. If there is any chance I will be allowed again in the organisation, I will opt 100%. Missing all of you very much.',
     image1: tcs1,
     image2: tcs2,
     image3: gal13
@@ -301,7 +301,7 @@ export const offices = [
     id: 2,
     title: 'DBS (Development Bank of Singapore)',
     content:
-      'Current Working Organisation. Most of the time spent outside office and in home due to lockdown.',
+      'I have made a big decision moving in to Organisation even after I heard lot of rumours that work load will be heavy. At first,I thought rumours were wrong. In later stages realised that work load is too heavy. Work ambience in waverock will make thunderstruck. Most of the time spent outside office and in home due to lockdown.',
     image1: gal2,
     image2: gal2,
     image3: gal2

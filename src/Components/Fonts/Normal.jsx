@@ -6,8 +6,9 @@ import classNames from 'classnames';
 
 const styles = makeStyles(theme => ({
   normal: {
-    color: theme.colors.calenderColor,
-    fontSize: '1.5rem'
+    color: theme.colors.textColor,
+    fontSize: '1.5rem',
+    lineHeight: '2rem'
   }
 }));
 

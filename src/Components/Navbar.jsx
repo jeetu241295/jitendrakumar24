@@ -106,7 +106,15 @@ const styles = makeStyles(theme => ({
       borderTop: '2px solid'
     },
     '& a': {
-      display: 'flex'
+      display: 'flex',
+      width: '100%',
+      margin: '0 16px',
+      '&:active': {
+        textDecoration: 'none'
+      },
+      '&:focus': {
+        outline: 0
+      }
     }
   },
   navIcon: {
@@ -216,6 +224,7 @@ const ButtonAppBar = props => {
                     onKeyDown={toggleDrawer}
                     key={nav}
                     className={classes.listItem}
+                    disableGutters
                   >
                     <Link to={`/${nav}`}>
                       <ListItemIcon>{navIcon}</ListItemIcon>

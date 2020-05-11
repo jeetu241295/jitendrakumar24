@@ -2,13 +2,36 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import Hidden from '@material-ui/core/Hidden';
 import Slide from '@material-ui/core/Slide';
 import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import SpeedDial from './Speeddial';
 
-const styles = makeStyles(() => ({
+const styles = makeStyles(theme => ({
+  tab: {
+    '&:hover': {
+      color: theme.colors.black
+    },
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      height: '100%',
+      width: 3,
+      backgroundColor: theme.colors.mainAction,
+      transform: 'scaleY(0)',
+      transition:
+        'transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroundColor 0.1s'
+    },
+    '&:hover::before': {
+      width: '100%',
+      transform: 'scaleY(1)'
+    }
+  },
   tabContent: {
     padding: '2rem'
   },
@@ -21,7 +44,8 @@ const styles = makeStyles(() => ({
   },
   wrapper: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    zIndex: props => (props.styled ? 10 : 1)
   },
   labelIcon: {
     minHeight: props => (props.orientation === 'vertical' ? 'unset' : 72)
@@ -31,51 +55,78 @@ const styles = makeStyles(() => ({
 const FullWidthTabs = props => {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, value1) => {
-    setValue(value1);
-  };
+  const handleChange = value1 => setValue(value1);
 
-  const { tabs, tabContainerStyle, orientation, appbarExists, variant } = props;
+  const {
+    tabs,
+    tabContainerStyle,
+    orientation,
+    appbarExists,
+    variant,
+    styled
+  } = props;
   const classes = styles(props);
   const isVertical = orientation === 'vertical';
   const slideDirection = orientation === 'vertical' ? 'up' : 'left';
+  const actions = [];
 
   const x = (
     <Tabs
       orientation={orientation}
       value={value}
-      onChange={handleChange}
+      onChange={(e, value1) => handleChange(value1)}
       indicatorColor="primary"
       textColor="primary"
       variant={variant}
     >
-      {tabs.map(item => (
-        <Tab
-          key={item.id}
-          classes={{ wrapper: classes.wrapper, labelIcon: classes.labelIcon }}
-          label={item.label}
-          icon={item.icon}
-        />
-      ))}
+      {tabs.map((item, index) => {
+        actions.push({
+          icon: item.icon,
+          name: item.label,
+          onClick: () => handleChange(index)
+        });
+        return (
+          <Tab
+            key={item.id}
+            className={classNames({ [classes.tab]: styled })}
+            classes={{
+              wrapper: classes.wrapper,
+              labelIcon: classes.labelIcon
+            }}
+            disabled={item.disabled}
+            label={item.label}
+            icon={item.icon}
+          />
+        );
+      })}
     </Tabs>
   );
+  const tabsData = appbarExists ? (
+    <AppBar className={classes.appbar} position="static" color="default">
+      {x}
+    </AppBar>
+  ) : (
+    x
+  );
+
   return (
     <Grid className={classes.root} container>
-      <Grid
-        item
-        xl={isVertical && 1}
-        md={isVertical && 2}
-        sm={isVertical && 3}
-        xs={12}
-      >
-        {appbarExists ? (
-          <AppBar className={classes.appbar} position="static" color="default">
-            {x}
-          </AppBar>
-        ) : (
-          x
-        )}
-      </Grid>
+      {isVertical ? (
+        <React.Fragment>
+          <Hidden xsDown>
+            <Grid item xl={1} md={2} sm={3}>
+              {tabsData}
+            </Grid>
+          </Hidden>
+          <Hidden smUp>
+            <SpeedDial actions={actions} />
+          </Hidden>
+        </React.Fragment>
+      ) : (
+        <Grid item xs={12}>
+          {tabsData}
+        </Grid>
+      )}
       <Grid
         item
         xl={isVertical && 11}
@@ -111,14 +162,16 @@ FullWidthTabs.propTypes = {
   tabContainerStyle: PropTypes.string,
   appbarExists: PropTypes.bool,
   orientation: PropTypes.string,
-  variant: PropTypes.string
+  variant: PropTypes.string,
+  styled: PropTypes.bool
 };
 
 FullWidthTabs.defaultProps = {
   appbarExists: true,
   tabContainerStyle: null,
   orientation: 'horizontal',
-  variant: 'standard'
+  variant: 'standard',
+  styled: false
 };
 
 export default FullWidthTabs;

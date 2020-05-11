@@ -21,7 +21,8 @@ const Personal = props => {
       id: 1,
       label: 'Intrests',
       icon: <IntrestsIcon width={24} height={24} />,
-      content: 'Work in progress'
+      content:
+        'Work in progress. Try next, you might find something intresting..!'
     },
     {
       id: 2,
@@ -48,7 +49,7 @@ const Personal = props => {
   return (
     <Grid container spacing={2} className={classes.abc}>
       <Grid item xs={12}>
-        <Tabs orientation="vertical" appbarExists={false} tabs={tabs} />
+        <Tabs orientation="vertical" appbarExists={false} tabs={tabs} styled />
       </Grid>
     </Grid>
   );

@@ -83,9 +83,7 @@ const styles = makeStyles(theme => ({
     }
   },
   content: {
-    color: theme.colors.black,
-    textAlign: 'justify',
-    lineHeight: '2rem'
+    textAlign: 'justify'
   },
   tripTitle: {
     color: theme.colors.mainAction,
@@ -108,7 +106,7 @@ export const renderDetails = (item, isOffice = false) => {
       <Grid className={classes.tripTitle}>
         {isOffice ? item.title : `Trip ${item.id}:-`}
       </Grid>
-      <Normal className={classes.content}>{item.content}</Normal>
+      <Normal className={classes.content}>&emsp; {item.content}</Normal>
       {!isOffice && (
         <Normal className={classes.placesCovered}>
           Places Covered: {item.placesCovered}

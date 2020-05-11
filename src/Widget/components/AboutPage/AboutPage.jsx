@@ -16,10 +16,6 @@ const styles = makeStyles(theme => ({
     color: theme.colors.black,
     marginLeft: '1rem'
   },
-  cardWrap: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
   tabs: {
     overflow: 'hidden'
   }

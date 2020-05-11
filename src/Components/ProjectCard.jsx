@@ -86,7 +86,7 @@ const ProjectCard = props => {
         className={classes.media}
         image={imgPath}
         title={imgTitle}
-        onClick={() => window.open(imgPath)}
+        // onClick={() => window.open(imgPath)}
       />
       <CardContent>
         <Normal>{projectDescription}</Normal>
