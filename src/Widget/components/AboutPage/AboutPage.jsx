@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { renderDetails, renderImages } from './RenderImagesDetails';
 import Tabs from '../../../Components/Tabs';
 import Personal from './Personal';
@@ -25,13 +26,16 @@ const AboutPage = props => {
   const classes = styles();
   const { offices } = props;
 
+  const theme = useTheme();
+  const isBelowMD = useMediaQuery(theme.breakpoints.down('sm'));
+
   const tabs = [
     {
       id: 1,
       label: 'Career',
       content: offices.map((item, index) => {
         const isOffice = true;
-        if (index % 2 === 0)
+        if (index % 2 === 0 || isBelowMD)
           return (
             <React.Fragment key={item.id}>
               {renderDetails(item, isOffice)}
@@ -50,7 +54,7 @@ const AboutPage = props => {
       id: 2,
       label: 'Personal',
       disablePadding: true,
-      content: <Personal {...props} />
+      content: <Personal {...props} isBelowMD={isBelowMD} />
     }
   ];
 

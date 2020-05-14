@@ -13,7 +13,7 @@ const styles = makeStyles(() => ({
 }));
 
 const Personal = props => {
-  const { trips } = props;
+  const { trips, isBelowMD } = props;
   const classes = styles();
 
   const tabs = [
@@ -29,16 +29,17 @@ const Personal = props => {
       label: 'Trips',
       icon: <TripsIcon width={32} height={32} />,
       content: trips.map((item, index) => {
-        if (index % 2 === 0)
+        const disablePadding = true;
+        if (index % 2 === 0 || isBelowMD)
           return (
             <React.Fragment key={item.id}>
               {renderDetails(item)}
-              {renderImages(item)}
+              {renderImages(item, disablePadding)}
             </React.Fragment>
           );
         return (
           <React.Fragment key={item.id}>
-            {renderImages(item)}
+            {renderImages(item, disablePadding)}
             {renderDetails(item)}
           </React.Fragment>
         );
@@ -56,6 +57,7 @@ const Personal = props => {
 };
 
 Personal.propTypes = {
+  isBelowMD: PropTypes.bool.isRequired,
   trips: PropTypes.array.isRequired
 };
 Personal.defaultProps = {};

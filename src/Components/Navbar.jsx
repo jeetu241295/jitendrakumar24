@@ -9,10 +9,10 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
-import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import IconButton from './IconButton';
 import logo from '../static/images/logo.jpg';
 import {
   MenuIcon,
@@ -37,7 +37,7 @@ const styles = makeStyles(theme => ({
     }
   },
   menuButton: {
-    marginLeft: -12,
+    marginTop: -7,
     [theme.breakpoints.up('sm')]: {
       display: 'none'
     },
@@ -55,7 +55,8 @@ const styles = makeStyles(theme => ({
   },
   logo: {
     width: 35,
-    height: 35
+    height: 35,
+    margin: '0 2rem'
   },
   appbar: {
     backgroundColor: theme.colors.navbar,
@@ -79,11 +80,9 @@ const styles = makeStyles(theme => ({
     padding: '1rem 2rem',
     position: 'relative',
     '&:hover': {
-      color: theme.colors.white,
       backgroundColor: 'transparent'
     },
     '&:focus': {
-      color: theme.colors.white,
       backgroundColor: 'transparent'
     },
     [theme.breakpoints.down('sm')]: {
@@ -186,12 +185,8 @@ const ButtonAppBar = props => {
           [classes.navDown]: isScrolledDown === false
         })}
       >
-        <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            onClick={toggleDrawer}
-            aria-label="Menu"
-          >
+        <Toolbar disableGutters>
+          <IconButton className={classes.menuButton} onClick={toggleDrawer}>
             <MenuIcon />
           </IconButton>
           <Drawer
@@ -265,6 +260,7 @@ const ButtonAppBar = props => {
                   key={nav.toString()}
                   className={classes.navLink}
                   onClick={() => {}}
+                  disableElevation
                   startIcon={navIcon}
                 >
                   <Link className={classes.link} to={`/${nav}`}>

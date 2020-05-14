@@ -1,16 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
-import { checkIsMobile } from '../Global/helpers';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: 380,
+    // height: 380,
     flexGrow: 1
+  },
+  selected: {
+    color: theme.colors.mainAction
   },
   speedDial: {
     position: 'absolute',
@@ -20,13 +22,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SpeedDialJK = props => {
-  const { hidden, className, actions } = props;
+  const { hidden, className, actions, icon, active } = props;
   const classes = useStyles();
-  let isMobile = false;
   const [open, setOpen] = React.useState(false);
-  useEffect(() => {
-    isMobile = checkIsMobile();
-  }, []);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -41,7 +40,7 @@ const SpeedDialJK = props => {
         ariaLabel="SpeedDial Tab"
         className={classNames(classes.speedDial, className)}
         hidden={hidden}
-        icon={<SpeedDialIcon />}
+        icon={<SpeedDialIcon icon={icon} />}
         onClose={handleClose}
         onOpen={handleOpen}
         open={open}
@@ -49,13 +48,19 @@ const SpeedDialJK = props => {
           size: 'medium'
         }}
       >
-        {actions.map(action => (
+        {actions.map((action, index) => (
           <SpeedDialAction
+            classes={{
+              fab: classNames({ [classes.selected]: active === index }),
+              staticTooltipLabel: classNames({
+                [classes.selected]: active === index
+              })
+            }}
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
-            delay={10}
-            tooltipOpen={isMobile} // needs to be true only on mobile
+            // delay={10}
+            tooltipOpen
             onClick={() => {
               handleClose();
               action.onClick();
@@ -68,13 +73,16 @@ const SpeedDialJK = props => {
 };
 
 SpeedDialJK.propTypes = {
+  active: PropTypes.number.isRequired,
   actions: PropTypes.array.isRequired,
   className: PropTypes.string,
+  icon: PropTypes.node,
   hidden: PropTypes.bool
 };
 
 SpeedDialJK.defaultProps = {
   className: null,
+  icon: null,
   hidden: false
 };
 

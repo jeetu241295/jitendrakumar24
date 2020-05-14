@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Normal from './Fonts/Normal';
 import { GithubIcon } from '../Global/SVG';
-import Button from './Button';
+import IconButton from './IconButton';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -47,6 +47,10 @@ const useStyles = makeStyles(theme => ({
     height: 24,
     fill: theme.colors.black,
     margin: 0
+  },
+  contentWrap: { padding: '8px 16px', height: 90 },
+  content: {
+    textAlign: 'justify'
   }
 }));
 
@@ -88,19 +92,17 @@ const ProjectCard = props => {
         title={imgTitle}
         // onClick={() => window.open(imgPath)}
       />
-      <CardContent>
-        <Normal>{projectDescription}</Normal>
+      <CardContent className={classes.contentWrap}>
+        <Normal className={classes.content}>{projectDescription}</Normal>
       </CardContent>
       <CardActions className={classes.cardActions} disableSpacing>
-        <Button
+        <IconButton
           onClick={() => {
             window.open(githubLink, '_blank');
           }}
-          disableFocusRipple
-          disableRipple
-          type={2}
-          icon={<GithubIcon className={classes.icon} />}
-        />
+        >
+          <GithubIcon className={classes.icon} />
+        </IconButton>
       </CardActions>
     </Card>
   );

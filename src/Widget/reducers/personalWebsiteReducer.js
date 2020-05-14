@@ -4,19 +4,23 @@ import {
   images,
   DIALOG,
   skills,
+  SUGGESTION_DIALOG,
   education,
   experience,
   motto,
   about,
   projects,
   trips,
-  offices
+  offices,
+  RATING
 } from '../_helpers/constants';
 
 const defaultState = {
   navs,
   images,
   imageOpen: false,
+  messageOpen: false,
+  showRating: true,
   index: 0,
   skills,
   education,
@@ -34,6 +38,14 @@ const personalWebsiteReducer = {
     image: action.image,
     index: action.index,
     imageOpen: !state.imageOpen
+  }),
+  [SUGGESTION_DIALOG]: (state, action) => ({
+    ...state,
+    messageOpen: action.value
+  }),
+  [RATING]: (state, action) => ({
+    ...state,
+    showRating: action.value
   })
 };
 

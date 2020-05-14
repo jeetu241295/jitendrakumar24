@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SpeedDial from './Speeddial';
+import { VerticalMenuIcon } from '../Global/SVG';
 
 const styles = makeStyles(theme => ({
   tab: {
@@ -49,6 +50,11 @@ const styles = makeStyles(theme => ({
   },
   labelIcon: {
     minHeight: props => (props.orientation === 'vertical' ? 'unset' : 72)
+  },
+  tabsSpeedDial: {
+    position: 'fixed',
+    bottom: 30,
+    right: 25
   }
 }));
 
@@ -119,7 +125,12 @@ const FullWidthTabs = props => {
             </Grid>
           </Hidden>
           <Hidden smUp>
-            <SpeedDial actions={actions} />
+            <SpeedDial
+              className={classes.tabsSpeedDial}
+              actions={actions}
+              active={value}
+              icon={<VerticalMenuIcon />}
+            />
           </Hidden>
         </React.Fragment>
       ) : (

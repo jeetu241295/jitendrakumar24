@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
 
 const theme = createMuiTheme({
   overrides: {
@@ -15,15 +14,15 @@ const theme = createMuiTheme({
     // }
   },
   palette: {
-    primary: { main: '#11cb5f' }, // Purple and green play nicely together.
-    secondary: { main: purple[500] },
-    error: { main: '#BA0C2F' } // This is just green.A700 as hex.
+    primary: { main: '#11cb5f' },
+    secondary: { main: '#ff2b4a' },
+    error: { main: '#BA0C2F' }
   },
   colors: {
     white: '#fff',
     black: '#000',
-    black5: 'rgba(0,0,0,0.5)',
-    black1: 'rgba(0,0,0,0.1)',
+    black5: 'rgba(0, 0, 0, 0.5)',
+    black1: 'rgba(0, 0, 0, 0.1)',
     navbar: '#343a40',
     footer: '#222222',
     footerNav: '#c3bec2',

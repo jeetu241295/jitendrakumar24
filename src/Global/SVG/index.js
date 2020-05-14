@@ -21,3 +21,4 @@ export { default as ProjectsIcon } from './Projects';
 export { default as ContactIcon } from './Contact';
 export { default as IntrestsIcon } from './Intrests';
 export { default as TripsIcon } from './Trip';
+export { default as VerticalMenuIcon } from './VerticalMenu';

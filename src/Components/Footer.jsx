@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Button from './Button';
+import IconButton from './IconButton';
 import {
   FacebookIcon,
   LinkedInIcon,
@@ -23,10 +23,7 @@ const styles = makeStyles(theme => ({
   },
   rights: {
     color: theme.colors.containerBackground,
-    fontSize: '1.5rem',
-    justifyContent: 'center',
-    display: 'flex',
-    alignItems: 'center'
+    fontSize: '1.5rem'
   },
   navLink: {
     color: theme.colors.containerBackground,
@@ -59,55 +56,50 @@ const Footer = () => {
   return (
     <Grid container className={classes.footer}>
       <Grid className={classes.listItem}>
-        <Button
+        <IconButton
           onClick={() => {
             window.open(
               'https://www.facebook.com/jitendra.kumar.501',
               '_blank'
             );
           }}
-          type={2}
         >
           <FacebookIcon />
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             window.open('https://github.com/JitendraBhamidipati', '_blank');
           }}
-          type={2}
         >
           <GithubIcon />
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             window.open(
               'https://www.instagram.com/jitendra.bhamidipati/',
               '_blank'
             );
           }}
-          type={2}
         >
           <InstagramIcon />
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             window.open(
               'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
               '_blank'
             );
           }}
-          type={2}
         >
           <LinkedInIcon />
-        </Button>
-        <Button
+        </IconButton>
+        <IconButton
           onClick={() => {
             window.open('https://twitter.com/jeetu241295', '_blank');
           }}
-          type={2}
         >
           <TwitterIcon />
-        </Button>
+        </IconButton>
       </Grid>
       <Grid className={classes.listItem}>
         <Typography className={classes.rights} component="h6">

@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../../../Components/Navbar';
 import Footer from '../../../Components/Footer';
+import Rating from '../../../Components/Rating';
 import HomePage from '../HomePage';
 import AboutPage from '../AboutPage';
 import ContactPage from '../ContactPage';
 import ProjectsPage from '../ProjectsPage';
 import NoPage from './NoPage';
+import MessageModal from './MessageModal';
 
+const styles = makeStyles(theme => ({
+  ratingWrap: {
+    backgroundColor: theme.colors.mainAction,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '.5rem',
+    fontSize: '1.5rem'
+  },
+  leaveRating: {
+    marginLeft: '1rem'
+  }
+}));
 const App = props => {
-  const { navs } = props;
+  const { navs, toggleSuggestionDialog, showRating } = props;
+  const [value, setValue] = useState(0);
+  const classes = styles();
+
   return (
     <Router>
       <Navbar navs={navs} />
@@ -23,12 +43,32 @@ const App = props => {
         <Route component={NoPage} />
       </Switch>
       <Footer />
+      {showRating && (
+        <React.Fragment>
+          <Grid className={classes.ratingWrap}>
+            Please leave a rating
+            <Rating
+              name="leave-rating"
+              value={value}
+              size="medium"
+              precision={0.2}
+              onChange={(e, value1) => {
+                setValue(value1);
+                toggleSuggestionDialog(true);
+              }}
+            />
+          </Grid>
+          <MessageModal ratingValue={value} {...props} />
+        </React.Fragment>
+      )}
     </Router>
   );
 };
 
 App.propTypes = {
-  navs: PropTypes.array.isRequired
+  navs: PropTypes.array.isRequired,
+  showRating: PropTypes.bool.isRequired,
+  toggleSuggestionDialog: PropTypes.func.isRequired
 };
 App.defaultProps = {};
 

@@ -84,18 +84,15 @@ const styles = makeStyles(theme => ({
   },
   hire: {
     borderRadius: '50px',
-    padding: '0.5rem 2rem',
-    '&:hover': {
-      color: theme.colors.white
-    }
+    padding: '0.5rem 2rem'
   },
   resume: {
+    color: theme.colors.white,
     borderRadius: '50px',
     backgroundColor: theme.colors.buttonColor,
     marginLeft: '1rem',
     padding: '0.5rem 2rem',
     '&:hover': {
-      color: theme.colors.white,
       backgroundColor: theme.colors.buttonColor
     }
   },
@@ -116,13 +113,8 @@ const styles = makeStyles(theme => ({
     }
   },
   more: {
-    backgroundColor: theme.colors.mainAction,
     borderRadius: '50px',
     padding: '0.5rem 2rem',
-    '&:hover': {
-      color: theme.colors.white,
-      backgroundColor: theme.colors.mainAction
-    },
     [theme.breakpoints.between('xs', 'sm')]: {
       marginTop: '.5rem'
     },
@@ -150,17 +142,17 @@ const About = props => {
         ))}
         <Grid className={classes.buttons}>
           <Button
-            type={1}
             className={classes.hire}
+            color="secondary"
             onClick={() => history.push('/contact')}
           >
             Hire Me
           </Button>
-          <Button type={1} className={classes.resume} onClick={downloadCV}>
+          <Button className={classes.resume} onClick={downloadCV}>
             Download CV
           </Button>
           <Button
-            type={1}
+            color="primary"
             className={classes.more}
             onClick={() => {
               history.push('/about');

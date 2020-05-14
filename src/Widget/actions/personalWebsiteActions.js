@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
-import { DIALOG } from '../_helpers/constants';
+import { DIALOG, SUGGESTION_DIALOG, RATING } from '../_helpers/constants';
 import { createAction } from '../../Global/redux';
 import renderSnackbar from '../../Global/helpers';
 import axiosAPI from '../../Global/axios';
 
 export const dialogOpen = createAction(DIALOG, 'index', 'image');
+export const toggleSuggestionDialog = createAction(SUGGESTION_DIALOG, 'value');
+export const toggleRating = createAction(RATING, 'value');
 
 export const sendMail = values => () => {
   axiosAPI
@@ -45,6 +47,22 @@ export const downloadCV = () => () => {
         link.click();
       }
       link.remove();
+    })
+    .catch(error => console.log(error));
+};
+
+export const submitMessage = (ratingValue, name, review) => dispatch => {
+  axiosAPI
+    .post('/submitReview', {
+      ratingValue,
+      name,
+      review
+    })
+    .then(res => {
+      if (res.data) {
+        renderSnackbar(res.data.message);
+        dispatch(toggleRating(false));
+      }
     })
     .catch(error => console.log(error));
 };

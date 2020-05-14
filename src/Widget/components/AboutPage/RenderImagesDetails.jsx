@@ -2,10 +2,14 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Normal from '../../../Components/Fonts/Normal';
+import Rating from '../../../Components/Rating';
 
 const styles = makeStyles(theme => ({
   compositionWrap: {
-    padding: '2rem'
+    padding: '2rem',
+    [theme.breakpoints.down('md')]: {
+      padding: disablePadding => (disablePadding ? 0 : '2rem')
+    }
   },
   composition: {
     position: 'relative',
@@ -85,6 +89,12 @@ const styles = makeStyles(theme => ({
   content: {
     textAlign: 'justify'
   },
+  ratings: {
+    margin: '2rem 0'
+  },
+  ratingText: {
+    textAlign: 'center'
+  },
   tripTitle: {
     color: theme.colors.mainAction,
     fontSize: '2rem',
@@ -101,6 +111,12 @@ const styles = makeStyles(theme => ({
 
 export const renderDetails = (item, isOffice = false) => {
   const classes = styles();
+  const ratings = [
+    { displayText: 'Work life balance', key: 'workLifeBalance' },
+    { displayText: 'Ambience', key: 'ambience' },
+    { displayText: 'Work satisfaction', key: 'workSatisfaction' },
+    { displayText: 'Recommend for friend', key: 'recommendForFriend' }
+  ];
   return (
     <Grid item md={6} xs={12}>
       <Grid className={classes.tripTitle}>
@@ -112,12 +128,31 @@ export const renderDetails = (item, isOffice = false) => {
           Places Covered: {item.placesCovered}
         </Normal>
       )}
+      {isOffice && (
+        <Grid container className={classes.ratings} spacing={2}>
+          {ratings.map((rating, index) => (
+            <React.Fragment key={rating.displayText}>
+              <Grid item xs={3} className={classes.ratingText}>
+                {rating.displayText}
+              </Grid>
+              <Grid item xs={3} className={classes.ratingText}>
+                <Rating
+                  precision={0.5}
+                  name={rating.displayText + index}
+                  value={item[rating.key]}
+                  readOnly
+                />
+              </Grid>
+            </React.Fragment>
+          ))}
+        </Grid>
+      )}
     </Grid>
   );
 };
 
-export const renderImages = item => {
-  const classes = styles();
+export const renderImages = (item, disablePadding) => {
+  const classes = styles(disablePadding);
   return (
     <Grid className={classes.compositionWrap} item md={6} xs={12}>
       <Grid className={classes.composition}>

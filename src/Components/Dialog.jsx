@@ -4,18 +4,12 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import withMobileDialog from '@material-ui/core/withMobileDialog';
-import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { CloseIcon } from '../Global/SVG';
-
-const styles = makeStyles(() => ({
-  modalWidth: {
-    maxWidth: '750px'
-  }
-}));
+import IconButton from './IconButton';
 
 const customTitleStyles = makeStyles(theme => ({
   root: {
@@ -35,6 +29,12 @@ const customTitleStyles = makeStyles(theme => ({
   }
 }));
 
+const styles = makeStyles(() => ({
+  paperRoot: {
+    minWidth: 600
+  }
+}));
+
 const DialogTitleCustom = props => {
   const { children, onClose, closeButton } = props;
   const classes = customTitleStyles(props);
@@ -44,11 +44,7 @@ const DialogTitleCustom = props => {
         {children}
       </Typography>
       {closeButton && onClose && (
-        <IconButton
-          aria-label="Close"
-          className={classes.closeButton}
-          onClick={onClose}
-        >
+        <IconButton className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
         </IconButton>
       )}
@@ -70,19 +66,25 @@ const DialogJK = props => {
     title,
     open,
     onClose,
-    closeButton
+    closeButton,
+    ...others
   } = props;
-  const classes = styles(props);
+  const classes = styles();
+  const theme = useTheme();
+  const smallFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Dialog
-      fullScreen={fullScreen}
+      fullScreen={fullScreen || smallFullScreen}
       open={open || stateOpen}
       onClose={open ? onClose : handleClose}
       aria-labelledby="responsive-dialog-title"
-      classes={{
-        paper: classes.modalWidth
+      PaperProps={{
+        classes: {
+          root: classes.paperRoot
+        }
       }}
+      {...others}
     >
       <DialogTitleCustom
         id="responsive-dialog-title"
@@ -92,9 +94,7 @@ const DialogJK = props => {
         {title}
       </DialogTitleCustom>
       <DialogContent>
-        <DialogContentText className={classes.content}>
-          {children}
-        </DialogContentText>
+        <DialogContentText>{children}</DialogContentText>
       </DialogContent>
       <DialogActions>{buttons && buttons.map(item => item)}</DialogActions>
     </Dialog>
@@ -124,4 +124,4 @@ DialogTitleCustom.propTypes = {
 };
 DialogTitleCustom.defaultProps = {};
 
-export default withMobileDialog()(DialogJK);
+export default DialogJK;

@@ -6,73 +6,56 @@ import classNames from 'classnames';
 
 const styles = makeStyles(theme => ({
   buttonStyle: {
-    color: theme.colors.white,
-    backgroundColor: theme.colors.primary,
-    borderColor: 'transparent',
     borderRadius: 5,
-    padding: '1rem 3.5rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     fontSize: '1.5rem',
     transition: 'all 0.3s ease-in-out',
     '&:hover': {
-      backgroundColor: theme.colors.primary,
       transform: 'translateY(-5px)',
       boxShadow: '0 1rem 2rem rgba(0,0,0, 0.2)',
-      color: theme.colors.mainAction,
       '&::after': {
         transform: 'scale(1.5)',
         opacity: 0
       }
     },
     '&:active': {
-      backgroundColor: theme.colors.primary,
       transform: 'translateY(0px)',
       boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
-      outline: 'none',
-      color: theme.colors.mainAction
+      outline: 'none'
     },
     '&:focus': {
-      backgroundColor: theme.colors.primary,
       transform: 'translateY(0px)',
       boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
-      outline: 'none',
-      color: theme.colors.mainAction
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: '1rem 2rem'
+      outline: 'none'
     }
   },
-  iconButtonStyle: {
-    backgroundColor: 'transparent',
-    padding: 0,
-    borderRadius: '50%',
-    minWidth: 24
+  primary: {
+    color: theme.colors.white,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main
+    }
+  },
+  secondary: {
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.main
+    }
   }
 }));
 
 const Button24 = props => {
-  const {
-    children,
-    disabled,
-    onClick,
-    icon,
-    className,
-    type,
-    ...other
-  } = props;
-  const classes = styles();
-  const buttonStyle =
-    type === 2 ? classes.iconButtonStyle : classes.buttonStyle;
+  const { children, onClick, icon, className, variant, ...other } = props;
+  const classes = styles(props);
   return (
     <Button
-      className={classNames(className, buttonStyle)}
+      className={classNames(classes.buttonStyle, className)}
+      disableFocusRipple
       onClick={onClick}
-      disabled={disabled}
+      variant={variant}
+      classes={{
+        containedPrimary: classes.primary,
+        containedSecondary: classes.secondary
+      }}
       {...other}
     >
-      {icon && <span className={classes.iconStyle}>{icon}</span>}
       {children}
     </Button>
   );
@@ -83,15 +66,13 @@ Button24.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.node,
   onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool,
-  type: PropTypes.number
+  variant: PropTypes.string
 };
 Button24.defaultProps = {
   icon: null,
   className: null,
   children: null,
-  disabled: false,
-  type: 1
+  variant: 'contained'
 };
 
 export default Button24;

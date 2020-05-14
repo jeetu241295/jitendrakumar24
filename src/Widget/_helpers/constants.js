@@ -30,6 +30,8 @@ import NatoursImg from '../../static/images/natours.png';
 import NexterImg from '../../static/images/nexter.png';
 
 export const DIALOG = 'DIALOG';
+export const RATING = 'RATING';
+export const SUGGESTION_DIALOG = 'SUGGESTION_DIALOG';
 
 // export const navs = ['home', 'Projects', 'contact'];
 export const navs = ['home', 'about', 'projects', 'contact'];
@@ -295,7 +297,11 @@ export const offices = [
       'I have started my professional career here. I badly want my training to be in Trivandrum,but fate wanted me to be in Hyderabad. Neither games to play in center nor new places to see since I have been in Hyderbad from 10 years. Regardless of these things,I am really glad working for TCS.Thanks to the particular person who choose me for ReactJS project.I have proved my worth in 1st year itself and got appreciation. I had worked with the best team & this particular KP gang which I had lot of memories. If there is any chance I will be allowed again in the organisation, I will opt 100%. Missing all of you very much.',
     image1: tcs1,
     image2: tcs2,
-    image3: gal13
+    image3: gal13,
+    workLifeBalance: 4.5,
+    ambience: 3,
+    workSatisfaction: 3.5,
+    recommendForFriend: 4
   },
   {
     id: 2,
@@ -304,6 +310,10 @@ export const offices = [
       'I have made a big decision moving in to Organisation even after I heard lot of rumours that work load will be heavy. At first,I thought rumours were wrong. In later stages realised that work load is too heavy. Work ambience in waverock will make thunderstruck. Most of the time spent outside office and in home due to lockdown.',
     image1: gal2,
     image2: gal2,
-    image3: gal2
+    image3: gal2,
+    workLifeBalance: 2.5,
+    ambience: 4,
+    workSatisfaction: 3,
+    recommendForFriend: 2
   }
 ];

@@ -71,9 +71,10 @@ const ContactForm = props => {
         />
       </Grid>
       <Button
-        icon={<SendIcon />}
+        startIcon={<SendIcon />}
         className={classes.send}
         onClick={handleSubmit}
+        color="secondary"
       >
         Send
       </Button>

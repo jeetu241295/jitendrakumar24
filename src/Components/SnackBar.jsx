@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
 import classNames from 'classnames';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { CloseIcon } from '../Global/SVG';
+import IconButton from './IconButton';
 
 const styles1 = makeStyles(theme => ({
   success: {
@@ -30,13 +30,7 @@ const MySnackbarContent = props => {
         </span>
       }
       action={[
-        <IconButton
-          key="close"
-          aria-label="Close"
-          color="inherit"
-          className={classes.close}
-          onClick={onClose}
-        >
+        <IconButton key="close" color="inherit" onClick={onClose}>
           <CloseIcon className={classes.icon} />
         </IconButton>
       ]}
