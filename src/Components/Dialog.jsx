@@ -29,9 +29,12 @@ const customTitleStyles = makeStyles(theme => ({
   }
 }));
 
-const styles = makeStyles(() => ({
+const styles = makeStyles(theme => ({
   paperRoot: {
-    minWidth: 600
+    minWidth: 600,
+    [theme.breakpoints.down('xs')]: {
+      minWidth: '100vw'
+    }
   }
 }));
 
@@ -71,7 +74,7 @@ const DialogJK = props => {
   } = props;
   const classes = styles();
   const theme = useTheme();
-  const smallFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const smallFullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <Dialog
@@ -84,6 +87,7 @@ const DialogJK = props => {
           root: classes.paperRoot
         }
       }}
+      maxWidth="xs"
       {...others}
     >
       <DialogTitleCustom
