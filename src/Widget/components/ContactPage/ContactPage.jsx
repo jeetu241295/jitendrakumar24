@@ -73,7 +73,7 @@ const styles = makeStyles(theme => ({
 }));
 
 const Contact = props => {
-  const { sendMail, reset, submitLoader } = props;
+  const { sendMail, submitLoader } = props;
   const classes = styles();
 
   useEffect(() => {
@@ -83,7 +83,6 @@ const Contact = props => {
   const saveValues = values => {
     submitLoader();
     sendMail(values);
-    reset();
   };
 
   return (
@@ -144,7 +143,6 @@ const Contact = props => {
 
 Contact.propTypes = {
   sendMail: PropTypes.func.isRequired,
-  submitLoader: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired
+  submitLoader: PropTypes.func.isRequired
 };
 export default Contact;

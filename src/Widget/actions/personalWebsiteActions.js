@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import { reset } from 'redux-form';
 import {
   SUBMIT_LOADER,
   SUGGESTION_DIALOG,
@@ -19,6 +20,7 @@ export const sendMail = values => dispatch => {
     })
     .then(res => {
       dispatch(submitLoader());
+      dispatch(reset('contactForm'));
       renderSnackbar(res);
     })
     .catch(error => {
