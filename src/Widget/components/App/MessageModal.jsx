@@ -23,6 +23,7 @@ const MessageModal = props => {
     ratingValue,
     messageOpen,
     submitMessage,
+    submitLoader,
     toggleSuggestionDialog
   } = props;
   const [review, setReview] = useState(null);
@@ -48,7 +49,10 @@ const MessageModal = props => {
         </Button>,
         <Button
           key={1}
-          onClick={() => submitMessage(ratingValue, name, review)}
+          onClick={() => {
+            submitLoader();
+            submitMessage(ratingValue, name, review);
+          }}
           variant="outlined"
           color="primary"
         >
@@ -99,6 +103,7 @@ MessageModal.propTypes = {
   messageOpen: PropTypes.bool.isRequired,
   ratingValue: PropTypes.number.isRequired,
   submitMessage: PropTypes.func.isRequired,
+  submitLoader: PropTypes.func.isRequired,
   toggleSuggestionDialog: PropTypes.func.isRequired
 };
 MessageModal.defaultProp = {};

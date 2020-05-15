@@ -2,7 +2,7 @@ import { createReducer } from '../../Global/redux';
 import {
   navs,
   images,
-  DIALOG,
+  SUBMIT_LOADER,
   skills,
   SUGGESTION_DIALOG,
   education,
@@ -18,10 +18,9 @@ import {
 const defaultState = {
   navs,
   images,
-  imageOpen: false,
+  loader: false,
   messageOpen: false,
   showRating: true,
-  index: 0,
   skills,
   education,
   projects,
@@ -33,11 +32,9 @@ const defaultState = {
 };
 
 const personalWebsiteReducer = {
-  [DIALOG]: (state, action) => ({
+  [SUBMIT_LOADER]: state => ({
     ...state,
-    image: action.image,
-    index: action.index,
-    imageOpen: !state.imageOpen
+    loader: !state.loader
   }),
   [SUGGESTION_DIALOG]: (state, action) => ({
     ...state,

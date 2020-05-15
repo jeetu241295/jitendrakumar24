@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../../../Components/Navbar';
 import Footer from '../../../Components/Footer';
 import Rating from '../../../Components/Rating';
+import Loading from '../../../Components/Loading';
 import HomePage from '../HomePage';
 import AboutPage from '../AboutPage';
 import ContactPage from '../ContactPage';
@@ -27,7 +28,7 @@ const styles = makeStyles(theme => ({
   }
 }));
 const App = props => {
-  const { navs, toggleSuggestionDialog, showRating } = props;
+  const { navs, toggleSuggestionDialog, showRating, loader } = props;
   const [value, setValue] = useState(0);
   const classes = styles();
 
@@ -43,6 +44,7 @@ const App = props => {
         <Route component={NoPage} />
       </Switch>
       <Footer />
+      <Loading open={loader} />
       {showRating && (
         <React.Fragment>
           <Grid className={classes.ratingWrap}>
@@ -66,6 +68,7 @@ const App = props => {
 };
 
 App.propTypes = {
+  loader: PropTypes.bool.isRequired,
   navs: PropTypes.array.isRequired,
   showRating: PropTypes.bool.isRequired,
   toggleSuggestionDialog: PropTypes.func.isRequired

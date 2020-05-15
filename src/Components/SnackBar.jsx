@@ -1,70 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
-import classNames from 'classnames';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
-import { CloseIcon } from '../Global/SVG';
-import IconButton from './IconButton';
-
-const styles1 = makeStyles(theme => ({
-  success: {
-    backgroundColor: theme.colors.mainAction
-  },
-  message: {
-    display: 'flex',
-    alignItems: 'center'
-  }
-}));
-
-const MySnackbarContent = props => {
-  const { className, message, onClose, ...other } = props;
-  const classes = styles1();
-  return (
-    <SnackbarContent
-      className={classNames(classes.success, className)}
-      aria-describedby="client-snackbar"
-      message={
-        <span id="client-snackbar" className={classes.message}>
-          {message}
-        </span>
-      }
-      action={[
-        <IconButton key="close" color="inherit" onClick={onClose}>
-          <CloseIcon className={classes.icon} />
-        </IconButton>
-      ]}
-      {...other}
-    />
-  );
-};
-
-MySnackbarContent.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  message: PropTypes.node,
-  onClose: PropTypes.func
-};
-
-const MySnackbarContentWrapper = MySnackbarContent;
 
 const SimpleSnackbar = props => {
-  const [open, setOpen] = useState(false);
+  const [messageOpen, setOpen] = useState(false);
+  const { apiResult, autoHideDuration, open } = props;
+  let severity;
+  const { message, status } = apiResult.data;
 
-  useEffect(
-    newProps => {
-      if (newProps.open !== null) {
-        setOpen(true);
-      } else {
-        setOpen(false);
-      }
-    },
-    [{ open }]
-  );
-
-  // const handleClick = () => {
-  //   setOpen(true);
-  // };
+  useEffect(() => {
+    if (open) setOpen(true);
+  }, [apiResult]);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -73,24 +20,40 @@ const SimpleSnackbar = props => {
     setOpen(false);
   };
 
-  const { message } = props;
+  if (status === 1) severity = 'success';
+  else if (status === -1) severity = 'Error';
+  else severity = 'info';
+
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'bottom',
-        horizontal: 'left'
+        vertical: 'top',
+        horizontal: 'center'
       }}
-      open={open}
-      autoHideDuration={5000}
+      open={messageOpen}
+      autoHideDuration={autoHideDuration}
       onClose={handleClose}
     >
-      <MySnackbarContentWrapper onClose={handleClose} message={message} />
+      <Alert
+        elevation={6}
+        variant="filled"
+        onClose={handleClose}
+        severity={severity}
+      >
+        {message}
+      </Alert>
     </Snackbar>
   );
 };
 
 SimpleSnackbar.propTypes = {
-  message: PropTypes.string.isRequired
+  autoHideDuration: PropTypes.number,
+  apiResult: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired
+};
+
+SimpleSnackbar.defaultProps = {
+  autoHideDuration: 5000
 };
 
 export default SimpleSnackbar;

@@ -1,20 +1,25 @@
 /* eslint-disable no-console */
-import { DIALOG, SUGGESTION_DIALOG, RATING } from '../_helpers/constants';
+import {
+  SUBMIT_LOADER,
+  SUGGESTION_DIALOG,
+  RATING
+} from '../_helpers/constants';
 import { createAction } from '../../Global/redux';
 import renderSnackbar from '../../Global/helpers';
 import axiosAPI from '../../Global/axios';
 
-export const dialogOpen = createAction(DIALOG, 'index', 'image');
 export const toggleSuggestionDialog = createAction(SUGGESTION_DIALOG, 'value');
 export const toggleRating = createAction(RATING, 'value');
+export const submitLoader = createAction(SUBMIT_LOADER);
 
-export const sendMail = values => () => {
+export const sendMail = values => dispatch => {
   axiosAPI
     .post('/sendMessage', {
       ...values
     })
     .then(res => {
-      renderSnackbar(res.data.message);
+      dispatch(submitLoader());
+      renderSnackbar(res);
     })
     .catch(error => {
       console.log(error);
@@ -25,7 +30,7 @@ export const downloadCV = () => () => {
   axiosAPI
     .get('/downloadCV')
     .then(res => {
-      renderSnackbar('File downloading...!');
+      renderSnackbar({ data: { message: 'File downloading...!' } });
       const dataURI = `data:application/pdf;base64,${res.data.filedata}`;
       const link = document.createElement('a');
       document.body.appendChild(link);
@@ -59,10 +64,9 @@ export const submitMessage = (ratingValue, name, review) => dispatch => {
       review
     })
     .then(res => {
-      if (res.data) {
-        renderSnackbar(res.data.message);
-        dispatch(toggleRating(false));
-      }
+      dispatch(submitLoader());
+      renderSnackbar(res);
+      if (res.data.status === 1) dispatch(toggleRating(false));
     })
     .catch(error => console.log(error));
 };

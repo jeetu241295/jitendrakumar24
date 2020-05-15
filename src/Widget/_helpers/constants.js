@@ -29,7 +29,7 @@ import TriloImg from '../../static/images/trilo.png';
 import NatoursImg from '../../static/images/natours.png';
 import NexterImg from '../../static/images/nexter.png';
 
-export const DIALOG = 'DIALOG';
+export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
 export const SUGGESTION_DIALOG = 'SUGGESTION_DIALOG';
 
