@@ -162,12 +162,12 @@ export const about = [
   {
     id: 2,
     content:
-      ' I became very interested in acquire more knowledge about computers, so I begun my studies at the VR Siddhartha Engineering College. More than computers I am fancied about Mechanical but fate turned me into the Software Engineer and seriously I am thankful to it.'
+      'I was very interested in acquiring more knowledge about computers, so I begun my studies at the VR Siddhartha Engineering College. More than computers I am fancied about Mechanical but fate turned me into the Software Engineer and seriously I am thankful to it.'
   },
   {
     id: 3,
     content:
-      "I regard myself to be a very open minded person, ready for new challenge, especially when it comes to technology. People consider me to be a social, temperamental person who doesn't hesitate in giving my opinion for what I think and believe in, honest and respectfully. They see me like a purposeful person and good in maintaining secrets."
+      "I regard myself to be a very open minded person, ready for new challenges, especially when it comes to technology. People consider me to be a social, temperamental person who doesn't hesitate in giving my opinion for what I think and believe in, honestly and respectfully. They see me like a purposeful person and good in maintaining secrets."
   },
   {
     id: 4,

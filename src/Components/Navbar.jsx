@@ -101,6 +101,7 @@ const styles = makeStyles(theme => ({
   listItem: {
     borderBottom: '2px solid',
     borderColor: theme.colors.black,
+    textTransform: 'uppercase',
     '&:first-child': {
       borderTop: '2px solid'
     },
