@@ -54,12 +54,35 @@ const styles = makeStyles(theme => ({
   tabsSpeedDial: {
     position: 'fixed',
     bottom: 30,
-    right: 25
+    right: 25,
+    animationName: '$danceDial',
+    animationDuration: '2s',
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'ease-in-out',
+    animationPlayState: props => (!props.animation ? 'paused' : 'running')
+  },
+  '@keyframes danceDial': {
+    '0%': {
+      transform: 'translateY(0px)'
+    },
+    '45%': {
+      transform: 'translateY(20px)'
+    },
+    '70%': {
+      transform: 'translateY(0px)'
+    },
+    '85%': {
+      transform: 'translateY(5px)'
+    },
+    '100%': {
+      transform: 'translateY(0px)'
+    }
   }
 }));
 
 const FullWidthTabs = props => {
   const [value, setValue] = useState(0);
+  const [animation, setAnimation] = useState(true);
 
   const handleChange = value1 => setValue(value1);
 
@@ -71,7 +94,7 @@ const FullWidthTabs = props => {
     variant,
     styled
   } = props;
-  const classes = styles(props);
+  const classes = styles({ ...props, animation });
   const isVertical = orientation === 'vertical';
   const slideDirection = orientation === 'vertical' ? 'up' : 'left';
   const actions = [];
@@ -130,6 +153,7 @@ const FullWidthTabs = props => {
               actions={actions}
               active={value}
               icon={<VerticalMenuIcon />}
+              onOpen={() => setAnimation(false)}
             />
           </Hidden>
         </React.Fragment>

@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SpeedDialJK = props => {
-  const { hidden, className, actions, icon, active } = props;
+  const { hidden, className, actions, icon, active, onOpen } = props;
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -42,7 +42,10 @@ const SpeedDialJK = props => {
         hidden={hidden}
         icon={<SpeedDialIcon icon={icon} />}
         onClose={handleClose}
-        onOpen={handleOpen}
+        onOpen={() => {
+          handleOpen();
+          onOpen();
+        }}
         open={open}
         FabProps={{
           size: 'medium'
@@ -77,12 +80,14 @@ SpeedDialJK.propTypes = {
   actions: PropTypes.array.isRequired,
   className: PropTypes.string,
   icon: PropTypes.node,
+  onOpen: PropTypes.func,
   hidden: PropTypes.bool
 };
 
 SpeedDialJK.defaultProps = {
   className: null,
   icon: null,
+  onOpen: false,
   hidden: false
 };
 
