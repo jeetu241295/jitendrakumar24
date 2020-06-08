@@ -36,9 +36,7 @@ const styles = makeStyles(theme => ({
     letterSpacing: '1.2rem',
     fontWeight: 900,
     color: 'transparent',
-    backgroundImage: `linear-gradient(to right bottom, ${
-      theme.colors.mainAction
-    },${theme.colors.white})`,
+    backgroundImage: `linear-gradient(to right bottom, ${theme.colors.mainAction},${theme.colors.white})`,
     WebkitBackgroundClip: 'text',
     padding: '2rem',
     fontFamily: 'Raleway Webfont',

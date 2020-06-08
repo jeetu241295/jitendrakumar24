@@ -20,9 +20,7 @@ const styles = makeStyles(theme => ({
     }
   },
   title: {
-    backgroundImage: `linear-gradient(to left bottom,${theme.colors.primary},${
-      theme.colors.white
-    })`,
+    backgroundImage: `linear-gradient(to left bottom,${theme.colors.primary},${theme.colors.white})`,
     fontSize: '4rem',
     textTransform: 'uppercase',
     fontWeight: 900,

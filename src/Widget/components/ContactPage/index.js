@@ -13,7 +13,4 @@ const mapDispatchtoProps = dispatch => ({
   reset: () => dispatch(reset('contactForm'))
 });
 
-export default connect(
-  mapStatetoProps,
-  mapDispatchtoProps
-)(ContactPage);
+export default connect(mapStatetoProps, mapDispatchtoProps)(ContactPage);

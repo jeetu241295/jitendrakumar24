@@ -1,3 +1,4 @@
+const eslint = require('eslint');
 const webpack = require('webpack');
 const convert = require('koa-connect');
 const history = require('connect-history-api-fallback');
@@ -15,6 +16,7 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /(node_modules)/,
         options: {
+          formatter: eslint.CLIEngine.getFormatter('stylish'),
           emitWarning: process.env.NODE_ENV !== 'production'
         }
       },
@@ -24,7 +26,7 @@ module.exports = {
         exclude: /(node_modules)/
       },
       {
-        test: /\.(png|jpg|gif|ico|JPG|PNG)$/,
+        test: /\.(png|jpg|gif|svg|ico|JPG|PNG)$/,
         use: [
           {
             loader: 'file-loader',
@@ -41,20 +43,6 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: commonPaths.fontsFolder
-            }
-          }
-        ]
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'babel-loader'
-          },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true // true outputs JSX tags
             }
           }
         ]

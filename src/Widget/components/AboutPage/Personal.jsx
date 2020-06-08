@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '../../../Components/Tabs';
+import Intrests from './Intrests';
 import { renderDetails, renderImages } from './RenderImagesDetails';
 import { TripsIcon, IntrestsIcon } from '../../../Global/SVG';
 
@@ -21,8 +22,7 @@ const Personal = props => {
       id: 1,
       label: 'Intrests',
       icon: <IntrestsIcon width={24} height={24} />,
-      content:
-        'Work in progress. Try next, you might find something intresting..!'
+      content: <Intrests />
     },
     {
       id: 2,

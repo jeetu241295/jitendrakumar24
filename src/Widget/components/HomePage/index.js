@@ -10,7 +10,4 @@ const mapStatetoProps = state => ({
 const mapDispatchtoProps = dispatch =>
   bindActionCreators(personalWebsiteActions, dispatch);
 
-export default connect(
-  mapStatetoProps,
-  mapDispatchtoProps
-)(HomePage);
+export default connect(mapStatetoProps, mapDispatchtoProps)(HomePage);

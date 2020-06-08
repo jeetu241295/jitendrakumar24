@@ -48,6 +48,8 @@
     "react/jsx-boolean-value": ["warn", "never"],
     "react/jsx-closing-bracket-location": ["warn"],
     "react/jsx-curly-spacing": ["warn", "never"],
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-fragments": [1, "element"],
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js"] }],
     "react/jsx-first-prop-new-line": ["warn", "multiline"],
     "react/jsx-indent": ["warn", 2],

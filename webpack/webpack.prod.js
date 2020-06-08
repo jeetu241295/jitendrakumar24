@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -51,7 +51,19 @@ module.exports = {
     rules: [
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+              localsConvention: 'camelCase',
+              modules: {
+                localIdentName: '[local]___[hash:base64:5]'
+              }
+            }
+          }
+        ]
       }
     ]
   },

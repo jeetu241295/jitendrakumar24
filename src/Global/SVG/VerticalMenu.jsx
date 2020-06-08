@@ -10,15 +10,15 @@ const VerticalMenu = props => {
   return (
     <SvgIcon
       classes={{ root: classNames(classes.icon, className) }}
-      viewBox="0 0 512 512"
+      viewBox="0 0 24 24"
       {...props}
     >
       <g>
         <g>
           <g>
-            <circle cx="256" cy="256" r="64" />
-            <circle cx="256" cy="448" r="64" />
-            <circle cx="256" cy="64" r="64" />
+            <circle cx="12" cy="4" r="2.5" />
+            <circle cx="12" cy="12" r="2.5" />
+            <circle cx="12" cy="20" r="2.5" />
           </g>
         </g>
       </g>

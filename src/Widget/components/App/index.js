@@ -10,7 +10,4 @@ const mapStatetoProps = state => ({
 const mapDispatchtoProps = dispatch =>
   bindActionCreators(personalWebsiteAction, dispatch);
 
-export default connect(
-  mapStatetoProps,
-  mapDispatchtoProps
-)(Routing);
+export default connect(mapStatetoProps, mapDispatchtoProps)(Routing);

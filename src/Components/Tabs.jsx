@@ -152,7 +152,7 @@ const FullWidthTabs = props => {
               className={classes.tabsSpeedDial}
               actions={actions}
               active={value}
-              icon={<VerticalMenuIcon />}
+              icon={<VerticalMenuIcon width={22} />}
               onOpen={() => setAnimation(false)}
             />
           </Hidden>
