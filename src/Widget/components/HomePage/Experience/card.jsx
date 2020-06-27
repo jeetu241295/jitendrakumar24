@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import Normal from '__SHARED__/Fonts/Normal';
 import { CalenderIcon } from '../../../../Global/SVG';
-import Normal from '../../../../Components/Fonts/Normal';
 
 const styles = makeStyles(theme => ({
   paper: {

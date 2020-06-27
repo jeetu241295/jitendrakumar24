@@ -4,16 +4,16 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ContactForm from './ContactForm';
-import Normal from '../../../Components/Fonts/Normal';
-import Link from '../../../Components/Link';
+import Normal from '__SHARED__/Fonts/Normal';
+import Link from '__SHARED__/Link';
+import contactImg from '__IMAGES__/contact.jpg';
 import {
   PhoneIcon,
   MailIcon,
   LocationIcon,
   WebIcon
 } from '../../../Global/SVG';
-import contactImg from '../../../static/images/contact.jpg';
+import ContactForm from './ContactForm';
 
 const styles = makeStyles(theme => ({
   contact: {

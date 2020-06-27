@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Tabs from '__SHARED__/Tabs';
 import { renderDetails, renderImages } from './RenderImagesDetails';
-import Tabs from '../../../Components/Tabs';
 import Personal from './Personal';
 
 const styles = makeStyles(theme => ({

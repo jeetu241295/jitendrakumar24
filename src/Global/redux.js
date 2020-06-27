@@ -1,5 +1,3 @@
-import { createStore } from 'redux';
-
 export function createReducer(initialState, actionHandlers) {
   return function reducer(state = initialState, action) {
     // eslint-disable-next-line
@@ -19,12 +17,3 @@ export function createAction(type, ...argNames) {
     return action;
   };
 }
-
-export const createStorePOC = reducer =>
-  createStore(
-    reducer,
-    // eslint-disable-next-line
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      // eslint-disable-next-line
-      window.__REDUX_DEVTOOLS_EXTENSION__()
-  );

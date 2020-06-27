@@ -19,8 +19,7 @@ module.exports = {
         // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
         // Enable file caching
-        cache: true,
-        sourceMap: true
+        cache: true
       }),
       new OptimizeCSSAssetsPlugin()
     ],
@@ -28,6 +27,7 @@ module.exports = {
     // https://twitter.com/wSokra/status/969633336732905474
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
+      name: false,
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
@@ -44,7 +44,9 @@ module.exports = {
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true
+    runtimeChunk: true,
+    // optimization.removeAvailableModules reduces the performance of webpack, and will be disabled in production mode by default in next major release.
+    removeAvailableModules: false
   },
 
   module: {
@@ -59,7 +61,8 @@ module.exports = {
               sourceMap: false,
               localsConvention: 'camelCase',
               modules: {
-                localIdentName: '[local]___[hash:base64:5]'
+                localIdentName: '[local]'
+                // localIdentName: '[local]___[hash:base64:5]'
               }
             }
           }
@@ -73,6 +76,5 @@ module.exports = {
       filename: `${commonPaths.cssFolder}/[name].css`,
       chunkFilename: `${commonPaths.cssFolder}/[name].css`
     })
-  ],
-  devtool: 'source-map'
+  ]
 };

@@ -21,7 +21,8 @@ module.exports = {
               sourceMap: true,
               localsConvention: 'camelCase',
               modules: {
-                localIdentName: '[local]___[hash:base64:5]'
+                localIdentName: '[local]'
+                // localIdentName: '[local]___[hash:base64:5]'
               }
             }
           }
@@ -33,7 +34,9 @@ module.exports = {
     contentBase: commonPaths.outputPath,
     compress: true,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true,
+    port: 3333
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

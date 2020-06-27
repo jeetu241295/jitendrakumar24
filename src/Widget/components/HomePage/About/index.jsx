@@ -3,10 +3,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import ProgressBar from '../../../../Components/ProgressBar';
-import Button from '../../../../Components/Button';
-import aboutImg from '../../../../static/images/about.jpg';
-import HandFont from '../../../../Components/Fonts/HandFont';
+import ProgressBar from '__SHARED__/ProgressBar';
+import Button from '__SHARED__/Button';
+import aboutImg from '__IMAGES__/about.jpg';
+import HandFont from '__SHARED__/Fonts/HandFont';
 
 const styles = makeStyles(theme => ({
   about: {

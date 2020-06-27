@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import motoImg from '../../../../static/images/motto.jpg';
+import motoImg from '__IMAGES__/motto.jpg';
 
 const styles = makeStyles(theme => ({
   mottoWrap: {

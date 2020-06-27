@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '../../../Components/Tabs';
+import Tabs from '__SHARED__/Tabs';
 import Intrests from './Intrests';
 import { renderDetails, renderImages } from './RenderImagesDetails';
 import { TripsIcon, IntrestsIcon } from '../../../Global/SVG';

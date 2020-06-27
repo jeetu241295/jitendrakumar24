@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Normal from '../../../Components/Fonts/Normal';
-import Rating from '../../../Components/Rating';
+import Normal from '__SHARED__/Fonts/Normal';
+import Rating from '__SHARED__/Rating';
 
 const styles = makeStyles(theme => ({
   compositionWrap: {

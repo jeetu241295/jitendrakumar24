@@ -1,33 +1,32 @@
-import gal1 from '../../static/images/gal-1.jpg';
-import gal2 from '../../static/images/gal-2.jpg';
-import gal3 from '../../static/images/gal-3.jpg';
-import gal4 from '../../static/images/gal-4.jpg';
-import gal5 from '../../static/images/gal-5.jpg';
-import gal6 from '../../static/images/gal-6.jpg';
-import gal7 from '../../static/images/gal-7.jpg';
-import gal8 from '../../static/images/gal-8.jpg';
-import gal9 from '../../static/images/gal-9.jpg';
-import gal10 from '../../static/images/gal-10.jpg';
-import gal11 from '../../static/images/gal-11.jpg';
-import gal12 from '../../static/images/gal-12.jpg';
-import gal13 from '../../static/images/gal-13.jpg';
-import gal14 from '../../static/images/gal-14.jpg';
-import ooty1 from '../../static/images/ooty-1.jpg';
-import ooty2 from '../../static/images/ooty-2.jpg';
-import lonavala1 from '../../static/images/lonavala-1.jpg';
-import lonavala2 from '../../static/images/lonavala-2.jpg';
-import vizag1 from '../../static/images/vizag-1.jpg';
-import vizag2 from '../../static/images/vizag-2.jpg';
-import north1 from '../../static/images/North-1.jpg';
-import north2 from '../../static/images/North-2.jpg';
-import tcs1 from '../../static/images/tcs1.jpg';
-import tcs2 from '../../static/images/tcs2.jpg';
-import chatAppImg from '../../static/images/chatApp.png';
-import PWImg from '../../static/images/personalWebsite.png';
-import TaskManagerImg from '../../static/images/taskManager.png';
-import TriloImg from '../../static/images/trilo.png';
-import NatoursImg from '../../static/images/natours.png';
-import NexterImg from '../../static/images/nexter.png';
+import gal1 from '__IMAGES__/gal-1.jpg';
+import gal2 from '__IMAGES__/gal-2.jpg';
+import gal3 from '__IMAGES__/gal-3.jpg';
+import gal4 from '__IMAGES__/gal-4.jpg';
+import gal5 from '__IMAGES__/gal-5.jpg';
+import gal6 from '__IMAGES__/gal-6.jpg';
+import gal7 from '__IMAGES__/gal-7.jpg';
+import gal8 from '__IMAGES__/gal-8.jpg';
+import gal9 from '__IMAGES__/gal-9.jpg';
+import gal10 from '__IMAGES__/gal-10.jpg';
+import gal11 from '__IMAGES__/gal-11.jpg';
+import gal12 from '__IMAGES__/gal-12.jpg';
+import gal13 from '__IMAGES__/gal-13.jpg';
+import gal14 from '__IMAGES__/gal-14.jpg';
+import ooty1 from '__IMAGES__/ooty-1.jpg';
+import ooty2 from '__IMAGES__/ooty-2.jpg';
+import lonavala1 from '__IMAGES__/lonavala-1.jpg';
+import lonavala2 from '__IMAGES__/lonavala-2.jpg';
+import vizag1 from '__IMAGES__/vizag-1.jpg';
+import vizag2 from '__IMAGES__/vizag-2.jpg';
+import north1 from '__IMAGES__/North-1.jpg';
+import tcs1 from '__IMAGES__/tcs1.jpg';
+import tcs2 from '__IMAGES__/tcs2.jpg';
+import chatAppImg from '__IMAGES__/chatApp.png';
+import PWImg from '__IMAGES__/personalWebsite.png';
+import TaskManagerImg from '__IMAGES__/taskManager.png';
+import TriloImg from '__IMAGES__/trilo.png';
+import NatoursImg from '__IMAGES__/natours.png';
+import NexterImg from '__IMAGES__/nexter.png';
 
 export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
@@ -284,7 +283,7 @@ export const trips = [
       "A well pre-planned trip with as much low budget as possible. Booked fligh tickets, rooms and car(with driver) and then covid-19 came into the world. Feared that my trip might get effected luckly nothing happened. Booked a car with driver since the road to Joshimath is very narrow and small mistake can cause life. We managed to go joshimath in 16hrs without sleep. Form Joshimath to Auli go by car until 8th tower and then go by chair car,unlike from 1st tower you can feel the cool breeze. Auli has a wonderful viewpoints, good place to have your DP. You can do snow skiing in Auli. Tungnath trek is the hardest one we had with 3680m above sea level. If you have breathing problem better carry a mini oxygen tank. One of my friend had a problem and couldn't make it to top. Next thought an easy one,river rafting and clif jumping and no one knows how to swim. Faced the fear and made it successful. Tried for bungie jump couldn't find slots, needs to be booked before only as they are limited.",
     image1: gal2,
     image2: north1,
-    image3: north2,
+    image3: gal4,
     placesCovered: 'Joshimath, Auli, Chopta & Rishikesh'
   }
 ];

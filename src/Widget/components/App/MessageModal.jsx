@@ -6,8 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Dialog from '../../../Components/Dialog';
-import Button from '../../../Components/Button';
+import Dialog from '__SHARED__/Dialog';
+import Button from '__SHARED__/Button';
 
 const styles = makeStyles(() => ({
   listItem: {

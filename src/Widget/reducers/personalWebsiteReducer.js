@@ -1,4 +1,4 @@
-import { createReducer } from '../../Global/redux';
+import { createReducer } from '__GLOBAL__/redux';
 import {
   navs,
   images,

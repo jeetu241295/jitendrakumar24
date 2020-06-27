@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
-import Normal from '../../../Components/Fonts/Normal';
-import lostImg from '../../../static/images/lost.jpg';
+import Normal from '__SHARED__/Fonts/Normal';
+import lostImg from '__IMAGES__/lost.jpg';
 
 const styles = makeStyles(theme => ({
   about: {

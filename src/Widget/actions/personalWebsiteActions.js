@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 import { reset } from 'redux-form';
+import { createAction } from '__GLOBAL__/redux';
+import renderSnackbar from '__GLOBAL__/helpers';
+import axiosAPI from '__GLOBAL__/axios';
 import {
   SUBMIT_LOADER,
   SUGGESTION_DIALOG,
   RATING
 } from '../_helpers/constants';
-import { createAction } from '../../Global/redux';
-import renderSnackbar from '../../Global/helpers';
-import axiosAPI from '../../Global/axios';
 
 export const toggleSuggestionDialog = createAction(SUGGESTION_DIALOG, 'value');
 export const toggleRating = createAction(RATING, 'value');

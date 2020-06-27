@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import Button from '../../../../Components/Button';
-import TextField from '../../../../Components/ReduxForm/TextField';
-import { SendIcon } from '../../../../Global/SVG';
+import Button from '__SHARED__/Button';
+import TextField from '__SHARED__/ReduxForm/TextField';
+import { SendIcon } from '__GLOBAL__/SVG';
 import { normalizePhone, normalizeUserName } from './Normalise';
 
 const styles = makeStyles(theme => ({
