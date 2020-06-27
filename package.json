@@ -17,7 +17,6 @@
   "license": "",
   "engines": {
     "node": ">=10",
-    "yarn":">=1.22",
     "npm": ">=5"
   },
   "dependencies": {
