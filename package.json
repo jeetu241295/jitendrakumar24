@@ -16,8 +16,9 @@
   "author": "Jitendra Kumar",
   "license": "",
   "engines": {
-    "node": ">=8",
-    "npm": ">=3"
+    "node": ">=10",
+    "yarn":">=1.22",
+    "npm": ">=5"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.1",
