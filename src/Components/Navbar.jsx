@@ -13,7 +13,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import IconButton from './IconButton';
-import logo from '../static/images/logo.WebP';
+import logo from '../Assets/images/logo.jpg';
 import {
   MenuIcon,
   HeartIcon,
@@ -80,7 +80,8 @@ const styles = makeStyles(theme => ({
     padding: '1rem 2rem',
     position: 'relative',
     '&:hover': {
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      transform: 'none'
     },
     '&:focus': {
       backgroundColor: 'transparent'
@@ -257,17 +258,20 @@ const ButtonAppBar = props => {
               if (nav === 'projects') navIcon = <ProjectsIcon />;
               if (nav === 'contact') navIcon = <ContactIcon />;
               return (
-                <Button
+                <Link
                   key={nav.toString()}
-                  className={classes.navLink}
-                  onClick={() => {}}
-                  disableElevation
-                  startIcon={navIcon}
+                  className={classes.link}
+                  to={`/${nav}`}
                 >
-                  <Link className={classes.link} to={`/${nav}`}>
+                  <Button
+                    className={classes.navLink}
+                    onClick={() => {}}
+                    disableElevation
+                    startIcon={navIcon}
+                  >
                     {nav}
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               );
             })}
           </Grid>
