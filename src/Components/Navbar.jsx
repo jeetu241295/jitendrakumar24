@@ -13,7 +13,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 import IconButton from './IconButton';
-import logo from '../static/images/logo.jpg';
+import logo from '../static/images/logo.WebP';
 import {
   MenuIcon,
   HeartIcon,
