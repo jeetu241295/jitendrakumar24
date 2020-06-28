@@ -8,6 +8,7 @@ module.exports = {
   globalPath: path.resolve(__dirname, '../', 'src/Global'),
   sharedPath: path.resolve(__dirname, '../', 'src/Components'),
   imagePath: path.resolve(__dirname, '../', 'src/static/images'),
+  faviconPath: path.resolve(__dirname, '../', 'src/static/images/favicon.ico'),
   imagesFolder: 'images',
   fontsFolder: 'fonts',
   cssFolder: 'css',

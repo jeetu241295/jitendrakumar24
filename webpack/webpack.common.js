@@ -27,7 +27,7 @@ module.exports = env => {
           exclude: /(node_modules)/
         },
         {
-          test: /\.(png|jpg|gif|svg|ico|JPG|PNG)$/,
+          test: /\.(png|jpe?g|gif|svg|JPE?G|PNG)$/,
           use: [
             {
               loader: 'file-loader',
@@ -72,7 +72,8 @@ module.exports = env => {
     plugins: [
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
-        template: commonPaths.templatePath
+        template: commonPaths.templatePath,
+        favicon: commonPaths.faviconPath
       }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV)

@@ -21,12 +21,12 @@ import vizag2 from '__IMAGES__/vizag-2.jpg';
 import north1 from '__IMAGES__/North-1.jpg';
 import tcs1 from '__IMAGES__/tcs1.jpg';
 import tcs2 from '__IMAGES__/tcs2.jpg';
-import chatAppImg from '__IMAGES__/chatApp.png';
-import PWImg from '__IMAGES__/personalWebsite.png';
-import TaskManagerImg from '__IMAGES__/taskManager.png';
-import TriloImg from '__IMAGES__/trilo.png';
-import NatoursImg from '__IMAGES__/natours.png';
-import NexterImg from '__IMAGES__/nexter.png';
+import chatAppImg from '__IMAGES__/chatApp.jpg';
+import PWImg from '__IMAGES__/personalWebsite.jpg';
+import TaskManagerImg from '__IMAGES__/taskManager.jpg';
+import TriloImg from '__IMAGES__/trilo.jpg';
+import NatoursImg from '__IMAGES__/natours.jpg';
+import NexterImg from '__IMAGES__/nexter.jpg';
 
 export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
