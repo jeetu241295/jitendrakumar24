@@ -9,7 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import SpeedDial from './Speeddial';
-import { VerticalMenuIcon } from '../Global/SVG';
+import { VerticalMenuIcon } from '__ASSETS__/SVG';
 
 const styles = makeStyles(theme => ({
   tab: {

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '__SHARED__/Tabs';
 import Intrests from './Intrests';
 import { renderDetails, renderImages } from './RenderImagesDetails';
-import { TripsIcon, IntrestsIcon } from '../../../Global/SVG';
+import { TripsIcon, IntrestsIcon } from '__ASSETS__/SVG';
 
 const styles = makeStyles(() => ({
   content: {
@@ -22,7 +22,7 @@ const Personal = props => {
       id: 1,
       label: 'Intrests',
       icon: <IntrestsIcon width={24} height={24} />,
-      content: <Intrests />
+      content: <Intrests {...props} />
     },
     {
       id: 2,

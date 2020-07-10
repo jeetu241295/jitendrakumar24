@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import homeImg from '__IMAGES__/home.jpg';
+import homeImg from '__ASSETS__/Images/home.jpg';
 
 const styles = makeStyles(theme => ({
   home: {

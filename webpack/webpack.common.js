@@ -66,7 +66,7 @@ module.exports = env => {
       alias: {
         __GLOBAL__: commonPaths.globalPath,
         __SHARED__: commonPaths.sharedPath,
-        __IMAGES__: commonPaths.imagePath
+        __ASSETS__: commonPaths.assetsPath
       }
     },
     plugins: [

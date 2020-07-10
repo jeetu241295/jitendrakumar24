@@ -37,7 +37,7 @@ const styles = makeStyles(theme => ({
         float: 'left',
         position: 'relative',
         width: '33.3333333%',
-        boxShadow: `0 1.5rem 3rem ${theme.colors.black1}`
+        boxShadow: `0 1.5rem 3rem ${theme.colors.black2}`
       },
       '&:hover': {
         transform: 'scale(1.05) translateY(-0.5rem)',
@@ -98,7 +98,8 @@ const styles = makeStyles(theme => ({
   tripTitle: {
     color: theme.colors.mainAction,
     fontSize: '2rem',
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
+    fontFamily: 'cursive',
     fontStyle: 'italic',
     marginBottom: '2rem'
   },

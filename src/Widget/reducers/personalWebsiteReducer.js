@@ -11,6 +11,7 @@ import {
   about,
   projects,
   trips,
+  intrests,
   offices,
   RATING
 } from '../_helpers/constants';
@@ -28,7 +29,8 @@ const defaultState = {
   motto,
   trips,
   about,
-  offices
+  offices,
+  intrests
 };
 
 const personalWebsiteReducer = {

@@ -1,32 +1,40 @@
-import gal1 from '__IMAGES__/gal-1.jpg';
-import gal2 from '__IMAGES__/gal-2.jpg';
-import gal3 from '__IMAGES__/gal-3.jpg';
-import gal4 from '__IMAGES__/gal-4.jpg';
-import gal5 from '__IMAGES__/gal-5.jpg';
-import gal6 from '__IMAGES__/gal-6.jpg';
-import gal7 from '__IMAGES__/gal-7.jpg';
-import gal8 from '__IMAGES__/gal-8.jpg';
-import gal9 from '__IMAGES__/gal-9.jpg';
-import gal10 from '__IMAGES__/gal-10.jpg';
-import gal11 from '__IMAGES__/gal-11.jpg';
-import gal12 from '__IMAGES__/gal-12.jpg';
-import gal13 from '__IMAGES__/gal-13.jpg';
-import gal14 from '__IMAGES__/gal-14.jpg';
-import ooty1 from '__IMAGES__/ooty-1.jpg';
-import ooty2 from '__IMAGES__/ooty-2.jpg';
-import lonavala1 from '__IMAGES__/lonavala-1.jpg';
-import lonavala2 from '__IMAGES__/lonavala-2.jpg';
-import vizag1 from '__IMAGES__/vizag-1.jpg';
-import vizag2 from '__IMAGES__/vizag-2.jpg';
-import north1 from '__IMAGES__/North-1.jpg';
-import tcs1 from '__IMAGES__/tcs1.jpg';
-import tcs2 from '__IMAGES__/tcs2.jpg';
-import chatAppImg from '__IMAGES__/chatApp.jpg';
-import PWImg from '__IMAGES__/personalWebsite.jpg';
-import TaskManagerImg from '__IMAGES__/taskManager.jpg';
-import TriloImg from '__IMAGES__/trilo.jpg';
-import NatoursImg from '__IMAGES__/natours.jpg';
-import NexterImg from '__IMAGES__/nexter.jpg';
+import gal1 from '__ASSETS__/Images/gal-1.jpg';
+import gal2 from '__ASSETS__/Images/gal-2.jpg';
+import gal3 from '__ASSETS__/Images/gal-3.jpg';
+import gal4 from '__ASSETS__/Images/gal-4.jpg';
+import gal5 from '__ASSETS__/Images/gal-5.jpg';
+import gal6 from '__ASSETS__/Images/gal-6.jpg';
+import gal7 from '__ASSETS__/Images/gal-7.jpg';
+import gal8 from '__ASSETS__/Images/gal-8.jpg';
+import gal9 from '__ASSETS__/Images/gal-9.jpg';
+import gal10 from '__ASSETS__/Images/gal-10.jpg';
+import gal11 from '__ASSETS__/Images/gal-11.jpg';
+import gal12 from '__ASSETS__/Images/gal-12.jpg';
+import gal13 from '__ASSETS__/Images/gal-13.jpg';
+import gal14 from '__ASSETS__/Images/gal-14.jpg';
+import ooty1 from '__ASSETS__/Images/ooty-1.jpg';
+import ooty2 from '__ASSETS__/Images/ooty-2.jpg';
+import lonavala1 from '__ASSETS__/Images/lonavala-1.jpg';
+import lonavala2 from '__ASSETS__/Images/lonavala-2.jpg';
+import vizag1 from '__ASSETS__/Images/vizag-1.jpg';
+import vizag2 from '__ASSETS__/Images/vizag-2.jpg';
+import north1 from '__ASSETS__/Images/North-1.jpg';
+import tcs1 from '__ASSETS__/Images/tcs1.jpg';
+import tcs2 from '__ASSETS__/Images/tcs2.jpg';
+import chatAppImg from '__ASSETS__/Images/chatApp.jpg';
+import PWImg from '__ASSETS__/Images/personalWebsite.jpg';
+import TaskManagerImg from '__ASSETS__/Images/taskManager.jpg';
+import TriloImg from '__ASSETS__/Images/trilo.jpg';
+import NatoursImg from '__ASSETS__/Images/natours.jpg';
+import NexterImg from '__ASSETS__/Images/nexter.jpg';
+import school1 from '__ASSETS__/Images/school-1.jpg';
+import school2 from '__ASSETS__/Images/school-2.jpg';
+import school3 from '__ASSETS__/Images/school-3.jpg';
+import ManchesterUnitedAvatar from '__ASSETS__/Avatars/ManchesterUnited.jpg';
+import ManchuriaAvatar from '__ASSETS__/Avatars/Manchuria.jpeg';
+import BooksAvatar from '__ASSETS__/Avatars/Books.jpg';
+import NarutoAvatar from '__ASSETS__/Avatars/Naruto.jpg';
+import OnePieceAvatar from '__ASSETS__/Avatars/OnePiece.jpg';
 
 export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
@@ -102,50 +110,39 @@ export const skills = [
 export const education = [
   {
     id: 1,
-    type: 'education',
     period: 'June 2001 - April 2011',
-    degree: 'Schooling',
+    title: 'School - D.A.V Public School',
     context:
-      'Some say the best life is school life,No doubt about it. I can never forget my 3 mistakes in my school life. :P',
-    place: 'D.A.V Public School'
+      'The best days in my life. No matter where we are if we get a chance to be in school life again, we will opt it.'
   },
   {
     id: 2,
-    type: 'education',
     period: 'June 2011 - 2013 March',
-    degree: 'Intermediate',
+    title: 'Intermediate - Narayana Jr. College',
     context:
-      'So much hardwork,stress and pressure still somehow survived. I hate this pressure cookers.',
-    place: 'Narayana Jr. College'
+      'Totally quite opposite to School life. It is just like pressure cooker.'
   },
   {
     id: 3,
-    type: 'education',
     period: 'September 2013 - March 2017',
-    degree: 'Bachelors in Computer Science',
+    title: 'B.Tech(C.S.E) - V R Siddharatha Engineering College',
     context:
-      'I had really very good and bad experiences in this period,But I learned what life is also.',
-    place: 'V R Siddharatha Engineering College'
+      'This stage I learned what life is. Gone through hard times, fought for what I believed.'
   }
 ];
 
 export const experience = [
   {
     id: 1,
-    type: 'experience',
     period: 'Novemeber 2017 - Sepetember 2019',
-    role: 'ASE Trainee, Assitant System Engineer',
-    context:
-      'Had to say I have been lucky got into development projects.Proved my worth in TCS in 1st year itself.',
-    company: 'Tata Consultancy Services (TCS)'
+    title: 'Asst. system engineer - TCS',
+    context: 'Proved my worth in TCS in 1st year itself and got appreciations'
   },
   {
     id: 2,
-    type: 'experience',
     period: 'September 2019-Present',
-    role: 'It Analyst',
-    context: 'Work ambience is awesome.',
-    company: 'DBS (Development Bank of Singapore)'
+    title: 'It analyst - DBS',
+    context: 'Work ambience is awesome. Too much work pressure.'
   }
 ];
 
@@ -244,10 +241,10 @@ export const trips = [
   {
     id: 1,
     content:
-      'In school days, excursion is eagerly awaited moment for us. My school used to take 60 people every year. At my time 63 students opted and I was afraid that, I will be dropped because of the mischievous things I did.One day principal came to my class and made all boys stood up and I started shivering not because of him, because I will be dropped. He came to me and said all the boys to sit down except me and said you will be lead for boys. We have covered so many places and had lots of fun. I was speechless when Taj Mahal was right infront of me.It is rightly called one of wonders of the world. It was a memorable Trip. Though thereturn journey was filled with bit of sadness, It was memorable trip to cherish. It was 8 great days of my school life.',
-    image1: gal2,
-    image2: gal2,
-    image3: gal2,
+      'In school days, excursion is eagerly awaited moment for us. My school used to take 60 people every year. At my time 63 students opted and I was afraid that, I will be dropped because of the mischievous things I did.One day principal came to my class and made all boys stood up and I started shivering not because of him, because I will be dropped. He came to me and said all the boys to sit down except me and said you will be lead for boys. We have covered so many places and had lots of fun. I was speechless when Taj Mahal was right infront of me.It is rightly called one of wonders of the world. It was a memorable Trip. Though the return journey was filled with bit of sadness, It was memorable trip to cherish. It was 8 great days of my school life.',
+    image1: school1,
+    image2: school2,
+    image3: school3,
     placesCovered: 'Delhi, Jaipur, Agra'
   },
   {
@@ -314,5 +311,69 @@ export const offices = [
     ambience: 4,
     workSatisfaction: 3,
     recommendForFriend: 2
+  }
+];
+
+// Intrests Page
+
+export const intrests = [
+  {
+    id: 1,
+    avatar: ManchesterUnitedAvatar,
+    title: 'Football',
+    content:
+      'It has been my part of life since 2011. I used to play Fifa 2008. My friend suggested me this game, I asked top teams in england. He gave 5 options Manchester United, Manchester City, Arsenal, Liverpool, Chelsea. I dont know why I choose Manchester United at that time after reading about the club history, I feel I made right choice. Ever since I am fan of Manchester United, will be to the end of life. Strength of the club is the presence of a big fan base, Attacking play,counter-attacks which makes fan goes crazy. It doesnt matter if you win or lose as long as you can make fans happy.I can go on talking about the club if I start, So lets end it here.'
+  },
+  {
+    id: 2,
+    avatar: ManchuriaAvatar,
+    title: 'Manchuria',
+    content: `It has been my part of life since 2011. I used to play Fifa 2008.
+          Other games come and go but Fifa is constant. It has been my part of
+          life since 2011. I used to play Fifa 2008. Other games come and go but
+          Fifa is constant. It has been my part of life since 2011. I used to
+          play Fifa 2008. Other games come and go but Fifa is constant. It has
+          been my part of life since 2011. I used to play Fifa 2008. Other games
+          come and go but Fifa is constant. It has been my part of life since
+          2011. I used to play Fifa 2008. Other games come and go but Fifa is
+          constant. It has been my part of life since 2011. I used to play Fifa
+          2008. Other games come and go but Fifa is constant.`
+  },
+  {
+    id: 3,
+    avatar: BooksAvatar,
+    title: 'Novels',
+    content: `It has been my part of life since 2011. I used to play Fifa 2008.
+          Other games come and go but Fifa is constant. It has been my part of
+          life since 2011. I used to play Fifa 2008. Other games come and go but
+          Fifa is constant. It has been my part of life since 2011. I used to
+          play Fifa 2008. Other games come and go but Fifa is constant. It has
+          been my part of life since 2011. I used to play Fifa 2008. Other games
+          come and go but Fifa is constant. It has been my part of life since
+          2011. I used to play Fifa 2008. Other games come and go but Fifa is
+          constant. It has been my part of life since 2011. I used to play Fifa
+          2008. Other games come and go but Fifa is constant.`
+  },
+  {
+    id: 4,
+    avatar: NarutoAvatar,
+    title: 'Naruto',
+    content:
+      "People think anime and cartoon are same. It isn't. To watch anime you need to be atleast 17 years where you can understand and feel it.And also in a survey it stated that average age of people watching Naruto is above 20. School teaches lessons this teaches life lessons. The story is simply based on one thing 'Never Give Up'. It is so motivational that whenever I feel deperesed I watch this to get motivation. I will make my kids watch this for sure. They need to know what friendship, sacrifice, hardwork is capable of.I know how much naruto has changed my life."
+  },
+  {
+    id: 5,
+    avatar: OnePieceAvatar,
+    title: 'One Piece',
+    content: `It has been my part of life since 2011. I used to play Fifa 2008.
+          Other games come and go but Fifa is constant. It has been my part of
+          life since 2011. I used to play Fifa 2008. Other games come and go but
+          Fifa is constant. It has been my part of life since 2011. I used to
+          play Fifa 2008. Other games come and go but Fifa is constant. It has
+          been my part of life since 2011. I used to play Fifa 2008. Other games
+          come and go but Fifa is constant. It has been my part of life since
+          2011. I used to play Fifa 2008. Other games come and go but Fifa is
+          constant. It has been my part of life since 2011. I used to play Fifa
+          2008. Other games come and go but Fifa is constant.`
   }
 ];

@@ -8,7 +8,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
-import { CloseIcon } from '../Global/SVG';
+import { CloseIcon } from '__ASSETS__/SVG';
 import IconButton from './IconButton';
 
 const customTitleStyles = makeStyles(theme => ({

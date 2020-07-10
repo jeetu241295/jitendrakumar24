@@ -10,7 +10,7 @@ import {
   InstagramIcon,
   TwitterIcon,
   HeartIcon
-} from '../Global/SVG';
+} from '__ASSETS__/SVG';
 
 const styles = makeStyles(theme => ({
   footer: {

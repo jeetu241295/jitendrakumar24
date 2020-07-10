@@ -22,7 +22,7 @@ const theme = createMuiTheme({
     white: '#fff',
     black: '#000',
     black5: 'rgba(0, 0, 0, 0.5)',
-    black1: 'rgba(0, 0, 0, 0.1)',
+    black2: 'rgba(0, 0, 0, 0.2)',
     navbar: '#343a40',
     footer: '#222222',
     footerNav: '#c3bec2',
@@ -34,6 +34,7 @@ const theme = createMuiTheme({
     sideBar: '#6e9dea',
     containerBackground: '#F8F9FA',
     buttonColor: '#6c757d',
+    quoteBackground: '#2f2f2f',
     calenderColor: '#B3BDC6',
     textColor: '#505050'
   },

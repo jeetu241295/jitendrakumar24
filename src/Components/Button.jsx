@@ -11,7 +11,7 @@ const styles = makeStyles(theme => ({
     transition: 'all 0.3s ease-in-out',
     '&:hover': {
       transform: 'translateY(-5px)',
-      boxShadow: '0 1rem 2rem rgba(0,0,0, 0.2)',
+      boxShadow: `'0 1rem 2rem ${theme.colors.black2}`,
       '&::after': {
         transform: 'scale(1.5)',
         opacity: 0
@@ -19,12 +19,12 @@ const styles = makeStyles(theme => ({
     },
     '&:active': {
       transform: 'translateY(0px)',
-      boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
+      boxShadow: `0 .5rem 1rem ${theme.colors.black2}`,
       outline: 'none'
     },
     '&:focus': {
       transform: 'translateY(0px)',
-      boxShadow: '0 .5rem 1rem rgba(0,0,0, 0.2)',
+      boxShadow: `0 .5rem 1rem ${theme.colors.black2}`,
       outline: 'none'
     }
   },

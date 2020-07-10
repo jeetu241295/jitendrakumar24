@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import Button from '__SHARED__/Button';
 import TextField from '__SHARED__/ReduxForm/TextField';
-import { SendIcon } from '__GLOBAL__/SVG';
+import { SendIcon } from '__ASSETS__/SVG';
 import { normalizePhone, normalizeUserName } from './Normalise';
 
 const styles = makeStyles(theme => ({

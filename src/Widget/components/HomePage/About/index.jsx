@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ProgressBar from '__SHARED__/ProgressBar';
 import Button from '__SHARED__/Button';
-import aboutImg from '__IMAGES__/about.jpg';
+import aboutImg from '__ASSETS__/Images/about.jpg';
 import HandFont from '__SHARED__/Fonts/HandFont';
 
 const styles = makeStyles(theme => ({

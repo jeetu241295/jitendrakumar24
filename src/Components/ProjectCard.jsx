@@ -8,7 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Normal from './Fonts/Normal';
-import { GithubIcon } from '../Global/SVG';
+import { GithubIcon } from '__ASSETS__/SVG';
 import IconButton from './IconButton';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 0.2s ease-in-out',
     '&:hover': {
       transform: 'translateY(2rem) scale(1.05)',
-      boxShadow: `0 1.5rem 3rem ${theme.colors.black}`
+      boxShadow: `0 1.5rem 3rem ${theme.colors.black2}`
     }
   },
   media: {

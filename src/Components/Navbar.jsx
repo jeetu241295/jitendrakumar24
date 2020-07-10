@@ -21,7 +21,7 @@ import {
   ContactIcon,
   HomeIcon,
   ProjectsIcon
-} from '../Global/SVG';
+} from '__ASSETS__/SVG';
 
 const styles = makeStyles(theme => ({
   root: {
