@@ -7,8 +7,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
-import Normal from './Fonts/Normal';
 import { GithubIcon } from '__ASSETS__/SVG';
+import Normal from './Fonts/Normal';
 import IconButton from './IconButton';
 
 const useStyles = makeStyles(theme => ({

@@ -11,9 +11,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import Button from './Button';
-import IconButton from './IconButton';
-import logo from '../Assets/images/logo.jpg';
 import {
   MenuIcon,
   HeartIcon,
@@ -22,6 +19,9 @@ import {
   HomeIcon,
   ProjectsIcon
 } from '__ASSETS__/SVG';
+import Button from './Button';
+import IconButton from './IconButton';
+import logo from '../Assets/images/logo.jpg';
 
 const styles = makeStyles(theme => ({
   root: {

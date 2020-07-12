@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '__SHARED__/Tabs';
+import { TripsIcon, IntrestsIcon } from '__ASSETS__/SVG';
 import Intrests from './Intrests';
 import { renderDetails, renderImages } from './RenderImagesDetails';
-import { TripsIcon, IntrestsIcon } from '__ASSETS__/SVG';
 
 const styles = makeStyles(() => ({
   content: {
