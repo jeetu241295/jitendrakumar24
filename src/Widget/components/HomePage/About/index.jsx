@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ProgressBar from '__SHARED__/ProgressBar';
 import Button from '__SHARED__/Button';
-import aboutImg from '__ASSETS__/Images/about.jpg';
+// import aboutImg from '__ASSETS__/Images/about.jpg';
 import HandFont from '__SHARED__/Fonts/HandFont';
 
 const styles = makeStyles(theme => ({
@@ -57,6 +57,7 @@ const styles = makeStyles(theme => ({
     position: 'relative',
     padding: '2.5rem',
     alignSelf: 'center',
+    marginBottom: '2rem',
     [theme.breakpoints.down('md')]: {
       padding: '0.5rem'
     },
@@ -109,16 +110,17 @@ const styles = makeStyles(theme => ({
     margin: '2rem 0',
     textAlign: 'justify',
     [theme.breakpoints.down('sm')]: {
-      margin: '1rem'
+      margin: '1rem',
+      lineHeight: '2.25rem'
     }
   },
   more: {
     borderRadius: '50px',
     padding: '0.5rem 2rem',
+    marginLeft: '1rem',
     [theme.breakpoints.between('xs', 'sm')]: {
       marginTop: '.5rem'
-    },
-    marginLeft: '1rem'
+    }
   }
 }));
 
@@ -127,10 +129,11 @@ const About = props => {
   const classes = styles();
   return (
     <Grid container className={classes.about}>
-      <Grid className={classes.imageWrap} item sm={5} xs={12}>
+      {/* <Grid className={classes.imageWrap} item sm={5} xs={12}>
         <img src={aboutImg} alt="My Pic" />
-      </Grid>
-      <Grid className={classes.aboutMe} item sm={7} xs={12}>
+      </Grid> */}
+      <Grid className={classes.aboutMe} item xs={12}>
+        {/* <Grid className={classes.aboutMe} item sm={7} xs={12}> */}
         <Grid className={classes.titleBorder} />
         <Typography className={classes.title} variant="h3" component="h3">
           About Me

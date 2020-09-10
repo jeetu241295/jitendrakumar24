@@ -28,13 +28,13 @@ const styles = makeStyles(theme => ({
   navLink: {
     color: theme.colors.containerBackground,
     fontSize: '1.5rem',
-    backgroundColor: 'transparent',
+    backgroundColor: theme.colors.transparent,
     padding: '1rem 2rem',
     '&:hover': {
-      backgroundColor: 'transparent'
+      backgroundColor: theme.colors.transparent
     },
     '&:focus': {
-      backgroundColor: 'transparent'
+      backgroundColor: theme.colors.transparent
     }
   },
   listItem: {

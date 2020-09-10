@@ -6,22 +6,46 @@ import Avatar from '@material-ui/core/Avatar';
 
 const styles = makeStyles(theme => ({
   title: {
-    color: theme.colors.mainAction,
+    color: theme.colors.black,
     fontSize: '1.75rem',
     letterSpacing: 1.25,
     fontFamily: 'cursive',
+    textAlign: 'center',
     fontWeight: 'bold',
-    marginBottom: '1rem'
+    marginBottom: '1rem',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    opacity: 0,
+    transform: 'translate(-50%,10%)',
+    textTransform: 'uppercase',
+    transition: 'all .5s'
   },
   intrestWrap: {
     display: 'inline-block'
   },
-  avatar: {
-    width: '12rem',
-    height: '12rem',
+  avatarWrap: {
+    position: 'relative',
     float: 'left',
-    shapeOutside: 'circle(50% at 50% 50%)',
-    marginRight: '3rem'
+    shapeOutside: 'circle(50% at 50% 40%)',
+    marginRight: '3rem',
+    overflow: 'hidden',
+    transition: 'all .5s',
+    backfaceVisibility: 'hidden',
+    '&:hover': {
+      transform: 'scale(0.95)',
+      '& $avatar img': {
+        filter: 'blur(3px) brightness(80%)'
+      },
+      '& $title': {
+        opacity: 1,
+        transform: 'translate(-50%,-50%)'
+      }
+    }
+  },
+  avatar: {
+    width: '15rem',
+    height: '15rem'
   },
   text: {
     textAlign: 'justify',
@@ -36,8 +60,14 @@ const Intrests = props => {
     <Grid container spacing={5}>
       {intrests.map(item => (
         <Grid item xs={12} key={item.id} className={classes.intrestWrap}>
-          <Avatar alt="image1" src={item.avatar} className={classes.avatar} />
-          <Grid className={classes.title}>{item.title}</Grid>
+          <Grid className={classes.avatarWrap}>
+            <Avatar
+              alt={item.title}
+              src={item.avatar}
+              className={classes.avatar}
+            />
+            <Grid className={classes.title}>{item.title}</Grid>
+          </Grid>
           <Grid className={classes.text}>{item.content}</Grid>
         </Grid>
       ))}

@@ -5,6 +5,7 @@ import {
   SUBMIT_LOADER,
   skills,
   SUGGESTION_DIALOG,
+  RATING_VALUE,
   education,
   experience,
   motto,
@@ -18,6 +19,7 @@ import {
 
 const defaultState = {
   navs,
+  ratingValue: 0,
   images,
   loader: false,
   messageOpen: false,
@@ -45,6 +47,10 @@ const personalWebsiteReducer = {
   [RATING]: (state, action) => ({
     ...state,
     showRating: action.value
+  }),
+  [RATING_VALUE]: (state, action) => ({
+    ...state,
+    ratingValue: action.value
   })
 };
 

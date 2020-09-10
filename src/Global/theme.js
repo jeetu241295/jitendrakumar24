@@ -1,18 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
-  overrides: {
-    // MuiOutlinedInput: {
-    //   notchedOutline: {
-    //     borderColor: colors.white + " !important"
-    //   }
-    // },
-    // MuiFormLabel: {
-    //   root: {
-    //     color: colors.white
-    //   }
-    // }
-  },
+  overrides: {},
   palette: {
     primary: { main: '#11cb5f' },
     secondary: { main: '#ff2b4a' },
@@ -21,6 +10,7 @@ const theme = createMuiTheme({
   colors: {
     white: '#fff',
     black: '#000',
+    transparent: 'transparent',
     black5: 'rgba(0, 0, 0, 0.5)',
     black2: 'rgba(0, 0, 0, 0.2)',
     navbar: '#343a40',

@@ -25,7 +25,7 @@ const styles = makeStyles(theme => ({
     lineHeight: '2.5rem',
     fontWeight: 900,
     textAlign: 'center',
-    color: 'transparent',
+    color: theme.colors.transparent,
     background: `url(${motoImg})`,
     backgroundSize: 'cover',
     backgroundPosition: '50% 46%',

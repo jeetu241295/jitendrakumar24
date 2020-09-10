@@ -25,11 +25,11 @@ const Experience = props => {
 
   return (
     <Grid container className={classes.experienceWrap}>
-      <Grid item sm={6} xs={12}>
+      <Grid item md={6} xs={12}>
         <Grid className={classes.title}>Education</Grid>
         <TimeLine data={education} />
       </Grid>
-      <Grid item sm={6} xs={12}>
+      <Grid item md={6} xs={12}>
         <Grid className={classes.title}>Experience</Grid>
         <TimeLine data={experience} />
       </Grid>

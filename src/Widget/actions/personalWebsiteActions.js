@@ -6,11 +6,13 @@ import axiosAPI from '__GLOBAL__/axios';
 import {
   SUBMIT_LOADER,
   SUGGESTION_DIALOG,
-  RATING
+  RATING,
+  RATING_VALUE
 } from '../_helpers/constants';
 
 export const toggleSuggestionDialog = createAction(SUGGESTION_DIALOG, 'value');
 export const toggleRating = createAction(RATING, 'value');
+export const setRatingValue = createAction(RATING_VALUE, 'value');
 export const submitLoader = createAction(SUBMIT_LOADER);
 
 export const sendMail = values => dispatch => {
@@ -36,7 +38,7 @@ export const downloadCV = () => () => {
       const dataURI = `data:application/pdf;base64,${res.data.filedata}`;
       const link = document.createElement('a');
       document.body.appendChild(link);
-      if (navigator.appVersion.toString().indexOf('.NET') > 0) {
+      if (navigator.appVersion.toString().includes('.NET')) {
         const binary = atob(res.data.filedata.replace(/\s/g, ''));
         const len = binary.length;
         const buffer = new ArrayBuffer(len);

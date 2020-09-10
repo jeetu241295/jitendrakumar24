@@ -12,26 +12,22 @@ import ContactForm from './ContactForm';
 
 const styles = makeStyles(theme => ({
   contact: {
-    background: `url(${contactImg}) no-repeat center center fixed`,
+    background: `linear-gradient(to right, ${theme.colors.black5},${theme.colors.black5}),url(${contactImg}) no-repeat center center fixed`,
     backgroundSize: 'cover',
     width: '100%',
-    height: '100%'
-  },
-  overlay: {
-    backgroundColor: 'rgba(0,0,0,0.45)',
-    width: '100%',
+    height: '100%',
     padding: '7rem',
     paddingTop: '10rem',
+    backgroundBlendMode: 'soft-light',
     position: 'relative',
     display: 'flex',
     justifyContent: 'space-around',
-    height: '90%',
     [theme.breakpoints.down('md')]: {
       paddingTop: '8rem',
       padding: '3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      paddingTop: '5rem',
+      paddingTop: '8rem',
       padding: '1.5rem'
     }
   },
@@ -81,55 +77,51 @@ const Contact = props => {
   };
 
   return (
-    <Grid className={classes.contact}>
-      <Grid container className={classes.overlay}>
-        <Grid item sm={5} xs={12} className={classes.info}>
-          <ContactForm onSubmit={saveValues} />
+    <Grid container className={classes.contact}>
+      <Grid item sm={5} xs={12} className={classes.info}>
+        <ContactForm onSubmit={saveValues} />
+      </Grid>
+      <Grid item sm={5} xs={12} className={classes.personalInfoWrap}>
+        <Grid className={classNames(classes.info, classes.marginBottom)}>
+          <Typography className={classes.header} component="h3">
+            Address
+          </Typography>
+          <Link
+            href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
+            target="_blank"
+          >
+            <LocationIcon />
+            <Normal className={classes.normal}>
+              Plot No:69 Iron Merchant,SSS Colony,Near Padmavathi Function Hall,
+              Gollapudi, Vijayawada, Andhra Pradesh, India. 521225
+            </Normal>
+          </Link>
         </Grid>
-        <Grid item sm={5} xs={12} className={classes.personalInfoWrap}>
-          <Grid className={classNames(classes.info, classes.marginBottom)}>
-            <Typography className={classes.header} component="h3">
-              Address
-            </Typography>
-            <Link
-              href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
-              target="_blank"
-            >
-              <LocationIcon />
-              <Normal className={classes.normal}>
-                Plot No:69 Iron Merchant,SSS Colony,Near Padmavathi Function
-                Hall, Gollapudi, Vijayawada, Andhra Pradesh, India. 521225
-              </Normal>
-            </Link>
-          </Grid>
-          <Grid className={classes.info}>
-            <Typography className={classes.header} component="h3">
-              Phone
-            </Typography>
-            <Link href="tel:+91 949-196-4870">
-              <PhoneIcon />
-              <Normal className={classes.normal}>+91 949 196 4870</Normal>
-            </Link>
-            <Link href="tel:+91 949-196-4870">
-              <PhoneIcon />
-              <Normal className={classes.normal}>+91 798 938 1360</Normal>
-            </Link>
-          </Grid>
-          <Grid className={classNames(classes.marginTop, classes.info)}>
-            <Typography className={classes.header} component="h3">
-              Web
-            </Typography>
-            <Link href="mailto:jeetu241295@gmail.com">
-              <MailIcon />
-              <Normal className={classes.normal}>jeetu241295@gmail.com</Normal>
-            </Link>
-            <Link href="/">
-              <WebIcon />
-              <Normal className={classes.normal}>
-                www.jitendrakumar24.tech
-              </Normal>
-            </Link>
-          </Grid>
+        <Grid className={classes.info}>
+          <Typography className={classes.header} component="h3">
+            Phone
+          </Typography>
+          <Link href="tel:+91 949-196-4870">
+            <PhoneIcon />
+            <Normal className={classes.normal}>+91 949 196 4870</Normal>
+          </Link>
+          <Link href="tel:+91 949-196-4870">
+            <PhoneIcon />
+            <Normal className={classes.normal}>+91 798 938 1360</Normal>
+          </Link>
+        </Grid>
+        <Grid className={classNames(classes.marginTop, classes.info)}>
+          <Typography className={classes.header} component="h3">
+            Web
+          </Typography>
+          <Link href="mailto:jeetu241295@gmail.com">
+            <MailIcon />
+            <Normal className={classes.normal}>jeetu241295@gmail.com</Normal>
+          </Link>
+          <Link href="/">
+            <WebIcon />
+            <Normal className={classes.normal}>www.jitendrakumar24.tech</Normal>
+          </Link>
         </Grid>
       </Grid>
     </Grid>

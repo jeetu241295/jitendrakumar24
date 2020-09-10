@@ -33,11 +33,11 @@ import school3 from '__ASSETS__/Images/school-3.jpg';
 import ManchesterUnitedAvatar from '__ASSETS__/Avatars/ManchesterUnited.jpg';
 import ManchuriaAvatar from '__ASSETS__/Avatars/Manchuria.jpeg';
 import BooksAvatar from '__ASSETS__/Avatars/Books.jpg';
-import NarutoAvatar from '__ASSETS__/Avatars/Naruto.jpg';
-import OnePieceAvatar from '__ASSETS__/Avatars/OnePiece.jpg';
+import NarutoOnePieceAvatar from '__ASSETS__/Avatars/Naruto&OnePiece.jpg';
 
 export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
+export const RATING_VALUE = 'RATING_VALUE';
 export const SUGGESTION_DIALOG = 'SUGGESTION_DIALOG';
 
 // export const navs = ['home', 'Projects', 'contact'];
@@ -113,14 +113,13 @@ export const education = [
     period: 'June 2001 - April 2011',
     title: 'School - D.A.V Public School',
     context:
-      'The best days in my life. No matter where we are if we get a chance to be in school life again, we will opt it.'
+      'The best days in my life. No matter where I am if I get a chance to be in school life again, I will opt it.'
   },
   {
     id: 2,
     period: 'June 2011 - 2013 March',
     title: 'Intermediate - Narayana Jr. College',
-    context:
-      'Totally quite opposite to School life. It is just like pressure cooker.'
+    context: 'Quite opposite to School life. It is just like pressure cooker.'
   },
   {
     id: 3,
@@ -328,52 +327,21 @@ export const intrests = [
     id: 2,
     avatar: ManchuriaAvatar,
     title: 'Manchuria',
-    content: `It has been my part of life since 2011. I used to play Fifa 2008.
-          Other games come and go but Fifa is constant. It has been my part of
-          life since 2011. I used to play Fifa 2008. Other games come and go but
-          Fifa is constant. It has been my part of life since 2011. I used to
-          play Fifa 2008. Other games come and go but Fifa is constant. It has
-          been my part of life since 2011. I used to play Fifa 2008. Other games
-          come and go but Fifa is constant. It has been my part of life since
-          2011. I used to play Fifa 2008. Other games come and go but Fifa is
-          constant. It has been my part of life since 2011. I used to play Fifa
-          2008. Other games come and go but Fifa is constant.`
+    content:
+      "After entering into my life a week won't go without eating it. This has been my favourite dish of all time. Altough it's my favourite I don't like to eat everywhere. There are some places which I would die to eat. Whenever I go to hometown, I won't return back without eating it. My friends would tease me by sending pics of eating while I was away. Now-a-days I am eating harldy once a month due to gym and diet control."
   },
   {
     id: 3,
     avatar: BooksAvatar,
     title: 'Novels',
-    content: `It has been my part of life since 2011. I used to play Fifa 2008.
-          Other games come and go but Fifa is constant. It has been my part of
-          life since 2011. I used to play Fifa 2008. Other games come and go but
-          Fifa is constant. It has been my part of life since 2011. I used to
-          play Fifa 2008. Other games come and go but Fifa is constant. It has
-          been my part of life since 2011. I used to play Fifa 2008. Other games
-          come and go but Fifa is constant. It has been my part of life since
-          2011. I used to play Fifa 2008. Other games come and go but Fifa is
-          constant. It has been my part of life since 2011. I used to play Fifa
-          2008. Other games come and go but Fifa is constant.`
+    content:
+      "This played a big part in my engineering. Last 3 years I spent lot of time on reading novels to occupy myself. I started with a book called '2 States' while reading them I will get into the character. May be bacause the book is intresting I went on reading one after the other and then I became a bookworm. I enjoyed, cried, depressed, motivated over some novels. Few of them are 'I too had a love Story', 'The monk who sold his ferrari', 'Note book', 'A walk to remember', 'To Kill a Mockingbird'."
   },
   {
     id: 4,
-    avatar: NarutoAvatar,
-    title: 'Naruto',
+    avatar: NarutoOnePieceAvatar,
+    title: 'Naruto & One Piece',
     content:
-      "People think anime and cartoon are same. It isn't. To watch anime you need to be atleast 17 years where you can understand and feel it.And also in a survey it stated that average age of people watching Naruto is above 20. School teaches lessons this teaches life lessons. The story is simply based on one thing 'Never Give Up'. It is so motivational that whenever I feel deperesed I watch this to get motivation. I will make my kids watch this for sure. They need to know what friendship, sacrifice, hardwork is capable of.I know how much naruto has changed my life."
-  },
-  {
-    id: 5,
-    avatar: OnePieceAvatar,
-    title: 'One Piece',
-    content: `It has been my part of life since 2011. I used to play Fifa 2008.
-          Other games come and go but Fifa is constant. It has been my part of
-          life since 2011. I used to play Fifa 2008. Other games come and go but
-          Fifa is constant. It has been my part of life since 2011. I used to
-          play Fifa 2008. Other games come and go but Fifa is constant. It has
-          been my part of life since 2011. I used to play Fifa 2008. Other games
-          come and go but Fifa is constant. It has been my part of life since
-          2011. I used to play Fifa 2008. Other games come and go but Fifa is
-          constant. It has been my part of life since 2011. I used to play Fifa
-          2008. Other games come and go but Fifa is constant.`
+      "People think anime and cartoon are same. It isn't. To watch anime you need to be atleast 17 years where you can understand and feel it. And also in a survey it stated that average age of people watching Naruto/One Piece is above 20. School taught me lessons while these taught me life lessons. It is so motivational that whenever I feel deperesed I watch these to get back. I will make my kids watch this for sure. They need to know what friendship, sacrifice, hardwork is capable of. I know how much naruto has changed my life."
   }
 ];

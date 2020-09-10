@@ -24,11 +24,15 @@ const MessageModal = props => {
     messageOpen,
     submitMessage,
     submitLoader,
-    toggleSuggestionDialog
+    toggleSuggestionDialog,
+    setRatingValue
   } = props;
-  const [review, setReview] = useState(null);
-  const [name, setName] = useState(null);
-  const onClose = () => toggleSuggestionDialog(false);
+  const [review, setReview] = useState('');
+  const [name, setName] = useState('');
+  const onClose = () => {
+    setRatingValue(0);
+    toggleSuggestionDialog(false);
+  };
   const classes = styles();
 
   return (
@@ -52,6 +56,7 @@ const MessageModal = props => {
           onClick={() => {
             submitLoader();
             submitMessage(ratingValue, name, review);
+            setRatingValue(0);
           }}
           variant="outlined"
           color="primary"
@@ -102,6 +107,7 @@ const MessageModal = props => {
 MessageModal.propTypes = {
   messageOpen: PropTypes.bool.isRequired,
   ratingValue: PropTypes.number.isRequired,
+  setRatingValue: PropTypes.func.isRequired,
   submitMessage: PropTypes.func.isRequired,
   submitLoader: PropTypes.func.isRequired,
   toggleSuggestionDialog: PropTypes.func.isRequired

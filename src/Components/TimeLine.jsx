@@ -13,12 +13,12 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Normal from './Fonts/Normal';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     padding: '12px 16px'
   },
   transparentConnector: {
-    backgroundColor: 'transparent'
+    backgroundColor: theme.colors.transparent
   },
   normalText: {
     textAlign: 'justify'

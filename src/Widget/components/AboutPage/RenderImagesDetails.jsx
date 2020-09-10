@@ -129,25 +129,25 @@ export const renderDetails = (item, isOffice = false) => {
           Places Covered: {item.placesCovered}
         </Normal>
       )}
-      {isOffice && (
-        <Grid container className={classes.ratings} spacing={2}>
-          {ratings.map((rating, index) => (
-            <React.Fragment key={rating.displayText}>
-              <Grid item xs={3} className={classes.ratingText}>
-                {rating.displayText}
-              </Grid>
-              <Grid item xs={3} className={classes.ratingText}>
-                <Rating
-                  precision={0.5}
-                  name={rating.displayText + index}
-                  value={item[rating.key]}
-                  readOnly
-                />
-              </Grid>
-            </React.Fragment>
+      <Grid container className={classes.ratings} spacing={2}>
+        {isOffice &&
+          ratings.map((rating, index) => (
+            <Grid
+              item
+              xs={6}
+              className={classes.ratingText}
+              key={rating.displayText}
+            >
+              <Grid>{rating.displayText}</Grid>
+              <Rating
+                precision={0.5}
+                name={rating.displayText + index}
+                value={item[rating.key]}
+                readOnly
+              />
+            </Grid>
           ))}
-        </Grid>
-      )}
+      </Grid>
     </Grid>
   );
 };

@@ -21,7 +21,7 @@ import {
 } from '__ASSETS__/SVG';
 import Button from './Button';
 import IconButton from './IconButton';
-import logo from '../Assets/images/logo.jpg';
+import logo from '../Assets/Images/logo.jpg';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -56,7 +56,7 @@ const styles = makeStyles(theme => ({
   logo: {
     width: 35,
     height: 35,
-    margin: '0 2rem'
+    marginRight: '2rem'
   },
   appbar: {
     backgroundColor: theme.colors.navbar,
@@ -76,15 +76,15 @@ const styles = makeStyles(theme => ({
   navLink: {
     color: theme.colors.white,
     fontSize: '1.5rem',
-    backgroundColor: 'transparent',
+    backgroundColor: theme.colors.transparent,
     padding: '1rem 2rem',
     position: 'relative',
     '&:hover': {
-      backgroundColor: 'transparent',
+      backgroundColor: theme.colors.transparent,
       transform: 'none'
     },
     '&:focus': {
-      backgroundColor: 'transparent'
+      backgroundColor: theme.colors.transparent
     },
     [theme.breakpoints.down('sm')]: {
       padding: '0.5rem 1rem'

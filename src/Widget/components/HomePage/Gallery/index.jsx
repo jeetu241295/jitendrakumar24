@@ -26,7 +26,7 @@ const styles = makeStyles(theme => ({
     fontWeight: 900,
     marginBottom: '2rem',
     WebkitBackgroundClip: 'text',
-    color: 'transparent'
+    color: theme.colors.transparent
   },
   gridImage: {
     width: '100%',

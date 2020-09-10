@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -28,8 +28,14 @@ const styles = makeStyles(theme => ({
   }
 }));
 const App = props => {
-  const { navs, toggleSuggestionDialog, showRating, loader } = props;
-  const [value, setValue] = useState(0);
+  const {
+    navs,
+    toggleSuggestionDialog,
+    showRating,
+    loader,
+    ratingValue,
+    setRatingValue
+  } = props;
   const classes = styles();
 
   return (
@@ -51,16 +57,16 @@ const App = props => {
             Please leave a rating
             <Rating
               name="leave-rating"
-              value={value}
+              value={ratingValue}
               size="medium"
               precision={0.2}
               onChange={(e, value1) => {
-                setValue(value1);
+                setRatingValue(value1);
                 toggleSuggestionDialog(true);
               }}
             />
           </Grid>
-          <MessageModal ratingValue={value} {...props} />
+          <MessageModal {...props} />
         </React.Fragment>
       )}
     </Router>
@@ -70,6 +76,8 @@ const App = props => {
 App.propTypes = {
   loader: PropTypes.bool.isRequired,
   navs: PropTypes.array.isRequired,
+  ratingValue: PropTypes.number.isRequired,
+  setRatingValue: PropTypes.func.isRequired,
   showRating: PropTypes.bool.isRequired,
   toggleSuggestionDialog: PropTypes.func.isRequired
 };
