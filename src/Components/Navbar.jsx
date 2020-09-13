@@ -21,7 +21,7 @@ import {
 } from '__ASSETS__/SVG';
 import Button from './Button';
 import IconButton from './IconButton';
-import logo from '../Assets/Images/logo.jpg';
+import logo from '../Assets/Images/logo';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -56,7 +56,10 @@ const styles = makeStyles(theme => ({
   logo: {
     width: 35,
     height: 35,
-    marginRight: '2rem'
+    marginRight: '2rem',
+    [theme.breakpoints.up('sm')]: {
+      margin: '0 2rem'
+    }
   },
   appbar: {
     backgroundColor: theme.colors.navbar,

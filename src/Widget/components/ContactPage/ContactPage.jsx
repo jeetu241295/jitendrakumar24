@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Normal from '__SHARED__/Fonts/Normal';
 import Link from '__SHARED__/Link';
-import contactImg from '__ASSETS__/Images/contact.jpg';
+import contactImg from '__ASSETS__/Images/contact';
 import { PhoneIcon, MailIcon, LocationIcon, WebIcon } from '__ASSETS__/SVG';
 import ContactForm from './ContactForm';
 

@@ -27,7 +27,7 @@ module.exports = env => {
           exclude: /(node_modules)/
         },
         {
-          test: /\.(png|jpe?g|gif|svg|JPE?G|PNG|WebP)$/,
+          test: /\.(png|jpe?g|gif|svg|JPE?G|PNG|WebP|webp)$/,
           use: [
             {
               loader: 'file-loader',
@@ -62,7 +62,7 @@ module.exports = env => {
     },
     resolve: {
       modules: ['src', 'node_modules'],
-      extensions: ['*', '.js', '.jsx', '.css', '.scss'],
+      extensions: ['*', '.js', '.jsx', '.css', '.webp', '.jpeg', '.jpg'],
       alias: {
         __GLOBAL__: commonPaths.globalPath,
         __SHARED__: commonPaths.sharedPath,

@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import motoImg from '__ASSETS__/Images/motto.jpg';
+import motoImg from '__ASSETS__/Images/motto';
 
 const styles = makeStyles(theme => ({
   mottoWrap: {
@@ -30,7 +30,11 @@ const styles = makeStyles(theme => ({
     backgroundSize: 'cover',
     backgroundPosition: '50% 46%',
     WebkitBackgroundClip: 'text',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    [theme.breakpoints.down('xs')]: {
+      height: '7rem',
+      lineHeight: '3rem'
+    }
   }
 }));
 

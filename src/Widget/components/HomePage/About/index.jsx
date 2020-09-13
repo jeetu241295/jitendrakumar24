@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import ProgressBar from '__SHARED__/ProgressBar';
 import Button from '__SHARED__/Button';
-// import aboutImg from '__ASSETS__/Images/about.jpg';
 import HandFont from '__SHARED__/Fonts/HandFont';
 
 const styles = makeStyles(theme => ({
@@ -18,19 +17,6 @@ const styles = makeStyles(theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       padding: '1.5rem'
-    }
-  },
-  imageWrap: {
-    '& img': {
-      width: '100%',
-      height: '100%',
-      objectFit: 'contain',
-      display: 'block'
-    },
-    padding: '2rem',
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: '1rem',
-      padding: 0
     }
   },
   skills: {
@@ -129,11 +115,7 @@ const About = props => {
   const classes = styles();
   return (
     <Grid container className={classes.about}>
-      {/* <Grid className={classes.imageWrap} item sm={5} xs={12}>
-        <img src={aboutImg} alt="My Pic" />
-      </Grid> */}
       <Grid className={classes.aboutMe} item xs={12}>
-        {/* <Grid className={classes.aboutMe} item sm={7} xs={12}> */}
         <Grid className={classes.titleBorder} />
         <Typography className={classes.title} variant="h3" component="h3">
           About Me

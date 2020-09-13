@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Link } from 'react-router-dom';
 import Normal from '__SHARED__/Fonts/Normal';
-import lostImg from '__ASSETS__/Images/lost.jpg';
+import lostImg from '__ASSETS__/Images/lost';
 
 const styles = makeStyles(theme => ({
   about: {

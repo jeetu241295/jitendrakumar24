@@ -2,8 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-// import homeImg from '__ASSETS__/Images/home.jpg';
-import gal11 from '__ASSETS__/Images/gal-11.jpg';
+import gal11 from '__ASSETS__/Images/gal-11';
 
 const styles = makeStyles(theme => ({
   home: {
@@ -68,7 +67,6 @@ const Home = () => {
   const classes = styles();
   return (
     <Grid container className={classes.home}>
-      {/* <Grid className={classes.overlay}> */}
       <Grid className={classes.helloWrap}>
         <Grid className={classes.line} />
         <Typography className={classes.hello} component="h6" variant="h6">
@@ -84,7 +82,6 @@ const Home = () => {
           Kumar
         </Typography>
       </Grid>
-      {/* </Grid> */}
     </Grid>
   );
 };

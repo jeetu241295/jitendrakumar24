@@ -1,39 +1,39 @@
-import gal1 from '__ASSETS__/Images/gal-1.jpg';
-import gal2 from '__ASSETS__/Images/gal-2.jpg';
-import gal3 from '__ASSETS__/Images/gal-3.jpg';
-import gal4 from '__ASSETS__/Images/gal-4.jpg';
-import gal5 from '__ASSETS__/Images/gal-5.jpg';
-import gal6 from '__ASSETS__/Images/gal-6.jpg';
-import gal7 from '__ASSETS__/Images/gal-7.jpg';
-import gal8 from '__ASSETS__/Images/gal-8.jpg';
-import gal9 from '__ASSETS__/Images/gal-9.jpg';
-import gal10 from '__ASSETS__/Images/gal-10.jpg';
-import gal11 from '__ASSETS__/Images/gal-11.jpg';
-import gal12 from '__ASSETS__/Images/gal-12.jpg';
-import gal13 from '__ASSETS__/Images/gal-13.jpg';
-import gal14 from '__ASSETS__/Images/gal-14.jpg';
-import ooty1 from '__ASSETS__/Images/ooty-1.jpg';
-import ooty2 from '__ASSETS__/Images/ooty-2.jpg';
-import lonavala1 from '__ASSETS__/Images/lonavala-1.jpg';
-import lonavala2 from '__ASSETS__/Images/lonavala-2.jpg';
-import vizag1 from '__ASSETS__/Images/vizag-1.jpg';
-import vizag2 from '__ASSETS__/Images/vizag-2.jpg';
-import north1 from '__ASSETS__/Images/North-1.jpg';
-import tcs1 from '__ASSETS__/Images/tcs1.jpg';
-import tcs2 from '__ASSETS__/Images/tcs2.jpg';
-import chatAppImg from '__ASSETS__/Images/chatApp.jpg';
-import PWImg from '__ASSETS__/Images/personalWebsite.jpg';
-import TaskManagerImg from '__ASSETS__/Images/taskManager.jpg';
-import TriloImg from '__ASSETS__/Images/trilo.jpg';
-import NatoursImg from '__ASSETS__/Images/natours.jpg';
-import NexterImg from '__ASSETS__/Images/nexter.jpg';
-import school1 from '__ASSETS__/Images/school-1.jpg';
-import school2 from '__ASSETS__/Images/school-2.jpg';
-import school3 from '__ASSETS__/Images/school-3.jpg';
-import ManchesterUnitedAvatar from '__ASSETS__/Avatars/ManchesterUnited.jpg';
-import ManchuriaAvatar from '__ASSETS__/Avatars/Manchuria.jpeg';
-import BooksAvatar from '__ASSETS__/Avatars/Books.jpg';
-import NarutoOnePieceAvatar from '__ASSETS__/Avatars/Naruto&OnePiece.jpg';
+import gal1 from '__ASSETS__/Images/gal-1';
+import gal2 from '__ASSETS__/Images/gal-2';
+import gal3 from '__ASSETS__/Images/gal-3';
+import gal4 from '__ASSETS__/Images/gal-4';
+import gal5 from '__ASSETS__/Images/gal-5';
+import gal6 from '__ASSETS__/Images/gal-6';
+import gal7 from '__ASSETS__/Images/gal-7';
+import gal8 from '__ASSETS__/Images/gal-8';
+import gal9 from '__ASSETS__/Images/gal-9';
+import gal10 from '__ASSETS__/Images/gal-10';
+import gal11 from '__ASSETS__/Images/gal-11';
+import gal12 from '__ASSETS__/Images/gal-12';
+import gal13 from '__ASSETS__/Images/gal-13';
+import gal14 from '__ASSETS__/Images/gal-14';
+import ooty1 from '__ASSETS__/Images/ooty-1';
+import ooty2 from '__ASSETS__/Images/ooty-2';
+import lonavala1 from '__ASSETS__/Images/lonavala-1';
+import lonavala2 from '__ASSETS__/Images/lonavala-2';
+import vizag1 from '__ASSETS__/Images/vizag-1';
+import vizag2 from '__ASSETS__/Images/vizag-2';
+import north1 from '__ASSETS__/Images/North-1';
+import tcs1 from '__ASSETS__/Images/tcs1';
+import tcs2 from '__ASSETS__/Images/tcs2';
+import chatAppImg from '__ASSETS__/Images/chatApp';
+import PWImg from '__ASSETS__/Images/personalWebsite';
+import TaskManagerImg from '__ASSETS__/Images/taskManager';
+import TriloImg from '__ASSETS__/Images/trilo';
+import NatoursImg from '__ASSETS__/Images/natours';
+import NexterImg from '__ASSETS__/Images/nexter';
+import school1 from '__ASSETS__/Images/school-1';
+import school2 from '__ASSETS__/Images/school-2';
+import school3 from '__ASSETS__/Images/school-3';
+import ManchesterUnitedAvatar from '__ASSETS__/Avatars/ManchesterUnited';
+import ManchuriaAvatar from '__ASSETS__/Avatars/Manchuria';
+import BooksAvatar from '__ASSETS__/Avatars/Books';
+import NarutoOnePieceAvatar from '__ASSETS__/Avatars/Naruto_OnePiece';
 
 export const SUBMIT_LOADER = 'SUBMIT_LOADER';
 export const RATING = 'RATING';
@@ -146,7 +146,7 @@ export const experience = [
 ];
 
 export const motto =
-  "My life motto is 'Do my best, so that I can't blame myself for anything.";
+  '"Do my best, so that I can\'t blame myself for anything."';
 
 export const about = [
   {
