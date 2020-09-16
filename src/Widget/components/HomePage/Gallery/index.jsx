@@ -1,9 +1,95 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import './style.css';
+
+const imageStles = makeStyles(() => ({
+  galleryItem: index => {
+    const defaultStyles = { margin: 0 };
+    if (index + 1 === 1)
+      return {
+        gridRow: '1 / span 2',
+        gridColumn: '1 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 2)
+      return {
+        gridRow: '1 / span 3',
+        gridColumn: '3 / span 3',
+        ...defaultStyles
+      };
+    if (index + 1 === 3)
+      return {
+        gridRow: '1 / span 2'
+      };
+    if (index + 1 === 4)
+      return {
+        gridRow: '1 / span 2',
+        gridColumn: '7 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 5)
+      return {
+        gridRow: '3 / span 3',
+        gridColumn: '1 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 6)
+      return {
+        gridRow: '4 / span 2',
+        gridColumn: '3 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 7)
+      return {
+        gridRow: '4 / span 1',
+        gridColumn: '5 / span 1',
+        ...defaultStyles
+      };
+    if (index + 1 === 8)
+      return {
+        gridRow: '3 / span 2',
+        gridColumn: '6 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 9)
+      return {
+        gridRow: '3 / span 3',
+        gridColumn: '8 / span 1',
+        ...defaultStyles
+      };
+    if (index + 1 === 10)
+      return {
+        gridRow: '6 / span 2',
+        gridColumn: '1 / span 1',
+        ...defaultStyles
+      };
+    if (index + 1 === 11)
+      return {
+        gridRow: '6 / span 2',
+        gridColumn: '2 / span 2',
+        ...defaultStyles
+      };
+    if (index + 1 === 12)
+      return {
+        gridRow: '6 / span 2',
+        gridColumn: '4 / span 1',
+        ...defaultStyles
+      };
+    if (index + 1 === 13)
+      return {
+        gridRow: '5 / span 3',
+        gridColumn: '5 / span 3',
+        ...defaultStyles
+      };
+    return {
+      gridRow: '6 / span 2',
+      gridColumn: '8 / span 1',
+      ...defaultStyles
+    };
+  }
+}));
 
 const styles = makeStyles(theme => ({
   memories: {
@@ -51,7 +137,7 @@ const styles = makeStyles(theme => ({
 
 const Gallery = ({ ...props }) => {
   const { images } = props;
-  const classes = styles();
+  const classes = styles(props);
   return (
     <Grid container className={classes.gallery}>
       <Grid>
@@ -60,18 +146,18 @@ const Gallery = ({ ...props }) => {
         </Typography>
       </Grid>
       <Grid className={classes.memories}>
-        {images.map((image, index) => (
-          <Grid
-            className={`gallery__item gallery__item${index + 1}`}
-            key={image.id}
-          >
-            <img
-              src={image.src}
-              alt={image.title}
-              className={classes.gridImage}
-            />
-          </Grid>
-        ))}
+        {images.map((image, index) => {
+          const imageClasses = imageStles(index);
+          return (
+            <Grid className={imageClasses.galleryItem} key={image.id}>
+              <img
+                src={image.src}
+                alt={image.title}
+                className={classes.gridImage}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
     </Grid>
   );
