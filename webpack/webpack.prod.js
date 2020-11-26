@@ -8,7 +8,7 @@ const commonPaths = require('./paths');
 module.exports = {
   mode: 'production',
   output: {
-    filename: `${commonPaths.jsFolder}/[name].[hash].js`,
+    filename: `${commonPaths.jsFolder}/[name].[contenthash].js`,
     path: commonPaths.outputPath,
     chunkFilename: `${commonPaths.jsFolder}/[name].[chunkhash].js`
   },
@@ -17,9 +17,7 @@ module.exports = {
       new TerserPlugin({
         // Use multi-process parallel running to improve the build speed
         // Default number of concurrent runs: os.cpus().length - 1
-        parallel: true,
-        // Enable file caching
-        cache: true
+        parallel: true
       }),
       new OptimizeCSSAssetsPlugin()
     ],
@@ -29,7 +27,7 @@ module.exports = {
     splitChunks: {
       name: false,
       cacheGroups: {
-        vendors: {
+        defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'initial'
