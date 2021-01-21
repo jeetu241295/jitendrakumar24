@@ -34,28 +34,37 @@ export const downloadCV = () => () => {
   axiosAPI
     .get('/downloadCV')
     .then(res => {
-      renderSnackbar({ data: { message: 'File downloading...!' } });
-      const dataURI = `data:application/pdf;base64,${res.data.filedata}`;
-      const link = document.createElement('a');
-      document.body.appendChild(link);
-      if (navigator.appVersion.toString().includes('.NET')) {
-        const binary = atob(res.data.filedata.replace(/\s/g, ''));
-        const len = binary.length;
-        const buffer = new ArrayBuffer(len);
-        const view = new Uint8Array(buffer);
-        for (let i = 0; i < len; i += 1) {
-          view[i] = binary.charCodeAt(i);
+      if (res.data.status !== 1) {
+        renderSnackbar({ data: { message: 'File downloading...!' } });
+        const dataURI = `data:application/pdf;base64,${res.data.filedata}`;
+        const link = document.createElement('a');
+        document.body.appendChild(link);
+        if (navigator.appVersion.toString().includes('.NET')) {
+          const binary = atob(res.data.filedata.replace(/\s/g, ''));
+          const len = binary.length;
+          const buffer = new ArrayBuffer(len);
+          const view = new Uint8Array(buffer);
+          for (let i = 0; i < len; i += 1) {
+            view[i] = binary.charCodeAt(i);
+          }
+          const fileBlob = new Blob([view], {
+            type: 'application/pdf'
+          });
+          window.navigator.msSaveBlob(fileBlob, res.data.filename);
+        } else {
+          link.href = dataURI;
+          link.download = res.data.filename;
+          link.click();
         }
-        const fileBlob = new Blob([view], {
-          type: 'application/pdf'
-        });
-        window.navigator.msSaveBlob(fileBlob, res.data.filename);
+        link.remove();
       } else {
-        link.href = dataURI;
-        link.download = res.data.filename;
-        link.click();
+        renderSnackbar({
+          data: {
+            message:
+              'Something went wrong..!! please try again after some time.'
+          }
+        });
       }
-      link.remove();
     })
     .catch(error => console.log(error));
 };

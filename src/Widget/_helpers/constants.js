@@ -27,6 +27,7 @@ import TaskManagerImg from '__ASSETS__/Images/taskManager';
 import TriloImg from '__ASSETS__/Images/trilo';
 import NatoursImg from '__ASSETS__/Images/natours';
 import NexterImg from '__ASSETS__/Images/nexter';
+import convertImages from '__ASSETS__/Images/convertImages';
 import school1 from '__ASSETS__/Images/school-1';
 import school2 from '__ASSETS__/Images/school-2';
 import school3 from '__ASSETS__/Images/school-3';
@@ -231,6 +232,15 @@ export const projects = [
       'Task Manager build on NodeJS.Add delete and update the tasks.',
     githubLink:
       'https://github.com/JitendraBhamidipati/NodeJS/tree/master/ChatApp'
+  },
+  {
+    id: 6,
+    imgTitle: 'convertImages',
+    imgPath: convertImages,
+    projectDate: 'January 10th 2021',
+    projectDescription:
+      'Application is used to convert between jpeg, png & webp with inputs.Can upload multiple and Download all converted files on single click.',
+    githubLink: 'https://github.com/JitendraBhamidipati/convertImages'
   }
 ];
 
