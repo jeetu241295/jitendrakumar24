@@ -1,7 +1,89 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import IndieFlowerFont from '__ASSETS__/Fonts/IndieFlower-Regular.ttf';
+import RobotoRegular from '../Assets/Fonts/Roboto-Regular.ttf';
+import RobotoItalic from '../Assets/Fonts/Roboto-Italic.ttf';
+import RobotoLight from '../Assets/Fonts/Roboto-Light.ttf';
+import RobotoLightItalic from '../Assets/Fonts/Roboto-LightItalic.ttf';
+import RobotoMedium from '../Assets/Fonts/Roboto-Medium.ttf';
+import RobotoMediumItalic from '../Assets/Fonts/Roboto-MediumItalic.ttf';
+import CourgetteFont from '../Assets/Fonts/Courgette-Regular.ttf';
+
+const indieFlower = {
+  fontFamily: 'Indie Flower',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${IndieFlowerFont}) format('truetype')`
+};
+
+const robotoRegular = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoRegular}) format('truetype')`
+};
+const robotoItalic = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoItalic}) format('truetype')`
+};
+const robotoMedium = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoMedium}) format('truetype')`
+};
+const robotoMediumItalic = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoMediumItalic}) format('truetype')`
+};
+const robotoLight = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoLight}) format('truetype')`
+};
+const robotoLightItalic = {
+  fontFamily: 'Roboto',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${RobotoLightItalic}) format('truetype')`
+};
+
+const courgette = {
+  fontFamily: 'Courgette',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  fontDisplay: 'swap',
+  src: `url(${CourgetteFont}) format('truetype')`
+};
 
 const theme = createMuiTheme({
-  overrides: {},
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [
+          indieFlower,
+          courgette,
+          robotoItalic,
+          robotoLight,
+          robotoMedium,
+          robotoLightItalic,
+          robotoMediumItalic,
+          robotoRegular
+        ]
+      }
+    }
+  },
   palette: {
     primary: { main: '#11cb5f' },
     secondary: { main: '#ff2b4a' },
@@ -29,6 +111,7 @@ const theme = createMuiTheme({
     textColor: '#505050'
   },
   typography: {
+    fontFamily: ['Roboto', 'Indie Flower', 'Courgette'].join(','),
     useNextVariants: true,
     htmlFontSize: 10
   }

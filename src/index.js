@@ -9,9 +9,11 @@ import rootReducer from './Widget/reducers';
 import PersonalWebsite from './Widget/components/App';
 import theme from './Global/theme';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-  : compose;
+const composeEnhancers =
+  process.env.NODE_ENV === 'production' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+    : compose;
 
 const store = createStore(
   rootReducer,
