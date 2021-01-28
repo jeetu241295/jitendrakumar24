@@ -15,8 +15,6 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
     : compose;
 
-console.log(process.env.NODE_ENV === 'development', composeEnhancers);
-
 const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
