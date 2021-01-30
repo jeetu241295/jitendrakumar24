@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Normal from '__SHARED__/Fonts/Normal';
 import Rating from '__SHARED__/Rating';
@@ -96,8 +97,7 @@ const styles = makeStyles(theme => ({
     textAlign: 'center'
   },
   tripTitle: {
-    color: theme.colors.mainAction,
-    fontSize: '2rem',
+    color: theme.colors.heading,
     fontWeight: 'bold',
     fontFamily: 'cursive',
     fontStyle: 'italic',
@@ -120,8 +120,10 @@ export const renderDetails = (item, isOffice = false) => {
   ];
   return (
     <Grid item md={6} xs={12}>
-      <Grid className={classes.tripTitle}>
-        {isOffice ? item.title : `Trip ${item.id}:-`}
+      <Grid>
+        <Typography className={classes.tripTitle} variant="h6" component="h3">
+          {isOffice ? item.title : `Trip ${item.id}:-`}
+        </Typography>
       </Grid>
       <Normal className={classes.content}>&emsp; {item.content}</Normal>
       {!isOffice && (

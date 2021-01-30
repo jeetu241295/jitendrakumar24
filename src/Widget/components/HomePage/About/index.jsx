@@ -70,6 +70,7 @@ const styles = makeStyles(theme => ({
     fontWeight: 500
   },
   hire: {
+    color: theme.colors.black,
     borderRadius: '50px',
     padding: '0.5rem 2rem'
   },
@@ -101,6 +102,7 @@ const styles = makeStyles(theme => ({
     }
   },
   more: {
+    color: theme.colors.black,
     borderRadius: '50px',
     padding: '0.5rem 2rem',
     marginLeft: '1rem',

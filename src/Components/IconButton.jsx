@@ -9,10 +9,11 @@ const styles = makeStyles(() => ({
 }));
 
 const IconButtonJK = props => {
-  const { className, children, onClick, ...others } = props;
+  const { className, children, onClick, id, ...others } = props;
   const classes = styles();
   return (
     <IconButton
+      aria-label={`${id}`}
       className={classNames(classes.iconButton, className)}
       disableFocusRipple
       onClick={onClick}
@@ -26,6 +27,7 @@ const IconButtonJK = props => {
 IconButtonJK.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
 

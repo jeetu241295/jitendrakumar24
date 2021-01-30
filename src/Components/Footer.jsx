@@ -57,6 +57,7 @@ const Footer = () => {
     <Grid container className={classes.footer}>
       <Grid className={classes.listItem}>
         <IconButton
+          id="facbook-icon"
           onClick={() => {
             window.open(
               'https://www.facebook.com/jitendra.kumar.501',
@@ -67,6 +68,7 @@ const Footer = () => {
           <FacebookIcon />
         </IconButton>
         <IconButton
+          id="github-icon"
           onClick={() => {
             window.open('https://github.com/JitendraBhamidipati', '_blank');
           }}
@@ -74,6 +76,7 @@ const Footer = () => {
           <GithubIcon />
         </IconButton>
         <IconButton
+          id="instagram-icon"
           onClick={() => {
             window.open(
               'https://www.instagram.com/jitendra.bhamidipati/',
@@ -84,6 +87,7 @@ const Footer = () => {
           <InstagramIcon />
         </IconButton>
         <IconButton
+          id="linkedin-icon"
           onClick={() => {
             window.open(
               'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
@@ -94,6 +98,7 @@ const Footer = () => {
           <LinkedInIcon />
         </IconButton>
         <IconButton
+          id="twitter-icon"
           onClick={() => {
             window.open('https://twitter.com/jeetu241295', '_blank');
           }}
@@ -102,7 +107,7 @@ const Footer = () => {
         </IconButton>
       </Grid>
       <Grid className={classes.listItem}>
-        <Typography className={classes.rights} component="h6">
+        <Typography className={classes.rights} component="div" variant="h6">
           Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra Kumar. All
           rights reserved.
         </Typography>

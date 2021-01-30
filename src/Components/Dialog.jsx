@@ -46,7 +46,11 @@ const DialogTitleCustom = props => {
         {children}
       </Typography>
       {closeButton && onClose && (
-        <IconButton className={classes.closeButton} onClick={onClose}>
+        <IconButton
+          className={classes.closeButton}
+          id="dialog-close"
+          onClick={onClose}
+        >
           <CloseIcon />
         </IconButton>
       )}

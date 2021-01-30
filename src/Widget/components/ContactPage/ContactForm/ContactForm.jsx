@@ -31,6 +31,7 @@ const styles = makeStyles(theme => ({
     marginBottom: '1rem'
   },
   send: {
+    color: theme.colors.black,
     alignSelf: 'flex-end'
   }
 }));
@@ -45,25 +46,34 @@ const ContactForm = props => {
       </Typography>
       <Grid container className={classes.contactForm}>
         <TextField
+          id="name"
           className={classes.textField}
           name="name"
           label="Name"
           normalize={normalizeUserName}
         />
-        <TextField className={classes.textField} name="email" label="Email" />
         <TextField
           className={classes.textField}
+          id="email"
+          name="email"
+          label="Email"
+        />
+        <TextField
+          className={classes.textField}
+          id="mobile"
           name="mobile"
           label="Mobile"
           normalize={normalizePhone}
         />
         <TextField
           className={classes.textField}
+          id="subject"
           name="subject"
           label="Subject"
         />
         <TextField
           className={classes.textField}
+          id="message"
           name="message"
           label="Message"
           multiline

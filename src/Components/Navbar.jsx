@@ -191,7 +191,11 @@ const ButtonAppBar = props => {
         })}
       >
         <Toolbar disableGutters>
-          <IconButton className={classes.menuButton} onClick={toggleDrawer}>
+          <IconButton
+            id="menu-icon"
+            className={classes.menuButton}
+            onClick={toggleDrawer}
+          >
             <MenuIcon />
           </IconButton>
           <Drawer

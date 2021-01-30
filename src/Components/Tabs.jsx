@@ -46,6 +46,7 @@ const styles = makeStyles(theme => ({
   wrapper: {
     display: 'flex',
     flexDirection: 'row',
+    fontWeight: 'bold',
     zIndex: props => (props.styled ? 10 : 1)
   },
   labelIcon: {
@@ -131,7 +132,7 @@ const FullWidthTabs = props => {
     </Tabs>
   );
   const tabsData = appbarExists ? (
-    <AppBar className={classes.appbar} position="static" color="default">
+    <AppBar className={classes.appbar} position="static" color="transparent">
       {x}
     </AppBar>
   ) : (

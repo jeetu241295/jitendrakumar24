@@ -10,6 +10,7 @@ const styles = makeStyles(theme => ({
     backgroundSize: 'cover',
     width: '100%',
     height: '90vh',
+    minHeight: 600,
     paddingTop: '10rem',
     paddingBottom: '10rem',
     position: 'relative',
@@ -34,7 +35,7 @@ const styles = makeStyles(theme => ({
     letterSpacing: '1.2rem',
     fontWeight: 900,
     color: theme.colors.transparent,
-    backgroundImage: `linear-gradient(to bottom, ${theme.colors.mainAction},${theme.colors.white})`,
+    backgroundImage: `linear-gradient(to bottom, ${theme.colors.mainAction},${theme.colors.gradientColor})`,
     WebkitBackgroundClip: 'text',
     padding: '2rem',
     fontFamily: 'Raleway Webfont',
@@ -69,7 +70,7 @@ const Home = () => {
     <Grid container className={classes.home}>
       <Grid className={classes.helloWrap}>
         <Grid className={classes.line} />
-        <Typography className={classes.hello} component="h6" variant="h6">
+        <Typography className={classes.hello} component="div" variant="h6">
           Hey, I&#39;m
         </Typography>
         <Grid className={classes.line} />

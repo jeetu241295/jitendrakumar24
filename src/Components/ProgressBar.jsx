@@ -49,7 +49,7 @@ const ProgressBar = props => {
         />
       </Grid>
       <Grid item md={1} xs={2}>
-        <Typography className={classes.value} variant="h4" component="h4">
+        <Typography className={classes.value} variant="h5" component="h5">
           {value}%
         </Typography>
       </Grid>

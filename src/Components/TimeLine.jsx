@@ -68,8 +68,8 @@ const TimeLineJK = props => {
               <Paper elevation={3} className={classes.paper}>
                 <Typography
                   className={classes.period}
-                  variant="h4"
-                  componeent="h4"
+                  variant="h6"
+                  component="div"
                 >
                   {item.title}
                 </Typography>

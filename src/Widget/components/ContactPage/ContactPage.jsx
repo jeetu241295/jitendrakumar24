@@ -89,6 +89,7 @@ const Contact = props => {
           <Link
             href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
             target="_blank"
+            rel="noreferrer"
           >
             <LocationIcon />
             <Normal className={classes.normal}>

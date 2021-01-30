@@ -235,7 +235,7 @@ export const projects = [
   },
   {
     id: 6,
-    imgTitle: 'convertImages',
+    imgTitle: 'Convert Images',
     imgPath: convertImages,
     projectDate: 'January 10th 2021',
     projectDescription:

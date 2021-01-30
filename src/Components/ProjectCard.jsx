@@ -6,6 +6,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import { GithubIcon } from '__ASSETS__/SVG';
 import Normal from './Fonts/Normal';
@@ -34,7 +35,8 @@ const useStyles = makeStyles(theme => ({
     }
   },
   avatar: {
-    backgroundColor: theme.colors.primary
+    backgroundColor: theme.colors.primary,
+    color: theme.colors.black8
   },
   cardActions: {
     display: 'flex',
@@ -83,8 +85,16 @@ const ProjectCard = props => {
             {avatarWord}
           </Avatar>
         }
-        title={imgTitle}
-        subheader={projectDate}
+        title={
+          <Typography component="h6" variant="subtitle1">
+            {imgTitle}
+          </Typography>
+        }
+        subheader={
+          <Typography component="div" variant="caption">
+            {projectDate}
+          </Typography>
+        }
       />
       <CardMedia
         className={classes.media}
@@ -97,6 +107,7 @@ const ProjectCard = props => {
       </CardContent>
       <CardActions className={classes.cardActions} disableSpacing>
         <IconButton
+          id="github-link"
           onClick={() => {
             window.open(githubLink, '_blank');
           }}
