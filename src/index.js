@@ -1,31 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+import { PersistGate } from 'redux-persist/integration/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import rootReducer from './Widget/reducers';
-import PersonalWebsite from './Widget/components/App';
 import theme from './Global/theme';
-
-const composeEnhancers =
-  process.env.NODE_ENV === 'development' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
-    : compose;
-
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+import { store, persistor } from './store';
+import Loading from './SharedJSX/Loading';
+import App from './Widgets/Routing/components/App';
+import ErrorBoundary from './ErrorBoudary';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      <PersonalWebsite />
-    </MuiThemeProvider>
-  </Provider>,
+  <ErrorBoundary>
+    <Provider store={store}>
+      <PersistGate loading={<Loading open />} persistor={persistor}>
+        <MuiThemeProvider theme={theme}>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <CssBaseline />
+            <App />
+          </MuiPickersUtilsProvider>
+        </MuiThemeProvider>
+      </PersistGate>
+    </Provider>
+  </ErrorBoundary>,
   document.getElementById('root')
 );

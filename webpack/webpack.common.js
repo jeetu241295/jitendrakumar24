@@ -31,7 +31,6 @@ module.exports = env => {
             {
               loader: 'file-loader',
               options: {
-                name: '[name].[ext]',
                 outputPath: commonPaths.fontsFolder
               }
             }
@@ -45,17 +44,20 @@ module.exports = env => {
       alias: {
         __GLOBAL__: commonPaths.globalPath,
         __SHARED__: commonPaths.sharedPath,
-        __ASSETS__: commonPaths.assetsPath
+        __ASSETS__: commonPaths.assetsPath,
+        __WIDGETS__: commonPaths.widgetsPath,
+        __SRC__: commonPaths.srcPath
       }
     },
     plugins: [
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
-        template: commonPaths.templatePath,
-        favicon: commonPaths.faviconPath
+        template: commonPaths.templatePath
+        // favicon: commonPaths.faviconPath
       }),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV)
+        'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV),
+        'process.env.API_URL': JSON.stringify(env.API_URL)
       }),
       new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: 'async'
@@ -63,7 +65,9 @@ module.exports = env => {
       new ESLintPlugin({
         extensions: ['js', 'jsx'],
         fix: true,
-        emitWarning: process.env.NODE_ENV !== 'production'
+        emitWarning: JSON.stringify(env.NODE_ENV) !== 'production',
+        // emitWarning: false,
+        failOnWarning: false
       })
     ]
   };

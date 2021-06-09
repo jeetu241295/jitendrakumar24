@@ -1,0 +1,69 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+const styles = makeStyles(theme => ({
+  buttonStyle: {
+    color: theme.colors.black,
+    borderRadius: 5,
+    fontSize: '1.5rem',
+    transition: 'all 0.3s ease-in-out',
+    '&:hover': {
+      boxShadow: `'0 1rem 2rem ${theme.colors.black2}`,
+      background: theme.colors.buttonColor,
+      '&::after': {
+        opacity: 0
+      }
+    },
+    '&:active': {
+      backgroundColor: theme.colors.buttonColor,
+      boxShadow: `0 .5rem 1rem ${theme.colors.black2}`,
+      outline: 'none'
+    },
+    '&:focus': {
+      backgroundColor: theme.colors.buttonColor,
+      boxShadow: `0 .5rem 1rem ${theme.colors.black2}`,
+      outline: 'none'
+    }
+  }
+}));
+
+const ButtonKH = props => {
+  const { children, onClick, icon, className, size, variant, ...other } = props;
+  const classes = styles(props);
+  return (
+    <Button
+      className={classNames(classes.buttonStyle, className)}
+      disableFocusRipple
+      // disableTouchRipple
+      disableElevation
+      onClick={onClick}
+      variant={variant}
+      size={size}
+      color="primary"
+      {...other}
+    >
+      {children}
+    </Button>
+  );
+};
+
+ButtonKH.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  icon: PropTypes.node,
+  onClick: PropTypes.func.isRequired,
+  size: PropTypes.string,
+  variant: PropTypes.string
+};
+ButtonKH.defaultProps = {
+  icon: null,
+  className: null,
+  children: null,
+  size: 'small',
+  variant: 'contained'
+};
+
+export default ButtonKH;

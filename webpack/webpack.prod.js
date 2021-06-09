@@ -58,6 +58,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: false,
+              localsConvention: 'camelCase',
               modules: {
                 localIdentName: '[local]'
                 // localIdentName: '[local]___[hash:base64:5]'
