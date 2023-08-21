@@ -1,24 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import styles from './styles.css';
+import SvgIcon from '@mui/material/SvgIcon';
+import styles from './styles.css.js';
 
-const CloseIcon = props => {
-  const { className } = props;
-  const classes = styles(props);
+const Close = props => {
+  const { sx } = props;
   return (
-    <SvgIcon
-      classes={{ root: classNames(classes.icon, className) }}
-      viewBox="0 0 24 24"
-      {...props}
-    >
+    <SvgIcon sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}>
       <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z" />
     </SvgIcon>
   );
 };
 
-CloseIcon.propTypes = { className: PropTypes.string };
-CloseIcon.defaultProps = { className: null };
+Close.propTypes = {
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
+};
+Close.defaultProps = {
+  sx: {}
+};
 
-export default CloseIcon;
+export default Close;

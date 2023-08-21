@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import {
+  Grid,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+  ListItem,
+  List,
+  SwipeableDrawer,
+  AppBar,
+  Toolbar
+} from '@mui/material';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   MenuIcon,
   HeartIcon,
@@ -23,7 +24,7 @@ import Button from './Button';
 import IconButton from './IconButton';
 import logo from '../Assets/Images/logo';
 
-const styles = makeStyles(theme => ({
+const styles = {
   root: {
     justifyContent: 'flex-start'
   },
@@ -36,79 +37,68 @@ const styles = makeStyles(theme => ({
       height: 75
     }
   },
+  active: {
+    color: 'primary.main'
+  },
   menuButton: {
-    marginTop: -7,
-    [theme.breakpoints.up('sm')]: {
-      display: 'none'
-    },
+    display: { sm: 'none' },
     marginRight: 'auto',
-    color: theme.colors.white
+    color: 'common.white'
   },
   navLinkWrap: {
-    display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
     marginLeft: 'auto',
-    [theme.breakpoints.down('xs')]: {
-      display: 'none'
-    }
+    display: { xs: 'none', sm: 'flex' }
   },
   logo: {
     width: 35,
     height: 35,
-    marginRight: '2rem',
-    [theme.breakpoints.up('sm')]: {
-      margin: '0 2rem'
-    }
+    margin: '0 2rem'
   },
   appbar: {
-    backgroundColor: theme.colors.navbar,
+    backgroundColor: 'colors.navbar',
     opacity: 0.7,
-    height: 64,
+    height: { sm: 64 },
     top: 0,
-    transition: 'all .3s ease-in',
-    [theme.breakpoints.down('xs')]: {
-      height: 48
-    }
+    transition: 'all .3s ease-in'
   },
   link: {
-    color: theme.colors.white,
+    color: 'common.white',
     textDecoration: 'none',
     zIndex: 1
   },
   navLink: {
-    color: theme.colors.white,
+    color: 'common.white',
     fontSize: '1.5rem',
-    backgroundColor: theme.colors.transparent,
-    padding: '1rem 2rem',
+    backgroundColor: 'colors.transparent',
+    padding: { xs: '0.5rem 1rem', sm: '1rem 2rem' },
     position: 'relative',
     '&:hover': {
-      backgroundColor: theme.colors.transparent,
+      backgroundColor: 'colors.transparent',
       transform: 'none'
     },
     '&:focus': {
-      backgroundColor: theme.colors.transparent
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: '0.5rem 1rem'
+      backgroundColor: 'colors.transparent'
     }
   },
   paper: {
-    backgroundColor: theme.colors.navbar,
+    backgroundColor: 'colors.navbar',
     width: '50%'
   },
   context: {
-    color: theme.colors.white,
-    fontSize: '1.5rem',
+    display: 'flex',
+    color: 'common.white',
+    fontSize: '1.8rem',
     fontWeight: 'bold'
   },
   listItem: {
-    borderBottom: '2px solid',
-    borderColor: theme.colors.black,
+    // borderBottom: '2px solid',
+    // borderColor: 'common.black',
     textTransform: 'uppercase',
-    '&:first-child': {
-      borderTop: '2px solid'
-    },
+    // '&:first-of-type': {
+    // borderTop: '2px solid'
+    // },
     '& a': {
       display: 'flex',
       width: '100%',
@@ -122,7 +112,7 @@ const styles = makeStyles(theme => ({
     }
   },
   navIcon: {
-    fill: theme.colors.white
+    color: 'common.white'
   },
   rights: {
     borderTop: '2px solid',
@@ -131,16 +121,16 @@ const styles = makeStyles(theme => ({
   },
   navUp: {
     top: -57,
-    backgroundColor: theme.colors.mainAction,
+    backgroundColor: 'primary.main',
     opacity: 1,
     '&:hover': {
       top: 0,
-      backgroundColor: theme.colors.navbar,
+      backgroundColor: 'colors.navbar',
       opacity: 0.7
     }
   },
   navDown: {}
-}));
+};
 
 const ButtonAppBar = props => {
   const navBarHeight = 64;
@@ -148,8 +138,10 @@ const ButtonAppBar = props => {
   const [open, setOpen] = useState(false);
   const [isScrolledDown, setScrollDown] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { navs } = props;
-  const classes = styles();
 
   const hasScrolled = () => {
     const delta = 5;
@@ -177,114 +169,112 @@ const ButtonAppBar = props => {
     };
   }, []);
 
-  const toggleDrawer = () => {
-    setOpen(!open);
+  const toggleDrawer = (event, value) => {
+    if (
+      event &&
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+    setOpen(value);
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar
-        position="fixed"
-        className={classNames(classes.appbar, {
-          [classes.navUp]: isScrolledDown === true,
-          [classes.navDown]: isScrolledDown === false
-        })}
-      >
-        <Toolbar disableGutters>
-          <IconButton
-            id="menu-icon"
-            className={classes.menuButton}
-            onClick={toggleDrawer}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Drawer
-            open={open}
-            onClose={toggleDrawer}
-            classes={{
-              paper: classes.paper
-            }}
-          >
-            <Grid className={classes.imageWrap}>
-              <Link to="/">
-                <img alt="JK" src={logo} className={classes.mobileLogo} />
-              </Link>
-            </Grid>
-            <List className={classes.list}>
-              {navs.map(nav => {
-                let navIcon;
-                if (nav === 'home')
-                  navIcon = <HomeIcon className={classes.navIcon} />;
-                if (nav === 'about')
-                  navIcon = <AboutIcon className={classes.navIcon} />;
-                if (nav === 'projects')
-                  navIcon = <ProjectsIcon className={classes.navIcon} />;
-                if (nav === 'contact')
-                  navIcon = <ContactIcon className={classes.navIcon} />;
-                return (
-                  <ListItem
-                    button
-                    onClick={toggleDrawer}
-                    onKeyDown={toggleDrawer}
-                    key={nav}
-                    className={classes.listItem}
-                    disableGutters
-                  >
-                    <Link to={`/${nav}`}>
-                      <ListItemIcon>{navIcon}</ListItemIcon>
-                      <ListItemText
-                        primary={nav}
-                        classes={{
-                          primary: classes.context
-                        }}
-                      />
-                    </Link>
-                  </ListItem>
-                );
-              })}
-            </List>
-            <ListItem className={classes.rights}>
-              <ListItemText
-                classes={{
-                  primary: classes.context
-                }}
-              >
-                Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra
-                Kumar. All rights reserved.
-              </ListItemText>
-            </ListItem>
-          </Drawer>
-          <Link to="/">
-            <img alt="JK" src={logo} className={classes.logo} />
-          </Link>
-          <Grid className={classes.navLinkWrap}>
+    <AppBar
+      position="fixed"
+      sx={[
+        styles.appbar,
+        isScrolledDown === true && styles.navUp,
+        isScrolledDown === false && styles.navDown
+      ]}
+    >
+      <Toolbar disableGutters>
+        <IconButton
+          id="menu-icon"
+          sx={styles.menuButton}
+          onClick={e => toggleDrawer(e, true)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <SwipeableDrawer
+          anchor="left"
+          open={open}
+          onClose={e => toggleDrawer(e, false)}
+          onOpen={e => toggleDrawer(e, true)}
+          PaperProps={{ sx: styles.paper }}
+        >
+          <Grid sx={styles.imageWrap}>
+            <Link to="/">
+              <img alt="JK" src={logo} style={styles.mobileLogo} />
+            </Link>
+          </Grid>
+          <List sx={styles.list}>
             {navs.map(nav => {
               let navIcon;
-              if (nav === 'home') navIcon = <HomeIcon />;
-              if (nav === 'about') navIcon = <AboutIcon />;
-              if (nav === 'projects') navIcon = <ProjectsIcon />;
-              if (nav === 'contact') navIcon = <ContactIcon />;
+              if (nav === 'home') navIcon = <HomeIcon sx={styles.navIcon} />;
+              if (nav === 'about') navIcon = <AboutIcon sx={styles.navIcon} />;
+              if (nav === 'projects')
+                navIcon = <ProjectsIcon sx={styles.navIcon} />;
+              if (nav === 'contact')
+                navIcon = <ContactIcon sx={styles.navIcon} />;
               return (
-                <Link
-                  key={nav.toString()}
-                  className={classes.link}
-                  to={`/${nav}`}
+                <ListItemButton
+                  alignItems="center"
+                  selected={location.pathname === `/${nav}`}
+                  onClick={e => {
+                    toggleDrawer(e, false);
+                    navigate(`/${nav}`);
+                  }}
+                  onKeyDown={e => {
+                    toggleDrawer(e, false);
+                    navigate(`/${nav}`);
+                  }}
+                  sx={styles.listItem}
+                  key={nav}
+                  disableGutters
                 >
-                  <Button
-                    className={classes.navLink}
-                    onClick={() => {}}
-                    disableElevation
-                    startIcon={navIcon}
-                  >
-                    {nav}
-                  </Button>
-                </Link>
+                  <ListItemIcon>{navIcon}</ListItemIcon>
+                  <ListItemText primary={nav} sx={styles.context} />
+                </ListItemButton>
               );
             })}
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </div>
+          </List>
+          <ListItem sx={styles.rights}>
+            <ListItemText sx={styles.context}>
+              Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra Kumar.
+              All rights reserved.
+            </ListItemText>
+          </ListItem>
+        </SwipeableDrawer>
+        <Link to="/">
+          <img alt="JK" src={logo} style={styles.logo} />
+        </Link>
+        <Grid sx={styles.navLinkWrap}>
+          {navs.map(nav => {
+            let navIcon;
+            if (nav === 'home') navIcon = <HomeIcon />;
+            if (nav === 'about') navIcon = <AboutIcon />;
+            if (nav === 'projects') navIcon = <ProjectsIcon />;
+            if (nav === 'contact') navIcon = <ContactIcon />;
+            return (
+              <Button
+                sx={[
+                  styles.navLink,
+                  location.pathname === `/${nav}` && styles.active
+                ]}
+                key={nav.toString()}
+                onClick={() => navigate(`/${nav}`)}
+                disableElevation
+                startIcon={navIcon}
+              >
+                {nav}
+              </Button>
+            );
+          })}
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
 };
 

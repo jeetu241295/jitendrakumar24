@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const commonPaths = require('./paths');
 
-module.exports = env => {
+module.exports = () => {
   return {
     entry: commonPaths.entryPath,
     module: {
@@ -15,11 +14,12 @@ module.exports = env => {
           exclude: /(node_modules)/
         },
         {
-          test: /\.(png|jpe?g|gif|svg|JPE?G|PNG|WebP|webp)$/,
+          test: /\.(png|jpe?g|gif|svg|JPE?G|PNG|WebP|webp|ico)$/,
           use: [
             {
               loader: 'file-loader',
               options: {
+                name: '[name].[ext]',
                 outputPath: commonPaths.imagesFolder
               }
             }
@@ -31,8 +31,8 @@ module.exports = env => {
             {
               loader: 'file-loader',
               options: {
-                name: '[name].[ext]',
-                outputPath: commonPaths.fontsFolder
+                outputPath: commonPaths.fontsFolder,
+                name: '[name].[ext]'
               }
             }
           ]
@@ -41,7 +41,16 @@ module.exports = env => {
     },
     resolve: {
       modules: ['src', 'node_modules'],
-      extensions: ['*', '.js', '.jsx', '.css', '.webp', '.jpeg', '.jpg'],
+      extensions: [
+        '.*',
+        '.js',
+        '.jsx',
+        '.css',
+        '.webp',
+        '.json',
+        '.jpeg',
+        '.jpg'
+      ],
       alias: {
         __GLOBAL__: commonPaths.globalPath,
         __SHARED__: commonPaths.sharedPath,
@@ -55,15 +64,13 @@ module.exports = env => {
         favicon: commonPaths.faviconPath
       }),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV)
-      }),
-      new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'async'
+        'process.env': JSON.stringify(process.env)
       }),
       new ESLintPlugin({
         extensions: ['js', 'jsx'],
         fix: true,
-        emitWarning: process.env.NODE_ENV !== 'production'
+        emitWarning: false,
+        failOnWarning: false
       })
     ]
   };

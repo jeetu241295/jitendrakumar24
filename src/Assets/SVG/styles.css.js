@@ -1,14 +1,11 @@
-import { makeStyles } from '@material-ui/core/styles';
-
-export const styles = makeStyles(theme => ({
+export const styles = {
   icon: {
-    margin: '0 1rem',
-    width: props => props.width || 16,
-    height: props => props.height || '100%',
+    margin: '0 .5rem',
     verticalAlign: 'middle'
   },
   heartIcon: {
-    fill: theme.colors.primary
+    color: 'secondary.main'
   }
-}));
+};
+
 export default styles;

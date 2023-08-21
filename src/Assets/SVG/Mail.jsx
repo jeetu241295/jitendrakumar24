@@ -1,24 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import styles from './styles.css';
+import SvgIcon from '@mui/material/SvgIcon';
+import styles from './styles.css.js';
 
-const MailIcon = props => {
-  const { className } = props;
-  const classes = styles(props);
+const Mail = props => {
+  const { sx } = props;
   return (
-    <SvgIcon
-      classes={{ root: classNames(classes.icon, className) }}
-      viewBox="0 0 32 32"
-      {...props}
-    >
-      <path d="M29 4h-26c-1.65 0-3 1.35-3 3v20c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-20c0-1.65-1.35-3-3-3zM12.461 17.199l-8.461 6.59v-15.676l8.461 9.086zM5.512 8h20.976l-10.488 7.875-10.488-7.875zM12.79 17.553l3.21 3.447 3.21-3.447 6.58 8.447h-19.579l6.58-8.447zM19.539 17.199l8.461-9.086v15.676l-8.461-6.59z" />
+    <SvgIcon sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}>
+      <path d="M20.016 8.016v-2.016l-8.016 5.016-8.016-5.016v2.016l8.016 4.969zM20.016 3.984q0.797 0 1.383 0.609t0.586 1.406v12q0 0.797-0.586 1.406t-1.383 0.609h-16.031q-0.797 0-1.383-0.609t-0.586-1.406v-12q0-0.797 0.586-1.406t1.383-0.609h16.031z"></path>
     </SvgIcon>
   );
 };
 
-MailIcon.propTypes = { className: PropTypes.string };
-MailIcon.defaultProps = { className: null };
+Mail.propTypes = {
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
+};
+Mail.defaultProps = {
+  sx: {}
+};
 
-export default MailIcon;
+export default Mail;

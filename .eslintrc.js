@@ -1,11 +1,12 @@
 module.exports = {
-  parser: 'babel-eslint',
-  plugins: ['react', 'prettier'],
+  parser: '@babel/eslint-parser',
+  plugins: ['react', 'prettier', 'react-hooks'],
   extends: [
     'airbnb',
     'plugin:prettier/recommended',
-    'prettier/react',
-    'plugin:import/errors'
+    'plugin:jsx-a11y/recommended',
+    'plugin:import/errors',
+    'plugin:react-hooks/recommended'
   ],
   globals: {
     React: true,
@@ -18,8 +19,14 @@ module.exports = {
   },
   root: true,
   rules: {
-    indent: ['error', 2],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    'no-underscore-dangle': 0,
+    'import/no-cycle': [2, { maxDepth: 1 }],
     'react/prefer-stateless-function': 'warn',
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['state'] }
+    ],
     'react/self-closing-comp': [
       'warn',
       {
@@ -27,6 +34,15 @@ module.exports = {
         html: false
       }
     ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
+      }
+    ],
+    'no-return-assign': ['error', 'except-parens'],
     'react/sort-comp': [
       1,
       {
@@ -50,6 +66,8 @@ module.exports = {
         aspects: ['invalidHref']
       }
     ],
+    'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
+    'react/jsx-no-useless-fragment': 'off',
     'react/jsx-boolean-value': ['warn', 'never'],
     'react/jsx-closing-bracket-location': ['warn'],
     'react/jsx-curly-spacing': ['warn', 'never'],
@@ -78,7 +96,13 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/extensions': 0,
     'babel/object-curly-spacing': 0,
-    'import/no-named-as-default': 0
+    'import/no-named-as-default': 0,
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function'
+      }
+    ]
   },
   env: {
     es6: true,

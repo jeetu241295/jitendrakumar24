@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import { Typography, LinearProgress, Grid } from '@mui/material';
 
-const styles = makeStyles(theme => ({
+const styles = {
   root: {
     flexGrow: 1,
     display: 'flex',
@@ -14,8 +11,8 @@ const styles = makeStyles(theme => ({
     marginBottom: '1rem'
   },
   primary: {
-    color: theme.colors.progressbarColor,
-    backgroundColor: theme.colors.footerNav,
+    color: 'colors.progressbarColor',
+    backgroundColor: 'colors.footerNav',
     borderRadius: '10px'
   },
   value: {
@@ -29,27 +26,25 @@ const styles = makeStyles(theme => ({
     fontWeight: 500,
     marginBottom: '0.5rem'
   }
-}));
+};
 
 const ProgressBar = props => {
   const { value, heading } = props;
-  const classes = styles();
+
   return (
-    <Grid container className={classes.root}>
+    <Grid container sx={styles.root}>
       <Grid item md={11} xs={10}>
-        <Typography className={classes.title} variant="h4" component="h4">
+        <Typography sx={styles.title} variant="h4" component="h4">
           {heading}
         </Typography>
         <LinearProgress
-          classes={{
-            colorPrimary: classes.primary
-          }}
+          sx={styles.primary}
           variant="determinate"
           value={value}
         />
       </Grid>
       <Grid item md={1} xs={2}>
-        <Typography className={classes.value} variant="h5" component="h5">
+        <Typography sx={styles.value} variant="h5" component="h5">
           {value}%
         </Typography>
       </Grid>

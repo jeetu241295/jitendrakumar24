@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import Typography from '@material-ui/core/Typography';
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  DialogTitle as MuiDialogTitle
+} from '@mui/material';
 import { CloseIcon } from '__ASSETS__/SVG';
 import IconButton from './IconButton';
 
-const customTitleStyles = makeStyles(theme => ({
+const styles = {
   root: {
     display: 'flex',
-    borderBottom: `1px solid ${theme.colors.black}`,
+    borderBottom: `1px solid`,
+    borderBottomColor: 'common.black',
     marginBottom: '1rem',
     padding: '1rem'
   },
@@ -24,33 +27,28 @@ const customTitleStyles = makeStyles(theme => ({
   title: {
     fontSize: '2rem',
     fontWeight: 800,
-    color: theme.colors.mainAction
+    color: 'primary.main'
   }
-}));
+};
 
-const styles = makeStyles(theme => ({
-  paperRoot: {
-    minWidth: 600,
-    [theme.breakpoints.down('xs')]: {
-      minWidth: '100vw'
-    }
-  }
-}));
+// const styles = makeStyles(theme => ({
+//   paperRoot: {
+//     minWidth: 600,
+//     [theme.breakpoints.down('xs')]: {
+//       minWidth: '100vw'
+//     }
+//   }
+// }));
 
 const DialogTitleCustom = props => {
   const { children, onClose, closeButton } = props;
-  const classes = customTitleStyles(props);
   return (
-    <MuiDialogTitle disableTypography className={classes.root}>
-      <Typography className={classes.title} variant="h6">
+    <MuiDialogTitle disableTypography sx={styles.root}>
+      <Typography sx={styles.title} variant="h6">
         {children}
       </Typography>
       {closeButton && onClose && (
-        <IconButton
-          className={classes.closeButton}
-          id="dialog-close"
-          onClick={onClose}
-        >
+        <IconButton sx={styles.closeButton} id="dialog-close" onClick={onClose}>
           <CloseIcon />
         </IconButton>
       )}
@@ -68,6 +66,7 @@ const DialogJK = props => {
   const {
     fullScreen,
     buttons,
+    sx,
     children,
     title,
     open,
@@ -75,21 +74,22 @@ const DialogJK = props => {
     closeButton,
     ...others
   } = props;
-  const classes = styles();
+
   const theme = useTheme();
   const smallFullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
     <Dialog
+      sx={[...(Array.isArray(sx) ? sx : [sx])]}
       fullScreen={fullScreen || smallFullScreen}
       open={open || stateOpen}
       onClose={open ? onClose : handleClose}
       aria-labelledby="responsive-dialog-title"
-      PaperProps={{
-        classes: {
-          root: classes.paperRoot
-        }
-      }}
+      // PaperProps={{
+      //   sx: {
+      //     root: sx.paperRoot
+      //   }
+      // }}
       maxWidth="xs"
       {...others}
     >
@@ -113,13 +113,21 @@ DialogJK.propTypes = {
   buttons: PropTypes.node,
   title: PropTypes.string.isRequired,
   open: PropTypes.bool,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
 };
 DialogJK.defaultProps = {
   buttons: null,
   closeButton: false,
   fullScreen: false,
-  open: false
+  open: false,
+  sx: {}
 };
 
 DialogTitleCustom.propTypes = {

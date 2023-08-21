@@ -1,20 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import styles from './styles.css';
+import SvgIcon from '@mui/material/SvgIcon';
+import styles from './styles.css.js';
 
-const SendIcon = props => {
-  const { className } = props;
-  const classes = styles(props);
+const Send = props => {
+  const { sx } = props;
   return (
-    <SvgIcon classes={{ root: classNames(classes.icon, className) }} {...props}>
+    <SvgIcon sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}>
       <path d="M0 0l20 10-20 10v-20zM0 8v4l10-2-10-2z" />
     </SvgIcon>
   );
 };
 
-SendIcon.propTypes = { className: PropTypes.string };
-SendIcon.defaultProps = { className: null };
+Send.propTypes = {
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
+};
+Send.defaultProps = {
+  sx: {}
+};
 
-export default SendIcon;
+export default Send;

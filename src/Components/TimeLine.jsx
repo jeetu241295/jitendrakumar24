@@ -1,24 +1,23 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Timeline from '@material-ui/lab/Timeline';
-import TimelineItem from '@material-ui/lab/TimelineItem';
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
-import TimelineConnector from '@material-ui/lab/TimelineConnector';
-import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineDot from '@material-ui/lab/TimelineDot';
-import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import {
+  Timeline,
+  TimelineContent,
+  TimelineOppositeContent,
+  TimelineDot,
+  TimelineSeparator,
+  TimelineConnector,
+  TimelineItem
+} from '@mui/lab';
+import { Paper, Typography } from '@mui/material';
 import Normal from './Fonts/Normal';
 
-const useStyles = makeStyles(theme => ({
+const styles = {
   paper: {
     padding: '12px 16px'
   },
   transparentConnector: {
-    backgroundColor: theme.colors.transparent
+    backgroundColor: 'colors.transparent'
   },
   normalText: {
     textAlign: 'justify'
@@ -35,45 +34,36 @@ const useStyles = makeStyles(theme => ({
   icon: {
     margin: 0
   }
-}));
+};
 
 const TimeLineJK = props => {
-  const { className, align, data } = props;
-  const classes = useStyles();
+  const { position, data, sx } = props;
 
   return (
-    <Timeline className={classNames(className)} align={align}>
+    <Timeline sx={[...(Array.isArray(sx) ? sx : [sx])]} position={position}>
       {data.map((item, index) => {
         return (
           <TimelineItem key={item.id}>
-            <TimelineOppositeContent className={classes.verticallyCenter}>
+            <TimelineOppositeContent sx={styles.verticallyCenter}>
               {item.period}
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineConnector
-                className={classNames({
-                  [classes.transparentConnector]: index === 0
-                })}
+                sx={[index === 0 && styles.transparentConnector]}
               />
               <TimelineDot variant="outlined" color="primary">
                 {item.icon}
               </TimelineDot>
               <TimelineConnector
-                className={classNames({
-                  [classes.transparentConnector]: data.length - 1 === index
-                })}
+                sx={[data.length - 1 === index && styles.transparentConnector]}
               />
             </TimelineSeparator>
             <TimelineContent>
-              <Paper elevation={3} className={classes.paper}>
-                <Typography
-                  className={classes.period}
-                  variant="h6"
-                  component="div"
-                >
+              <Paper elevation={3} sx={styles.paper}>
+                <Typography sx={styles.period} variant="h6" component="div">
                   {item.title}
                 </Typography>
-                <Normal className={classes.normalText}>{item.context}</Normal>
+                <Normal sx={styles.normalText}>{item.context}</Normal>
               </Paper>
             </TimelineContent>
           </TimelineItem>
@@ -84,14 +74,20 @@ const TimeLineJK = props => {
 };
 
 TimeLineJK.propTypes = {
-  className: PropTypes.string,
   data: PropTypes.array.isRequired,
-  align: PropTypes.oneOf(['alternate', 'left', 'right'])
+  position: PropTypes.oneOf(['alternate', 'left', 'right']),
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
 };
 
 TimeLineJK.defaultProps = {
-  className: null,
-  align: 'alternate'
+  position: 'alternate',
+  sx: {}
 };
 
 export default TimeLineJK;

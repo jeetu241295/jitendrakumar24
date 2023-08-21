@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Alert from '@material-ui/lab/Alert';
-import Snackbar from '@material-ui/core/Snackbar';
+import { Alert, Snackbar } from '@mui/material';
 
 const SimpleSnackbar = props => {
   const [messageOpen, setOpen] = useState(false);
-  const { apiResult, autoHideDuration, open } = props;
+  const { apiResult, sx, autoHideDuration, open } = props;
   let severity;
   const { message, status } = apiResult.data;
 
@@ -26,6 +25,7 @@ const SimpleSnackbar = props => {
 
   return (
     <Snackbar
+      sx={[...(Array.isArray(sx) ? sx : [sx])]}
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'center'
@@ -49,11 +49,19 @@ const SimpleSnackbar = props => {
 SimpleSnackbar.propTypes = {
   autoHideDuration: PropTypes.number,
   apiResult: PropTypes.object.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
 };
 
 SimpleSnackbar.defaultProps = {
-  autoHideDuration: 5000
+  autoHideDuration: 5000,
+  sx: {}
 };
 
 export default SimpleSnackbar;

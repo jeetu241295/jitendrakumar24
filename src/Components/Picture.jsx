@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 const Picture = props => {
   const { images, pictureClass, imageClass } = props;
   return (
-    <picture className={classNames(pictureClass)}>
+    <picture style={pictureClass}>
       {images.map((image, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <source key={index} type={image.type} srcSet={image.src} />
@@ -13,7 +12,7 @@ const Picture = props => {
       <img
         src={images[images.length - 1].src}
         alt={images[images.length - 1].src}
-        className={classNames(imageClass)}
+        style={imageClass}
       />
     </picture>
   );

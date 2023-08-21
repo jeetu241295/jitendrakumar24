@@ -1,7 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import { Grid, Typography } from '@mui/material';
 import {
   FacebookIcon,
   LinkedInIcon,
@@ -12,52 +10,34 @@ import {
 } from '__ASSETS__/SVG';
 import IconButton from './IconButton';
 
-const styles = makeStyles(theme => ({
-  footer: {
-    padding: '2rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    backgroundColor: theme.colors.footer
-  },
+const styles = {
   rights: {
-    color: theme.colors.containerBackground,
-    fontSize: '1.5rem'
-  },
-  navLink: {
-    color: theme.colors.containerBackground,
+    color: 'colors.containerBackground',
     fontSize: '1.5rem',
-    backgroundColor: theme.colors.transparent,
-    padding: '1rem 2rem',
-    '&:hover': {
-      backgroundColor: theme.colors.transparent
-    },
-    '&:focus': {
-      backgroundColor: theme.colors.transparent
-    }
+    textAlign: 'center'
   },
-  listItem: {
-    marginBottom: '1rem',
-    textAlign: 'center',
+  footer: {
+    pb: '2rem',
+    backgroundColor: 'colors.footer',
     '& button': {
-      color: theme.colors.white,
-      marginRight: '1.5rem',
-      [theme.breakpoints.down('sm')]: {
-        marginBottom: '1rem',
-        padding: '0.5rem 1rem'
-      }
+      color: 'common.white',
+      marginRight: '1.5rem'
     }
   }
-}));
+};
 
 const Footer = () => {
-  const classes = styles();
   return (
-    <Grid container className={classes.footer}>
-      <Grid className={classes.listItem}>
+    <Grid
+      container
+      sx={styles.footer}
+      component="footer"
+      justifyContent="center"
+      spacing={1}
+      alignItems="center"
+    >
+      <Grid item xs={1}>
         <IconButton
-          id="facbook-icon"
           onClick={() => {
             window.open(
               'https://www.facebook.com/jitendra.kumar.501',
@@ -67,16 +47,18 @@ const Footer = () => {
         >
           <FacebookIcon />
         </IconButton>
+      </Grid>
+      <Grid item xs={1}>
         <IconButton
-          id="github-icon"
           onClick={() => {
             window.open('https://github.com/JitendraBhamidipati', '_blank');
           }}
         >
           <GithubIcon />
         </IconButton>
+      </Grid>
+      <Grid item xs={1}>
         <IconButton
-          id="instagram-icon"
           onClick={() => {
             window.open(
               'https://www.instagram.com/jitendra.bhamidipati/',
@@ -86,8 +68,9 @@ const Footer = () => {
         >
           <InstagramIcon />
         </IconButton>
+      </Grid>
+      <Grid item xs={1}>
         <IconButton
-          id="linkedin-icon"
           onClick={() => {
             window.open(
               'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
@@ -97,8 +80,9 @@ const Footer = () => {
         >
           <LinkedInIcon />
         </IconButton>
+      </Grid>
+      <Grid item xs={1}>
         <IconButton
-          id="twitter-icon"
           onClick={() => {
             window.open('https://twitter.com/jeetu241295', '_blank');
           }}
@@ -106,8 +90,8 @@ const Footer = () => {
           <TwitterIcon />
         </IconButton>
       </Grid>
-      <Grid className={classes.listItem}>
-        <Typography className={classes.rights} component="div" variant="h6">
+      <Grid item xs={12}>
+        <Typography sx={styles.rights} component="div" variant="h6">
           Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra Kumar. All
           rights reserved.
         </Typography>

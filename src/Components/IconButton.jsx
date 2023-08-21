@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-
-const styles = makeStyles(() => ({
-  iconButton: {}
-}));
+import IconButton from '@mui/material/IconButton';
 
 const IconButtonJK = props => {
-  const { className, children, onClick, id, ...others } = props;
-  const classes = styles();
+  const { children, sx, onClick, id, ...others } = props;
+
   return (
     <IconButton
+      sx={[...(Array.isArray(sx) ? sx : [sx])]}
       aria-label={`${id}`}
-      className={classNames(classes.iconButton, className)}
       disableFocusRipple
       onClick={onClick}
       {...others}
@@ -25,14 +19,20 @@ const IconButtonJK = props => {
 };
 
 IconButtonJK.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   id: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
 };
 
 IconButtonJK.defaultProps = {
-  className: null
+  sx: {}
 };
 
 export default IconButtonJK;

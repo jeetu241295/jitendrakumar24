@@ -1,17 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import styles from './styles.css';
+import SvgIcon from '@mui/material/SvgIcon';
+import styles from './styles.css.js';
 
-const TripIcon = props => {
-  const { className } = props;
-  const classes = styles(props);
+const Trip = props => {
+  const { sx } = props;
   return (
     <SvgIcon
+      sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}
       viewBox="0 0 840.000000 569.000000"
-      classes={{ root: classNames(classes.icon, className) }}
-      {...props}
     >
       <g
         transform="translate(0.000000,569.000000) scale(0.100000,-0.100000)"
@@ -25,7 +21,17 @@ const TripIcon = props => {
   );
 };
 
-TripIcon.propTypes = { className: PropTypes.string };
-TripIcon.defaultProps = { className: null };
+Trip.propTypes = {
+  sx: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])
+    ),
+    PropTypes.func,
+    PropTypes.object
+  ])
+};
+Trip.defaultProps = {
+  sx: {}
+};
 
-export default TripIcon;
+export default Trip;
