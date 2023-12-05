@@ -1,29 +1,24 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import SpeedDial from '@material-ui/lab/SpeedDial';
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
+import { SpeedDial, Grid, SpeedDialAction, SpeedDialIcon } from '@mui/material';
 
-const useStyles = makeStyles(theme => ({
+const styles = {
   root: {
-    // height: 380,
     flexGrow: 1
   },
   selected: {
-    color: theme.colors.mainAction
+    color: 'colors.mainAction'
   },
   speedDial: {
     position: 'absolute',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2)
+    bottom: theme => theme.spacing(2),
+    right: theme => theme.spacing(2)
   }
-}));
+};
 
 const SpeedDialJK = props => {
-  const { hidden, className, actions, icon, active, onOpen } = props;
-  const classes = useStyles();
+  const { hidden, sx, actions, icon, active, onOpen } = props;
+
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -35,10 +30,10 @@ const SpeedDialJK = props => {
   };
 
   return (
-    <div className={classes.root}>
+    <Grid sx={styles.root}>
       <SpeedDial
         ariaLabel="SpeedDial Tab"
-        className={classNames(classes.speedDial, className)}
+        sx={[styles.speedDial, ...(Array.isArray(sx) ? sx : [sx])]}
         hidden={hidden}
         icon={<SpeedDialIcon icon={icon} />}
         onClose={handleClose}
@@ -53,16 +48,10 @@ const SpeedDialJK = props => {
       >
         {actions.map((action, index) => (
           <SpeedDialAction
-            classes={{
-              fab: classNames({ [classes.selected]: active === index }),
-              staticTooltipLabel: classNames({
-                [classes.selected]: active === index
-              })
-            }}
+            sx={[active === index && styles.selected]}
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
-            // delay={10}
             tooltipOpen
             onClick={() => {
               handleClose();
@@ -71,21 +60,25 @@ const SpeedDialJK = props => {
           />
         ))}
       </SpeedDial>
-    </div>
+    </Grid>
   );
 };
 
 SpeedDialJK.propTypes = {
   active: PropTypes.number.isRequired,
   actions: PropTypes.array.isRequired,
-  className: PropTypes.string,
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  ),
   icon: PropTypes.node,
   onOpen: PropTypes.func,
   hidden: PropTypes.bool
 };
 
 SpeedDialJK.defaultProps = {
-  className: null,
+  sx: {},
   icon: null,
   onOpen: false,
   hidden: false

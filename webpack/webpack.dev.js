@@ -33,7 +33,6 @@ module.exports = {
   devServer: {
     compress: true,
     hot: true,
-    host: 'localhost', // need to remove after fix is done https://github.com/webpack/webpack-dev-server/issues/2943
     historyApiFallback: true,
     open: true,
     port: 3333

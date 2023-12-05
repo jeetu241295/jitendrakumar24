@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Alert from '@material-ui/lab/Alert';
-import Snackbar from '@material-ui/core/Snackbar';
+import { Snackbar, Alert } from '@mui/material';
 
 const SimpleSnackbar = props => {
   const [messageOpen, setOpen] = useState(false);

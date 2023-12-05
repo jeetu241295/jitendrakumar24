@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
 const VerticalMenu = props => {
-  const { className } = props;
-  const classes = styles(props);
+  const { sx, ...rest } = props;
   return (
     <SvgIcon
-      classes={{ root: classNames(classes.icon, className) }}
+      sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}
       viewBox="0 0 24 24"
-      {...props}
+      fontSize="small"
+      {...rest}
     >
       <g>
         <g>
@@ -26,7 +25,13 @@ const VerticalMenu = props => {
   );
 };
 
-VerticalMenu.propTypes = { className: PropTypes.string };
-VerticalMenu.defaultProps = { className: null };
+VerticalMenu.propTypes = {
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  )
+};
+VerticalMenu.defaultProps = { sx: {} };
 
 export default VerticalMenu;

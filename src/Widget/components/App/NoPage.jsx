@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import Normal from '__SHARED__/Fonts/Normal';
 import lostImg from '__ASSETS__/Images/lost';
 
-const styles = makeStyles(theme => ({
+const styles = {
   about: {
     display: 'flex',
     justifyContent: 'center',
@@ -19,12 +18,8 @@ const styles = makeStyles(theme => ({
     flexDirection: 'column'
   },
   imgWrap: {
-    width: '25rem',
-    height: '25rem',
-    [theme.breakpoints.down('sm')]: {
-      width: '20rem',
-      height: '20rem'
-    }
+    width: { xs: '20rem', sm: '25rem' },
+    height: { xs: '20rem', sm: '25rem' }
   },
   oops: {
     fontWeight: 'bold',
@@ -32,30 +27,29 @@ const styles = makeStyles(theme => ({
     marginBottom: '3rem'
   },
   text: {
-    color: theme.colors.black,
+    color: 'common.black',
     fontSize: '1.5rem',
     lineHeight: 1.5
   }
-}));
+};
 
 const NoPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const classes = styles();
   return (
-    <Grid container className={classes.about}>
+    <Grid container sx={styles.about}>
       <Grid item md={4} sm={6} xs={12}>
-        <img className={classes.imgWrap} src={lostImg} alt="Lost" />
+        <Grid component="img" sx={styles.imgWrap} src={lostImg} alt="Lost" />
       </Grid>
-      <Grid item md={8} sm={6} xs={12} className={classes.textWrap}>
-        <Normal className={classes.oops}>Oops..!</Normal>
-        <Normal className={classes.text}>
+      <Grid item md={8} sm={6} xs={12} sx={styles.textWrap}>
+        <Normal sx={styles.oops}>Oops..!</Normal>
+        <Normal sx={styles.text}>
           It seams you have lost in the path of search or something might have
           gone wrong.
         </Normal>
-        <Normal className={classes.text}>
+        <Normal sx={styles.text}>
           Please go to the <Link to="/">home</Link> Page
         </Normal>
       </Grid>

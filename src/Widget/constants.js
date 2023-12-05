@@ -36,12 +36,6 @@ import ManchuriaAvatar from '__ASSETS__/Avatars/Manchuria';
 import BooksAvatar from '__ASSETS__/Avatars/Books';
 import NarutoOnePieceAvatar from '__ASSETS__/Avatars/Naruto_OnePiece';
 
-export const SUBMIT_LOADER = 'SUBMIT_LOADER';
-export const RATING = 'RATING';
-export const RATING_VALUE = 'RATING_VALUE';
-export const SUGGESTION_DIALOG = 'SUGGESTION_DIALOG';
-
-// export const navs = ['home', 'Projects', 'contact'];
 export const navs = ['home', 'about', 'projects', 'contact'];
 
 export const images = [
@@ -234,7 +228,7 @@ export const projects = [
       'https://github.com/JitendraBhamidipati/NodeJS/tree/master/ChatApp'
   },
   {
-    id: 6,
+    id: 7,
     imgTitle: 'Convert Images',
     imgPath: convertImages,
     projectDate: 'January 10th 2021',

@@ -1,20 +1,30 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Hidden from '@material-ui/core/Hidden';
-import Slide from '@material-ui/core/Slide';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Hidden from '@mui/material/Hidden';
+import Slide from '@mui/material/Slide';
+import Grid from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import { VerticalMenuIcon } from '__ASSETS__/SVG';
 import SpeedDial from './Speeddial';
+import Normal from './Fonts/Normal';
 
-const styles = makeStyles(theme => ({
+const styles = {
   tab: {
+    '&.Mui-selected div': {
+      color: 'colors.mainAction'
+    },
+    '&.Mui-selected:hover div': {
+      color: 'common.black'
+    },
     '&:hover': {
-      color: theme.colors.black
+      zIndex: 10,
+      color: 'common.black',
+      '& > *': {
+        zIndex: 10,
+        color: 'common.black'
+      }
     },
     '&::before': {
       content: '""',
@@ -23,7 +33,7 @@ const styles = makeStyles(theme => ({
       left: 0,
       height: '100%',
       width: 3,
-      backgroundColor: theme.colors.mainAction,
+      backgroundColor: 'colors.mainAction',
       transform: 'scaleY(0)',
       transition:
         'transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, backgroundColor 0.1s'
@@ -32,6 +42,10 @@ const styles = makeStyles(theme => ({
       width: '100%',
       transform: 'scaleY(1)'
     }
+  },
+  verticalTab: {
+    minHeight: 50,
+    p: 0
   },
   tabContent: {
     padding: '2rem'
@@ -43,14 +57,8 @@ const styles = makeStyles(theme => ({
     transform: 'none',
     zIndex: 1
   },
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    fontWeight: 'bold',
-    zIndex: props => (props.styled ? 10 : 1)
-  },
-  labelIcon: {
-    minHeight: props => (props.orientation === 'vertical' ? 'unset' : 72)
+  styledWrapper: {
+    zIndex: 10
   },
   tabsSpeedDial: {
     position: 'fixed',
@@ -60,7 +68,13 @@ const styles = makeStyles(theme => ({
     animationDuration: '2s',
     animationIterationCount: 'infinite',
     animationTimingFunction: 'ease-in-out',
-    animationPlayState: props => (!props.animation ? 'paused' : 'running')
+    animationPlayState: 'running'
+  },
+  label: {
+    color: 'common.black'
+  },
+  animatedDial: {
+    animationPlayState: 'paused'
   },
   '@keyframes danceDial': {
     '0%': {
@@ -79,7 +93,7 @@ const styles = makeStyles(theme => ({
       transform: 'translateY(0px)'
     }
   }
-}));
+};
 
 const FullWidthTabs = props => {
   const [value, setValue] = useState(0);
@@ -95,7 +109,7 @@ const FullWidthTabs = props => {
     variant,
     styled
   } = props;
-  const classes = styles({ ...props, animation });
+
   const isVertical = orientation === 'vertical';
   const slideDirection = orientation === 'vertical' ? 'up' : 'left';
   const actions = [];
@@ -117,14 +131,11 @@ const FullWidthTabs = props => {
         });
         return (
           <Tab
+            iconPosition="start"
+            sx={[styled && styles.tab, isVertical && styles.verticalTab]}
             key={item.id}
-            className={classNames({ [classes.tab]: styled })}
-            classes={{
-              wrapper: classes.wrapper,
-              labelIcon: classes.labelIcon
-            }}
             disabled={item.disabled}
-            label={item.label}
+            label={<Normal sx={styles.label}>{item.label}</Normal>}
             icon={item.icon}
           />
         );
@@ -132,7 +143,7 @@ const FullWidthTabs = props => {
     </Tabs>
   );
   const tabsData = appbarExists ? (
-    <AppBar className={classes.appbar} position="static" color="transparent">
+    <AppBar sx={styles.appbar} position="static" color="transparent">
       {x}
     </AppBar>
   ) : (
@@ -140,17 +151,17 @@ const FullWidthTabs = props => {
   );
 
   return (
-    <Grid className={classes.root} container>
+    <Grid sx={styles.root} container>
       {isVertical ? (
         <React.Fragment>
-          <Hidden xsDown>
+          <Hidden mdDown>
             <Grid item xl={1} md={2} sm={3}>
               {tabsData}
             </Grid>
           </Hidden>
-          <Hidden smUp>
+          <Hidden mdUp>
             <SpeedDial
-              className={classes.tabsSpeedDial}
+              sx={[styles.tabsSpeedDial, animation && styles.animatedDial]}
               actions={actions}
               active={value}
               icon={<VerticalMenuIcon width={22} />}
@@ -163,13 +174,7 @@ const FullWidthTabs = props => {
           {tabsData}
         </Grid>
       )}
-      <Grid
-        item
-        xl={isVertical && 11}
-        md={isVertical && 10}
-        sm={isVertical && 9}
-        xs={12}
-      >
+      <Grid item xl={isVertical && 11} md={isVertical && 10} xs={12}>
         {tabs.map((item, index) => (
           <Slide
             key={item.id}
@@ -179,9 +184,10 @@ const FullWidthTabs = props => {
             unmountOnExit
           >
             <Grid
-              className={classNames(tabContainerStyle, {
-                [classes.tabContent]: !item.disablePadding
-              })}
+              sx={[
+                tabContainerStyle,
+                !item.disablePadding && styles.tabContent
+              ]}
               container
             >
               {item.content}

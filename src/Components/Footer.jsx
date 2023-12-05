@@ -1,7 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import {
   FacebookIcon,
   LinkedInIcon,
@@ -12,102 +11,89 @@ import {
 } from '__ASSETS__/SVG';
 import IconButton from './IconButton';
 
-const styles = makeStyles(theme => ({
+const styles = {
   footer: {
     padding: '2rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column',
-    backgroundColor: theme.colors.footer
+    backgroundColor: 'colors.footer'
   },
   rights: {
-    color: theme.colors.containerBackground,
-    fontSize: '1.5rem'
+    color: 'colors.containerBackground',
+    fontSize: '1.5rem',
+    textAlign: 'center'
   },
   navLink: {
-    color: theme.colors.containerBackground,
+    color: 'colors.containerBackground',
     fontSize: '1.5rem',
-    backgroundColor: theme.colors.transparent,
+    backgroundColor: 'colors.transparent',
     padding: '1rem 2rem',
     '&:hover': {
-      backgroundColor: theme.colors.transparent
+      backgroundColor: 'colors.transparent'
     },
     '&:focus': {
-      backgroundColor: theme.colors.transparent
+      backgroundColor: 'colors.transparent'
     }
   },
   listItem: {
     marginBottom: '1rem',
-    textAlign: 'center',
-    '& button': {
-      color: theme.colors.white,
-      marginRight: '1.5rem',
-      [theme.breakpoints.down('sm')]: {
-        marginBottom: '1rem',
-        padding: '0.5rem 1rem'
-      }
-    }
+    textAlign: 'center'
+  },
+  button: {
+    color: 'common.white',
+    marginRight: '1.5rem',
+    mb: '1rem',
+    p: { xs: '0.5rem 1rem', md: 0 }
   }
-}));
+};
+
+const icons = [
+  {
+    id: 'facbook-icon',
+    icon: <FacebookIcon />,
+    url: 'https://www.facebook.com/jitendra.kumar.501'
+  },
+  {
+    id: 'github-icon',
+    icon: <GithubIcon />,
+    url: 'https://github.com/JitendraBhamidipati'
+  },
+  {
+    id: 'instagram-icon',
+    icon: <InstagramIcon />,
+    url: 'https://www.instagram.com/jitendra.bhamidipati/'
+  },
+  {
+    id: 'linkedin-icon',
+    icon: <LinkedInIcon />,
+    url: 'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a'
+  },
+  {
+    id: 'twitter-icon',
+    icon: <TwitterIcon />,
+    url: 'https://twitter.com/jeetu241295'
+  }
+];
 
 const Footer = () => {
-  const classes = styles();
   return (
-    <Grid container className={classes.footer}>
-      <Grid className={classes.listItem}>
-        <IconButton
-          id="facbook-icon"
-          onClick={() => {
-            window.open(
-              'https://www.facebook.com/jitendra.kumar.501',
-              '_blank'
-            );
-          }}
-        >
-          <FacebookIcon />
-        </IconButton>
-        <IconButton
-          id="github-icon"
-          onClick={() => {
-            window.open('https://github.com/JitendraBhamidipati', '_blank');
-          }}
-        >
-          <GithubIcon />
-        </IconButton>
-        <IconButton
-          id="instagram-icon"
-          onClick={() => {
-            window.open(
-              'https://www.instagram.com/jitendra.bhamidipati/',
-              '_blank'
-            );
-          }}
-        >
-          <InstagramIcon />
-        </IconButton>
-        <IconButton
-          id="linkedin-icon"
-          onClick={() => {
-            window.open(
-              'https://www.linkedin.com/in/jitendra-kumar-bhamidipati-a473b617a/',
-              '_blank'
-            );
-          }}
-        >
-          <LinkedInIcon />
-        </IconButton>
-        <IconButton
-          id="twitter-icon"
-          onClick={() => {
-            window.open('https://twitter.com/jeetu241295', '_blank');
-          }}
-        >
-          <TwitterIcon />
-        </IconButton>
-      </Grid>
-      <Grid className={classes.listItem}>
-        <Typography className={classes.rights} component="div" variant="h6">
+    <Grid container sx={styles.footer} textAlign="center">
+      {icons.map(item => (
+        <Grid key={item.id} item xs={1}>
+          <IconButton
+            sx={styles.button}
+            id={item.id}
+            onClick={() => {
+              window.open(item.url, '_blank');
+            }}
+          >
+            {item.icon}
+          </IconButton>
+        </Grid>
+      ))}
+      <Grid item xs={12}>
+        <Typography sx={styles.rights} component="div" variant="h6">
           Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra Kumar. All
           rights reserved.
         </Typography>

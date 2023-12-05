@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
+import Grid from '@mui/material/Grid';
+import Avatar from '@mui/material/Avatar';
+import { intrests } from '../../constants';
 
-const styles = makeStyles(theme => ({
+const styles = {
   title: {
-    color: theme.colors.black,
+    color: 'colors.black',
     fontSize: '1.75rem',
     letterSpacing: 1.25,
     fontFamily: 'cursive',
@@ -51,33 +50,25 @@ const styles = makeStyles(theme => ({
     textAlign: 'justify',
     fontSize: '1.5rem'
   }
-}));
+};
 
-const Intrests = props => {
-  const { intrests } = props;
-  const classes = styles();
+const Intrests = () => {
   return (
     <Grid container spacing={5}>
       {intrests.map(item => (
-        <Grid item xs={12} key={item.id} className={classes.intrestWrap}>
-          <Grid className={classes.avatarWrap}>
-            <Avatar
-              alt={item.title}
-              src={item.avatar}
-              className={classes.avatar}
-            />
-            <Grid className={classes.title}>{item.title}</Grid>
+        <Grid item xs={12} key={item.id} sx={styles.intrestWrap}>
+          <Grid sx={styles.avatarWrap}>
+            <Avatar alt={item.title} src={item.avatar} sx={styles.avatar} />
+            <Grid sx={styles.title}>{item.title}</Grid>
           </Grid>
-          <Grid className={classes.text}>{item.content}</Grid>
+          <Grid sx={styles.text}>{item.content}</Grid>
         </Grid>
       ))}
     </Grid>
   );
 };
 
-Intrests.propTypes = {
-  intrests: PropTypes.array.isRequired
-};
+Intrests.propTypes = {};
 
 Intrests.defaultPtops = {};
 
