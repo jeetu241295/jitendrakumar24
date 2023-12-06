@@ -33,12 +33,12 @@ const Personal = props => {
           return (
             <React.Fragment key={item.id}>
               {renderDetails(item)}
-              {renderImages(item, disablePadding)}
+              {renderImages(item, disablePadding, true)}
             </React.Fragment>
           );
         return (
           <React.Fragment key={item.id}>
-            {renderImages(item, disablePadding)}
+            {renderImages(item, disablePadding, true)}
             {renderDetails(item)}
           </React.Fragment>
         );

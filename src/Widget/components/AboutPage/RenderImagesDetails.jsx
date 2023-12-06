@@ -41,7 +41,7 @@ const styles = {
   },
   compositionImage3: {
     left: { lg: 150 },
-    top: { sm: 50, md: 100, lg: 125 },
+    top: { sm: 75, md: 100, lg: 125 },
     zIndex: 5
   },
   content: {
@@ -60,6 +60,9 @@ const styles = {
     fontStyle: 'italic',
     marginBottom: '2rem'
   },
+  tripImage1: { left: { md: 75 }, zIndex: 5 },
+  tripImage2: { right: { lg: 75 }, zIndex: 5 },
+  tripImage3: { top: { md: 125 }, zIndex: 5 },
   placesCovered: {
     marginTop: '2rem',
     fontStyle: 'italic',
@@ -105,7 +108,7 @@ export const renderDetails = (item, isOffice = false) => {
   );
 };
 
-export const renderImages = (item, disablePadding) => {
+export const renderImages = (item, disablePadding, isTrip) => {
   return (
     <Grid
       sx={[styles.compositionWrap, disablePadding && styles.disablePadding]}
@@ -119,19 +122,31 @@ export const renderImages = (item, disablePadding) => {
       <Grid
         component="img"
         alt="image_1"
-        sx={[styles.compositionImage1, styles.image]}
+        sx={[
+          styles.compositionImage1,
+          styles.image,
+          isTrip && styles.tripImage1
+        ]}
         src={item.image1}
       />
       <Grid
         component="img"
         alt="image_2"
-        sx={[styles.compositionImage2, styles.image]}
+        sx={[
+          styles.compositionImage2,
+          styles.image,
+          isTrip && styles.tripImage2
+        ]}
         src={item.image2}
       />
       <Grid
         component="img"
         alt="image_3"
-        sx={[styles.compositionImage3, styles.image]}
+        sx={[
+          styles.compositionImage3,
+          styles.image,
+          isTrip && styles.tripImage3
+        ]}
         src={item.image3}
       />
     </Grid>
