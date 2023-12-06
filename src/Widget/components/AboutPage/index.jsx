@@ -22,7 +22,7 @@ const styles = {
 
 const AboutPage = () => {
   const theme = useTheme();
-  const isBelowMD = useMediaQuery(theme.breakpoints.down('sm'));
+  const isBelowMD = useMediaQuery(theme.breakpoints.down('md'));
 
   const tabs = [
     {

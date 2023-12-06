@@ -6,49 +6,42 @@ import Rating from '__SHARED__/Rating';
 
 const styles = {
   compositionWrap: {
-    padding: '2rem'
+    position: 'relative',
+    padding: '2rem',
+    height: { xs: 200, md: 'auto' }
   },
   disablePadding: { p: 0 },
-  composition: {
-    position: 'relative',
-    minHeight: { xs: '20rem', sm: '25rem', md: '30rem', lg: '35rem' },
-    top: { md: '12.5%' },
-    left: { md: 40 },
-    '& img': {
-      width: { xs: '33.33%', sm: '40%' },
-      boxShadow: {
-        xs: 6,
-        sm: 8
-      },
-      borderRadius: 2,
-      position: { xs: 'relative', sm: 'absolute' },
-      outlineOffset: '1.5rem',
-      float: { xs: 'left', sm: 'none' },
-      '&:hover': {
-        transform: 'scale(1.05) translateY(-0.5rem)',
-        boxShadow: 4,
-        zIndex: 99990,
-        outline: `1.5rem solid`,
-        outlineColor: theme => theme.palette.colors.mainAction
-      },
-      '&:hover &__photo:not(:hover)': {
-        transform: 'scale(0.95)'
-      }
+  image: {
+    position: 'absolute',
+    width: { xs: '33.33%', md: '40%' },
+    height: { xs: 75, sm: 100, md: 150 },
+    boxShadow: { xs: 6, md: 8 },
+    borderRadius: 2,
+    outlineOffset: '1.5rem',
+    '&:hover': {
+      transform: 'scale(1.05) translateY(-0.5rem)',
+      boxShadow: 4,
+      zIndex: 99990,
+      outline: `1.5rem solid`,
+      outlineColor: theme => theme.palette.colors.mainAction
+    },
+    '&:hover &__photo:not(:hover)': {
+      transform: 'scale(0.95)'
     }
   },
   compositionImage1: {
-    left: { xs: '6rem', lg: '4rem' },
-    top: { xs: '3rem', lg: '-2rem' },
+    left: { xs: '3rem', sm: '5rem', md: 100 },
+    top: { xs: '4rem', md: 50 },
     zIndex: 5
   },
   compositionImage2: {
-    right: { xs: 0, sm: '4rem', md: '8rem', lg: '15rem' },
-    top: { xs: '5rem', sm: '3rem', md: '5rem', lg: '1rem' },
-    zIndex: { xs: 10, sm: 5 }
+    right: { xs: '3rem', sm: '5rem', md: 50, lg: 100 },
+    top: { xs: '4rem', md: 75, lg: 75 },
+    zIndex: 5
   },
   compositionImage3: {
-    left: { xs: '-5rem', sm: '23rem', md: '12rem', lg: '20%' },
-    top: { xs: '3rem', sm: '10rem', md: '8rem', lg: '7rem' },
+    left: { lg: 150 },
+    top: { sm: 50, md: 100, lg: 125 },
     zIndex: 5
   },
   content: {
@@ -119,27 +112,28 @@ export const renderImages = (item, disablePadding) => {
       item
       md={6}
       xs={12}
+      container
+      justifyContent="center"
+      alignItems="center"
     >
-      <Grid sx={styles.composition}>
-        <Grid
-          component="img"
-          alt="image_1"
-          sx={styles.compositionImage1}
-          src={item.image1}
-        />
-        <Grid
-          component="img"
-          alt="image_2"
-          sx={styles.compositionImage2}
-          src={item.image2}
-        />
-        <Grid
-          component="img"
-          alt="image_3"
-          sx={styles.compositionImage3}
-          src={item.image3}
-        />
-      </Grid>
+      <Grid
+        component="img"
+        alt="image_1"
+        sx={[styles.compositionImage1, styles.image]}
+        src={item.image1}
+      />
+      <Grid
+        component="img"
+        alt="image_2"
+        sx={[styles.compositionImage2, styles.image]}
+        src={item.image2}
+      />
+      <Grid
+        component="img"
+        alt="image_3"
+        sx={[styles.compositionImage3, styles.image]}
+        src={item.image3}
+      />
     </Grid>
   );
 };
