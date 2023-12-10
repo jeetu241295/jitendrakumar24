@@ -22,7 +22,7 @@ const styles = {
   },
   info: {
     backgroundColor: 'colors.contact',
-    padding: '3rem',
+    padding: '2rem',
     color: 'common.white',
     my: '1rem'
   },
@@ -35,6 +35,9 @@ const styles = {
   normal: {
     color: 'common.white',
     textTransform: 'none'
+  },
+  icon: {
+    mx: 0
   },
   link: {
     '&:hover': {
@@ -51,10 +54,10 @@ const Contact = () => {
 
   return (
     <Grid container sx={styles.contact}>
-      <Grid item sm={5} xs={12} sx={styles.info}>
+      <Grid item md={5} xs={12} sx={styles.info}>
         <ContactForm />
       </Grid>
-      <Grid item sm={5} xs={12} container>
+      <Grid item md={5} xs={12} container>
         <Grid item xs={12} sx={styles.info}>
           <Typography sx={styles.header} component="h3">
             Address
@@ -62,7 +65,7 @@ const Contact = () => {
           <Button
             sx={styles.link}
             variant="Text"
-            startIcon={<LocationIcon />}
+            startIcon={<LocationIcon sx={styles.icon} />}
             href="https://maps.google.com/?q=Padmavathi Function Hall,Gollapudi"
             target="_blank"
             rel="noreferrer"
@@ -80,7 +83,7 @@ const Contact = () => {
           <Button
             sx={styles.link}
             variant="Text"
-            startIcon={<PhoneIcon />}
+            startIcon={<PhoneIcon sx={styles.icon} />}
             href="tel:+91 798-938-1360"
             target="_blank"
             rel="noreferrer"
@@ -92,28 +95,32 @@ const Contact = () => {
           <Typography sx={styles.header} component="h3">
             Web
           </Typography>
-          <Button
-            sx={styles.link}
-            variant="Text"
-            startIcon={<MailIcon />}
-            href="mailto:jitendrakumarbhamidipati@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Normal sx={styles.normal}>
-              jitendrakumarbhamidipati@gmail.com
-            </Normal>
-          </Button>
-          <Button
-            sx={styles.link}
-            variant="Text"
-            startIcon={<WebIcon />}
-            href="/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Normal sx={styles.normal}>www.{window.location.hostname}</Normal>
-          </Button>
+          <Grid>
+            <Button
+              sx={styles.link}
+              variant="Text"
+              startIcon={<MailIcon sx={styles.icon} />}
+              href="mailto:jitendrakumarbhamidipati@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Normal sx={styles.normal}>
+                jitendrakumarbhamidipati@gmail.com
+              </Normal>
+            </Button>
+          </Grid>
+          <Grid>
+            <Button
+              sx={styles.link}
+              variant="Text"
+              startIcon={<WebIcon sx={styles.icon} />}
+              href="/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Normal sx={styles.normal}>www.{window.location.hostname}</Normal>
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

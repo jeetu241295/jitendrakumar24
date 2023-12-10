@@ -87,10 +87,10 @@ const MessageModal = () => {
         <Grid item xs={12}>
           <TextField
             label="Review"
-            rows={4}
             variant="outlined"
             size="small"
             multiline
+            rows={4}
             fullWidth
             onChange={e => setReview(e.target.value)}
             value={review}
