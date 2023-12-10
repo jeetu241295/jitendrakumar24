@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { Grid } from '@mui/material';
 
 const Picture = props => {
   const { images, pictureClass, imageClass } = props;
   return (
-    <picture className={classNames(pictureClass)}>
+    <Grid component="picture" sx={classNames(pictureClass)}>
       {images.map((image, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <source key={index} type={image.type} srcSet={image.src} />
+        <Grid
+          component="source"
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+          type={image.type}
+          srcSet={image.src}
+        />
       ))}
-      <img
+      <Grid
+        component={'img'}
         src={images[images.length - 1].src}
         alt={images[images.length - 1].src}
-        className={classNames(imageClass)}
+        sx={classNames(imageClass)}
       />
-    </picture>
+    </Grid>
   );
 };
 

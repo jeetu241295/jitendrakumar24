@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@mui/material/Grid';
 import Tabs from '__SHARED__/Tabs';
 import { TripsIcon, IntrestsIcon } from '__ASSETS__/SVG';
 import Intrests from './Intrests';
 import { renderDetails, renderImages } from './RenderImagesDetails';
+import { trips } from '../../constants';
 
-const styles = makeStyles(() => ({
+const styles = {
   content: {
     padding: '2rem 1rem'
   }
-}));
+};
 
 const Personal = props => {
-  const { trips, isBelowMD } = props;
-  const classes = styles();
+  const { isBelowMD } = props;
 
   const tabs = [
     {
       id: 1,
       label: 'Intrests',
       icon: <IntrestsIcon width={24} height={24} />,
-      content: <Intrests {...props} />
+      content: <Intrests />
     },
     {
       id: 2,
@@ -34,12 +33,12 @@ const Personal = props => {
           return (
             <React.Fragment key={item.id}>
               {renderDetails(item)}
-              {renderImages(item, disablePadding)}
+              {renderImages(item, disablePadding, true)}
             </React.Fragment>
           );
         return (
           <React.Fragment key={item.id}>
-            {renderImages(item, disablePadding)}
+            {renderImages(item, disablePadding, true)}
             {renderDetails(item)}
           </React.Fragment>
         );
@@ -48,7 +47,7 @@ const Personal = props => {
   ];
 
   return (
-    <Grid container spacing={2} className={classes.abc}>
+    <Grid container spacing={2} sx={styles.abc}>
       <Grid item xs={12}>
         <Tabs orientation="vertical" appbarExists={false} tabs={tabs} styled />
       </Grid>
@@ -57,8 +56,7 @@ const Personal = props => {
 };
 
 Personal.propTypes = {
-  isBelowMD: PropTypes.bool.isRequired,
-  trips: PropTypes.array.isRequired
+  isBelowMD: PropTypes.bool.isRequired
 };
 Personal.defaultProps = {};
 export default Personal;

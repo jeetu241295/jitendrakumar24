@@ -1,10 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import PropTypes from 'prop-types';
+import Grid from '@mui/material/Grid';
 import ProjectCard from '__SHARED__/ProjectCard';
+import { projects } from '../constants';
 
-const styles = makeStyles(() => ({
+const styles = {
   about: {
     padding: '2rem',
     paddingTop: '8rem',
@@ -19,17 +18,15 @@ const styles = makeStyles(() => ({
   text: {
     fontSize: '3rem'
   }
-}));
+};
 
-const Projects = props => {
-  const { projects } = props;
-  const classes = styles(props);
+const Projects = () => {
   return (
-    <Grid container className={classes.about}>
+    <Grid container sx={styles.about}>
       {projects.map(project => (
         <Grid
           key={project.id}
-          className={classes.projectWrap}
+          sx={styles.projectWrap}
           item
           xs={12}
           sm={6}
@@ -42,9 +39,7 @@ const Projects = props => {
   );
 };
 
-Projects.propTypes = {
-  projects: PropTypes.array.isRequired
-};
+Projects.propTypes = {};
 Projects.defaultProps = {};
 
 export default Projects;

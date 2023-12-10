@@ -1,14 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
+import Grid from '@mui/material/Grid';
 import TimeLine from '__SHARED__/TimeLine';
-// import Card from './card';
+import { education, experience } from '../../../constants';
 
-const styles = makeStyles(theme => ({
+const styles = {
   experienceWrap: {
-    backgroundColor: theme.colors.containerBackground,
+    backgroundColor: 'colors.containerBackground',
     padding: '3rem 0'
   },
   title: {
@@ -17,28 +14,23 @@ const styles = makeStyles(theme => ({
     margin: '1rem',
     textAlign: 'center'
   }
-}));
+};
 
-const Experience = props => {
-  const { education, experience } = props;
-  const classes = styles();
-
+const Experience = () => {
   return (
-    <Grid container className={classes.experienceWrap}>
+    <Grid container sx={styles.experienceWrap}>
       <Grid item md={6} xs={12}>
-        <Grid className={classes.title}>Education</Grid>
+        <Grid sx={styles.title}>Education</Grid>
         <TimeLine data={education} />
       </Grid>
       <Grid item md={6} xs={12}>
-        <Grid className={classes.title}>Experience</Grid>
+        <Grid sx={styles.title}>Experience</Grid>
         <TimeLine data={experience} />
       </Grid>
     </Grid>
   );
 };
 
-Experience.propTypes = {
-  education: PropTypes.array.isRequired,
-  experience: PropTypes.array.isRequired
-};
+Experience.propTypes = {};
+
 export default Experience;

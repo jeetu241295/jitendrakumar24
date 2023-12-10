@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Grid from '@material-ui/core/Grid';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import {
+  ListItemIcon,
+  ListItemText,
+  ListItem,
+  ListItemButton,
+  List,
+  Drawer,
+  AppBar,
+  Toolbar,
+  Grid,
+  Slide,
+  useScrollTrigger
+} from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   MenuIcon,
   HeartIcon,
@@ -23,88 +26,76 @@ import Button from './Button';
 import IconButton from './IconButton';
 import logo from '../Assets/Images/logo';
 
-const styles = makeStyles(theme => ({
-  root: {
-    justifyContent: 'flex-start'
+const styles = {
+  toolBar: {
+    height: { xs: 48, sm: 64 }
   },
-  imageWrap: {
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '5rem',
-    '& img': {
-      width: 75,
-      height: 75
+  drawer: {
+    '& .MuiDrawer-paper': {
+      bgcolor: 'colors.navbar',
+      width: 275
     }
   },
+  mobileLogo: {
+    width: 125,
+    height: 125,
+    p: '3rem'
+  },
   menuButton: {
-    marginTop: -7,
-    [theme.breakpoints.up('sm')]: {
-      display: 'none'
-    },
+    display: { xs: 'block', sm: 'none' },
     marginRight: 'auto',
-    color: theme.colors.white
+    color: 'common.white',
+    p: 0
   },
   navLinkWrap: {
-    display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
     marginLeft: 'auto',
-    [theme.breakpoints.down('xs')]: {
-      display: 'none'
-    }
+    display: { xs: 'none', sm: 'flex' }
   },
   logo: {
     width: 35,
     height: 35,
-    marginRight: '2rem',
-    [theme.breakpoints.up('sm')]: {
-      margin: '0 2rem'
-    }
+    m: { xs: 0, sm: '0 2rem' },
+    marginRight: '2rem'
   },
   appbar: {
-    backgroundColor: theme.colors.navbar,
+    backgroundColor: 'colors.navbar',
     opacity: 0.7,
-    height: 64,
     top: 0,
-    transition: 'all .3s ease-in',
-    [theme.breakpoints.down('xs')]: {
-      height: 48
-    }
+    transition: 'all .3s ease-in'
   },
   link: {
-    color: theme.colors.white,
+    color: 'common.white',
     textDecoration: 'none',
     zIndex: 1
   },
   navLink: {
-    color: theme.colors.white,
+    color: 'common.white',
     fontSize: '1.5rem',
-    backgroundColor: theme.colors.transparent,
-    padding: '1rem 2rem',
+    backgroundColor: 'colors.transparent',
+    p: { xs: '0.5rem 1rem', sm: '1rem 2rem' },
     position: 'relative',
     '&:hover': {
-      backgroundColor: theme.colors.transparent,
-      transform: 'none'
+      backgroundColor: 'colors.transparent',
+      transform: 'none',
+      boxShadow: 0
+    },
+    '&:active': {
+      boxShadow: 0
     },
     '&:focus': {
-      backgroundColor: theme.colors.transparent
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: '0.5rem 1rem'
+      backgroundColor: 'colors.transparent'
     }
   },
-  paper: {
-    backgroundColor: theme.colors.navbar,
-    width: '50%'
-  },
   context: {
-    color: theme.colors.white,
+    color: 'common.white',
     fontSize: '1.5rem',
     fontWeight: 'bold'
   },
   listItem: {
     borderBottom: '2px solid',
-    borderColor: theme.colors.black,
+    borderColor: 'common.black',
     textTransform: 'uppercase',
     '&:first-child': {
       borderTop: '2px solid'
@@ -122,142 +113,110 @@ const styles = makeStyles(theme => ({
     }
   },
   navIcon: {
-    fill: theme.colors.white
+    fill: 'common.white',
+    alignItems: 'center'
   },
   rights: {
     borderTop: '2px solid',
     marginTop: 'auto',
     textAlign: 'center'
-  },
-  navUp: {
-    top: -57,
-    backgroundColor: theme.colors.mainAction,
-    opacity: 1,
-    '&:hover': {
-      top: 0,
-      backgroundColor: theme.colors.navbar,
-      opacity: 0.7
-    }
-  },
-  navDown: {}
-}));
+  }
+};
 
-const ButtonAppBar = props => {
-  const navBarHeight = 64;
-  let lastScrollTop = 0;
-  const [open, setOpen] = useState(false);
-  const [isScrolledDown, setScrollDown] = useState(false);
-
-  const { navs } = props;
-  const classes = styles();
-
-  const hasScrolled = () => {
-    const delta = 5;
-    const st = document.documentElement.scrollTop;
-    if (Math.abs(lastScrollTop - st) <= delta) return;
-    if (st > lastScrollTop && st > navBarHeight) {
-      setScrollDown(true);
-    } else if (
-      st + window.innerHeight <
-      document.documentElement.scrollHeight
-    ) {
-      setScrollDown(false);
-    }
-    lastScrollTop = st;
-  };
-
-  const handleScroll = () => {
-    hasScrolled();
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      lastScrollTop = 0;
-    };
-  }, []);
-
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+function HideOnScroll(props) {
+  const { children } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({
+    target: undefined
+  });
 
   return (
-    <div className={classes.root}>
-      <AppBar
-        position="fixed"
-        className={classNames(classes.appbar, {
-          [classes.navUp]: isScrolledDown === true,
-          [classes.navDown]: isScrolledDown === false
-        })}
-      >
-        <Toolbar disableGutters>
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired
+};
+
+function Navbar(props) {
+  const { navs } = props;
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = () => setOpen(!open);
+  const navigate = useNavigate();
+
+  return (
+    <HideOnScroll {...props}>
+      <AppBar sx={styles.appbar}>
+        <Toolbar sx={styles.toolBar}>
           <IconButton
             id="menu-icon"
-            className={classes.menuButton}
+            sx={styles.menuButton}
             onClick={toggleDrawer}
           >
             <MenuIcon />
           </IconButton>
-          <Drawer
-            open={open}
-            onClose={toggleDrawer}
-            classes={{
-              paper: classes.paper
-            }}
-          >
-            <Grid className={classes.imageWrap}>
+          <Drawer sx={styles.drawer} open={open} onClose={toggleDrawer}>
+            <Grid container justifyContent="center" sx={styles.wrapper}>
               <Link to="/">
-                <img alt="JK" src={logo} className={classes.mobileLogo} />
+                <Grid
+                  component="img"
+                  alt="JK"
+                  src={logo}
+                  sx={styles.mobileLogo}
+                />
               </Link>
-            </Grid>
-            <List className={classes.list}>
-              {navs.map(nav => {
-                let navIcon;
-                if (nav === 'home')
-                  navIcon = <HomeIcon className={classes.navIcon} />;
-                if (nav === 'about')
-                  navIcon = <AboutIcon className={classes.navIcon} />;
-                if (nav === 'projects')
-                  navIcon = <ProjectsIcon className={classes.navIcon} />;
-                if (nav === 'contact')
-                  navIcon = <ContactIcon className={classes.navIcon} />;
-                return (
-                  <ListItem
-                    button
-                    onClick={toggleDrawer}
-                    onKeyDown={toggleDrawer}
-                    key={nav}
-                    className={classes.listItem}
-                    disableGutters
-                  >
-                    <Link to={`/${nav}`}>
-                      <ListItemIcon>{navIcon}</ListItemIcon>
-                      <ListItemText
-                        primary={nav}
-                        classes={{
-                          primary: classes.context
+              <Grid item xs={12}>
+                <List sx={styles.list}>
+                  {navs.map(nav => {
+                    let navIcon;
+                    if (nav === 'home')
+                      navIcon = <HomeIcon sx={styles.navIcon} />;
+                    if (nav === 'about')
+                      navIcon = <AboutIcon sx={styles.navIcon} />;
+                    if (nav === 'projects')
+                      navIcon = <ProjectsIcon sx={styles.navIcon} />;
+                    if (nav === 'contact')
+                      navIcon = <ContactIcon sx={styles.navIcon} />;
+                    return (
+                      <ListItemButton
+                        onClick={() => {
+                          toggleDrawer();
+                          navigate(`/${nav}`);
                         }}
-                      />
-                    </Link>
-                  </ListItem>
-                );
-              })}
-            </List>
-            <ListItem className={classes.rights}>
-              <ListItemText
-                classes={{
-                  primary: classes.context
-                }}
-              >
+                        onKeyDown={() => {
+                          toggleDrawer();
+                          navigate(`/${nav}`);
+                        }}
+                        key={nav}
+                        sx={styles.listItem}
+                        disableGutters
+                      >
+                        <ListItemIcon sx={styles.navIcon}>
+                          {navIcon}
+                        </ListItemIcon>
+                        <ListItemText primary={nav} sx={styles.context} />
+                      </ListItemButton>
+                    );
+                  })}
+                </List>
+              </Grid>
+            </Grid>
+            <ListItem sx={styles.rights}>
+              <ListItemText sx={styles.context}>
                 Made with <HeartIcon />. &copy; Copyright 2019 by Jitendra
                 Kumar. All rights reserved.
               </ListItemText>
             </ListItem>
           </Drawer>
           <Link to="/">
-            <img alt="JK" src={logo} className={classes.logo} />
+            <Grid component="img" alt="JK" src={logo} sx={styles.logo} />
           </Link>
-          <Grid className={classes.navLinkWrap}>
+          <Grid sx={styles.navLinkWrap}>
             {navs.map(nav => {
               let navIcon;
               if (nav === 'home') navIcon = <HomeIcon />;
@@ -265,31 +224,30 @@ const ButtonAppBar = props => {
               if (nav === 'projects') navIcon = <ProjectsIcon />;
               if (nav === 'contact') navIcon = <ContactIcon />;
               return (
-                <Link
+                <Button
                   key={nav.toString()}
-                  className={classes.link}
-                  to={`/${nav}`}
+                  disableRipple
+                  disableFocusRipple
+                  sx={styles.navLink}
+                  onClick={() => navigate(`/${nav}`)}
+                  disableElevation
+                  startIcon={navIcon}
                 >
-                  <Button
-                    className={classes.navLink}
-                    onClick={() => {}}
-                    disableElevation
-                    startIcon={navIcon}
-                  >
-                    {nav}
-                  </Button>
-                </Link>
+                  {nav}
+                </Button>
               );
             })}
           </Grid>
         </Toolbar>
       </AppBar>
-    </div>
+    </HideOnScroll>
   );
-};
+}
 
-ButtonAppBar.propTypes = {
+Navbar.propTypes = {
   navs: PropTypes.array.isRequired
 };
 
-export default ButtonAppBar;
+Navbar.defaulProps = {};
+
+export default Navbar;

@@ -1,39 +1,36 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-const styles = makeStyles(theme => ({
+const styles = {
   handFont: {
-    color: theme.colors.textColor,
-    fontSize: '1.75rem',
+    color: 'colors.textColor',
+    fontSize: { xs: '1rem', sm: '1.5rem', md: '1.75rem' },
     fontFamily: 'Indie Flower, cursive',
-    lineHeight: '2.5rem',
-    [theme.breakpoints.down('md')]: {
-      fontSize: '1.5rem',
-      lineHeight: '2rem'
-    },
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '1rem'
-    }
+    lineHeight: { xs: '2rem', md: '2.5rem' }
   }
-}));
+};
 
 const HandFont = props => {
-  const { children, className } = props;
-  const classes = styles();
+  const { children, sx } = props;
+
   return (
-    <Grid className={classNames(classes.handFont, className)}>{children}</Grid>
+    <Grid sx={[styles.handFont, ...(Array.isArray(sx) ? sx : [sx])]}>
+      {children}
+    </Grid>
   );
 };
 
 HandFont.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  )
 };
 HandFont.defaultProps = {
-  className: ''
+  sx: {}
 };
 
 export default HandFont;

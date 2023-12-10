@@ -41,7 +41,7 @@ module.exports = env => {
     },
     resolve: {
       modules: ['src', 'node_modules'],
-      extensions: ['*', '.js', '.jsx', '.css', '.webp', '.jpeg', '.jpg'],
+      extensions: ['.*', '.js', '.jsx', '.css', '.webp', '.jpeg', '.jpg'],
       alias: {
         __GLOBAL__: commonPaths.globalPath,
         __SHARED__: commonPaths.sharedPath,
@@ -63,7 +63,7 @@ module.exports = env => {
       new ESLintPlugin({
         extensions: ['js', 'jsx'],
         fix: true,
-        emitWarning: process.env.NODE_ENV !== 'production'
+        emitWarning: false
       })
     ]
   };

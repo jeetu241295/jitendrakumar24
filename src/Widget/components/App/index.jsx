@@ -1,23 +1,27 @@
 import React, { Suspense, lazy } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Rating from '__SHARED__/Rating';
 import Loading from '__SHARED__/Loading';
 import Navbar from '__SHARED__/Navbar';
 import Footer from '__SHARED__/Footer';
+import { useSelector } from 'react-redux';
 import MessageModal from './MessageModal';
+import { navs } from '../../constants';
+import {
+  toggleSuggestionDialog,
+  setRatingValue
+} from '../../personalWebsiteSlice';
 
 const HomePage = lazy(() => import('../HomePage'));
 const AboutPage = lazy(() => import('../AboutPage'));
 const ContactPage = lazy(() => import('../ContactPage'));
-const ProjectsPage = lazy(() => import('../ProjectsPage'));
+const ProjectsPage = lazy(() => import('../Projects'));
 const NoPage = lazy(() => import('./NoPage'));
 
-const styles = makeStyles(theme => ({
+const styles = {
   ratingWrap: {
-    backgroundColor: theme.colors.mainAction,
+    backgroundColor: 'colors.mainAction',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -27,34 +31,27 @@ const styles = makeStyles(theme => ({
   leaveRating: {
     marginLeft: '1rem'
   }
-}));
-const App = props => {
-  const {
-    navs,
-    toggleSuggestionDialog,
-    showRating,
-    // loader,
-    ratingValue,
-    setRatingValue
-  } = props;
-  const classes = styles();
+};
+const App = () => {
+  const ratingValue = useSelector(state => state.personalWebsite.ratingValue);
+  const showRating = useSelector(state => state.personalWebsite.showRating);
 
   return (
     <Router>
       <Suspense fallback={<Loading open />}>
         <Navbar navs={navs} />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/home" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/projects" component={ProjectsPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route component={NoPage} />
-        </Switch>
+        <Routes>
+          <Route path="/" exact Component={HomePage} />
+          <Route path="/home" Component={HomePage} />
+          <Route path="/about" Component={AboutPage} />
+          <Route path="/projects" Component={ProjectsPage} />
+          <Route path="/contact" Component={ContactPage} />
+          <Route path="*" Component={NoPage} />
+        </Routes>
         <Footer />
         {showRating && (
           <React.Fragment>
-            <Grid className={classes.ratingWrap}>
+            <Grid sx={styles.ratingWrap}>
               Please leave a rating
               <Rating
                 name="leave-rating"
@@ -67,23 +64,15 @@ const App = props => {
                 }}
               />
             </Grid>
-            <MessageModal {...props} />
+            <MessageModal />
           </React.Fragment>
         )}
       </Suspense>
-      {/* <Loading open={loader} /> */}
     </Router>
   );
 };
 
-App.propTypes = {
-  // loader: PropTypes.bool.isRequired,
-  navs: PropTypes.array.isRequired,
-  ratingValue: PropTypes.number.isRequired,
-  setRatingValue: PropTypes.func.isRequired,
-  showRating: PropTypes.bool.isRequired,
-  toggleSuggestionDialog: PropTypes.func.isRequired
-};
+App.propTypes = {};
 App.defaultProps = {};
 
 export default App;

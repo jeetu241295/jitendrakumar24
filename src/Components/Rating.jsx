@@ -1,22 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import classNames from 'classnames';
-import Rating from '@material-ui/lab/Rating';
+import Rating from '@mui/material/Rating';
 
-const styles = makeStyles(() => ({
+const styles = {
   rating: {
     margin: '0 1rem'
   }
-}));
+};
 
 const RatingJK = props => {
-  const { value, onChange, size, className, readOnly, name, ...others } = props;
-  const classes = styles();
+  const { value, onChange, size, sx, readOnly, name, ...others } = props;
+
   return (
     <Rating
       name={name}
-      className={classNames(classes.rating, className)}
+      sx={[styles.rating, ...(Array.isArray(sx) ? sx : [sx])]}
       value={value}
       onChange={onChange}
       size={size}
@@ -27,7 +25,11 @@ const RatingJK = props => {
 };
 
 RatingJK.propTypes = {
-  className: PropTypes.string,
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  ),
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
@@ -36,7 +38,7 @@ RatingJK.propTypes = {
 };
 
 RatingJK.defaultProps = {
-  className: null,
+  sx: {},
   size: 'small',
   readOnly: false,
   onChange: null

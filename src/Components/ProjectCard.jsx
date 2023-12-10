@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 import { GithubIcon } from '__ASSETS__/SVG';
 import Normal from './Fonts/Normal';
 import IconButton from './IconButton';
 
-const useStyles = makeStyles(theme => ({
+const styles = {
   card: {
     width: 300,
     margin: '0 2rem 7rem 2rem',
@@ -22,21 +21,19 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 0.2s ease-in-out',
     '&:hover': {
       transform: 'translateY(2rem) scale(1.05)',
-      boxShadow: `0 1.5rem 3rem ${theme.colors.black2}`
+      boxShadow: 3
     }
   },
+  icon: { color: 'common.black' },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
-    margin: '0 2rem',
-    cursor: 'pointer',
-    [theme.breakpoints.down('sm')]: {
-      margin: 0
-    }
+    margin: { xs: 0, sm: '0 2rem' },
+    cursor: 'pointer'
   },
   avatar: {
-    backgroundColor: theme.colors.primary,
-    color: theme.colors.black8
+    backgroundColor: 'colors.primary',
+    color: 'common.black'
   },
   cardActions: {
     display: 'flex',
@@ -44,28 +41,17 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     marginTop: 'auto'
   },
-  icon: {
-    width: 24,
-    height: 24,
-    fill: theme.colors.black,
-    margin: 0
-  },
   contentWrap: { padding: '8px 16px', height: 90 },
   content: {
     textAlign: 'justify'
   }
-}));
+};
 
 const ProjectCard = props => {
   const { project } = props;
-  const {
-    imgTitle,
-    imgPath,
-    projectDate,
-    projectDescription,
-    githubLink
-  } = project;
-  const classes = useStyles();
+  const { imgTitle, imgPath, projectDate, projectDescription, githubLink } =
+    project;
+
   const splitWords = imgTitle.split(' ');
   let avatarWord;
   if (splitWords.length === 1) {
@@ -78,10 +64,10 @@ const ProjectCard = props => {
   }
 
   return (
-    <Card className={classes.card} raised>
+    <Card sx={styles.card} raised>
       <CardHeader
         avatar={
-          <Avatar aria-label="project" className={classes.avatar}>
+          <Avatar aria-label="project" sx={styles.avatar}>
             {avatarWord}
           </Avatar>
         }
@@ -97,22 +83,21 @@ const ProjectCard = props => {
         }
       />
       <CardMedia
-        className={classes.media}
+        sx={styles.media}
         image={imgPath}
         title={imgTitle}
         onClick={() => window.open(imgPath)}
       />
-      <CardContent className={classes.contentWrap}>
-        <Normal className={classes.content}>{projectDescription}</Normal>
+      <CardContent sx={styles.contentWrap}>
+        <Normal sx={styles.content}>{projectDescription}</Normal>
       </CardContent>
-      <CardActions className={classes.cardActions} disableSpacing>
+      <CardActions sx={styles.cardActions} disableSpacing>
         <IconButton
+          sx={styles.icon}
           id="github-link"
-          onClick={() => {
-            window.open(githubLink, '_blank');
-          }}
+          onClick={() => window.open(githubLink, '_blank')}
         >
-          <GithubIcon className={classes.icon} />
+          <GithubIcon />
         </IconButton>
       </CardActions>
     </Card>

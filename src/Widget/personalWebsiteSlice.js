@@ -1,19 +1,36 @@
-/* eslint-disable no-console */
-import { reset } from 'redux-form';
-import { createAction } from '__GLOBAL__/redux';
+import { createSlice } from '@reduxjs/toolkit';
 import renderSnackbar from '__GLOBAL__/helpers';
 import axiosAPI from '__GLOBAL__/axios';
-import {
-  SUBMIT_LOADER,
-  SUGGESTION_DIALOG,
-  RATING,
-  RATING_VALUE
-} from '../_helpers/constants';
 
-export const toggleSuggestionDialog = createAction(SUGGESTION_DIALOG, 'value');
-export const toggleRating = createAction(RATING, 'value');
-export const setRatingValue = createAction(RATING_VALUE, 'value');
-export const submitLoader = createAction(SUBMIT_LOADER);
+const initialState = {
+  ratingValue: 0,
+  messageOpen: false,
+  showRating: true
+};
+
+export const personalWebsiteSlice = createSlice({
+  name: 'personalWebsite',
+  initialState,
+  reducers: {
+    toggleSuggestionDialog: (state, action) => {
+      state.messageOpen = action.value;
+    },
+    toggleRating: (state, action) => {
+      state.showRating = action.value;
+    },
+    setRatingValue: (state, action) => {
+      state.ratingValue = action.value;
+    }
+  }
+});
+
+// Action creators are generated for each case reducer function
+export const {
+  submitLoader,
+  toggleSuggestionDialog,
+  toggleRating,
+  setRatingValue
+} = personalWebsiteSlice.actions;
 
 export const sendMail = values => dispatch => {
   axiosAPI
@@ -22,7 +39,6 @@ export const sendMail = values => dispatch => {
     })
     .then(res => {
       dispatch(submitLoader());
-      dispatch(reset('contactForm'));
       renderSnackbar(res);
     })
     .catch(error => {
@@ -39,7 +55,7 @@ export const downloadCV = () => () => {
         const dataURI = `data:application/pdf;base64,${res.data.filedata}`;
         const link = document.createElement('a');
         document.body.appendChild(link);
-        if (navigator.appVersion.toString().includes('.NET')) {
+        if (navigator.userAgent.toString().includes('.NET')) {
           const binary = atob(res.data.filedata.replace(/\s/g, ''));
           const len = binary.length;
           const buffer = new ArrayBuffer(len);
@@ -83,3 +99,5 @@ export const submitMessage = (ratingValue, name, review) => dispatch => {
     })
     .catch(error => console.log(error));
 };
+
+export default personalWebsiteSlice.reducer;

@@ -1,28 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
+import Link from '@mui/material/Link';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
-const styles = makeStyles(theme => ({
+const styles = {
   link: {
     flexDirection: 'row',
     display: 'flex',
     alignItems: 'center',
     marginBottom: '1rem',
-    color: theme.colors.white,
+    color: 'common.white',
     '&:hover': {
       textDecoration: 'none'
     }
   }
-}));
+};
 
 const LinkJK = props => {
-  const { className, href, children, ...others } = props;
-  const classes = styles();
+  const { sx, href, children, ...others } = props;
+
   return (
     <Link
-      className={classNames(classes.link, className)}
+      sx={[styles.link, ...(Array.isArray(sx) ? sx : [sx])]}
       href={href}
       {...others}
     >
@@ -33,12 +31,16 @@ const LinkJK = props => {
 
 LinkJK.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  ),
   href: PropTypes.string.isRequired
 };
 
 LinkJK.defaultProps = {
-  className: ''
+  sx: {}
 };
 
 export default LinkJK;

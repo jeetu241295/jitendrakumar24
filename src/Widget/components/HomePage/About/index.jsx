@@ -1,56 +1,34 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
 import ProgressBar from '__SHARED__/ProgressBar';
 import Button from '__SHARED__/Button';
 import HandFont from '__SHARED__/Fonts/HandFont';
+import { skills, about } from '../../../constants';
+import { downloadCV } from '../../../personalWebsiteSlice';
 
-const styles = makeStyles(theme => ({
+const styles = {
   about: {
     display: 'flex',
-    padding: '7rem',
-    alignItems: 'flex-start',
-    [theme.breakpoints.down('md')]: {
-      padding: '3rem'
-    },
-    [theme.breakpoints.down('sm')]: {
-      padding: '1.5rem'
-    }
+    padding: { xs: '1.5rem', sm: '3rem', md: '7rem' },
+    alignItems: 'flex-start'
   },
   skills: {
-    padding: '2.5rem',
-    [theme.breakpoints.down('md')]: {
-      padding: '0.5rem'
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: '1rem'
-    }
+    padding: { xs: '0.5rem', md: '2.5rem' },
+    mb: { xs: '1rem', sm: 0 }
   },
   skillsTitle: {
     position: 'relative',
-    padding: '2.5rem',
-    [theme.breakpoints.down('md')]: {
-      padding: '0.5rem'
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginTop: '1rem',
-      marginBottom: '1rem'
-    }
+    padding: { xs: '0.5rem', md: '2.5rem' },
+    my: { xs: '1rem', sm: 0 }
   },
   aboutMe: {
     position: 'relative',
-    padding: '2.5rem',
+    padding: { xs: '0.5rem', md: '2.5rem' },
     alignSelf: 'center',
-    marginBottom: '2rem',
-    [theme.breakpoints.down('md')]: {
-      padding: '0.5rem'
-    },
-    [theme.breakpoints.down('xs')]: {
-      marginTop: '1rem',
-      marginBottom: '1rem'
-    }
+    marginBottom: { xs: '1rem', sm: '2rem' },
+    mt: { xs: '1rem', sm: 0 }
   },
   titleBorder: {
     position: 'absolute',
@@ -59,29 +37,26 @@ const styles = makeStyles(theme => ({
     padding: '2px',
     height: '2px',
     width: '3rem',
-    margin: '2rem',
-    backgroundColor: theme.colors.mainAction,
-    [theme.breakpoints.down('md')]: {
-      margin: 0
-    }
+    margin: { xs: 0, md: '2rem' },
+    backgroundColor: 'colors.mainAction'
   },
   title: {
     fontSize: '2rem',
     fontWeight: 500
   },
   hire: {
-    color: theme.colors.black,
+    color: 'common.black',
     borderRadius: '50px',
     padding: '0.5rem 2rem'
   },
   resume: {
-    color: theme.colors.white,
+    color: 'common.white',
     borderRadius: '50px',
-    backgroundColor: theme.colors.buttonColor,
+    backgroundColor: 'colors.buttonColor',
     marginLeft: '1rem',
     padding: '0.5rem 2rem',
     '&:hover': {
-      backgroundColor: theme.colors.buttonColor
+      backgroundColor: 'colors.buttonColor'
     }
   },
   buttons: {
@@ -89,73 +64,66 @@ const styles = makeStyles(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '1rem'
-    }
+    mt: { xs: '1rem', sm: 0 }
   },
   description: {
-    margin: '2rem 0',
+    margin: { xs: '1rem', sm: '2rem 0' },
     textAlign: 'justify',
-    [theme.breakpoints.down('sm')]: {
-      margin: '1rem',
-      lineHeight: '2.25rem'
-    }
+    lineHeight: { xs: '2.25rem', sm: 1 }
   },
   more: {
-    color: theme.colors.black,
+    color: 'common.black',
     borderRadius: '50px',
     padding: '0.5rem 2rem',
     marginLeft: '1rem',
-    [theme.breakpoints.between('xs', 'sm')]: {
-      marginTop: '.5rem'
-    }
+    mt: { xs: '.5rem', sm: 0 }
   }
-}));
+};
 
-const About = props => {
-  const { skills, about, history, downloadCV } = props;
-  const classes = styles();
+const About = () => {
+  const navigate = useNavigate();
+
   return (
-    <Grid container className={classes.about}>
-      <Grid className={classes.aboutMe} item xs={12}>
-        <Grid className={classes.titleBorder} />
-        <Typography className={classes.title} variant="h3" component="h3">
+    <Grid container sx={styles.about}>
+      <Grid sx={styles.aboutMe} item xs={12}>
+        <Grid sx={styles.titleBorder} />
+        <Typography sx={styles.title} variant="h3" component="h3">
           About Me
         </Typography>
         {about.map(item => (
-          <HandFont className={classes.description} key={item.id}>
+          <HandFont sx={styles.description} key={item.id}>
             &emsp; {item.content}
           </HandFont>
         ))}
-        <Grid className={classes.buttons}>
+        <Grid sx={styles.buttons}>
           <Button
-            className={classes.hire}
+            sx={styles.hire}
             color="secondary"
-            onClick={() => history.push('/contact')}
+            onClick={() => navigate('/contact')}
           >
             Hire Me
           </Button>
-          <Button className={classes.resume} onClick={downloadCV}>
+          <Button sx={styles.resume} onClick={downloadCV}>
             Download CV
           </Button>
           <Button
             color="primary"
-            className={classes.more}
+            sx={styles.more}
             onClick={() => {
-              history.push('/about');
+              navigate('/about');
             }}
           >
             More About Me
           </Button>
         </Grid>
       </Grid>
-      <Grid className={classes.skillsTitle} item sm={4} xs={12}>
-        <Grid className={classes.titleBorder} />
-        <Typography className={classes.title} variant="h3" component="h3">
+      <Grid sx={styles.skillsTitle} item sm={4} xs={12}>
+        <Grid sx={styles.titleBorder} />
+        <Typography sx={styles.title} variant="h3" component="h3">
           My Skills
         </Typography>
       </Grid>
-      <Grid className={classes.skills} item sm={8} xs={12}>
+      <Grid sx={styles.skills} item sm={8} xs={12}>
         {skills.map(skill => (
           <ProgressBar
             key={skill.title}
@@ -168,12 +136,7 @@ const About = props => {
   );
 };
 
-About.propTypes = {
-  downloadCV: PropTypes.func.isRequired,
-  skills: PropTypes.array.isRequired,
-  about: PropTypes.array.isRequired,
-  history: PropTypes.object.isRequired
-};
+About.propTypes = {};
 About.defaultProps = {};
 
 export default About;

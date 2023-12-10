@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const IntrestsIcon = props => {
-  const { className } = props;
-  const classes = styles(props);
+const Intrests = props => {
+  const { sx, ...rest } = props;
   return (
     <SvgIcon
       viewBox="0 0 384.000000 512.000000"
-      classes={{ root: classNames(classes.icon, className) }}
-      {...props}
+      sx={[styles.icon, ...(Array.isArray(sx) ? sx : [sx])]}
+      fontSize="small"
+      {...rest}
     >
       <g
         transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
@@ -32,7 +31,13 @@ const IntrestsIcon = props => {
   );
 };
 
-IntrestsIcon.propTypes = { className: PropTypes.string };
-IntrestsIcon.defaultProps = { className: null };
+Intrests.propTypes = {
+  sx: PropTypes.oneOfType(
+    PropTypes.func,
+    PropTypes.object,
+    PropTypes.arrayOf([PropTypes.object, PropTypes.func, PropTypes.bool])
+  )
+};
+Intrests.defaultProps = { sx: {} };
 
-export default IntrestsIcon;
+export default Intrests;
