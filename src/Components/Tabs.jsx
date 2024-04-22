@@ -95,7 +95,7 @@ const styles = {
   }
 };
 
-const FullWidthTabs = props => {
+function FullWidthTabs(props) {
   const [value, setValue] = useState(0);
   const [animation, setAnimation] = useState(true);
 
@@ -197,7 +197,7 @@ const FullWidthTabs = props => {
       </Grid>
     </Grid>
   );
-};
+}
 
 FullWidthTabs.propTypes = {
   tabs: PropTypes.array.isRequired,

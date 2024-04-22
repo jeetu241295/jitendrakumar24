@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const Instagram = props => {
+function Instagram(props) {
   const { sx, ...rest } = props;
   return (
     <SvgIcon
@@ -17,7 +17,7 @@ const Instagram = props => {
       <path d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z" />
     </SvgIcon>
   );
-};
+}
 
 Instagram.propTypes = {
   sx: PropTypes.oneOfType(

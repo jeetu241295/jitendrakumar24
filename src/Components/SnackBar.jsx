@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Snackbar, Alert } from '@mui/material';
 
-const SimpleSnackbar = props => {
+function SimpleSnackbar(props) {
   const [messageOpen, setOpen] = useState(false);
   const { apiResult, autoHideDuration, open } = props;
   let severity;
@@ -43,7 +43,7 @@ const SimpleSnackbar = props => {
       </Alert>
     </Snackbar>
   );
-};
+}
 
 SimpleSnackbar.propTypes = {
   autoHideDuration: PropTypes.number,

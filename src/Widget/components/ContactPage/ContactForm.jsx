@@ -33,7 +33,7 @@ const styles = {
   }
 };
 
-const ContactForm = () => {
+function ContactForm() {
   const methods = useForm({
     mode: 'onTouched',
     reValidateMode: 'onChange',
@@ -86,7 +86,7 @@ const ContactForm = () => {
       </Button>
     </Grid>
   );
-};
+}
 
 ContactForm.propTypes = {};
 

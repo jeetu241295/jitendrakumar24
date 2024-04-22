@@ -80,7 +80,7 @@ const styles = {
   }
 };
 
-const About = () => {
+function About() {
   const navigate = useNavigate();
 
   return (
@@ -134,7 +134,7 @@ const About = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 About.propTypes = {};
 About.defaultProps = {};

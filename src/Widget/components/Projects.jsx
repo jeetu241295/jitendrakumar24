@@ -20,7 +20,7 @@ const styles = {
   }
 };
 
-const Projects = () => {
+function Projects() {
   return (
     <Grid container sx={styles.about}>
       {projects.map(project => (
@@ -37,7 +37,7 @@ const Projects = () => {
       ))}
     </Grid>
   );
-};
+}
 
 Projects.propTypes = {};
 Projects.defaultProps = {};

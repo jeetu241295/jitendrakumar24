@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const Trip = props => {
+function Trip(props) {
   const { sx, ...rest } = props;
   return (
     <SvgIcon
@@ -22,7 +22,7 @@ const Trip = props => {
       </g>
     </SvgIcon>
   );
-};
+}
 
 Trip.propTypes = {
   sx: PropTypes.oneOfType(

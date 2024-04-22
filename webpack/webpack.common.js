@@ -1,10 +1,9 @@
 const webpack = require('webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const commonPaths = require('./paths');
 
-module.exports = env => {
+module.exports = () => {
   return {
     entry: commonPaths.entryPath,
     module: {
@@ -53,12 +52,6 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: commonPaths.templatePath,
         favicon: commonPaths.faviconPath
-      }),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env.NODE_ENV)
-      }),
-      new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'async'
       }),
       new ESLintPlugin({
         extensions: ['js', 'jsx'],

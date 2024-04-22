@@ -1,10 +1,10 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   plugins: ['react', 'prettier'],
   extends: [
     'airbnb',
     'plugin:prettier/recommended',
-    'prettier/react',
+    'prettier',
     'plugin:import/errors'
   ],
   globals: {

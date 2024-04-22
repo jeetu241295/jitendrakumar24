@@ -54,7 +54,7 @@ const styles = {
   }
 };
 
-const Home = () => {
+function Home() {
   return (
     <Grid container sx={styles.home}>
       <Grid sx={styles.helloWrap}>
@@ -74,7 +74,7 @@ const Home = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Home.propTypes = {};
 export default Home;

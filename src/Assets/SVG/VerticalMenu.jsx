@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgIcon from '@mui/material/SvgIcon';
 import styles from './styles.css';
 
-const VerticalMenu = props => {
+function VerticalMenu(props) {
   const { sx, ...rest } = props;
   return (
     <SvgIcon
@@ -23,7 +23,7 @@ const VerticalMenu = props => {
       </g>
     </SvgIcon>
   );
-};
+}
 
 VerticalMenu.propTypes = {
   sx: PropTypes.oneOfType(

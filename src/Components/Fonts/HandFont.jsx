@@ -11,7 +11,7 @@ const styles = {
   }
 };
 
-const HandFont = props => {
+function HandFont(props) {
   const { children, sx } = props;
 
   return (
@@ -19,7 +19,7 @@ const HandFont = props => {
       {children}
     </Grid>
   );
-};
+}
 
 HandFont.propTypes = {
   children: PropTypes.node.isRequired,

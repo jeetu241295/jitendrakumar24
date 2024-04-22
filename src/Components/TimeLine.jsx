@@ -36,7 +36,7 @@ const styles = {
   }
 };
 
-const TimeLineJK = props => {
+function TimeLineJK(props) {
   const { sx, position, data } = props;
 
   return (
@@ -71,7 +71,7 @@ const TimeLineJK = props => {
       })}
     </Timeline>
   );
-};
+}
 
 TimeLineJK.propTypes = {
   sx: PropTypes.oneOfType(

@@ -47,7 +47,7 @@ const styles = {
   }
 };
 
-const ProjectCard = props => {
+function ProjectCard(props) {
   const { project } = props;
   const { imgTitle, imgPath, projectDate, projectDescription, githubLink } =
     project;
@@ -102,7 +102,7 @@ const ProjectCard = props => {
       </CardActions>
     </Card>
   );
-};
+}
 
 ProjectCard.propTypes = {
   project: PropTypes.object.isRequired

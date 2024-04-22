@@ -32,7 +32,7 @@ const styles = {
     marginLeft: '1rem'
   }
 };
-const App = () => {
+function App() {
   const ratingValue = useSelector(state => state.personalWebsite.ratingValue);
   const showRating = useSelector(state => state.personalWebsite.showRating);
 
@@ -70,7 +70,7 @@ const App = () => {
       </Suspense>
     </Router>
   );
-};
+}
 
 App.propTypes = {};
 App.defaultProps = {};

@@ -47,7 +47,7 @@ const styles = {
   }
 };
 
-const Contact = () => {
+function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -125,7 +125,7 @@ const Contact = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Contact.propTypes = {};
 export default Contact;

@@ -31,7 +31,7 @@ const styles = {
   }
 };
 
-const ProgressBar = props => {
+function ProgressBar(props) {
   const { value, heading } = props;
 
   return (
@@ -53,7 +53,7 @@ const ProgressBar = props => {
       </Grid>
     </Grid>
   );
-};
+}
 
 ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,

@@ -16,7 +16,7 @@ const styles = {
   }
 };
 
-const SpeedDialJK = props => {
+function SpeedDialJK(props) {
   const { hidden, sx, actions, icon, active, onOpen } = props;
 
   const [open, setOpen] = React.useState(false);
@@ -62,7 +62,7 @@ const SpeedDialJK = props => {
       </SpeedDial>
     </Grid>
   );
-};
+}
 
 SpeedDialJK.propTypes = {
   active: PropTypes.number.isRequired,

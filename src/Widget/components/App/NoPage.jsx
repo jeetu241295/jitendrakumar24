@@ -33,7 +33,7 @@ const styles = {
   }
 };
 
-const NoPage = () => {
+function NoPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -55,7 +55,7 @@ const NoPage = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 NoPage.propTypes = {};
 NoPage.defaultProps = {};

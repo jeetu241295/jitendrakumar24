@@ -120,7 +120,7 @@ const styles = {
   }
 };
 
-const Gallery = () => {
+function Gallery() {
   return (
     <Grid container sx={styles.gallery}>
       <Grid>
@@ -144,7 +144,7 @@ const Gallery = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Gallery.propTypes = {};
 Gallery.defaultProps = {};

@@ -76,7 +76,7 @@ const icons = [
   }
 ];
 
-const Footer = () => {
+function Footer() {
   return (
     <Grid container sx={styles.footer} textAlign="center">
       {icons.map(item => (
@@ -100,7 +100,7 @@ const Footer = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Footer.propTypes = {};
 export default Footer;

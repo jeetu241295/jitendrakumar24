@@ -20,7 +20,7 @@ const styles = {
   }
 };
 
-const AboutPage = () => {
+function AboutPage() {
   const theme = useTheme();
   const isBelowMD = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -60,7 +60,7 @@ const AboutPage = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 AboutPage.propTypes = {};
 AboutPage.defaultProps = {};

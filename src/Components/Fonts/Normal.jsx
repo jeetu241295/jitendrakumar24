@@ -10,7 +10,7 @@ const styles = {
   }
 };
 
-const Normal = props => {
+function Normal(props) {
   const { children, sx } = props;
 
   return (
@@ -18,7 +18,7 @@ const Normal = props => {
       {children}
     </Grid>
   );
-};
+}
 
 Normal.propTypes = {
   children: PropTypes.node.isRequired,

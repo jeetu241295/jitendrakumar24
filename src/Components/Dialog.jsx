@@ -33,7 +33,7 @@ const styles = {
   }
 };
 
-const DialogTitleCustom = props => {
+function DialogTitleCustom(props) {
   const { children, onClose, closeButton } = props;
   return (
     <DialogTitle disableTypography sx={styles.root}>
@@ -47,9 +47,9 @@ const DialogTitleCustom = props => {
       )}
     </DialogTitle>
   );
-};
+}
 
-const DialogJK = props => {
+function DialogJK(props) {
   const [stateOpen, setStateOpen] = useState(false);
 
   const handleClose = () => {
@@ -90,7 +90,7 @@ const DialogJK = props => {
       <DialogActions>{buttons && buttons.map(item => item)}</DialogActions>
     </Dialog>
   );
-};
+}
 
 DialogJK.propTypes = {
   fullScreen: PropTypes.bool,

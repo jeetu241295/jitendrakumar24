@@ -22,7 +22,7 @@ const styles = {
   }
 };
 
-const MessageModal = () => {
+function MessageModal() {
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
 
@@ -100,7 +100,7 @@ const MessageModal = () => {
       </Grid>
     </Dialog>
   );
-};
+}
 
 MessageModal.propTypes = {};
 MessageModal.defaultProp = {};

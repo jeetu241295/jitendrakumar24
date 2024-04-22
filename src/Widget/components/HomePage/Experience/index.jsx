@@ -16,7 +16,7 @@ const styles = {
   }
 };
 
-const Experience = () => {
+function Experience() {
   return (
     <Grid container sx={styles.experienceWrap}>
       <Grid item md={6} xs={12}>
@@ -29,7 +29,7 @@ const Experience = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Experience.propTypes = {};
 

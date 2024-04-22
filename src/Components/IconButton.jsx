@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@mui/material/IconButton';
 
-const IconButtonJK = props => {
+function IconButtonJK(props) {
   const { children, onClick, id, sx, ...others } = props;
   return (
     <IconButton
@@ -17,7 +17,7 @@ const IconButtonJK = props => {
       {children}
     </IconButton>
   );
-};
+}
 
 IconButtonJK.propTypes = {
   sx: PropTypes.oneOfType(

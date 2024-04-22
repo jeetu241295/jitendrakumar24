@@ -52,7 +52,7 @@ const styles = {
   }
 };
 
-const Intrests = () => {
+function Intrests() {
   return (
     <Grid container spacing={5}>
       {intrests.map(item => (
@@ -66,7 +66,7 @@ const Intrests = () => {
       ))}
     </Grid>
   );
-};
+}
 
 Intrests.propTypes = {};
 

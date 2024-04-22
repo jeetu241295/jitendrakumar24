@@ -8,7 +8,7 @@ const styles = {
   }
 };
 
-const RatingJK = props => {
+function RatingJK(props) {
   const { value, onChange, size, sx, readOnly, name, ...others } = props;
 
   return (
@@ -22,7 +22,7 @@ const RatingJK = props => {
       {...others}
     />
   );
-};
+}
 
 RatingJK.propTypes = {
   sx: PropTypes.oneOfType(

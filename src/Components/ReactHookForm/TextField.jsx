@@ -29,7 +29,7 @@ const styles = {
   }
 };
 
-const TextField = props => {
+function TextField(props) {
   const { required, name, label, rules, fullWidth, sx, helperText, ...rest } =
     props;
 
@@ -66,7 +66,7 @@ const TextField = props => {
       }}
     />
   );
-};
+}
 
 TextField.propTypes = {
   required: PropTypes.bool,

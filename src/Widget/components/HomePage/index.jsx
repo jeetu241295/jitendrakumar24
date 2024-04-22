@@ -6,7 +6,7 @@ import Gallery from './Gallery';
 import Experience from './Experience';
 import Motto from './Motto';
 
-const App = () => {
+function App() {
   return (
     <Grid container>
       <Home />
@@ -16,7 +16,7 @@ const App = () => {
       <Gallery />
     </Grid>
   );
-};
+}
 
 App.propTypes = {};
 App.defaultProps = {};

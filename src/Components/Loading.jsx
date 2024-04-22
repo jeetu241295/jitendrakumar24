@@ -8,7 +8,7 @@ const styles = {
   }
 };
 
-const Loading = props => {
+function Loading(props) {
   const { open } = props;
 
   return (
@@ -16,7 +16,7 @@ const Loading = props => {
       <CircularProgress />
     </Backdrop>
   );
-};
+}
 
 Loading.propTypes = {
   open: PropTypes.bool.isRequired

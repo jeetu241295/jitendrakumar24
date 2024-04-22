@@ -40,7 +40,7 @@ const styles = {
   }
 };
 
-const Button24 = props => {
+function Button24(props) {
   const { children, onClick, icon, sx, color, variant, ...other } = props;
   return (
     <Button
@@ -58,7 +58,7 @@ const Button24 = props => {
       {children}
     </Button>
   );
-};
+}
 
 Button24.propTypes = {
   color: PropTypes.string,

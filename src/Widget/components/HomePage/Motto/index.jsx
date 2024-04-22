@@ -27,7 +27,7 @@ const styles = {
   }
 };
 
-const Motto = () => {
+function Motto() {
   return (
     <Grid container sx={styles.mottoWrap}>
       <Typography sx={styles.motto} variant="h1" component="h1">
@@ -35,7 +35,7 @@ const Motto = () => {
       </Typography>
     </Grid>
   );
-};
+}
 
 Motto.propTypes = {};
 Motto.defaultProps = {};

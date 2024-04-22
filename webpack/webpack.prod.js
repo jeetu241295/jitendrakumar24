@@ -1,8 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const commonPaths = require('./paths');
 
 module.exports = {
@@ -11,7 +9,8 @@ module.exports = {
     filename: `${commonPaths.jsFolder}/[name].[contenthash].js`,
     path: commonPaths.outputPath,
     chunkFilename: `${commonPaths.jsFolder}/[name].[chunkhash].js`,
-    publicPath: '/'
+    publicPath: '/',
+    clean: true
   },
   optimization: {
     minimizer: [
@@ -20,7 +19,7 @@ module.exports = {
         // Default number of concurrent runs: os.cpus().length - 1
         parallel: true
       }),
-      new OptimizeCSSAssetsPlugin()
+      new CssMinimizerPlugin()
     ],
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
@@ -69,7 +68,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `${commonPaths.cssFolder}/[name].css`,
       chunkFilename: `${commonPaths.cssFolder}/[name].css`

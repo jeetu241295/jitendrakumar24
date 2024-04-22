@@ -13,7 +13,7 @@ const styles = {
   }
 };
 
-const Personal = props => {
+function Personal(props) {
   const { isBelowMD } = props;
 
   const tabs = [
@@ -53,7 +53,7 @@ const Personal = props => {
       </Grid>
     </Grid>
   );
-};
+}
 
 Personal.propTypes = {
   isBelowMD: PropTypes.bool.isRequired
